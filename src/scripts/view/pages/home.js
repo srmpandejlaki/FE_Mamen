@@ -20,6 +20,7 @@ const Home = {
         </picture>
         <hero-section></hero-section>
       </section>
+      <section id="explore"></section>
     `;
   },
 
