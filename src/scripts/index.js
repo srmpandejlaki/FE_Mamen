@@ -5,6 +5,7 @@ import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
 import './utility/navbar-tambahan';
+import './utility/blur-header';
 
 import App from './view/app';
 import swRegister from './utility/sw-register';
