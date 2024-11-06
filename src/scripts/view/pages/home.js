@@ -1,3 +1,5 @@
+import MamenDbSource from '../../datas/mamen-api';
+
 const Home = {
   async render() {
     return `
@@ -25,12 +27,25 @@ const Home = {
   },
 
   async afterRender() {
-    // const cat = document.querySelector('#cat');
-    // const explore = document.querySelector('#explore');
+    const cat = document.querySelector('#cat');
+    const explore = document.querySelector('#explore');
 
-    // cat.addEventListener('click', () => {
-    //   explore.scrollIntoView({ behavior: 'smooth' });
-    // });
+    cat.addEventListener('click', () => {
+      explore.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const ambilDataUmkm = async () => {
+      const dataUmkm = await MamenDbSource.listUmkm();
+      console.log(dataUmkm);
+    };
+
+    const ambilDetailUmkm = async (id) => {
+      const dataUmkm = await MamenDbSource.getDetailUmkm(id);
+      console.log(dataUmkm);
+    };
+
+    await ambilDataUmkm();
+    ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
   },
 };
 

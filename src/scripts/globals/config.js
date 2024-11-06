@@ -1,10 +1,7 @@
 const CONFIG = {
   KEY: process.env.API_KEY_MAMEN,
-  // BASE_URL: 'https://restaurant-api.dicoding.dev',
+  BASE_URL: 'http://16.78.67.108:9900',
   DEFAULT_LANGUAGE: 'en-us',
-  DATABASE_NAME: 'mamen-database',
-  DATABASE_VERSION: 1,
-  OBJECT_STORE_NAME: 'restos',
 };
 
 export default CONFIG;
