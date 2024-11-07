@@ -1,7 +1,7 @@
-import UmkmsDbSource from '../../api/umkms-api';
-import ProductsDbSource from '../../api/products-api';
-import ReviewsDbSource from '../../api/reviews-api';
-import CategoriesDbSource from '../../api/categories-api';
+// import UmkmsDbSource from '../../api/umkms-api';
+// import ProductsDbSource from '../../api/products-api';
+// import ReviewsDbSource from '../../api/reviews-api';
+// import CategoriesDbSource from '../../api/categories-api';
 
 const Home = {
   async render() {
@@ -37,36 +37,36 @@ const Home = {
       explore.scrollIntoView({ behavior: 'smooth' });
     });
 
-    const ambilDataUmkm = async () => {
-      const dataUmkm = await UmkmsDbSource.getUmkms();
-      console.log(dataUmkm);
-    };
+    // const ambilDataUmkm = async () => {
+    //   const dataUmkm = await UmkmsDbSource.getUmkms();
+    //   console.log(dataUmkm);
+    // };
 
-    const ambilDetailUmkm = async (id) => {
-      const dataUmkm = await UmkmsDbSource.getUmkmById(id);
-      console.log(dataUmkm);
-    };
+    // const ambilDetailUmkm = async (id) => {
+    //   const dataUmkm = await UmkmsDbSource.getUmkmById(id);
+    //   console.log(dataUmkm);
+    // };
 
-    const ambilDataProduk = async () => {
-      const dataProduk = await ProductsDbSource.getProductsByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-      console.log(dataProduk);
-    };
+    // const ambilDataProduk = async () => {
+    //   const dataProduk = await ProductsDbSource.getProducts();
+    //   console.log(dataProduk);
+    // };
 
-    const ambilDataReview = async () => {
-      const dataReview = await ReviewsDbSource.getReviewsByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-      console.log(dataReview);
-    };
+    // const ambilDataReview = async () => {
+    //   const dataReview = await ReviewsDbSource.getReviews();
+    //   console.log(dataReview);
+    // };
 
-    const ambilDataKategori = async () => {
-      const dataKategori = await CategoriesDbSource.getCategoriesByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-      console.log(dataKategori);
-    };
+    // const ambilDataKategori = async () => {
+    //   const dataKategori = await CategoriesDbSource.getCategories();
+    //   console.log(dataKategori);
+    // };
 
-    await ambilDataUmkm();
-    await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-    await ambilDataProduk();
-    await ambilDataReview();
-    await ambilDataKategori();
+    // await ambilDataUmkm();
+    // await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+    // await ambilDataProduk();
+    // await ambilDataReview();
+    // await ambilDataKategori();
   },
 };
 
