@@ -1,4 +1,7 @@
-import MamenDbSource from '../../api/umkms-api';
+import UmkmsDbSource from '../../api/umkms-api';
+import ProductsDbSource from '../../api/products-api';
+import ReviewsDbSource from '../../api/reviews-api';
+import CategoriesDbSource from '../../api/categories-api';
 
 const Home = {
   async render() {
@@ -35,17 +38,35 @@ const Home = {
     });
 
     const ambilDataUmkm = async () => {
-      const dataUmkm = await MamenDbSource.listUmkm();
+      const dataUmkm = await UmkmsDbSource.getUmkms();
       console.log(dataUmkm);
     };
 
     const ambilDetailUmkm = async (id) => {
-      const dataUmkm = await MamenDbSource.getDetailUmkm(id);
+      const dataUmkm = await UmkmsDbSource.getUmkmById(id);
       console.log(dataUmkm);
     };
 
+    const ambilDataProduk = async () => {
+      const dataProduk = await ProductsDbSource.getProductsByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+      console.log(dataProduk);
+    };
+
+    const ambilDataReview = async () => {
+      const dataReview = await ReviewsDbSource.getReviewsByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+      console.log(dataReview);
+    };
+
+    const ambilDataKategori = async () => {
+      const dataKategori = await CategoriesDbSource.getCategoriesByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+      console.log(dataKategori);
+    };
+
     await ambilDataUmkm();
-    ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+    await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+    await ambilDataProduk();
+    await ambilDataReview();
+    await ambilDataKategori();
   },
 };
 
