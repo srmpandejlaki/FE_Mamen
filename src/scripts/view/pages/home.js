@@ -1,4 +1,4 @@
-import MamenDbSource from '../../datas/mamen-api';
+import MamenDbSource from '../../api/umkms-api';
 
 const Home = {
   async render() {

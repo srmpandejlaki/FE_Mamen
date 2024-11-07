@@ -1,4 +1,4 @@
-const Favorite = {
+const Login = {
   async render() {
     return `
       <section></section>
@@ -6,8 +6,8 @@ const Favorite = {
   },
 
   async afterRender() {
-    
+    console.log('ini halaman login');
   },
 };
 
-export default Favorite;
+export default Login;
