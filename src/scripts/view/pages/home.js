@@ -1,3 +1,8 @@
+import UmkmsDbSource from '../../api/umkms-api';
+import ProductsDbSource from '../../api/products-api';
+import ReviewsDbSource from '../../api/reviews-api';
+import CategoriesDbSource from '../../api/categories-api';
+
 const Home = {
   async render() {
     return `
@@ -25,12 +30,43 @@ const Home = {
   },
 
   async afterRender() {
-    // const cat = document.querySelector('#cat');
-    // const explore = document.querySelector('#explore');
+    const cat = document.querySelector('#cat');
+    const explore = document.querySelector('#explore');
 
-    // cat.addEventListener('click', () => {
-    //   explore.scrollIntoView({ behavior: 'smooth' });
-    // });
+    cat.addEventListener('click', () => {
+      explore.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    const ambilDataUmkm = async () => {
+      const dataUmkm = await UmkmsDbSource.getUmkms();
+      console.log(dataUmkm);
+    };
+
+    const ambilDetailUmkm = async (id) => {
+      const dataUmkm = await UmkmsDbSource.getUmkmById(id);
+      console.log(dataUmkm);
+    };
+
+    const ambilDataProduk = async () => {
+      const dataProduk = await ProductsDbSource.getProductsByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+      console.log(dataProduk);
+    };
+
+    const ambilDataReview = async () => {
+      const dataReview = await ReviewsDbSource.getReviewsByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+      console.log(dataReview);
+    };
+
+    const ambilDataKategori = async () => {
+      const dataKategori = await CategoriesDbSource.getCategoriesByUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+      console.log(dataKategori);
+    };
+
+    await ambilDataUmkm();
+    await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+    await ambilDataProduk();
+    await ambilDataReview();
+    await ambilDataKategori();
   },
 };
 
