@@ -35,6 +35,16 @@ class HeaderBar extends HTMLElement {
                 <figcaption>Isshoo</figcaption>
               </a>
             </div>
+            <div class="user-account">
+              <a href="#/login">
+                <figcaption>Login</figcaption>
+              </a>
+            </div>
+            <div class="user-account">
+              <a href="">
+                <figcaption>Sign UP</figcaption>
+              </a>
+            </div>
             <!-- toggle button -->
             <button class="nav-toggle" id="nav-toggle">
               <i>&#9776;</i>
