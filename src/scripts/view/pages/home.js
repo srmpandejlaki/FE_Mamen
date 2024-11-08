@@ -1,7 +1,7 @@
-// import UmkmsDbSource from '../../api/umkms-api';
-// import ProductsDbSource from '../../api/products-api';
-// import ReviewsDbSource from '../../api/reviews-api';
-// import CategoriesDbSource from '../../api/categories-api';
+import UmkmsDbSource from '../../api/umkms-api';
+import ProductsDbSource from '../../api/products-api';
+import ReviewsDbSource from '../../api/reviews-api';
+import CategoriesDbSource from '../../api/categories-api';
 
 const Home = {
   async render() {
@@ -30,6 +30,11 @@ const Home = {
   },
 
   async afterRender() {
+    const header = document.querySelector('header');
+    const footer = document.querySelector('footer');
+
+    header.style.display = 'block';
+    footer.style.display = 'flex';
     const cat = document.querySelector('#cat');
     const explore = document.querySelector('#explore');
 
@@ -37,36 +42,36 @@ const Home = {
       explore.scrollIntoView({ behavior: 'smooth' });
     });
 
-    // const ambilDataUmkm = async () => {
-    //   const dataUmkm = await UmkmsDbSource.getUmkms();
-    //   console.log(dataUmkm);
-    // };
+    const ambilDataUmkm = async () => {
+      const dataUmkm = await UmkmsDbSource.getUmkms();
+      console.log(dataUmkm);
+    };
 
-    // const ambilDetailUmkm = async (id) => {
-    //   const dataUmkm = await UmkmsDbSource.getUmkmById(id);
-    //   console.log(dataUmkm);
-    // };
+    const ambilDetailUmkm = async (id) => {
+      const dataUmkm = await UmkmsDbSource.getUmkmById(id);
+      console.log(dataUmkm);
+    };
 
-    // const ambilDataProduk = async () => {
-    //   const dataProduk = await ProductsDbSource.getProducts();
-    //   console.log(dataProduk);
-    // };
+    const ambilDataProduk = async () => {
+      const dataProduk = await ProductsDbSource.getProducts();
+      console.log(dataProduk);
+    };
 
-    // const ambilDataReview = async () => {
-    //   const dataReview = await ReviewsDbSource.getReviews();
-    //   console.log(dataReview);
-    // };
+    const ambilDataReview = async () => {
+      const dataReview = await ReviewsDbSource.getReviews();
+      console.log(dataReview);
+    };
 
-    // const ambilDataKategori = async () => {
-    //   const dataKategori = await CategoriesDbSource.getCategories();
-    //   console.log(dataKategori);
-    // };
+    const ambilDataKategori = async () => {
+      const dataKategori = await CategoriesDbSource.getCategories();
+      console.log(dataKategori);
+    };
 
-    // await ambilDataUmkm();
-    // await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-    // await ambilDataProduk();
-    // await ambilDataReview();
-    // await ambilDataKategori();
+    await ambilDataUmkm();
+    await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
+    await ambilDataProduk();
+    await ambilDataReview();
+    await ambilDataKategori();
   },
 };
 
