@@ -2,6 +2,7 @@ import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import CategoriesDbSource from '../../api/categories-api';
+import { createUmkmItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -25,27 +26,45 @@ const Home = {
         </picture>
         <hero-section></hero-section>
       </section>
-      <section id="explore"></section>
+      <section id="explore">
+        <div class="explore-con">
+          <div id="umkm-list"></div>
+        </div>
+      </section>
     `;
   },
 
   async afterRender() {
+    // HEADER & FOOTER VISIBILITY
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
 
     header.style.display = 'block';
     footer.style.display = 'flex';
+    // --------------------------------------------
+
+    // CLICK EVENTS
     const cat = document.querySelector('#cat');
     const explore = document.querySelector('#explore');
 
     cat.addEventListener('click', () => {
       explore.scrollIntoView({ behavior: 'smooth' });
     });
+    // --------------------------------------------
 
-    const ambilDataUmkm = async () => {
-      const dataUmkm = await UmkmsDbSource.getUmkms();
-      console.log(dataUmkm);
-    };
+    // RENDER UMKM
+    const umkmContainer = document.querySelector('#umkm-list');
+    umkmContainer.innerHTML = '';
+    const umkms = await UmkmsDbSource.getUmkms();
+
+    umkms.forEach((umkm) => {
+      umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
+    });
+
+    if (umkmContainer.innerHTML === '') {
+      umkmContainer.innerHTML = 'Tidak ada umkm untuk ditampilkan.';
+    }
+    // --------------------------------------------
 
     const ambilDetailUmkm = async (id) => {
       const dataUmkm = await UmkmsDbSource.getUmkmById(id);
@@ -67,7 +86,6 @@ const Home = {
       console.log(dataKategori);
     };
 
-    await ambilDataUmkm();
     await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
     await ambilDataProduk();
     await ambilDataReview();

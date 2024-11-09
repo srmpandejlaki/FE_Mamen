@@ -1,14 +1,36 @@
-const createLikeRestoButtonTemplate = () => `
-  <button aria-label="like this resto" id="likeButton" class="like">
-    <i>&#10133;</i> <span>Add to Favorite</span>
-  </button>
+// import CONFIG from '../../globals/config';
+
+const createUmkmItemTemplate = (umkm) => `
+            <article class="umkm-card">
+              <div class="umkm-img">
+                <img class="lazyload" data-src="${umkm.cover_url}" alt="${umkm.name}" />
+              </div>
+
+              <div class="umkm-info">
+                <span>${umkm.subdistrict}</span>
+                <h3><a href="/#/umkms/${umkm.id}">${umkm.name}</a></h3>
+                <p>
+                ${umkm.description}
+                </p>
+                <p>
+                ${umkm.address}
+                </p>
+              </div>
+              <div class="umkm-rate">
+                <i>&#9734;</i>
+                <p>${umkm.rating}</p>
+              </div>
+            </article>
 `;
-const createUnlikeRestoButtonTemplate = () => `
-  <button aria-label="unlike this resto" id="likedButton" class="like">
-    <i>&#10004;</i> <span>Favorited</span>
-  </button>
+const createProductItemTemplate = () => `
+  
+`;
+
+const createReviewItemTemplate = () => `
+  
 `;
 export {
-  createLikeRestoButtonTemplate,
-  createUnlikeRestoButtonTemplate,
+  createUmkmItemTemplate,
+  createProductItemTemplate,
+  createReviewItemTemplate,
 };
