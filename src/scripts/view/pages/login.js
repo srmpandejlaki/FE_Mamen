@@ -1,3 +1,6 @@
+import AuthDbSource from '../../api/auth-api';
+import UsersDbSource from '../../api/users-api';
+
 const Login = {
   async render() {
     return `
@@ -21,7 +24,7 @@ const Login = {
                 <h2>Login</h2>
                 <div>
                   <label for="email">Email</label>
-                  <input type="email" id="email" name="email" required>
+                  <input type="text" id="email" name="email" required>
                 </div>
                 <div>
                 <label for="password">Password</label>
@@ -37,7 +40,7 @@ const Login = {
                 <h2>Daftar</h2>
                 <div>
                   <label for="reg-email">Email</label>
-                  <input type="email" id="reg-email" name="email" required>
+                  <input type="text" id="reg-email" name="email" required>
                 </div>
                 <div>
                   <label for="reg-password">Password</label>
@@ -82,6 +85,41 @@ const Login = {
 
     document.getElementById('loginBtn').addEventListener('click', showLogin);
     document.getElementById('registerBtn').addEventListener('click', showRegister);
+    // --------------------------------------------
+
+    // login form
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+
+      const auth = { username, password };
+
+      try {
+        const response = await AuthDbSource.postAuth(auth);
+        window.localStorage.setItem('accessToken', response.accessToken);
+        window.location.href = '/';
+      } catch (error) {
+        console.error(error);
+      }
+    });
+
+    // register form
+    document.getElementById('registerForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const username = document.getElementById('reg-email').value;
+      const password = document.getElementById('reg-password').value;
+      const fullname = document.getElementById('fullname').value;
+
+      const user = { username, password, fullname };
+
+      try {
+        await UsersDbSource.postUser(user);
+        showLogin();
+      } catch (error) {
+        console.error(error);
+      }
+    });
   },
 };
 

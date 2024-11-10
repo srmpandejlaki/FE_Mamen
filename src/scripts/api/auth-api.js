@@ -28,7 +28,6 @@ class AuthDbSource {
         title: 'Oops...',
         text: 'Gagal melakukan otentikasi!',
       });
-      return console.log('Gagal melakukan otentikasi!');
     }
   }
 
@@ -56,7 +55,6 @@ class AuthDbSource {
         title: 'Oops...',
         text: 'Gagal memperbarui otentikasi!',
       });
-      return console.log('Gagal memperbarui otentikasi!');
     }
   }
 
@@ -74,6 +72,10 @@ class AuthDbSource {
       };
       const response = await fetch(AUTHENTICATIONS.BASE, options);
       const responseJson = await response.json();
+
+      localStorage.removeItem('refreshToken');
+      localStorage.removeItem('accessToken');
+
       return responseJson;
     } catch {
       Swal.fire({
@@ -81,7 +83,6 @@ class AuthDbSource {
         title: 'Oops...',
         text: 'Gagal menghapus otentikasi!',
       });
-      return console.log('Gagal menghapus otentikasi!');
     }
   }
 }

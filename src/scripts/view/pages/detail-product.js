@@ -14,7 +14,6 @@ const DetailProduct = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    console.log(url.id);
     const productDetails = await ProductsDbSource.getProductById(url.id);
     console.log(productDetails);
   },

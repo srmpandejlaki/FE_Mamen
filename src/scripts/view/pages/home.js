@@ -1,8 +1,8 @@
+import { jwtDecode } from 'jwt-decode';
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import CategoriesDbSource from '../../api/categories-api';
-import { createUmkmItemTemplate } from '../templates/template-creator';
+import { createUmkmItemTemplate, createProductItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -30,11 +30,17 @@ const Home = {
         <div class="explore-con">
           <div id="umkm-list"></div>
         </div>
+        <div class="explore-con">
+          <div id="product-list"></div>
+        </div>
       </section>
     `;
   },
 
   async afterRender() {
+    const accessToken = localStorage.getItem('accessToken');
+    const decodedToken = jwtDecode(accessToken);
+    console.log(decodedToken);
     // HEADER & FOOTER VISIBILITY
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -66,30 +72,26 @@ const Home = {
     }
     // --------------------------------------------
 
-    const ambilDetailUmkm = async (id) => {
-      const dataUmkm = await UmkmsDbSource.getUmkmById(id);
-      console.log(dataUmkm);
-    };
+    // RENDER PRODUCTS
+    const productContainer = document.querySelector('#product-list');
+    productContainer.innerHTML = '';
+    const products = await ProductsDbSource.getProducts();
 
-    const ambilDataProduk = async () => {
-      const dataProduk = await ProductsDbSource.getProducts();
-      console.log(dataProduk);
-    };
+    products.forEach((product) => {
+      productContainer.innerHTML += createProductItemTemplate(product);
+    });
+
+    if (productContainer.innerHTML === '') {
+      productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
+    }
+    // --------------------------------------------
 
     const ambilDataReview = async () => {
       const dataReview = await ReviewsDbSource.getReviews();
       console.log(dataReview);
     };
 
-    const ambilDataKategori = async () => {
-      const dataKategori = await CategoriesDbSource.getCategories();
-      console.log(dataKategori);
-    };
-
-    await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-    await ambilDataProduk();
     await ambilDataReview();
-    await ambilDataKategori();
   },
 };
 

@@ -17,6 +17,7 @@ const UMKMS = {
   BASE: `${CONFIG.BASE_URL}/umkms`,
   DETAIL: (id) => `${CONFIG.BASE_URL}/umkms/${id}`,
   COVERS: (umkmId) => `${CONFIG.BASE_URL}/umkms/${umkmId}/covers`,
+  USER_BASE: `${CONFIG.BASE_URL}/profile`,
 };
 
 const CATEGORIES = {

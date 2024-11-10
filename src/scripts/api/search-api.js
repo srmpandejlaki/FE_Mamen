@@ -7,7 +7,7 @@ class SearchDbSource {
       const responseJson = await response.json();
       return responseJson.data;
     } catch (error) {
-      return console.log('Tidak ada hasil!');
+      return []; // Return an empty array if there's an error
     }
   }
 }

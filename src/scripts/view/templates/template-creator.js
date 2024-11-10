@@ -22,8 +22,23 @@ const createUmkmItemTemplate = (umkm) => `
               </div>
             </article>
 `;
-const createProductItemTemplate = () => `
-  
+const createProductItemTemplate = (product) => `
+            <article class="umkm-card">
+              <div class="umkm-img">
+                <img class="lazyload" data-src="${product.cover_url}" alt="${product.name}" />
+              </div>
+
+              <div class="umkm-info">
+                <span>Rp. ${product.price}</span>
+                <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
+                <p>
+                ${product.description}
+                </p>
+                <p>
+                ${product.product_type}
+                </p>
+              </div>
+            </article>
 `;
 
 const createReviewItemTemplate = () => `

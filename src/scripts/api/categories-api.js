@@ -20,8 +20,7 @@ class CategoriesDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil menambahkan kategori!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson.data;
@@ -31,7 +30,6 @@ class CategoriesDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan kategori!',
       });
-      return console.log('Gagal menambahkan kategori!');
     }
   }
 
@@ -46,7 +44,6 @@ class CategoriesDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan kategori!',
       });
-      return console.log('Gagal mendapatkan kategori!');
     }
   }
 
@@ -61,7 +58,6 @@ class CategoriesDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan kategori!',
       });
-      return console.log('Gagal mendapatkan kategori!');
     }
   }
 
@@ -76,7 +72,6 @@ class CategoriesDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan kategori!',
       });
-      return console.log('Gagal mendapatkan kategori!');
     }
   }
 
@@ -98,7 +93,6 @@ class CategoriesDbSource {
         title: 'Oops...',
         text: 'Gagal menghapus kategori!',
       });
-      return console.log('Gagal menghapus kategori!');
     }
   }
 }

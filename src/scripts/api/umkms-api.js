@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import { jwtDecode } from 'jwt-decode';
 import { UMKMS } from '../globals/api-endpoint';
 
 class UmkmsDbSource {
@@ -26,8 +27,7 @@ class UmkmsDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil menambahkan umkm!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson.data;
@@ -37,7 +37,6 @@ class UmkmsDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan umkm!',
       });
-      return console.log('Gagal menambahkan umkm!');
     }
   }
 
@@ -52,7 +51,6 @@ class UmkmsDbSource {
         title: 'Oops...',
         text: 'Gagal menampilkan list umkm!',
       });
-      return console.log('Gagal menampilkan list umkm!');
     }
   }
 
@@ -67,7 +65,28 @@ class UmkmsDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan detail umkm!',
       });
-      return console.log('Gagal mendapatkan detail umkm!');
+    }
+  }
+
+  static async getUmkmByUser() {
+    try {
+      const accessToken = localStorage.getItem('accessToken');
+      const token = jwtDecode(accessToken);
+      const options = {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`,
+        },
+      };
+      const response = await fetch(UMKMS.USER_BASE, options);
+      const responseJson = await response.json();
+      return responseJson.data.umkm;
+    } catch {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Gagal mendapatkan umkm!',
+      });
     }
   }
 
@@ -95,8 +114,7 @@ class UmkmsDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil mengupdate umkm!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson;
@@ -106,7 +124,6 @@ class UmkmsDbSource {
         title: 'Oops...',
         text: 'Gagal mengupdate umkm!',
       });
-      return console.log('Gagal mengupdate umkm!');
     }
   }
 
@@ -128,7 +145,6 @@ class UmkmsDbSource {
         title: 'Oops...',
         text: 'Gagal menghapus umkm!',
       });
-      return console.log('Gagal menghapus umkm!');
     }
   }
 
@@ -155,7 +171,6 @@ class UmkmsDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan cover umkm!',
       });
-      return console.log('Gagal menambahkan cover umkm!');
     }
   }
 }
