@@ -1,5 +1,5 @@
 import ProductsDbSource from '../../api/products-api';
-// import { createProductItemTemplate } from '../templates/template-creator';
+import { createProductItemTemplate } from '../templates/template-creator';
 
 const ListProduct = {
   async render() {
@@ -17,15 +17,14 @@ const ListProduct = {
     const productContainer = document.querySelector('#product-list');
     productContainer.innerHTML = '';
     const products = await ProductsDbSource.getProducts();
-    console.log(products);
 
-    // products.forEach((product) => {
-    //   productContainer.innerHTML += createProductItemTemplate(product);
-    // });
+    products.forEach((product) => {
+      productContainer.innerHTML += createProductItemTemplate(product);
+    });
 
-    // if (productContainer.innerHTML === '') {
-    //   productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
-    // }
+    if (productContainer.innerHTML === '') {
+      productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
+    }
     // --------------------------------------------
   },
 };

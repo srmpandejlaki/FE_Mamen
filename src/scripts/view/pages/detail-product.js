@@ -1,5 +1,6 @@
 import UrlParser from '../../routes/url-parser';
 import ProductsDbSource from '../../api/products-api';
+import { createProductItemTemplate } from '../templates/template-creator';
 
 const DetailProduct = {
   async render() {
@@ -15,7 +16,7 @@ const DetailProduct = {
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const productDetails = await ProductsDbSource.getProductById(url.id);
-    console.log(productDetails);
+    document.querySelector('#product-list').innerHTML = createProductItemTemplate(productDetails);
   },
 };
 

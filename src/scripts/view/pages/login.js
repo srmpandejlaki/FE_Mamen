@@ -1,5 +1,6 @@
 import AuthDbSource from '../../api/auth-api';
 import UsersDbSource from '../../api/users-api';
+import UmkmsDbSource from '../../api/umkms-api';
 
 const Login = {
   async render() {
@@ -96,9 +97,9 @@ const Login = {
       const auth = { username, password };
 
       try {
-        const response = await AuthDbSource.postAuth(auth);
-        window.localStorage.setItem('accessToken', response.accessToken);
+        await AuthDbSource.postAuth(auth);
         window.location.href = '/';
+        await UmkmsDbSource.getUmkmByUser();
       } catch (error) {
         console.error(error);
       }

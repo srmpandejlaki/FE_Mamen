@@ -1,5 +1,4 @@
 import Swal from 'sweetalert2';
-import { jwtDecode } from 'jwt-decode';
 import { UMKMS } from '../globals/api-endpoint';
 
 class UmkmsDbSource {
@@ -71,11 +70,10 @@ class UmkmsDbSource {
   static async getUmkmByUser() {
     try {
       const accessToken = localStorage.getItem('accessToken');
-      const token = jwtDecode(accessToken);
       const options = {
         method: 'GET',
         headers: {
-          'Authorization': `Bearer ${token}`,
+          'Authorization': `Bearer ${accessToken}`,
         },
       };
       const response = await fetch(UMKMS.USER_BASE, options);

@@ -383,7 +383,7 @@ main {
       width: 100%;
       padding: 0 8%;
 
-      #umkm-list, #product-list {
+      #umkm-list, #product-list, #review-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 1.5rem;

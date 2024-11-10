@@ -1,7 +1,5 @@
 import AuthDbSource from '../api/auth-api';
 
-const { jwtDecode } = require('jwt-decode');
-
 /* eslint-disable class-methods-use-this */
 class HeaderBar extends HTMLElement {
   emptyContent() {
@@ -22,28 +20,12 @@ class HeaderBar extends HTMLElement {
       }
     });
 
-    // Fungsi untuk mengecek status login berdasarkan waktu kedaluwarsa token
     function isLoggedIn() {
       const accessToken = localStorage.getItem('accessToken');
-      if (!accessToken) return false;
-
-      try {
-        // Decode token menggunakan library jwt-decode
-        const decodedToken = jwtDecode(accessToken);
-
-        // Cek apakah token sudah kedaluwarsa
-        const currentTime = Date.now() / 1000; // Mengonversi ke detik
-        if (decodedToken.exp < currentTime) {
-          // Hapus token jika sudah kedaluwarsa
-          localStorage.removeItem('accessToken');
-          return false;
-        }
-
+      if (accessToken) {
         return true;
-      } catch (error) {
-        console.error('Invalid token format', error);
-        return false;
       }
+      return false;
     }
 
     // Mengubah tampilan berdasarkan status login
@@ -81,7 +63,7 @@ class HeaderBar extends HTMLElement {
           <div class="nav-extra">
             <div class="user-account" id="profile">
               <a href="#/profile">
-                <figcaption>Isshoo</figcaption>
+                <figcaption>Profile</figcaption>
               </a>
             </div>
             <div class="user-account" id="login">

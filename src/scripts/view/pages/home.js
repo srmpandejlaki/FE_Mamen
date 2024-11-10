@@ -1,8 +1,7 @@
-import { jwtDecode } from 'jwt-decode';
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import { createUmkmItemTemplate, createProductItemTemplate } from '../templates/template-creator';
+import { createUmkmItemTemplate, createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -33,14 +32,14 @@ const Home = {
         <div class="explore-con">
           <div id="product-list"></div>
         </div>
+        <div class="explore-con">
+          <div id="review-list"></div>
+        </div>
       </section>
     `;
   },
 
   async afterRender() {
-    const accessToken = localStorage.getItem('accessToken');
-    const decodedToken = jwtDecode(accessToken);
-    console.log(decodedToken);
     // HEADER & FOOTER VISIBILITY
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -86,12 +85,19 @@ const Home = {
     }
     // --------------------------------------------
 
-    const ambilDataReview = async () => {
-      const dataReview = await ReviewsDbSource.getReviews();
-      console.log(dataReview);
-    };
+    // RENDER REVIEWS
+    const reviewContainer = document.querySelector('#review-list');
+    reviewContainer.innerHTML = '';
+    const reviews = await ReviewsDbSource.getReviews();
 
-    await ambilDataReview();
+    reviews.forEach((review) => {
+      reviewContainer.innerHTML += createReviewItemTemplate(review);
+    });
+
+    if (reviewContainer.innerHTML === '') {
+      reviewContainer.innerHTML = 'Tidak ada review untuk ditampilkan.';
+    }
+    // --------------------------------------------
   },
 };
 
