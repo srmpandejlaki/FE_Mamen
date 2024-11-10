@@ -1,7 +1,7 @@
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import CategoriesDbSource from '../../api/categories-api';
+import { createUmkmItemTemplate, createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -25,53 +25,79 @@ const Home = {
         </picture>
         <hero-section></hero-section>
       </section>
-      <section id="explore"></section>
+      <section id="explore">
+        <div class="explore-con">
+          <div id="umkm-list"></div>
+        </div>
+        <div class="explore-con">
+          <div id="product-list"></div>
+        </div>
+        <div class="explore-con">
+          <div id="review-list"></div>
+        </div>
+      </section>
     `;
   },
 
   async afterRender() {
+    // HEADER & FOOTER VISIBILITY
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
 
     header.style.display = 'block';
     footer.style.display = 'flex';
+    // --------------------------------------------
+
+    // CLICK EVENTS
     const cat = document.querySelector('#cat');
     const explore = document.querySelector('#explore');
 
     cat.addEventListener('click', () => {
       explore.scrollIntoView({ behavior: 'smooth' });
     });
+    // --------------------------------------------
 
-    const ambilDataUmkm = async () => {
-      const dataUmkm = await UmkmsDbSource.getUmkms();
-      console.log(dataUmkm);
-    };
+    // RENDER UMKM
+    const umkmContainer = document.querySelector('#umkm-list');
+    umkmContainer.innerHTML = '';
+    const umkms = await UmkmsDbSource.getUmkms();
 
-    const ambilDetailUmkm = async (id) => {
-      const dataUmkm = await UmkmsDbSource.getUmkmById(id);
-      console.log(dataUmkm);
-    };
+    umkms.forEach((umkm) => {
+      umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
+    });
 
-    const ambilDataProduk = async () => {
-      const dataProduk = await ProductsDbSource.getProducts();
-      console.log(dataProduk);
-    };
+    if (umkmContainer.innerHTML === '') {
+      umkmContainer.innerHTML = 'Tidak ada umkm untuk ditampilkan.';
+    }
+    // --------------------------------------------
 
-    const ambilDataReview = async () => {
-      const dataReview = await ReviewsDbSource.getReviews();
-      console.log(dataReview);
-    };
+    // RENDER PRODUCTS
+    const productContainer = document.querySelector('#product-list');
+    productContainer.innerHTML = '';
+    const products = await ProductsDbSource.getProducts();
 
-    const ambilDataKategori = async () => {
-      const dataKategori = await CategoriesDbSource.getCategories();
-      console.log(dataKategori);
-    };
+    products.forEach((product) => {
+      productContainer.innerHTML += createProductItemTemplate(product);
+    });
 
-    await ambilDataUmkm();
-    await ambilDetailUmkm('umkm-gf-bJ-nnnYsYk3Vu');
-    await ambilDataProduk();
-    await ambilDataReview();
-    await ambilDataKategori();
+    if (productContainer.innerHTML === '') {
+      productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
+    }
+    // --------------------------------------------
+
+    // RENDER REVIEWS
+    const reviewContainer = document.querySelector('#review-list');
+    reviewContainer.innerHTML = '';
+    const reviews = await ReviewsDbSource.getReviews();
+
+    reviews.forEach((review) => {
+      reviewContainer.innerHTML += createReviewItemTemplate(review);
+    });
+
+    if (reviewContainer.innerHTML === '') {
+      reviewContainer.innerHTML = 'Tidak ada review untuk ditampilkan.';
+    }
+    // --------------------------------------------
   },
 };
 

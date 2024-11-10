@@ -20,8 +20,7 @@ class UsersDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil menambahkan user!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson.data;
@@ -31,7 +30,6 @@ class UsersDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan user!',
       });
-      return console.log('Gagal menambahkan user!');
     }
   }
 
@@ -46,7 +44,6 @@ class UsersDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan user!',
       });
-      return console.log('Gagal mendapatkan user!');
     }
   }
 }

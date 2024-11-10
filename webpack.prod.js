@@ -29,10 +29,21 @@ module.exports = merge(common, {
       exclude: [/\.DS_Store$/, /\.DS_Store\.br$/, /\.DS_Store\.gz$/],
       runtimeCaching: [
         {
-          urlPattern: ({ url }) => url.href.startsWith(''),
+          urlPattern: ({ url }) => url.href.startsWith('https://api.mamen.site'),
           handler: 'StaleWhileRevalidate',
           options: {
             cacheName: 'mamen-api',
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://mamenawsbucket.s3.ap-southeast-3.amazonaws.com'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'mamen-pictures',
+            expiration: {
+              maxEntries: 50,
+              maxAgeSeconds: 60 * 60 * 24 * 30,
+            },
           },
         },
       ],

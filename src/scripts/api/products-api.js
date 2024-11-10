@@ -24,8 +24,7 @@ class ProductsDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil menambahkan product!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson.data;
@@ -35,7 +34,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan product!',
       });
-      return console.log('Gagal menambahkan product!');
     }
   }
 
@@ -50,7 +48,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal menampilkan list produk!',
       });
-      return console.log('Gagal menampilkan list produk!');
     }
   }
 
@@ -65,7 +62,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan list produk!',
       });
-      return console.log('Gagal mendapatkan list produk!');
     }
   }
 
@@ -80,7 +76,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan produk!',
       });
-      return console.log('Gagal mendapatkan produk!');
     }
   }
 
@@ -106,8 +101,7 @@ class ProductsDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil mengupdate produk!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson;
@@ -117,7 +111,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal mengupdate produk!',
       });
-      return console.log('Gagal mengupdate produk!');
     }
   }
 
@@ -139,7 +132,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal menghapus produk!',
       });
-      return console.log('Gagal menghapus produk!');
     }
   }
 
@@ -166,7 +158,6 @@ class ProductsDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan cover produk!',
       });
-      return console.log('Gagal menambahkan cover produk!');
     }
   }
 }

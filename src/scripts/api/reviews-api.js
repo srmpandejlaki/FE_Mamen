@@ -22,8 +22,7 @@ class ReviewsDbSource {
 
       Swal.fire({
         title: `${responseJson.message}`,
-        icon: 'success',
-        text: 'Berhasil menambahkan review!',
+        text: `${responseJson.status}`,
       });
 
       return responseJson.data;
@@ -33,7 +32,6 @@ class ReviewsDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan review!',
       });
-      return console.log('Gagal menambahkan review!');
     }
   }
 
@@ -48,7 +46,6 @@ class ReviewsDbSource {
         title: 'Oops...',
         text: 'Gagal menampilkan list review!',
       });
-      return console.log('Gagal menampilkan list review!');
     }
   }
 
@@ -63,7 +60,6 @@ class ReviewsDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan list review!',
       });
-      return console.log('Gagal mendapatkan list review!');
     }
   }
 
@@ -78,7 +74,6 @@ class ReviewsDbSource {
         title: 'Oops...',
         text: 'Gagal mendapatkan review!',
       });
-      return console.log('Gagal mendapatkan review!');
     }
   }
 
@@ -100,7 +95,6 @@ class ReviewsDbSource {
         title: 'Oops...',
         text: 'Gagal menghapus review!',
       });
-      return console.log('Gagal menghapus review!');
     }
   }
 }

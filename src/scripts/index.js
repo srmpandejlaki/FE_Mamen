@@ -1,6 +1,7 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 import '../styles/responsive.scss';
+import '../styles/login.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
