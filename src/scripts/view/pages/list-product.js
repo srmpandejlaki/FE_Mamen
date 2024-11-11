@@ -6,7 +6,7 @@ const ListProduct = {
     return `
       <section id="explore">
         <div class="explore-con">
-          <div id="product-list"></div>
+          <div id="products" class="products"></div>
         </div>
       </section>
     `;
@@ -14,7 +14,7 @@ const ListProduct = {
 
   async afterRender() {
     // RENDER PRODUCT
-    const productContainer = document.querySelector('#product-list');
+    const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
     const products = await ProductsDbSource.getProducts();
 

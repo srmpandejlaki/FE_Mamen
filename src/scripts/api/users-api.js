@@ -19,8 +19,8 @@ class UsersDbSource {
       const responseJson = await response.json();
 
       Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
+        title: `${responseJson.status}`,
+        text: `${responseJson.message}`,
       });
 
       return responseJson.data;

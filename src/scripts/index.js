@@ -1,10 +1,13 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
-import '../styles/responsive.scss';
 import '../styles/login.scss';
+import '../styles/detail.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
+import './components/umkm-form';
+import './components/umkm-detail';
+import './components/product-detail';
 import './utility/navbar-tambahan';
 import './utility/blur-header';
 

@@ -24,7 +24,7 @@ const Login = {
               <div>
                 <h2>Login</h2>
                 <div>
-                  <label for="email">Email</label>
+                  <label for="email">Username</label>
                   <input type="text" id="email" name="email" required>
                 </div>
                 <div>
@@ -40,7 +40,7 @@ const Login = {
               <div>
                 <h2>Daftar</h2>
                 <div>
-                  <label for="reg-email">Email</label>
+                  <label for="reg-email">Username</label>
                   <input type="text" id="reg-email" name="email" required>
                 </div>
                 <div>
@@ -98,7 +98,9 @@ const Login = {
 
       try {
         await AuthDbSource.postAuth(auth);
-        window.location.href = '/';
+        if (localStorage.getItem('accessToken')) {
+          window.location.href = '/';
+        }
         await UmkmsDbSource.getUmkmByUser();
       } catch (error) {
         console.error(error);

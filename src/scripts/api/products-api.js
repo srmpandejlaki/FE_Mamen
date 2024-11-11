@@ -16,7 +16,6 @@ class ProductsDbSource {
           product_type: product.product_type,
           description: product.description,
           price: product.price,
-          cover_url: product.cover_url || null,
         }),
       };
       const response = await fetch(PRODUCTS.UMKM_BASE(umkmId), options);
