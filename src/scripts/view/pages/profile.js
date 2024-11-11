@@ -8,6 +8,7 @@ const Profile = {
   async render() {
     return `
       <section id="explore">
+       <umkm-form></umkm-form>
         <div class="explore-con">
           <div id="umkm-list"></div>
         </div>
@@ -25,15 +26,20 @@ const Profile = {
   },
 
   async afterRender() {
-    document.querySelector('#umkm-list').innerHTML = '';
-    document.querySelector('#category-list').innerHTML = '';
-    document.querySelector('#product-list').innerHTML = '';
-    document.querySelector('#review-list').innerHTML = '';
     // RENDER UMKM DETAILS
     const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     if (!umkmDetails[0]) {
-      document.querySelector('#umkm-list').innerHTML = 'Tidak ada UMKM yang ditemukan. Silahkan menambah UMKM terlebih dahulu.';
+      document.querySelector('#umkm-list').innerHTML = `
+      <div class="blank-profile">
+      <p>Tidak ada UMKM yang ditemukan. Silahkan menambah UMKM terlebih dahulu.</p>
+      <button id="new-umkm">Tambah UMKM</button>
+      </div>`;
+
+      const newUmkmButton = document.querySelector('#new-umkm');
+      newUmkmButton.addEventListener('click', () => {
+        document.querySelector('.popup-form').style.display = 'flex';
+      });
       return;
     }
     document.querySelector('#umkm-list').innerHTML = createUmkmItemTemplate(umkmDetails[0]);
