@@ -105,6 +105,7 @@ $black: rgb(23, 27, 30);
       flex: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-between;
 
       h2 {
         border-bottom: 1px solid $red;

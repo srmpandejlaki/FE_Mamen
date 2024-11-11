@@ -1,6 +1,5 @@
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
-
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
@@ -46,6 +45,8 @@ const Profile = {
         umkmContainer.append(umkmItem);
       };
       await renderDetail(umkmDetails[0]);
+
+      document.querySelector('.detail-title').innerHTML += '<button id="edit-umkm">Edit</button>';
 
       // RENDER PRODUCTS BY UMKM
       const productDetails = await ProductsDbSource.getProductsByUmkm(umkmDetails[0].id);

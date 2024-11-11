@@ -40,6 +40,7 @@ class UmkmForm extends HTMLElement {
         name, description, subdistrict, address, contact, year,
       };
       await UmkmsDbSource.postUmkm(umkm);
+      await UmkmsDbSource.getUmkmByUser();
 
       // Close popup after submission
       popupForm.style.display = 'none';
