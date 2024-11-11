@@ -20,7 +20,7 @@ $black: rgb(23, 27, 30);
 }
 
 // Popup Form
-.popup-form {
+.popup-form, #popupFormEdit {
   position: absolute;
   top: 0;
   left: 0;
@@ -32,7 +32,7 @@ $black: rgb(23, 27, 30);
   z-index: 1000;
   display: none;
 
-  .popup-content {
+  .popup-content, #popup-contentEdit {
     width: $popup-width;
     padding: $popup-padding;
     background-color: black;
@@ -68,7 +68,7 @@ $black: rgb(23, 27, 30);
       margin-top: 1rem;
     }
 
-    .close-button {
+    .close-button, #closeFormButtonEdit {
       position: absolute;
       top: 0.5rem;
       right: 0.5rem;
@@ -154,11 +154,14 @@ $black: rgb(23, 27, 30);
             font-size: 0.9rem;
             font-weight: 800;
           }
-
+          
           p {
             margin-left: 0.75rem;
             font-size: 1rem;
             line-height: 1.25rem;
+          }
+          #list-cat {
+            padding-left: 0.75rem;
           }
         }
         #info-cat {

@@ -103,7 +103,6 @@ class UmkmsDbSource {
           address: umkm.address,
           contact: umkm.contact,
           year: umkm.year,
-          cover_url: umkm.cover_url || null,
         }),
       };
       const response = await fetch(UMKMS.DETAIL(id), options);

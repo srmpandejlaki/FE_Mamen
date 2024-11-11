@@ -6,6 +6,7 @@ import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
 import './components/umkm-form';
+import './components/editUmkm-form';
 import './components/umkm-detail';
 import './components/product-detail';
 import './utility/navbar-tambahan';
