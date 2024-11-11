@@ -30,7 +30,7 @@ const createProductItemTemplate = (product) => `
 
               <div class="umkm-info">
                 <span>Rp. ${product.price}</span>
-                <h3><a href="/#/umkms/${product.umkms_id}">${product.name}</a></h3>
+                <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
                 <p>
                 ${product.description}
                 </p>
@@ -42,18 +42,17 @@ const createProductItemTemplate = (product) => `
 `;
 
 const createReviewItemTemplate = (review) => `
-            <article class="umkm-card">
-              <div class="umkm-info">
-                <span>Rate: ${review.user_rating}</span>
-                <h3><a href="/#/umkms/${review.umkms_id}">${review.name}</a></h3>
-                <p>
-                ${review.review}
-                </p>
-                <p>
-                ${review.umkm_name}
-                </p>
-              </div>
-            </article>
+          <div class="review-item">
+            <div class="review-name">
+              <h3>${review.user_rating}</h3>
+            </div>
+            <div class="review-des">
+              <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
+              <p>${review.name}</p>
+            </div>
+          </div>
 `;
 export {
   createUmkmItemTemplate,

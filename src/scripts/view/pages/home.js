@@ -30,10 +30,10 @@ const Home = {
           <div id="umkm-list"></div>
         </div>
         <div class="explore-con">
-          <div id="product-list"></div>
+          <div id="products" class="products"></div>
         </div>
         <div class="explore-con">
-          <div id="review-list"></div>
+          <div id="reviews" class="reviews"></div>
         </div>
       </section>
     `;
@@ -72,7 +72,7 @@ const Home = {
     // --------------------------------------------
 
     // RENDER PRODUCTS
-    const productContainer = document.querySelector('#product-list');
+    const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
     const products = await ProductsDbSource.getProducts();
 
@@ -86,7 +86,7 @@ const Home = {
     // --------------------------------------------
 
     // RENDER REVIEWS
-    const reviewContainer = document.querySelector('#review-list');
+    const reviewContainer = document.querySelector('#reviews');
     reviewContainer.innerHTML = '';
     const reviews = await ReviewsDbSource.getReviews();
 
