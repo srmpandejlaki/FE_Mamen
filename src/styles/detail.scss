@@ -8,73 +8,74 @@ $cream: #eeeeeeca;
 $black: rgb(23, 27, 30);
 
 .blank-profile {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
 
-    button {
-        border: 1px solid white;
-    }
+  button {
+    border: 1px solid white;
+  }
 }
 
 // Popup Form
 .popup-form {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: $popup-bg;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $popup-bg;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  display: none;
 
-    .popup-content {
-        width: $popup-width;
-        padding: $popup-padding;
-        background-color: black;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .popup-content {
+    width: $popup-width;
+    padding: $popup-padding;
+    background-color: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-        h2 {
-            text-align: center;
-            margin-bottom: 1rem;
-        }
-
-        label {
-            display: block;
-            margin: 0.5rem 0 0.2rem;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid white;
-            color: white;
-        }
-
-        button[type="submit"] {
-            width: 100%;
-            padding: 0.7rem;
-            background-color: $button-color;
-            color: white;
-            border: none;
-            cursor: pointer;
-            margin-top: 1rem;
-        }
-
-        .close-button {
-            position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
     }
+
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid white;
+      color: white;
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 0.7rem;
+      background-color: $button-color;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 1rem;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
 }
 
 #detailContainer {
@@ -87,254 +88,248 @@ $black: rgb(23, 27, 30);
 }
 
 #umkms {
-.detail-card {
-  display: grid;
-  grid-template-areas: 
-  "title"
-  "img"
-  "info"
-  "desc"
-  ;
-  gap: 1.2rem;
-
-  .detail-title{
-    grid-area: title;
-    display: flex;
-    align-items: center;
-    
-    h2 {
-      border-bottom: 1px solid $red;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-block: 0.25rem;
-      padding-block: 0.5rem;
-    }
-  }
-
-  .detail-img{
-    grid-area: img;
-    width: 100%;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 10px;
-    }
-    
-    img.skltn {
-      opacity: 0;
-    }
-  }
-
-  .detail-img.skltn {
-    width: 100%;
-    height: 100%;
-
-    div.skltn {
-      min-width: 346.1px;
-      min-height: 231.5px;
-      width: 100%;
-      height: 100%;
-      max-width: 319.7px;
-      max-height: 374.4px;
-      background-color: $cream;
-      border-radius: 10px;
-      transition: opacity 0.5s ease-in-out;
-    }
-  }
-
-  .detail-info{
-    grid-area: info;
+  .detail-card {
     display: grid;
-    width: 100%;
-    grid-template-areas: 
-      "cat"
-      "sub"
-      "add"
-      "rat"
-      "con"
-      "year"
-    ;
-    gap: 1rem;
+    grid-template-areas:
+      "title"
+      "img"
+      "info"
+      "desc";
+    gap: 1.2rem;
 
-    .infos{
+    .detail-title {
+      grid-area: title;
       display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
+      align-items: center;
+
+      h2 {
+        border-bottom: 1px solid $red;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-block: 0.25rem;
+        padding-block: 0.5rem;
+      }
+    }
+
+    .detail-img {
+      grid-area: img;
       width: 100%;
-      .labels {
-        color: $yellow;
-        font-size: 0.9rem; 
-        font-weight: 800;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
       }
 
-      p {
-        margin-left: 0.75rem;
-        font-size: 1rem;
-        line-height: 1.25rem;
+      img.skltn {
+        opacity: 0;
       }
     }
 
-    #info-cat{
-      grid-area: cat;
-    }
-
-    #info-address{
-      grid-area: add;
-    }
-
-    #info-subdistrict{
-      grid-area: sub;
-    }
-
-    #info-rating{
-      grid-area: rat;
-    }
-
-    #info-year{
-      grid-area: year;
-    }
-
-    #info-contact{
-      grid-area: con;
-    }
-  }
-
-  .detail-desc{
-    grid-area: desc;
-
-    .infos{
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      width: 100%;
-      .labels {
-        color: $yellow;
-        font-size: 0.9rem; 
-        font-weight: 800;
-      }
-
-      p {
-        margin-left: 0.75rem;
-        font-size: 1rem;
-        line-height: 1.25rem;
-      }
-    }
-  }
-
-}
-}
-
-#detailProduct {
-.detail-card {
-  display: grid;
-  grid-template-areas: 
-  "title"
-  "img"
-  "info"
-  ;
-  gap: 1.2rem;
-
-  .detail-title{
-    grid-area: title;
-    display: flex;
-    align-items: center;
-    
-    h2 {
-      border-bottom: 1px solid $red;
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-block: 0.25rem;
-      padding-block: 0.5rem;
-    }
-  }
-
-  .detail-img{
-    grid-area: img;
-    width: 100%;
-
-    img {
+    .detail-img.skltn {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 10px;
-    }
-    
-    img.skltn {
-      opacity: 0;
-    }
-  }
 
-  .detail-img.skltn {
-    width: 100%;
-    height: 100%;
-
-    div.skltn {
-      min-width: 346.1px;
-      min-height: 231.5px;
-      width: 100%;
-      height: 100%;
-      max-width: 319.7px;
-      max-height: 374.4px;
-      background-color: $cream;
-      border-radius: 10px;
-      transition: opacity 0.5s ease-in-out;
-    }
-  }
-
-  .detail-info{
-    grid-area: info;
-    display: grid;
-    width: 100%;
-    grid-template-areas: 
-      "umkm"
-      "tipe"
-      "price"
-      "desc"
-    ;
-    gap: 1rem;
-
-    .infos{
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      width: 100%;
-      .labels {
-        color: $yellow;
-        font-size: 0.9rem; 
-        font-weight: 800;
+      div.skltn {
+        min-width: 346.1px;
+        min-height: 231.5px;
+        width: 100%;
+        height: 100%;
+        max-width: 319.7px;
+        max-height: 374.4px;
+        background-color: $cream;
+        border-radius: 10px;
+        transition: opacity 0.5s ease-in-out;
       }
+    }
 
-      p {
-        margin-left: 0.75rem;
-        font-size: 1rem;
-        line-height: 1.25rem;
+    .detail-info {
+      grid-area: info;
+      display: grid;
+      width: 100%;
+      grid-template-areas:
+        "cat"
+        "sub"
+        "add"
+        "rat"
+        "con"
+        "year";
+      gap: 1rem;
 
-        a {
+      .infos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: 100%;
+        .labels {
+          color: $yellow;
+          font-size: 0.9rem;
+          font-weight: 800;
+        }
+
+        p {
+          margin-left: 0.75rem;
           font-size: 1rem;
+          line-height: 1.25rem;
+        }
+      }
+
+      #info-cat {
+        grid-area: cat;
+      }
+
+      #info-address {
+        grid-area: add;
+      }
+
+      #info-subdistrict {
+        grid-area: sub;
+      }
+
+      #info-rating {
+        grid-area: rat;
+      }
+
+      #info-year {
+        grid-area: year;
+      }
+
+      #info-contact {
+        grid-area: con;
+      }
+    }
+
+    .detail-desc {
+      grid-area: desc;
+
+      .infos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: 100%;
+        .labels {
+          color: $yellow;
+          font-size: 0.9rem;
+          font-weight: 800;
+        }
+
+        p {
+          margin-left: 0.75rem;
+          font-size: 1rem;
+          line-height: 1.25rem;
         }
       }
     }
+  }
+}
 
-    #info-umkm{
-      grid-area: umkm;
+#detailProduct {
+  .detail-card {
+    display: grid;
+    grid-template-areas:
+      "title"
+      "img"
+      "info";
+    gap: 1.2rem;
+
+    .detail-title {
+      grid-area: title;
+      display: flex;
+      align-items: center;
+
+      h2 {
+        border-bottom: 1px solid $red;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-block: 0.25rem;
+        padding-block: 0.5rem;
+      }
     }
 
-    #info-tipe{
-      grid-area: tipe;
+    .detail-img {
+      grid-area: img;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 10px;
+      }
+
+      img.skltn {
+        opacity: 0;
+      }
     }
 
-    #info-price{
-      grid-area: price;
+    .detail-img.skltn {
+      width: 100%;
+      height: 100%;
+
+      div.skltn {
+        min-width: 346.1px;
+        min-height: 231.5px;
+        width: 100%;
+        height: 100%;
+        max-width: 319.7px;
+        max-height: 374.4px;
+        background-color: $cream;
+        border-radius: 10px;
+        transition: opacity 0.5s ease-in-out;
+      }
     }
 
-    #info-desc{
-      grid-area: desc;
+    .detail-info {
+      grid-area: info;
+      display: grid;
+      width: 100%;
+      grid-template-areas:
+        "umkm"
+        "tipe"
+        "price"
+        "desc";
+      gap: 1rem;
+
+      .infos {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        width: 100%;
+        .labels {
+          color: $yellow;
+          font-size: 0.9rem;
+          font-weight: 800;
+        }
+
+        p {
+          margin-left: 0.75rem;
+          font-size: 1rem;
+          line-height: 1.25rem;
+
+          a {
+            font-size: 1rem;
+          }
+        }
+      }
+
+      #info-umkm {
+        grid-area: umkm;
+      }
+
+      #info-tipe {
+        grid-area: tipe;
+      }
+
+      #info-price {
+        grid-area: price;
+      }
+
+      #info-desc {
+        grid-area: desc;
+      }
     }
   }
 }
-}
-

@@ -18,7 +18,7 @@ $black: rgb(23, 27, 30);
 }
 
 button,
-input, 
+input,
 textarea,
 a {
   min-width: 44px;
@@ -46,8 +46,9 @@ footer {
   max-width: 1440px;
 }
 
-.skltn, *.skltn {
-  animation: skltn 1s infinite linear;  
+.skltn,
+*.skltn {
+  animation: skltn 1s infinite linear;
   color: transparent;
   background-color: $cream;
   display: inline-block;
@@ -174,7 +175,7 @@ header {
             }
 
             &::after {
-              content: '';
+              content: "";
               width: 0;
               height: 2px;
               background-color: $red;
@@ -275,7 +276,8 @@ main {
     width: 100%;
     height: 728px;
 
-    source, img {
+    source,
+    img {
       width: 100%;
       height: 728px;
       object-fit: cover;
@@ -285,7 +287,7 @@ main {
   }
 
   &::after {
-    content: '';
+    content: "";
 
     position: absolute;
     display: block;
@@ -293,7 +295,11 @@ main {
     right: 0;
     width: 100%;
     height: 17%;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 40%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   .home-container {
@@ -373,294 +379,293 @@ main {
 }
 
 #explore {
-    min-height: 728px;
-    display: flex;
-    flex-direction: column;
+  min-height: 728px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-block: 6rem;
+
+  .explore-con {
     width: 100%;
-    padding-block: 6rem;
-
-    .explore-con {
-      width: 100%;
-      padding: 0 8%;
-
-    }
+    padding: 0 8%;
+  }
 }
 
 #umkm-list {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
 
-        .umkm-card {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          border-radius: 10px;
-          background-color: $black;
-          justify-content: start;
-          align-items: center;
+  .umkm-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: $black;
+    justify-content: start;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    height: 100%;
+
+    .umkm-img {
+      box-sizing: border-box;
+      position: relative;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 13rem;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
           transition: transform 0.5s ease-in-out;
-          overflow: hidden;
-          height: 100%;
-
-          .umkm-img {
-            box-sizing: border-box;
-            position: relative;
-            width: 100%;
-
-            img {
-              width: 100%;
-              height: 13rem;
-              object-fit: cover;
-              object-position: center;
-              transition: transform 0.5s ease-in-out;
-
-              &:hover {
-                transform: scale(1.05);
-                transition: transform 0.5s ease-in-out;
-              }
-            }
-
-            div.skltn {
-              width: 100%;
-              height: 13rem;
-              object-fit: cover;
-              object-position: center;
-            }
-          }
-
-          .umkm-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            gap: 0.3rem;
-            margin: 0 1.6rem 1rem;
-            padding-block: 1rem;
-
-            position: relative;
-            border-bottom: 1px solid $red;
-            height: 100%;
-            width: 100%;
-            padding-inline: 8%;
-
-            span {
-              position: absolute;
-              padding: 0.4em 1em;
-              background-color: $red;
-              border-radius: 3px;
-              z-index: 99;
-              display: inline-block;
-              font-weight: 500;
-              font-size: 0.8rem;
-              top: -2.3rem;
-              right: 8%;
-            }
-
-            h3 {
-              a {
-                font-size: 1.2rem;
-                font-weight: 700;
-                color: white;
-                line-height: 1.2;
-                display: inline-block;
-                margin-bottom: 0.5rem;
-                padding-block: 0.5rem;
-                border-bottom: 1px solid $yellow;
-                min-width: 44px;
-                min-height: 44px;
-                text-decoration: none;
-
-                &:hover {
-                  color: $red;
-                }
-                &:active {
-                  color: red;
-                }
-              }
-
-              a.skltn {
-                background-color: $cream;
-                color: transparent;
-
-                &:hover {
-                  color: transparent;
-                }
-                &:active {
-                  color: transparent;
-                }
-              }
-            }
-            p {
-              font-size: 0.95rem;
-              color: whitesmoke;
-              line-height: 1.4;
-              text-align: start;
-            }
-            p.skltn {
-              color: transparent;
-              background-color: $cream;
-            }
-          }
-
-          .umkm-rate {
-            position: absolute;
-            border-radius: 10px 0 10px 0;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: $yellow;
-            padding: 0.4em 0.6em;
-            p {
-              font-size: 0.7em;
-            }
-            i {
-              font-size: 0.7em;
-            }
-          }
         }
       }
 
-#products {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1.5rem;
+      div.skltn {
+        width: 100%;
+        height: 13rem;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
 
-    .umkm-card {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          border-radius: 10px;
-          background-color: $black;
-          justify-content: start;
-          align-items: center;
-          transition: transform 0.5s ease-in-out;
-          overflow: hidden;
-          height: 100%;
+    .umkm-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 0.3rem;
+      margin: 0 1.6rem 1rem;
+      padding-block: 1rem;
 
-          .umkm-img {
-            box-sizing: border-box;
-            position: relative;
-            width: 100%;
+      position: relative;
+      border-bottom: 1px solid $red;
+      height: 100%;
+      width: 100%;
+      padding-inline: 8%;
 
-            img {
-              width: 100%;
-              height: 13rem;
-              object-fit: cover;
-              object-position: center;
-              transition: transform 0.5s ease-in-out;
+      span {
+        position: absolute;
+        padding: 0.4em 1em;
+        background-color: $red;
+        border-radius: 3px;
+        z-index: 99;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 0.8rem;
+        top: -2.3rem;
+        right: 8%;
+      }
 
-              &:hover {
-                transform: scale(1.05);
-                transition: transform 0.5s ease-in-out;
-              }
-            }
+      h3 {
+        a {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: white;
+          line-height: 1.2;
+          display: inline-block;
+          margin-bottom: 0.5rem;
+          padding-block: 0.5rem;
+          border-bottom: 1px solid $yellow;
+          min-width: 44px;
+          min-height: 44px;
+          text-decoration: none;
 
-            div.skltn {
-              width: 100%;
-              height: 13rem;
-              object-fit: cover;
-              object-position: center;
-            }
+          &:hover {
+            color: $red;
           }
-
-          .umkm-info {
-            display: flex;
-            flex-direction: column;
-            justify-content: start;
-            align-items: start;
-            gap: 0.3rem;
-            margin: 0 1.6rem 1rem;
-            padding-block: 1rem;
-
-            position: relative;
-            border-bottom: 1px solid $red;
-            height: 100%;
-            width: 100%;
-            padding-inline: 8%;
-
-            span {
-              position: absolute;
-              padding: 0.4em 1em;
-              background-color: $red;
-              border-radius: 3px;
-              z-index: 99;
-              display: inline-block;
-              font-weight: 500;
-              font-size: 0.8rem;
-              top: -2.3rem;
-              right: 8%;
-            }
-
-            h3 {
-              a {
-                font-size: 1.2rem;
-                font-weight: 700;
-                color: white;
-                line-height: 1.2;
-                display: inline-block;
-                margin-bottom: 0.5rem;
-                padding-block: 0.5rem;
-                border-bottom: 1px solid $yellow;
-                min-width: 44px;
-                min-height: 44px;
-                text-decoration: none;
-
-                &:hover {
-                  color: $red;
-                }
-                &:active {
-                  color: red;
-                }
-              }
-
-              a.skltn {
-                background-color: $cream;
-                color: transparent;
-
-                &:hover {
-                  color: transparent;
-                }
-                &:active {
-                  color: transparent;
-                }
-              }
-            }
-            p {
-              font-size: 0.95rem;
-              color: whitesmoke;
-              line-height: 1.4;
-              text-align: start;
-            }
-            p.skltn {
-              color: transparent;
-              background-color: $cream;
-            }
-          }
-
-          .umkm-rate {
-            position: absolute;
-            border-radius: 10px 0 10px 0;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            background-color: $yellow;
-            padding: 0.4em 0.6em;
-            p {
-              font-size: 0.7em;
-            }
-            i {
-              font-size: 0.7em;
-            }
+          &:active {
+            color: red;
           }
         }
+
+        a.skltn {
+          background-color: $cream;
+          color: transparent;
+
+          &:hover {
+            color: transparent;
+          }
+          &:active {
+            color: transparent;
+          }
+        }
+      }
+      p {
+        font-size: 0.95rem;
+        color: whitesmoke;
+        line-height: 1.4;
+        text-align: start;
+      }
+      p.skltn {
+        color: transparent;
+        background-color: $cream;
+      }
+    }
+
+    .umkm-rate {
+      position: absolute;
+      border-radius: 10px 0 10px 0;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: $yellow;
+      padding: 0.4em 0.6em;
+      p {
+        font-size: 0.7em;
+      }
+      i {
+        font-size: 0.7em;
+      }
+    }
+  }
 }
 
-#reviews{
+#products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+
+  .umkm-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    background-color: $black;
+    justify-content: start;
+    align-items: center;
+    transition: transform 0.5s ease-in-out;
+    overflow: hidden;
+    height: 100%;
+
+    .umkm-img {
+      box-sizing: border-box;
+      position: relative;
+      width: 100%;
+
+      img {
+        width: 100%;
+        height: 13rem;
+        object-fit: cover;
+        object-position: center;
+        transition: transform 0.5s ease-in-out;
+
+        &:hover {
+          transform: scale(1.05);
+          transition: transform 0.5s ease-in-out;
+        }
+      }
+
+      div.skltn {
+        width: 100%;
+        height: 13rem;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    .umkm-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      align-items: start;
+      gap: 0.3rem;
+      margin: 0 1.6rem 1rem;
+      padding-block: 1rem;
+
+      position: relative;
+      border-bottom: 1px solid $red;
+      height: 100%;
+      width: 100%;
+      padding-inline: 8%;
+
+      span {
+        position: absolute;
+        padding: 0.4em 1em;
+        background-color: $red;
+        border-radius: 3px;
+        z-index: 99;
+        display: inline-block;
+        font-weight: 500;
+        font-size: 0.8rem;
+        top: -2.3rem;
+        right: 8%;
+      }
+
+      h3 {
+        a {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: white;
+          line-height: 1.2;
+          display: inline-block;
+          margin-bottom: 0.5rem;
+          padding-block: 0.5rem;
+          border-bottom: 1px solid $yellow;
+          min-width: 44px;
+          min-height: 44px;
+          text-decoration: none;
+
+          &:hover {
+            color: $red;
+          }
+          &:active {
+            color: red;
+          }
+        }
+
+        a.skltn {
+          background-color: $cream;
+          color: transparent;
+
+          &:hover {
+            color: transparent;
+          }
+          &:active {
+            color: transparent;
+          }
+        }
+      }
+      p {
+        font-size: 0.95rem;
+        color: whitesmoke;
+        line-height: 1.4;
+        text-align: start;
+      }
+      p.skltn {
+        color: transparent;
+        background-color: $cream;
+      }
+    }
+
+    .umkm-rate {
+      position: absolute;
+      border-radius: 10px 0 10px 0;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background-color: $yellow;
+      padding: 0.4em 0.6em;
+      p {
+        font-size: 0.7em;
+      }
+      i {
+        font-size: 0.7em;
+      }
+    }
+  }
+}
+
+#reviews {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -694,30 +699,29 @@ main {
     overflow: auto;
     border-bottom: 1px solid $yellow;
     padding-block: 0.5rem;
-    
+
     .review-name {
-    overflow: auto;
-     h3 {
-      color: rgb(202, 202, 202);
-      margin-block: 0;
-      
-      font-size: 0.9rem;
-     }
+      overflow: auto;
+      h3 {
+        color: rgb(202, 202, 202);
+        margin-block: 0;
+
+        font-size: 0.9rem;
+      }
     }
-    
-    
+
     .review-des {
-    overflow: auto;
+      overflow: auto;
       p {
         color: white;
         margin-block: 0;
         font-size: 1rem;
       }
     }
-    
+
     .review-date {
       align-self: flex-end;
-      p{
+      p {
         font-size: 0.9rem;
         color: rgb(203, 203, 203);
       }
@@ -729,9 +733,7 @@ main {
     height: 140px;
     width: 100%;
   }
-  
 }
-
 
 footer {
   background-color: $black;
