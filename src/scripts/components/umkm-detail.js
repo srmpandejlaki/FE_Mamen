@@ -37,10 +37,10 @@ class UmkmDetail extends HTMLElement {
     const umkmDetails = await UmkmsDbSource.getUmkmByUser();
     // RENDER CATEGORIES BY UMKM
     const categories = await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
-    document.querySelector('#list-cat').innerHTML = categories.categories.map((category) => `<p>${category.name ? category.name : '-'}</p>`).join('');
-
-    if (categories.length === 0) {
-      document.querySelector('#list-cat').innerHTML = 'Tidak ada kategori yang ditampilkan.';
+    if (categories.categories.length === 0) {
+      document.querySelector('#list-cat').innerHTML = '-';
+    } else {
+      document.querySelector('#list-cat').innerHTML = categories.categories.map((category) => `<span>${category.name}</span>`).join(', ');
     }
   }
 

@@ -22,6 +22,7 @@ const Profile = {
 
   async afterRender() {
     // RENDER UMKM DETAILS
+    const container = document.querySelector('#detailContainer');
     const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     if (!umkmDetails[0]) {
@@ -46,7 +47,15 @@ const Profile = {
       };
       await renderDetail(umkmDetails[0]);
 
+      const formEdit = document.createElement('editumkm-form');
+      container.append(formEdit);
+
       document.querySelector('.detail-title').innerHTML += '<button id="edit-umkm">Edit</button>';
+
+      const editUmkmButton = document.querySelector('#edit-umkm');
+      editUmkmButton.addEventListener('click', () => {
+        document.querySelector('#popupFormEdit').style.display = 'flex';
+      });
 
       // RENDER PRODUCTS BY UMKM
       const productDetails = await ProductsDbSource.getProductsByUmkm(umkmDetails[0].id);
