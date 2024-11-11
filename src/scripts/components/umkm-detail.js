@@ -51,6 +51,7 @@ class UmkmDetail extends HTMLElement {
               <div class="detail-title">
                <h2>${this.umkm.name}</h2>
               </div>
+            <div class="img-info">
               <div class="detail-img">
                 <img fetchpriority="high" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.webp'}" alt="${this.umkm.name}" />
               </div>
@@ -81,6 +82,7 @@ class UmkmDetail extends HTMLElement {
                 <p>${this.umkm.rating}</p>
                </div>
                </div>
+            </div>
                <div class="detail-desc">
                <div id="info-desc" class="infos">
                 <h3 class="labels">Description</h3>
