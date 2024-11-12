@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import AuthDbSource from '../api/auth-api';
 
 /* eslint-disable class-methods-use-this */
@@ -22,10 +23,24 @@ class HeaderBar extends HTMLElement {
 
     function isLoggedIn() {
       const accessToken = localStorage.getItem('accessToken');
-      if (accessToken) {
+      if (!accessToken) return false;
+
+      try {
+        const decodedToken = jwtDecode(accessToken);
+
+        // Cek apakah token sudah kedaluwarsa
+        const currentTime = Date.now() / 1000; // Mengonversi ke detik
+        if (decodedToken.exp < currentTime) {
+          // Hapus token jika sudah kedaluwarsa
+          localStorage.removeItem('accessToken');
+          return false;
+        }
+
         return true;
+      } catch (error) {
+        console.error('Invalid token format', error);
+        return false;
       }
-      return false;
     }
 
     // Mengubah tampilan berdasarkan status login

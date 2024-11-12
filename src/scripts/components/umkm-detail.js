@@ -1,6 +1,7 @@
 /* eslint-disable class-methods-use-this */
 import UmkmsDbSource from '../api/umkms-api';
 import CategoriesDbSource from '../api/categories-api';
+import UrlParser from '../routes/url-parser';
 
 class UmkmDetail extends HTMLElement {
   constructor() {
@@ -34,13 +35,20 @@ class UmkmDetail extends HTMLElement {
   }
 
   async categories() {
-    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+    let categories;
+
+    if (window.location.href === '/#/profile') {
+      const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+      categories = await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
+    } else {
+      const url = UrlParser.parseActiveUrlWithoutCombiner();
+      categories = await CategoriesDbSource.getCategoriesByUmkm(url.id);
+    }
     // RENDER CATEGORIES BY UMKM
-    const categories = await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
-    if (categories.categories.length === 0) {
+    if (categories.length === 0) {
       document.querySelector('#list-cat').innerHTML = '-';
     } else {
-      document.querySelector('#list-cat').innerHTML = categories.categories.map((category) => `<span>${category.name}</span>`).join(', ');
+      document.querySelector('#list-cat').innerHTML = categories.map((category) => `<span>${category.name}</span>`).join(', ');
     }
   }
 

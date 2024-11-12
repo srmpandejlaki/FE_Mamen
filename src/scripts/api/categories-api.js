@@ -37,7 +37,7 @@ class CategoriesDbSource {
     try {
       const response = await fetch(CATEGORIES.UMKM_BASE(umkmId));
       const responseJson = await response.json();
-      return responseJson.data;
+      return responseJson.data.categories;
     } catch {
       Swal.fire({
         icon: 'error',
