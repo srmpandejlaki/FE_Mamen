@@ -2,6 +2,7 @@ import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import CategoriesDbSource from '../../api/categories-api';
 
 const Profile = {
   async render() {
@@ -51,11 +52,67 @@ const Profile = {
       // DI DALAM PROFILE DITAMBAHKAN EDIT BUTTON DI DETAIL UMKM
       const formEdit = document.createElement('editumkm-form');
       container.append(formEdit);
-      document.querySelector('.detail-title').innerHTML += '<button id="edit-umkm">Edit</button>';
 
-      const editUmkmButton = document.querySelector('#edit-umkm');
+      const editUmkmButton = document.querySelector('#edit-detail');
       editUmkmButton.addEventListener('click', () => {
         document.querySelector('#popupFormEdit').style.display = 'flex';
+      });
+
+      // UPLOAD GAMBAR UMKM
+      const labelAddImg = document.getElementById('addImgLabel');
+      const resetImg = document.getElementById('resetImg');
+      const submitImg = document.getElementById('submitImg');
+      const addImgForm = document.getElementById('addImageForm');
+      const fileInput = document.getElementById('addimage');
+      const umkmImg = document.getElementById('umkm-img');
+      fileInput.addEventListener('change', async (event) => {
+        const file = event.target.files[0];
+        if (file) {
+          umkmImg.src = URL.createObjectURL(file);
+          labelAddImg.style.display = 'none';
+          resetImg.style.display = 'inline-block';
+          submitImg.style.display = 'inline-block';
+        } else {
+          labelAddImg.style.display = 'inline-block';
+          resetImg.style.display = 'none';
+          submitImg.style.display = 'none';
+        }
+      });
+      addImgForm.addEventListener('reset', () => {
+        fileInput.value = '';
+        labelAddImg.style.display = 'inline-block';
+        resetImg.style.display = 'none';
+        submitImg.style.display = 'none';
+        umkmImg.src = `${umkmDetails[0].cover_url ? umkmDetails[0].cover_url : './images/hero-image2.webp'}`;
+      });
+
+      addImgForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const coverUrl = fileInput.files[0];
+        await UmkmsDbSource.postUmkmCover(umkmDetails[0].id, coverUrl);
+        labelAddImg.style.display = 'inline-block';
+        resetImg.style.display = 'none';
+        submitImg.style.display = 'none';
+      });
+
+      // TAMBAH KATEGORI
+      const addCategoryBtn = document.getElementById('addCategory');
+      const addCategoryForm = document.getElementById('form-addCategory');
+      const inputCategory = document.getElementById('input-category');
+
+      addCategoryBtn.addEventListener('click', () => {
+        addCategoryForm.style.display = 'flex';
+        addCategoryBtn.style.display = 'none';
+      });
+
+      addCategoryForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const name = inputCategory.value;
+        const category = { name };
+        await CategoriesDbSource.postCategory(umkmDetails[0].id, category);
+        addCategoryForm.style.display = 'none';
+        inputCategory.value = '';
+        addCategoryBtn.style.display = 'block';
       });
 
       // RENDER PRODUCTS BY UMKM

@@ -2,6 +2,7 @@ import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
 import '../styles/login.scss';
 import '../styles/detail.scss';
+import '../styles/detail-umkm.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
