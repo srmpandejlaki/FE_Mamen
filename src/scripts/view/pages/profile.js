@@ -21,10 +21,10 @@ const Profile = {
   },
 
   async afterRender() {
-    // RENDER UMKM DETAILS
     const container = document.querySelector('#detailContainer');
     const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
+    // JIKA USER BELUM MEMPUNYAI UMKM TAMPILKAN TOMBOL TAMBAH UMKM
     if (!umkmDetails[0]) {
       document.querySelector('#umkmDetail').innerHTML = `
       <div class="blank-profile">
@@ -37,6 +37,7 @@ const Profile = {
         document.querySelector('.popup-form').style.display = 'flex';
       });
     } else {
+      // JIKA USER MEMPUNYAI UMKM TAMPILKAN DETAIL UMKM
       const umkmContainer = document.querySelector('#umkms');
       const renderDetail = async (umkm) => {
         const umkmItem = document.createElement('umkm-detail');
@@ -47,9 +48,9 @@ const Profile = {
       };
       await renderDetail(umkmDetails[0]);
 
+      // DI DALAM PROFILE DITAMBAHKAN EDIT BUTTON DI DETAIL UMKM
       const formEdit = document.createElement('editumkm-form');
       container.append(formEdit);
-
       document.querySelector('.detail-title').innerHTML += '<button id="edit-umkm">Edit</button>';
 
       const editUmkmButton = document.querySelector('#edit-umkm');
