@@ -9,11 +9,8 @@
     "build-image": "node sharp.js",
     "serve": "http-server dist --port 9900",
     "build-serve": "npm run build && npm run serve",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
-    "e2e": "codeceptjs run --steps",
     "format": "prettier --write '**/*.{html,scss}'"
   },
   "keywords": [],
