@@ -4,7 +4,7 @@ import { createProductItemTemplate } from '../templates/template-creator';
 const ListProduct = {
   async render() {
     return `
-      <section id="explore">
+      <section id="explore" class="exploreProd">
         <div class="explore-con">
           <div id="products" class="products"></div>
         </div>

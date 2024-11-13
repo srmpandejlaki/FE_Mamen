@@ -1,6 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import UmkmsDbSource from '../api/umkms-api';
-import { createUmkmItemTemplate } from '../view/templates/template-creator';
+import { createUmkmSliderTemplate } from '../view/templates/template-creator';
 
 class UmkmSlider extends HTMLElement {
   emptyContent() {
@@ -17,7 +17,7 @@ class UmkmSlider extends HTMLElement {
     const umkms = await UmkmsDbSource.getUmkms();
 
     umkms.forEach((umkm) => {
-      umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
+      umkmContainer.innerHTML += createUmkmSliderTemplate(umkm);
     });
 
     if (umkmContainer.innerHTML === '') {
