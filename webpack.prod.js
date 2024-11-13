@@ -91,6 +91,20 @@ module.exports = merge(common, {
             },
           },
         },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'font-awesome',
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/webfonts/'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'font-awesome',
+          },
+        },
       ],
     }),
   ],

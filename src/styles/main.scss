@@ -225,6 +225,61 @@ header {
             }
           }
         }
+        .user-account {
+          cursor: pointer;
+
+          a {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.1rem;
+
+            figcaption {
+              display: inline-block;
+              font-size: 0.8rem;
+              border: 1px solid $red;
+              border-radius: 10px;
+              padding: 0.5rem;
+              color: white;
+
+              &:hover {
+                border-color: white;
+                color: $red;
+              }
+            }
+          }
+        }
+
+        #profile {
+          cursor: pointer;
+
+          a {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.1rem;
+
+            figcaption {
+              display: inline-block;
+
+              border-radius: 10px;
+
+              i {
+                font-size: 1rem;
+                color: white;
+                &:hover {
+                  color: $red;
+                }
+              }
+            }
+          }
+        }
 
         .nav-toggle {
           cursor: pointer;

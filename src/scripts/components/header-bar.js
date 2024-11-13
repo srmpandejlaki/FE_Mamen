@@ -79,11 +79,6 @@ class HeaderBar extends HTMLElement {
           </nav>
 
           <div class="nav-extra">
-            <div class="user-account" id="profile">
-              <a href="#/profile">
-                <figcaption>Profile</figcaption>
-              </a>
-            </div>
             <div class="user-account" id="login">
               <a href="#/login">
                 <figcaption>Login</figcaption>
@@ -92,6 +87,11 @@ class HeaderBar extends HTMLElement {
             <div class="user-account" id="logout">
               <a href="#/login">
                 <figcaption>Logout</figcaption>
+              </a>
+            </div>
+            <div id="profile">
+              <a href="#/profile">
+                <figcaption><i class="fa-regular fa-user"></i></figcaption>
               </a>
             </div>
             <!-- toggle button -->
