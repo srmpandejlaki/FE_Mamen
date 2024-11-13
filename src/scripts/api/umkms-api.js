@@ -144,7 +144,7 @@ class UmkmsDbSource {
     }
   }
 
-  static async postUmkmCover(umkmId, { coverUrl }) {
+  static async postUmkmCover(umkmId, coverUrl) {
     try {
       const accessToken = localStorage.getItem('accessToken');
 
@@ -160,6 +160,12 @@ class UmkmsDbSource {
       };
       const response = await fetch(UMKMS.COVERS(umkmId), options);
       const responseJson = await response.json();
+
+      Swal.fire({
+        title: `${responseJson.message}`,
+        text: `${responseJson.status}`,
+      });
+
       return responseJson;
     } catch {
       Swal.fire({

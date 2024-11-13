@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [18.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -22,6 +22,7 @@ jobs:
       - name: Run Automated Test
         run: |
           npm install
+          npm run test
         env:
           CI: true
           API_KEY_MAMEN: ${{ secrets.API_KEY_MAMEN }}
