@@ -1,26 +1,24 @@
 // import CONFIG from '../../globals/config';
 
 const createUmkmItemTemplate = (umkm) => `
-            <article class="umkm-card">
-              <div class="umkm-img">
-                <img class="lazyload" data-src="${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'}" alt="${umkm.name}" />
-              </div>
-
-              <div class="umkm-info">
-                <span>${umkm.subdistrict}</span>
-                <h3><a href="/#/umkms/${umkm.id}">${umkm.name}</a></h3>
-                <p>
-                ${umkm.description}
-                </p>
-                <p>
-                ${umkm.address}
-                </p>
-              </div>
-              <div class="umkm-rate">
-                <i>&#9734;</i>
+            <div
+              data-id="${umkm.id}" 
+              class="slides"
+              style="background-image: url(${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'})"
+            >
+              <div class="content">
+                <h2>${umkm.name}</h2>
+                <p>${umkm.subdistrict}</p>
+                <p>${umkm.address}</p>
+                <p>${umkm.contact}</p>
+                <p>${umkm.year}</p>
                 <p>${umkm.rating}</p>
+                <p>${umkm.categories ? umkm.categories.map((category) => `<span>${category}</span>`).join(', ') : '-'}</p>
+                <p>
+                  ${umkm.description}
+                </p>
               </div>
-            </article>
+            </div>
 `;
 const createProductItemTemplate = (product) => `
             <article class="umkm-card">
