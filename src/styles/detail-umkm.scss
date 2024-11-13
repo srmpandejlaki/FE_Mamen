@@ -1,8 +1,40 @@
 $yellow: #ff9e1b;
 
-.detail-umkm {
+#detailContainer {
   display: flex;
-  gap: 2rem;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 8%;
+
+  #umkmDetail {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6.5rem;
+
+    #umkms,
+    #products,
+    #reviews {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
+
+umkm-detail {
+  width: 100%;
+
+  .detail-umkm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 .imgSection {
@@ -10,13 +42,9 @@ $yellow: #ff9e1b;
   position: relative;
 
   picture {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-
     img {
       width: 100%;
-      height: 100%;
+      height: 26rem;
       object-fit: cover;
       object-position: center;
       border-radius: 10px;
@@ -34,6 +62,10 @@ $yellow: #ff9e1b;
     border-radius: 0 0 0 5px;
     font-weight: bold;
     padding: 0.5rem;
+
+    i {
+      color: white;
+    }
   }
 
   #addImageForm {
@@ -58,7 +90,8 @@ $yellow: #ff9e1b;
       display: none;
     }
 
-    #submitImg, #resetImg {
+    #submitImg,
+    #resetImg {
       display: none;
       padding: 0.25rem 0.5rem;
       background-color: white;
@@ -94,23 +127,13 @@ $yellow: #ff9e1b;
   }
 
   .detail-con {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
     padding: 0 1rem;
 
-    div {
-      display: flex;
-
-      p {
-        flex: 1;
-      }
-      span {
-        padding-inline: 1rem;
-      }
-
-      #alamat, #kecamatan, #kontak, #tahun {
-        flex: 3;
+    table {
+      tr {
+        td {
+          padding: 0.5rem;
+        }
       }
     }
   }
@@ -140,7 +163,7 @@ $yellow: #ff9e1b;
           width: 100%;
           padding: 0.5rem 1rem;
           border: 1px solid black;
-          max-width: 5rem;
+          max-width: 10rem;
         }
         button {
           padding: 0.5rem 1rem;
@@ -167,13 +190,18 @@ $yellow: #ff9e1b;
         padding: 0.5rem 1rem;
 
         p {
-            color: white;
+          color: white;
         }
 
         .delete-category {
           display: none;
           color: white;
           cursor: pointer;
+
+          i {
+            color: white;
+            margin-left: 0.25rem;
+          }
         }
 
         &:hover {
@@ -187,6 +215,7 @@ $yellow: #ff9e1b;
 
   .description-con {
     position: relative;
+    padding: 0;
 
     div {
       background-color: black;
@@ -195,12 +224,39 @@ $yellow: #ff9e1b;
       display: flex;
       gap: 1rem;
       flex-direction: column;
-      padding: 1rem 2rem;
+      padding: 1rem 2rem 3rem;
+      box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
 
       p {
         color: white;
         font-size: 1rem;
         line-height: 1.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  umkm-detail {
+    .detail-umkm {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .infoSection {
+    .description-con {
+      padding: 2rem;
+      div {
+        position: absolute;
+        width: 115%;
+        left: -15%;
+        top: -1rem;
+        p {
+          color: white;
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
       }
     }
   }
