@@ -37,7 +37,7 @@ class ProductDetail extends HTMLElement {
       <picture>
         <img
           id="umkm-img"
-          src="${this.product.cover_url ? this.product.cover_url : './images/hero-image2.jpg'}"
+          src="${this.product.cover_url ? this.product.cover_url : './images/template-product-img.png'}"
           alt="${this.product.name}"
         />
       </picture>

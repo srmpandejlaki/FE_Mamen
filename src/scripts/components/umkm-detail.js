@@ -53,10 +53,10 @@ class UmkmDetail extends HTMLElement {
           .join('');
 
         // DELETE CATEGORY
-        const deleteCategoryButtons = document.querySelectorAll('.delete-category');
+        const deleteCategoryButtons = document.querySelectorAll('.fa-trash');
         deleteCategoryButtons.forEach((button) => {
           button.addEventListener('click', async (event) => {
-            const categoryId = event.target.parentElement.dataset.id;
+            const categoryId = event.target.parentElement.parentElement.dataset.id;
             await CategoriesDbSource.deleteCategoryById(umkmDetails[0].id, categoryId);
             button.parentElement.remove();
           });
@@ -89,7 +89,7 @@ class UmkmDetail extends HTMLElement {
     <article id="detail-umkm" class="detail-umkm">
       <section id="imgSection" class="imgSection">
         <picture>
-          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.jpg'}" alt="${this.umkm.name}">
+          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/template-umkm-img.png'}" alt="${this.umkm.name}">
         </picture>
         <span><i class="fa-regular fa-star"></i> ${this.umkm.rating}</span>
         <form id="addImageForm">
