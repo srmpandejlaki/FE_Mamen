@@ -72,6 +72,9 @@ class HeaderBar extends HTMLElement {
               <li class="nav-item">
                 <a href="#/products" class="nav-link">Products</a>
               </li>
+              <li class="nav-item">
+                <a href="#/about" class="nav-link">About Us</a>
+              </li>
             </ul>
           </nav>
 

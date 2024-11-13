@@ -105,18 +105,28 @@ class UmkmDetail extends HTMLElement {
           <button id="edit-detail"><i>edit</i></button>
         </div>
         <div class="detail-con">
-          <div>
-            <p>Alamat</p><span>:</span><p id="alamat">${this.umkm.address}</p>
-          </div>
-          <div>
-            <p>Kecamatan</p><span>:</span><p id="kecamatan">${this.umkm.subdistrict}</p>
-          </div>
-          <div>
-            <p>Kontak</p><span>:</span><p id="kontak">${this.umkm.contact}</p>
-          </div>
-          <div>
-            <p>Tahun</p><span>:</span><p id="tahun">${this.umkm.year}</p>
-          </div>
+          <table>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td id="alamat">${this.umkm.address}</td>
+          </tr>
+          <tr>
+            <td>Kecamatan</td>
+            <td>:</td>
+            <td id="kecamatan">${this.umkm.subdistrict}</td>
+          </tr>
+          <tr>
+            <td>Kontak</td>
+            <td>:</td>
+            <td id="kontak">${this.umkm.contact}</td>
+          </tr>
+          <tr>
+            <td>Tahun</td>
+            <td>:</td>
+            <td id="tahun">${this.umkm.year}</td>
+          </tr>
+        </table>
         </div>
         <div class="category-con">
           <div>
