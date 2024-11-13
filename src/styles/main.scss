@@ -726,19 +726,60 @@ footer {
   justify-content: center;
   align-items: center;
 
-  .footerbar {
-    padding-block: 1.5rem;
+  .footer-links {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 1rem;
 
-    p {
-      font-size: 0.9rem;
+    div {
+      color: white; 
+      flex: 1;
+      margin: 0 1rem;
 
-      span {
-        font-weight: 600;
-        font-size: 0.95rem;
-        color: $red;
+      h4 {
+        margin-bottom: 0.5rem;
+        text-transform: uppercase; 
       }
+
+      p, ul {
+        font-size: 0.8rem;
+      }
+
+      ul {
+        list-style-type: none; 
+        padding-left: 0;
+
+        li {
+          margin-bottom: 0.3rem;
+
+          a {
+            color: $red; 
+            text-decoration: none;
+
+            &:hover {
+              text-decoration: underline; 
+            }
+          }
+        }
+      }
+   }
+ } 
+
+ .footerbar {
+  padding-block: 2.5rem;
+  text-align: center;
+
+  p {
+    font-size: 0.9rem;
+
+    span {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: $red;
     }
   }
+}
 }
 
 /* RESPONSIVE */
