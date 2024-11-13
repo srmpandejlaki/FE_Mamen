@@ -42,6 +42,11 @@ class UmkmsDbSource {
     try {
       const response = await fetch(UMKMS.BASE);
       const responseJson = await response.json();
+
+      Swal.fire({
+        title: `${responseJson.message}`,
+        text: `${responseJson.status}`,
+      });
       return responseJson.data.umkms;
     } catch {
       Swal.fire({
@@ -56,6 +61,11 @@ class UmkmsDbSource {
     try {
       const response = await fetch(UMKMS.DETAIL(id));
       const responseJson = await response.json();
+
+      Swal.fire({
+        title: `${responseJson.message}`,
+        text: `${responseJson.status}`,
+      });
       return responseJson.data.umkm;
     } catch {
       Swal.fire({
@@ -77,12 +87,17 @@ class UmkmsDbSource {
       };
       const response = await fetch(UMKMS.USER_BASE, options);
       const responseJson = await response.json();
+
+      Swal.fire({
+        title: `${responseJson.message}`,
+        text: `${responseJson.status}`,
+      });
       return responseJson.data.umkm;
     } catch {
       Swal.fire({
         icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal mendapatkan umkm!',
+        title: 'Token Invalid',
+        text: 'Coba untuk Login kembali',
       });
     }
   }
