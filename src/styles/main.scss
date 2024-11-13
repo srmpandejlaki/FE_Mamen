@@ -86,7 +86,7 @@ header {
   top: 0;
   left: 0;
   min-width: 100%;
-  background-color: rgba(54, 54, 54, 0.624);
+  background-color: transparent;
   z-index: 999;
 
   .navbar-con {
@@ -110,13 +110,14 @@ header {
         z-index: 9999;
         border-radius: 3px;
         border: 1px solid transparent;
+        text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
         &:hover {
           .title {
-            color: black;
+            color: $red;
 
             span {
-              color: black;
+              color: white;
             }
           }
         }
@@ -129,12 +130,14 @@ header {
           font-size: 1.75rem;
           font-weight: bold;
           color: white;
+          text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
           span {
             color: $red;
             font-weight: bold;
             font-size: 1.75rem;
             margin-left: 3px;
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
           }
         }
       }
@@ -168,10 +171,7 @@ header {
             position: relative;
             cursor: pointer;
             color: white;
-
-            &:hover {
-              color: black;
-            }
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
             &::after {
               content: "";
@@ -213,40 +213,12 @@ header {
             figcaption {
               display: inline-block;
               font-size: 0.8rem;
-              border: 1px solid $red;
               border-radius: 10px;
               padding: 0.5rem;
               color: white;
+              text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
               &:hover {
-                border-color: white;
-                color: $red;
-              }
-            }
-          }
-        }
-        .user-account {
-          cursor: pointer;
-
-          a {
-            min-height: 44px;
-            min-width: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            gap: 0.1rem;
-
-            figcaption {
-              display: inline-block;
-              font-size: 0.8rem;
-              border: 1px solid $red;
-              border-radius: 10px;
-              padding: 0.5rem;
-              color: white;
-
-              &:hover {
-                border-color: white;
                 color: $red;
               }
             }
@@ -273,6 +245,7 @@ header {
               i {
                 font-size: 1rem;
                 color: white;
+                text-shadow: 1px 1px 3px rgb(0, 0, 0);
                 &:hover {
                   color: $red;
                 }
@@ -298,6 +271,7 @@ header {
 
           i {
             font-size: 1.75rem;
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
           }
         }
       }

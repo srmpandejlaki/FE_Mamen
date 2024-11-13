@@ -48,7 +48,7 @@ class UmkmDetail extends HTMLElement {
         document.querySelector('#listCategory').innerHTML = categories.map((category) => `
             <div class="category" data-id="${category.id}">
               <p>${category.name}</p>
-              <button class="delete-category">X</button>
+              <button class="delete-category"><i class="fa-solid fa-trash"></i></button>
             </div>`)
           .join('');
 
@@ -91,9 +91,9 @@ class UmkmDetail extends HTMLElement {
         <picture>
           <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.jpg'}" alt="${this.umkm.name}">
         </picture>
-        <span><i></i> ${this.umkm.rating}</span>
+        <span><i class="fa-regular fa-star"></i> ${this.umkm.rating}</span>
         <form id="addImageForm">
-          <label id="addImgLabel" for="addimage"><i>add</i></label>
+          <label id="addImgLabel" for="addimage"><i class="fa-solid fa-download"></i></label>
           <input type="file" id="addimage" accept="image/*" name="addimage" placeholder="Maks. 2mb" required>
           <button id="resetImg" type="reset">reset</button>
           <button id="submitImg" type="submit">Submit</button>
@@ -102,7 +102,7 @@ class UmkmDetail extends HTMLElement {
       <section class="infoSection">
         <div class="title-con">
           <h1 id="title-umkm">${this.umkm.name}</h1>
-          <button id="edit-detail"><i>edit</i></button>
+          <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
         </div>
         <div class="detail-con">
           <table>
@@ -145,6 +145,7 @@ class UmkmDetail extends HTMLElement {
             <p>Deskripsi :</p>
             <p id="deskripsi">${this.umkm.description}</p>
           </div>
+          <p></p>
         </div>
       </section>
      </article>
