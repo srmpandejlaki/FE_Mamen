@@ -23,4 +23,6 @@ const shadowHeader = () => {
     navbar.style.borderBottom = '0px solid rgba(255, 255, 255, 0.482)';
   }
 };
+window.addEventListener('DOMContentLoaded', shadowHeader);
+window.addEventListener('load', shadowHeader);
 window.addEventListener('hashchange', shadowHeader);
