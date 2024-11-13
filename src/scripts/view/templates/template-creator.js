@@ -3,7 +3,7 @@
 const createUmkmItemTemplate = (umkm) => `
             <article class="umkm-card">
               <div class="umkm-img">
-                <img class="lazyload" data-src="${umkm.cover_url ? umkm.cover_url : './images/hero-image2.jpg'}" alt="${umkm.name}" />
+                <img class="lazyload" data-src="${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'}" alt="${umkm.name}" />
               </div>
 
               <div class="umkm-info">
@@ -25,7 +25,7 @@ const createUmkmItemTemplate = (umkm) => `
 const createProductItemTemplate = (product) => `
             <article class="umkm-card">
               <div class="umkm-img">
-                <img class="lazyload" data-src="${product.cover_url ? product.cover_url : './images/hero-image2.jpg'}" alt="${product.name}" />
+                <img class="lazyload" data-src="${product.cover_url ? product.cover_url : './images/template-product-img.png'}" alt="${product.name}" />
               </div>
 
               <div class="umkm-info">
