@@ -9,14 +9,11 @@ const Profile = {
     return `
       <section id="detailContainer">
       <umkm-form></umkm-form>
-     <div id="umkmDetail">
-      <div id="umkms" class="umkms">
+      <div id="umkmDetail" class="child-section">
+        <div id="umkms" class="umkms"></div>
+        <div id="products" class="products"></div>
+        <div id="reviews" class="reviews"></div>
       </div>
-      <div id="products" class="products">
-      </div>
-       <div id="reviews" class="reviews">
-       </div>
-     </div>
     </section>
     `;
   },
