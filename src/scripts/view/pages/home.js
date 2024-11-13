@@ -9,17 +9,17 @@ const Home = {
       <section id="home">
         <picture>
           <source 
+            type="image/jpeg" 
+            srcset="./images/hero-image2.jpg">
+          <source 
             type="image/webp"
-            fetchpriority="high" 
             srcset="./images/hero-image2.webp">
           <source 
             type="image/jpeg"
             media="(max-width: 600px)" 
-            fetchpriority="high" 
             srcset="./images/hero-image2-small.jpg">
           <img
-            fetchpriority="high" 
-            src='./images/hero-image2-large.jpg' 
+            src='./images/hero-image2.jpg' 
             alt="Hero Image"
           >
         </picture>
@@ -47,6 +47,8 @@ const Home = {
     header.style.display = 'block';
     footer.style.display = 'flex';
     // --------------------------------------------
+
+    // HERO IMAGE ALTERNATIF
 
     // CLICK EVENTS
     const cat = document.querySelector('#cat');

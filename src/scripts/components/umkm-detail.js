@@ -89,7 +89,7 @@ class UmkmDetail extends HTMLElement {
     <article id="detail-umkm" class="detail-umkm">
       <section id="imgSection" class="imgSection">
         <picture>
-          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.webp'}" alt="${this.umkm.name}">
+          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.jpg'}" alt="${this.umkm.name}">
         </picture>
         <span><i></i> ${this.umkm.rating}</span>
         <form id="addImageForm">
