@@ -10,7 +10,7 @@ const config = {
   ],
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['fake-indexeddb/auto', 'dotenv/config'],
+  setupFiles: ['fake-indexeddb/auto'],
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',

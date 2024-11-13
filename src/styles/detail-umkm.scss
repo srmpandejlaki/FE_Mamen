@@ -1,0 +1,263 @@
+$yellow: #ff9e1b;
+
+#detailContainer {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 8%;
+
+  #umkmDetail {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 6.5rem;
+
+    #umkms,
+    #products,
+    #reviews {
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+}
+
+umkm-detail {
+  width: 100%;
+
+  .detail-umkm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+.imgSection {
+  flex: 4;
+  position: relative;
+
+  picture {
+    img {
+      width: 100%;
+      height: 26rem;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 10px;
+    }
+  }
+
+  span {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $yellow;
+    color: white;
+    padding: 1rem;
+    border-radius: 0 0 0 5px;
+    font-weight: bold;
+    padding: 0.5rem;
+
+    i {
+      color: white;
+    }
+  }
+
+  #addImageForm {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    bottom: 0.25rem;
+    left: 0.5rem;
+    z-index: 100;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+    label {
+      display: flex;
+      align-items: center;
+      padding: 0.25rem 0.5rem;
+      color: black;
+      background-color: white;
+    }
+
+    #addimage {
+      display: none;
+    }
+
+    #submitImg,
+    #resetImg {
+      display: none;
+      padding: 0.25rem 0.5rem;
+      background-color: white;
+      color: black;
+    }
+  }
+}
+
+.infoSection {
+  flex: 6;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+
+  .title-con {
+    display: flex;
+    align-items: center;
+
+    h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      flex: 1;
+      text-align: center;
+    }
+
+    #edit-detail {
+      background-color: white;
+      color: black;
+      padding: 0.5rem 1rem;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+  }
+
+  .detail-con {
+    padding: 0 1rem;
+
+    table {
+      tr {
+        td {
+          padding: 0.5rem;
+        }
+      }
+    }
+  }
+
+  .category-con {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      #addCategory {
+        background-color: white;
+        color: black;
+        padding: 0.5rem 1rem;
+        border: 1px solid black;
+        cursor: pointer;
+      }
+
+      #form-addCategory {
+        display: none;
+        align-items: center;
+
+        input {
+          width: 100%;
+          padding: 0.5rem 1rem;
+          border: 1px solid black;
+          max-width: 10rem;
+        }
+        button {
+          padding: 0.5rem 1rem;
+          background-color: black;
+          color: white;
+          border: 1px solid black;
+          cursor: pointer;
+        }
+      }
+    }
+
+    #listCategory {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+
+      div {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: black;
+        color: white;
+        padding: 0.5rem 1rem;
+
+        p {
+          color: white;
+        }
+
+        .delete-category {
+          display: none;
+          color: white;
+          cursor: pointer;
+
+          i {
+            color: white;
+            margin-left: 0.25rem;
+          }
+        }
+
+        &:hover {
+          .delete-category {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
+
+  .description-con {
+    position: relative;
+    padding: 0;
+
+    div {
+      background-color: black;
+      width: 100%;
+      height: auto;
+      display: flex;
+      gap: 1rem;
+      flex-direction: column;
+      padding: 1rem 2rem 3rem;
+      box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
+
+      p {
+        color: white;
+        font-size: 1rem;
+        line-height: 1.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) {
+  umkm-detail {
+    .detail-umkm {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .infoSection {
+    .description-con {
+      padding: 2rem;
+      div {
+        position: absolute;
+        width: 115%;
+        left: -15%;
+        top: -1rem;
+        p {
+          color: white;
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+}

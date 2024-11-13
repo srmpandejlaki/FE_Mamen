@@ -1,16 +1,21 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Mamen is a ..."
-    />
-    <meta name="theme-color" content="#da281c"/>
+    <meta name="description" content="Mamen is a ..." />
+    <meta name="theme-color" content="#da281c" />
     <!-- <link rel="apple-touch-icon" href="./icons/restaurant-192.png"> -->
-    <link rel="manifest" href="./app.webmanifest">
-    <!-- <link rel="preconnect" href="https://restaurant-api.dicoding.dev" /> -->
+    <link rel="manifest" href="./app.webmanifest" />
+    <link rel="preconnect" href="https://api.mamen.site" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
     <title>Mamen</title>
     <link rel="icon" type="image/png" href="./favicon.png" sizes="512x512" />
@@ -29,14 +34,13 @@
     </footer>
 
     <script>
-      const skip = document.querySelector('#skip-link');
-      const main = document.querySelector('#mainContent');
+      const skip = document.querySelector("#skip-link");
+      const main = document.querySelector("#mainContent");
 
-      skip.addEventListener('click', () => {
-        main.setAttribute('tabindex', '-1');
+      skip.addEventListener("click", () => {
+        main.setAttribute("tabindex", "-1");
         main.focus();
       });
     </script>
-    
   </body>
 </html>
