@@ -110,13 +110,14 @@ header {
         z-index: 9999;
         border-radius: 3px;
         border: 1px solid transparent;
+        text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
         &:hover {
           .title {
-            color: black;
+            color: $red;
 
             span {
-              color: black;
+              color: white;
             }
           }
         }
@@ -128,12 +129,15 @@ header {
           min-width: 44px;
           font-size: 1.75rem;
           font-weight: bold;
+          color: white;
+          text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
           span {
             color: $red;
             font-weight: bold;
             font-size: 1.75rem;
             margin-left: 3px;
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
           }
         }
       }
@@ -166,11 +170,8 @@ header {
             min-width: 44px;
             position: relative;
             cursor: pointer;
-            color: black;
-
-            &:hover {
-              color: black;
-            }
+            color: white;
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
             &::after {
               content: "";
@@ -212,13 +213,42 @@ header {
             figcaption {
               display: inline-block;
               font-size: 0.8rem;
-              border: 1px solid $red;
               border-radius: 10px;
               padding: 0.5rem;
+              color: white;
+              text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
               &:hover {
-                border-color: white;
                 color: $red;
+              }
+            }
+          }
+        }
+
+        #profile {
+          cursor: pointer;
+
+          a {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.1rem;
+
+            figcaption {
+              display: inline-block;
+
+              border-radius: 10px;
+
+              i {
+                font-size: 1rem;
+                color: white;
+                text-shadow: 1px 1px 3px rgb(0, 0, 0);
+                &:hover {
+                  color: $red;
+                }
               }
             }
           }
@@ -241,6 +271,7 @@ header {
 
           i {
             font-size: 1.75rem;
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
           }
         }
       }
@@ -308,6 +339,7 @@ main {
         line-height: 1.2;
         text-shadow: 1px 1px 3px rgba(0, 0, 3, 0.5);
         text-align: center;
+        color: white;
 
         span {
           color: $yellow;
@@ -319,6 +351,7 @@ main {
         line-height: 1.4;
         font-size: 1.1rem;
         text-align: center;
+        color: white;
       }
 
       button {
@@ -333,11 +366,13 @@ main {
         box-shadow: 1px 1px 3px rgba(0, 0, 3, 0.5);
         cursor: pointer;
         align-items: center;
+        color: white;
 
         i {
           transition: ease-in-out 0.3s;
           display: inline-block;
           margin-left: 0.5rem;
+          color: white;
         }
 
         &:hover {
@@ -636,14 +671,14 @@ main {
     height: 140px;
     overflow: auto;
     border-bottom: 1px solid $yellow;
-    padding-block: 0.5rem;
+    padding: 0.5rem 1rem;
 
     .review-name {
       overflow: auto;
       h3 {
         color: rgb(202, 202, 202);
         margin-block: 0;
-
+        color: black;
         font-size: 0.9rem;
       }
     }
@@ -651,7 +686,7 @@ main {
     .review-des {
       overflow: auto;
       p {
-        color: white;
+        color: black;
         margin-block: 0;
         font-size: 1rem;
       }
@@ -660,6 +695,7 @@ main {
     .review-date {
       align-self: flex-end;
       p {
+        color: black;
         font-size: 0.9rem;
         color: rgb(203, 203, 203);
       }

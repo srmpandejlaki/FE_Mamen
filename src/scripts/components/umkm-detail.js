@@ -48,7 +48,7 @@ class UmkmDetail extends HTMLElement {
         document.querySelector('#listCategory').innerHTML = categories.map((category) => `
             <div class="category" data-id="${category.id}">
               <p>${category.name}</p>
-              <button class="delete-category">X</button>
+              <button class="delete-category"><i class="fa-solid fa-trash"></i></button>
             </div>`)
           .join('');
 
@@ -89,11 +89,11 @@ class UmkmDetail extends HTMLElement {
     <article id="detail-umkm" class="detail-umkm">
       <section id="imgSection" class="imgSection">
         <picture>
-          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.webp'}" alt="${this.umkm.name}">
+          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/hero-image2.jpg'}" alt="${this.umkm.name}">
         </picture>
-        <span><i></i> ${this.umkm.rating}</span>
+        <span><i class="fa-regular fa-star"></i> ${this.umkm.rating}</span>
         <form id="addImageForm">
-          <label id="addImgLabel" for="addimage"><i>add</i></label>
+          <label id="addImgLabel" for="addimage"><i class="fa-solid fa-download"></i></label>
           <input type="file" id="addimage" accept="image/*" name="addimage" placeholder="Maks. 2mb" required>
           <button id="resetImg" type="reset">reset</button>
           <button id="submitImg" type="submit">Submit</button>
@@ -102,21 +102,31 @@ class UmkmDetail extends HTMLElement {
       <section class="infoSection">
         <div class="title-con">
           <h1 id="title-umkm">${this.umkm.name}</h1>
-          <button id="edit-detail"><i>edit</i></button>
+          <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
         </div>
         <div class="detail-con">
-          <div>
-            <p>Alamat</p><span>:</span><p id="alamat">${this.umkm.address}</p>
-          </div>
-          <div>
-            <p>Kecamatan</p><span>:</span><p id="kecamatan">${this.umkm.subdistrict}</p>
-          </div>
-          <div>
-            <p>Kontak</p><span>:</span><p id="kontak">${this.umkm.contact}</p>
-          </div>
-          <div>
-            <p>Tahun</p><span>:</span><p id="tahun">${this.umkm.year}</p>
-          </div>
+          <table>
+          <tr>
+            <td>Alamat</td>
+            <td>:</td>
+            <td id="alamat">${this.umkm.address}</td>
+          </tr>
+          <tr>
+            <td>Kecamatan</td>
+            <td>:</td>
+            <td id="kecamatan">${this.umkm.subdistrict}</td>
+          </tr>
+          <tr>
+            <td>Kontak</td>
+            <td>:</td>
+            <td id="kontak">${this.umkm.contact}</td>
+          </tr>
+          <tr>
+            <td>Tahun</td>
+            <td>:</td>
+            <td id="tahun">${this.umkm.year}</td>
+          </tr>
+        </table>
         </div>
         <div class="category-con">
           <div>
@@ -135,6 +145,7 @@ class UmkmDetail extends HTMLElement {
             <p>Deskripsi :</p>
             <p id="deskripsi">${this.umkm.description}</p>
           </div>
+          <p></p>
         </div>
       </section>
      </article>

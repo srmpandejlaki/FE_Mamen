@@ -2,6 +2,7 @@ $yellow: #ff9e1b;
 
 .detail-umkm {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -58,7 +59,8 @@ $yellow: #ff9e1b;
       display: none;
     }
 
-    #submitImg, #resetImg {
+    #submitImg,
+    #resetImg {
       display: none;
       padding: 0.25rem 0.5rem;
       background-color: white;
@@ -94,23 +96,13 @@ $yellow: #ff9e1b;
   }
 
   .detail-con {
-    display: flex;
-    gap: 1rem;
-    flex-direction: column;
     padding: 0 1rem;
 
-    div {
-      display: flex;
-
-      p {
-        flex: 1;
-      }
-      span {
-        padding-inline: 1rem;
-      }
-
-      #alamat, #kecamatan, #kontak, #tahun {
-        flex: 3;
+    table {
+      tr {
+        td {
+          padding: 0.5rem;
+        }
       }
     }
   }
@@ -167,7 +159,7 @@ $yellow: #ff9e1b;
         padding: 0.5rem 1rem;
 
         p {
-            color: white;
+          color: white;
         }
 
         .delete-category {
@@ -187,6 +179,7 @@ $yellow: #ff9e1b;
 
   .description-con {
     position: relative;
+    padding: 0;
 
     div {
       background-color: black;
@@ -195,12 +188,36 @@ $yellow: #ff9e1b;
       display: flex;
       gap: 1rem;
       flex-direction: column;
-      padding: 1rem 2rem;
+      padding: 1rem 2rem 3rem;
 
       p {
         color: white;
         font-size: 1rem;
         line-height: 1.5rem;
+      }
+    }
+    
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .detail-umkm {
+    flex-direction: row;
+  }
+
+  .infoSection {
+    .description-con {
+      padding: 2rem;
+      div {
+        position: absolute;
+        width: 115%;
+        left: -15%;
+        top: -1rem;
+        p {
+          color: white;
+          font-size: 1rem;
+          line-height: 1.5rem;
+        }
       }
     }
   }
