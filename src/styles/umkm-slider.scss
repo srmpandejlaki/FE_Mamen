@@ -54,26 +54,16 @@
         transition-delay: 0.5s;
       }
     }
-    &:nth-child(3) {
-      left: calc(35% + 300px);
-      background-size: cover;
-    }
-    &:nth-child(4) {
-      left: calc(35% + 500px);
-      background-size: cover;
-    }
-    &:nth-child(5) {
-      left: calc(35% + 700px);
-      background-size: cover;
-    }
-    &:nth-child(6) {
-      left: calc(35% + 900px);
-      background-size: cover;
-    }
-    &:nth-child(7) {
-      left: calc(35% + 900px);
-      background-size: cover;
-      opacity: 0;
+    @for $i from 3 through 1000 { // gunakan angka besar untuk antisipasi jumlah tak terbatas
+      &:nth-child(#{$i}) {
+        left: calc(45% + (200px * ($i - 2)));
+        background-size: cover;
+
+        // Mengatur transparansi pada elemen di luar rentang tampilan (misalnya setelah ke-6)
+        @if $i > 6 {
+          opacity: 0;
+        }
+      }
     }
   }
 }

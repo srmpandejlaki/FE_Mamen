@@ -36,6 +36,9 @@ const Home = {
         <div class="explore-con">
           <div id="reviews" class="reviews"></div>
         </div>
+        <div>
+          <div class="separator"></div>
+        </div>
       </section>
     `;
   },

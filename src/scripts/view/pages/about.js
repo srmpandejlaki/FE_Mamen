@@ -2,7 +2,9 @@ const AboutUs = {
   async render() {
     return `
     <section id="aboutSection">
-     
+     <div>
+          <div class="separator"></div>
+        </div>
     </section>
     `;
   },

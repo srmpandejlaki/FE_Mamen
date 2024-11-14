@@ -5,8 +5,14 @@ const ListUmkm = {
   async render() {
     return `
       <section id="explore" class="exploreUmkm">
+      <div>
+          <div class="separator"></div>
+        </div>
         <div class="explore-con">
           <div id="list-umkm"></div>
+        </div>
+        <div>
+          <div class="separator"></div>
         </div>
       </section>
     `;

@@ -8,6 +8,9 @@ const DetailProduct = {
      <div id="productDetail">
       <div id="detailProduct" class="detailProduct">
       </div>
+      <div>
+          <div class="separator"></div>
+        </div>
      </div>
     </section>
     `;
