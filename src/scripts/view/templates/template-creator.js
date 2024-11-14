@@ -24,7 +24,12 @@ const createUmkmSliderTemplate = (umkm) => `
 const createUmkmItemTemplate = (umkm) => `
             <article class="umkm-card">
               <div class="umkm-img">
-                <img class="lazyload" data-src="${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'}" alt="${umkm.name}" />
+                <img 
+                class="lazyload" 
+                data-src="${umkm.cover_url || './images/template-umkm-img.png'}" 
+                alt="${umkm.name}" 
+                onerror="this.onerror=null;this.src='./images/template-umkm-img.png';" 
+              />
               </div>
 
               <div class="umkm-info">
@@ -44,12 +49,12 @@ const createUmkmItemTemplate = (umkm) => `
             </article>
 `;
 const createProductItemTemplate = (product) => `
-            <article class="umkm-card">
-              <div class="umkm-img">
+            <article class="product-card">
+              <div class="product-img">
                 <img class="lazyload" data-src="${product.cover_url ? product.cover_url : './images/template-product-img.png'}" alt="${product.name}" />
               </div>
 
-              <div class="umkm-info">
+              <div class="product-info">
                 <span>Rp. ${product.price}</span>
                 <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
                 <p>

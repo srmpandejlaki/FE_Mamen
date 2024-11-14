@@ -11,7 +11,17 @@ const Profile = {
       <umkm-form></umkm-form>
       <div id="umkmDetail" class="child-section">
         <div id="umkms" class="umkms"></div>
+        <div class="product-separator">
+          <div class="separator"></div>
+        </div>
+        <div class="section-title">
+          <h2>Products</h2>
+          <button>Tambah Produk</button>
+        </div>
         <div id="products" class="products"></div>
+        <div>
+          <div class="separator"></div>
+        </div>
         <div id="reviews" class="reviews"></div>
       </div>
     </section>
