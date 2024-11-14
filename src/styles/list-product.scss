@@ -7,8 +7,11 @@ $black: rgb(255, 255, 255);
   padding-block: 2rem;
 }
 
+.list-products {
+  padding-top: 5rem;
+}
+
 #products {
-  padding-block: 4rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;

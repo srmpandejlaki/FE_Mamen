@@ -5,8 +5,14 @@ const ListProduct = {
   async render() {
     return `
       <section id="explore" class="exploreProd">
+      <div>
+          <div class="separator"></div>
+        </div>
         <div class="explore-con">
           <div id="products" class="products"></div>
+        </div>
+        <div>
+          <div class="separator"></div>
         </div>
       </section>
     `;

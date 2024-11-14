@@ -18,11 +18,17 @@ const Profile = {
           <h2>Products</h2>
           <button>Tambah Produk</button>
         </div>
-        <div id="products" class="products"></div>
+        <div id="products" class="list-products"></div>
         <div>
           <div class="separator"></div>
         </div>
+        <div class="section-title">
+          <h2>Reviews</h2>
+        </div>
         <div id="reviews" class="reviews"></div>
+        <div>
+          <div class="separator"></div>
+        </div>
       </div>
     </section>
     `;

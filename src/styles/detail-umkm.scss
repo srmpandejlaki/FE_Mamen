@@ -45,10 +45,10 @@ $yellow: #ff9e1b;
     display: flex;
     flex-direction: column;
     padding-top: 6.5rem;
+    overflow: hidden;
 
     #umkms,
-    #detailProduct, 
-    #reviews {
+    #detailProduct {
       min-height: 600px;
       display: flex;
       align-items: center;
