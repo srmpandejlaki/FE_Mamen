@@ -24,7 +24,12 @@ const createUmkmSliderTemplate = (umkm) => `
 const createUmkmItemTemplate = (umkm) => `
             <article class="umkm-card">
               <div class="umkm-img">
-                <img class="lazyload" data-src="${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'}" alt="${umkm.name}" />
+                <img 
+                class="lazyload" 
+                data-src="${umkm.cover_url || './images/template-umkm-img.png'}" 
+                alt="${umkm.name}" 
+                onerror="this.onerror=null;this.src='./images/template-umkm-img.png';" 
+              />
               </div>
 
               <div class="umkm-info">

@@ -2,6 +2,7 @@
 const headercon = document.querySelector('header');
 const header = document.querySelector('.navbar-con');
 const navbar = document.querySelector('.navbar');
+const footer = document.querySelector('footer');
 const blurHeader = () => {
   // When the scroll is greater than 50 viewport height, add the blur-header class
   if (window.scrollY >= 50) {
@@ -23,6 +24,19 @@ const shadowHeader = () => {
     navbar.style.borderBottom = '0px solid rgba(255, 255, 255, 0.482)';
   }
 };
-window.addEventListener('DOMContentLoaded', shadowHeader);
 window.addEventListener('load', shadowHeader);
 window.addEventListener('hashchange', shadowHeader);
+
+// HEADER & FOOTER VISIBILITY
+const showHeadFoot = () => {
+  if (window.location.hash === '#/login') {
+    headercon.style.display = 'none';
+    footer.style.display = 'none';
+  } else {
+    headercon.style.display = 'block';
+    footer.style.display = 'flex';
+  }
+};
+
+window.addEventListener('load', showHeadFoot);
+window.addEventListener('hashchange', showHeadFoot);

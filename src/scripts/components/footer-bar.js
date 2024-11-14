@@ -104,7 +104,7 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-facebook-line">F</i>
+              <i class="ri-facebook-line"></i>
             </a>
 
             <a
@@ -112,7 +112,7 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-instagram-line">I</i>
+              <i class="ri-instagram-line"></i>
             </a>
 
             <a
@@ -120,7 +120,7 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-twitter-line">X</i>
+              <i class="ri-twitter-line"></i>
             </a>
 
             <a
@@ -128,7 +128,7 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-youtube-line">Y</i>
+              <i class="ri-youtube-line"></i>
             </a>
           </div>
 

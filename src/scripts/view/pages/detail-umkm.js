@@ -11,10 +11,16 @@ const DetailUmkm = {
      <div id="umkmDetail">
       <div id="umkms" class="umkms">
       </div>
+      <div>
+        <div class="separator"></div>
+      </div>
       <div id="products" class="products">
       </div>
-       <div id="reviews" class="reviews">
-       </div>
+      <div>
+        <div class="separator"></div>
+      </div>
+      <div id="reviews" class="reviews">
+      </div>
      </div>
     </section>
     `;

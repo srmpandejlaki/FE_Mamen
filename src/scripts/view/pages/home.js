@@ -41,16 +41,6 @@ const Home = {
   },
 
   async afterRender() {
-    // HEADER & FOOTER VISIBILITY
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-
-    header.style.display = 'block';
-    footer.style.display = 'flex';
-    // --------------------------------------------
-
-    // HERO IMAGE ALTERNATIF
-
     // CLICK EVENTS
     const cat = document.querySelector('#cat');
     const explore = document.querySelector('#explore');
