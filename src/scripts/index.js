@@ -3,11 +3,7 @@ import '../styles/main.scss';
 import '../styles/login.scss';
 import '../styles/popup.scss';
 import '../styles/detail-umkm.scss';
-<<<<<<< HEAD
-import '../styles/reviews-home.scss';
-=======
 import '../styles/detail-product.scss';
->>>>>>> 289d494633bbdd185319afdd1d17ece87e7b02f8
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
