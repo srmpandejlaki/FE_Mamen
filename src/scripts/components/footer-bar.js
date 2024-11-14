@@ -10,31 +10,132 @@ class FooterBar extends HTMLElement {
   render() {
     this.emptyContent();
     this.innerHTML += `
-      <div class="footer-links">
-        <div class="about">
-          <h4>About</h4>
-          <p>Learn more about our mission and values.</p>
+      <div class="footer-container container grid">
+        <div class="footer-content grid">
+          <div>
+            <a href="#" class="footer-logo">Travel</a>
+
+            <p class="footer-description">
+              Travel with us and explore <br />
+              the world without limits.
+            </p>
+          </div>
+
+          <div class="footer-data grid">
+            <div>
+              <h3 class="footer-title">About</h3>
+
+              <ul class="footer-links">
+                <li>
+                  <a href="#" class="footer-link">About us</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">Features</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">News & Blog</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="footer-title">Company</h3>
+
+              <ul class="footer-links">
+                <li>
+                  <a href="#" class="footer-link">FAQs</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">History</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">Testimonials</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="footer-title">Contact</h3>
+
+              <ul class="footer-links">
+                <li>
+                  <a href="#" class="footer-link">Call Center</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">Support Center</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">Contact Us</a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 class="footer-title">Support</h3>
+
+              <ul class="footer-links">
+                <li>
+                  <a href="#" class="footer-link">Privacy Policy</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">Terms & Services</a>
+                </li>
+
+                <li>
+                  <a href="#" class="footer-link">Payments</a>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="social-media">
-          <h4>Follow Us</h4>
-            <ul>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">Twitter</a></li>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">LinkedIn</a></li>
-             </ul>
+
+        <div class="footer-group">
+          <div class="footer-social">
+            <a
+              href="https://www.facebook.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-facebook-line"></i>
+            </a>
+
+            <a
+              href="https://www.instagram.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-instagram-line"></i>
+            </a>
+
+            <a
+              href="https://twitter.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-twitter-line"></i>
+            </a>
+
+            <a
+              href="https://www.youtube.com/"
+              target="_blank"
+              class="footer-social-link"
+            >
+              <i class="ri-youtube-line"></i>
+            </a>
+          </div>
+
+          <span class="footer-copy">
+            &#169; Copyright Bedicode. All rights reserved
+            <!-- warna ungu = logo copyright -->
+          </span>
         </div>
-        <div class="contact">
-          <h4>Contact</h4>
-          <p>Email: contact@isshoo.com</p>
-          <p>Phone: +123 456 7890</p>
-        </div>
-      </div>
-      <div class="footerbar">
-        <p>
-          Copyright &copy; 2024 Isshoo.
-          - <em>Ma<span>men</span></em>
-        </p>
       </div>
 `;
   }
