@@ -10,18 +10,18 @@ class FooterBar extends HTMLElement {
   render() {
     this.emptyContent();
     this.innerHTML += `
-      <div class="footer-container container grid">
-        <div class="footer-content grid">
-          <div>
-            <a href="#" class="footer-logo">Travel</a>
+      <div class="footer-container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <a href="#" class="footer-logo"><h3>Mamen</h3></a>
 
             <p class="footer-description">
-              Travel with us and explore <br />
+              Travel with us and explore
               the world without limits.
             </p>
           </div>
 
-          <div class="footer-data grid">
+          <div class="footer-data">
             <div>
               <h3 class="footer-title">About</h3>
 
@@ -97,13 +97,14 @@ class FooterBar extends HTMLElement {
         </div>
 
         <div class="footer-group">
+          
           <div class="footer-social">
             <a
               href="https://www.facebook.com/"
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-facebook-line"></i>
+              <i class="ri-facebook-line">F</i>
             </a>
 
             <a
@@ -111,7 +112,7 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-instagram-line"></i>
+              <i class="ri-instagram-line">I</i>
             </a>
 
             <a
@@ -119,7 +120,7 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-twitter-line"></i>
+              <i class="ri-twitter-line">X</i>
             </a>
 
             <a
@@ -127,14 +128,15 @@ class FooterBar extends HTMLElement {
               target="_blank"
               class="footer-social-link"
             >
-              <i class="ri-youtube-line"></i>
+              <i class="ri-youtube-line">Y</i>
             </a>
           </div>
 
-          <span class="footer-copy">
-            &#169; Copyright Bedicode. All rights reserved
-            <!-- warna ungu = logo copyright -->
-          </span>
+          <div class="footer-copy">
+            <p>
+              &#169; Copyright Bedicode. All rights reserved
+            </p>
+          </div>
         </div>
       </div>
 `;

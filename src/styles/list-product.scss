@@ -4,7 +4,7 @@ $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
 #products {
-    padding-block: 6rem;
+  padding-block: 6rem;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 1.5rem;
