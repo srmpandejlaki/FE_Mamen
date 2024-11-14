@@ -1,5 +1,4 @@
 /* eslint-disable class-methods-use-this */
-import UmkmsDbSource from '../api/umkms-api';
 
 class ProductDetail extends HTMLElement {
   constructor() {
@@ -30,47 +29,41 @@ class ProductDetail extends HTMLElement {
     this.innerHTML = '';
   }
 
-  async namaUmkm() {
-    const umkmDetails = await UmkmsDbSource.getUmkmById(this.product.umkms_id);
-
-    const namaUmkm = umkmDetails.name;
-
-    document.querySelector('#namaUmkm').innerHTML = `<a href="/#/umkms/${this.product.umkms_id}">${namaUmkm}</a>`;
-  }
-
   render() {
     this.emptyContent();
     this.innerHTML += `
-         <article class="detail-card">
-              <div class="detail-title">
-               <h2>${this.product.name}</h2>
-              </div>
-              <div class="detail-img">
-                <img fetchpriority="high" src="${this.product.cover_url ? this.product.cover_url : './images/hero-image2.webp'}" alt="${this.product.name}" />
-              </div>
-
-              <div class="detail-info">
-              <div id="info-umkm" class="infos">
-                <h3 class="labels">Nama UMKM</h3>
-                <p id="namaUmkm"></p>
-               </div>
-               <div id="info-tipe" class="infos">
-                <h3 class="labels">Tipe</h3>
-                <p>${this.product.product_type}</p>
-               </div>
-               <div id="info-price" class="infos">
-                <h3 class="labels">Price</h3>
-                <p>${this.product.price}</p>
-               </div>
-               <div id="info-desc" class="infos">
-                <h3 class="labels">Description</h3>
-                <p>${this.product.description}</p>
-               </div>
-               </div>
-            </article>
+  <article id="detailProduct">
+    <section id="imgSection" class="imgSection prod">
+      <picture>
+        <img
+          id="umkm-img"
+          src="${this.product.cover_url ? this.product.cover_url : './images/template-product-img.png'}"
+          alt="${this.product.name}"
+        />
+      </picture>
+    </section>
+    <section class="infoSection prod">
+      <div class="title-con">
+        <h1 id="title-umkm">${this.product.name}</h1>
+      </div>
+      <div class="detail-con prod">
+        <div class="details prod">
+          <div>
+            <p id="tipe">${this.product.product_type}</p>
+          </div>
+          <div>
+            <p id="harga">${this.product.price}</p>
+          </div>
+        </div>
+        <div class="desc">
+          <div>
+            <p id="deskripsi">${this.product.description}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
         `;
-
-    this.namaUmkm();
   }
 }
 
