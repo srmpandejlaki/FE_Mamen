@@ -7,7 +7,7 @@ import '../styles/detail-product.scss';
 import '../styles/umkm-slider.scss';
 import '../styles/list-product.scss';
 import '../styles/list-umkm.scss';
-import '../styles/list-reviews.scss';
+import '../styles/list-review.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
