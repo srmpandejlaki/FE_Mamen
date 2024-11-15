@@ -92,7 +92,6 @@ class ProductsDbSource {
           product_type: product.product_type,
           description: product.description,
           price: product.price,
-          cover_url: product.cover_url || null,
         }),
       };
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
@@ -124,6 +123,10 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
+      Swal.fire({
+        title: `${responseJson.message}`,
+        text: `${responseJson.status}`,
+      });
       return responseJson;
     } catch {
       Swal.fire({
@@ -134,7 +137,7 @@ class ProductsDbSource {
     }
   }
 
-  static async postProductCover(umkmId, id, { coverUrl }) {
+  static async postProductCover(umkmId, id, coverUrl) {
     try {
       const accessToken = localStorage.getItem('accessToken');
 
@@ -150,6 +153,10 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.COVERS(umkmId, id), options);
       const responseJson = await response.json();
+      Swal.fire({
+        title: `${responseJson.message}`,
+        text: `${responseJson.status}`,
+      });
       return responseJson;
     } catch {
       Swal.fire({
