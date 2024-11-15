@@ -2,6 +2,7 @@
 import UmkmsDbSource from '../api/umkms-api';
 import CategoriesDbSource from '../api/categories-api';
 import UrlParser from '../routes/url-parser';
+import { umkmImage, addCategory, editUmkm } from '../utility/umkmFunction';
 
 class UmkmDetail extends HTMLElement {
   constructor() {
@@ -37,8 +38,23 @@ class UmkmDetail extends HTMLElement {
   async categories() {
     let categories;
 
-    if (window.location.hash === '#/profile') {
+    if (window.location.hash !== '#/profile') {
+      const url = UrlParser.parseActiveUrlWithoutCombiner();
+      categories = await CategoriesDbSource.getCategoriesByUmkm(url.id);
+
+      // RENDER CATEGORIES BY UMKM
+      if (categories.length === 0) {
+        document.querySelector('#listCategory').innerHTML = '-';
+      } else {
+        document.querySelector('#listCategory').innerHTML = categories.map((category) => `
+            <div class="category" data-id="${category.id}">
+              <p>${category.name}</p>
+            </div>`)
+          .join('');
+      }
+    } else {
       const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+
       categories = await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
 
       // RENDER CATEGORIES BY UMKM
@@ -58,28 +74,17 @@ class UmkmDetail extends HTMLElement {
           button.addEventListener('click', async (event) => {
             const categoryId = event.target.parentElement.parentElement.dataset.id;
             await CategoriesDbSource.deleteCategoryById(umkmDetails[0].id, categoryId);
-            button.parentElement.remove();
+            button.parentElement.parentElement.remove();
           });
         });
       }
-    } else {
-      const url = UrlParser.parseActiveUrlWithoutCombiner();
-      categories = await CategoriesDbSource.getCategoriesByUmkm(url.id);
-
-      // RENDER CATEGORIES BY UMKM
-      if (categories.length === 0) {
-        document.querySelector('#listCategory').innerHTML = '-';
-      } else {
-        document.querySelector('#listCategory').innerHTML = categories.map((category) => `
-            <div class="category" data-id="${category.id}">
-              <p>${category.name}</p>
-            </div>`)
-          .join('');
-      }
-
-      document.getElementById('addImageForm').remove();
-      document.getElementById('edit-detail').remove();
-      document.getElementById('addCategory').remove();
+      const editUmkmButton = document.querySelector('#edit-detail');
+      editUmkmButton.addEventListener('click', () => {
+        document.querySelector('editumkm-form').style.display = 'block';
+        editUmkm();
+      });
+      umkmImage();
+      addCategory();
     }
   }
 
@@ -89,7 +94,12 @@ class UmkmDetail extends HTMLElement {
     <article id="detail-umkm" class="detail-umkm">
       <section id="imgSection" class="imgSection">
         <picture>
-          <img id="umkm-img" src="${this.umkm.cover_url ? this.umkm.cover_url : './images/template-umkm-img.png'}" alt="${this.umkm.name}">
+          <img 
+          id="umkm-img" 
+          src="${this.umkm.cover_url ? this.umkm.cover_url : './images/template-umkm-img.png'}" 
+          alt="${this.umkm.name}"
+          onerror="this.onerror=null;this.src='./images/template-umkm-img.png';"
+          >
         </picture>
         <span><i class="fa-regular fa-star"></i> ${this.umkm.rating}</span>
         <form id="addImageForm">
