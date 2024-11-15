@@ -1,0 +1,22 @@
+// color pallette
+$title: black;
+
+// styling
+.ReviewForm {
+  .h2Review {
+    h2 {
+      color: $title;
+
+      text-align: center;
+    }
+  }
+
+  .Forms {
+    display: flex;
+    justify-content: space-between;
+
+    .desc {
+      padding: 1rem;
+    }
+  }
+}
