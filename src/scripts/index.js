@@ -12,12 +12,16 @@ import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
 import './components/umkm-form';
+import './components/product-form';
 import './components/editUmkm-form';
+import './components/editProduct-form';
 import './components/umkm-detail';
 import './components/product-detail';
 import './components/umkm-slider';
 import './utility/navbar-tambahan';
 import './utility/header';
+import './utility/umkmFunction';
+import './utility/productFunction';
 
 import App from './view/app';
 import swRegister from './utility/sw-register';
