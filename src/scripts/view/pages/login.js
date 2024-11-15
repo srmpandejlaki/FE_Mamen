@@ -21,6 +21,9 @@ const Login = {
 
             <!-- Login Form -->
             <form id="loginForm" class="form act">
+              <div class="img">
+                <img src="./images/LogoMamen.png" alt="Logo Mamen">
+              </div>
               <div>
                 <h2>Login</h2>
                 <div>
