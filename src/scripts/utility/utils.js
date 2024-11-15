@@ -54,6 +54,14 @@ class Utils {
       date,
     };
   }
+
+  static delay(response = null) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(response);
+      }, 1500);
+    });
+  }
 }
 
 export default Utils;

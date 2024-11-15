@@ -5,6 +5,9 @@ $black: rgb(255, 255, 255);
 
 .exploreUmkm {
   padding-block: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #list-umkm {
