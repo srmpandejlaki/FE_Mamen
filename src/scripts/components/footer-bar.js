@@ -16,8 +16,7 @@ class FooterBar extends HTMLElement {
             <a href="#" class="footer-logo"><h3>Mamen</h3></a>
 
             <p class="footer-description">
-              Travel with us and explore
-              the world without limits.
+              Temukan UMKM lokal di Mamen – Temukan dan dukung UMKM lokal di Mamen! Jelajahi bisnis-bisnis unik dari Sulawesi Utara dan bantu tumbuhkan ekonomi bersama.
             </p>
           </div>
 
@@ -27,33 +26,37 @@ class FooterBar extends HTMLElement {
 
               <ul class="footer-links">
                 <li>
-                  <a href="#" class="footer-link">About us</a>
+                  <a href="#/about" class="footer-link">About us</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">Features</a>
+                  <a href="https://www.dicoding.com/" class="footer-link">Dicoding</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">News & Blog</a>
+                  <a href="https://pusatinformasi.kampusmerdeka.kemdikbud.go.id/hc/id" class="footer-link">SIB</a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 class="footer-title">Company</h3>
+              <h3 class="footer-title">Tech Stack</h3>
 
               <ul class="footer-links">
                 <li>
-                  <a href="#" class="footer-link">FAQs</a>
+                  <a href="https://nodejs.org/en" class="footer-link">NodeJs</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">History</a>
+                  <a href="https://hapi.dev/" class="footer-link">HapiJs</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">Testimonials</a>
+                  <a href="https://webpack.js.org/" class="footer-link">Webpack</a>
+                </li>
+
+                <li>
+                  <a href="https://sass-lang.com/" class="footer-link">Sass</a>
                 </li>
               </ul>
             </div>
@@ -63,33 +66,37 @@ class FooterBar extends HTMLElement {
 
               <ul class="footer-links">
                 <li>
-                  <a href="#" class="footer-link">Call Center</a>
+                  <a href="https://www.linkedin.com/in/monica-aprilia-pandeiroth-364b79327/" class="footer-link">Monica St.</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">Support Center</a>
+                  <a href="https://www.linkedin.com/in/mutiara-pandejlaki-0856431b6/" class="footer-link">Muti St.</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">Contact Us</a>
+                  <a href="https://www.linkedin.com/in/melia-nova-kuntono-974884249/" class="footer-link">Melia St.</a>
+                </li>
+
+                <li>
+                  <a href="www.linkedin.com/in/algyngenget" class="footer-link">Algy Nt.</a>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 class="footer-title">Support</h3>
+              <h3 class="footer-title">Platform</h3>
 
               <ul class="footer-links">
                 <li>
-                  <a href="#" class="footer-link">Privacy Policy</a>
+                  <a href="https://github.com/" class="footer-link">Github</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">Terms & Services</a>
+                  <a href="https://aws.amazon.com" class="footer-link">AWS</a>
                 </li>
 
                 <li>
-                  <a href="#" class="footer-link">Payments</a>
+                  <a href="https://www.netlify.com/" class="footer-link">Postman</a>
                 </li>
               </ul>
             </div>
@@ -124,7 +131,7 @@ class FooterBar extends HTMLElement {
             </a>
 
             <a
-              href="https://www.youtube.com/"
+              href="https://www.youtube.com/@Isshoo-st"
               target="_blank"
               class="footer-social-link"
             >
@@ -134,7 +141,7 @@ class FooterBar extends HTMLElement {
 
           <div class="footer-copy">
             <p>
-              &#169; Copyright Bedicode. All rights reserved
+              &#169; Copyright Mamenmdo. All rights reserved
             </p>
           </div>
         </div>

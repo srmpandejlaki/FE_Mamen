@@ -45,6 +45,36 @@ $black: rgb(255, 255, 255);
           transition: transform 0.5s ease-in-out;
         }
       }
+      .addImageFormProd {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        z-index: 100;
+
+        label {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem 0.75rem;
+          color: black;
+          background-color: rgba(255, 255, 255, 0.598);
+          border-radius: 0 5px 0;
+        }
+
+        .addimageprod {
+          display: none;
+        }
+
+        .submitImgProd,
+        .resetImgProd {
+          display: none;
+          padding: 0.25rem 0.5rem;
+          background-color: white;
+          color: black;
+        }
+      }
     }
 
     .product-info {
@@ -52,7 +82,7 @@ $black: rgb(255, 255, 255);
       flex-direction: column;
       justify-content: start;
       align-items: start;
-      gap: 0.3rem;
+      gap: 0.75rem;
       margin: 0 1.6rem 1rem;
       padding-block: 1rem;
 
@@ -65,7 +95,7 @@ $black: rgb(255, 255, 255);
       span {
         position: absolute;
         padding: 0.4em 1em;
-        background-color: $red;
+        background-color: $yellow;
         border-radius: 3px;
         z-index: 99;
         display: inline-block;
@@ -82,11 +112,8 @@ $black: rgb(255, 255, 255);
           color: black;
           line-height: 1.2;
           display: inline-block;
-          margin-bottom: 0.5rem;
-          padding-block: 0.5rem;
+          padding-block: 0.25rem;
           border-bottom: 1px solid $yellow;
-          min-width: 44px;
-          min-height: 44px;
           text-decoration: none;
 
           &:hover {
@@ -102,6 +129,33 @@ $black: rgb(255, 255, 255);
         color: black;
         line-height: 1.4;
         text-align: start;
+      }
+
+      .prod-buttons {
+        margin-top: 0.25rem;
+        display: flex;
+        gap: 0.5rem;
+        align-items: end;
+        align-self: end;
+        flex: 1;
+
+        button {
+          padding: 0.5rem;
+          border-radius: 3px;
+          background-color: $red;
+          color: white;
+          cursor: pointer;
+          transition: background-color 0.3s ease-in-out;
+
+          i {
+            color: white;
+            font-size: 0.8rem;
+          }
+
+          &:hover {
+            background-color: $yellow;
+          }
+        }
       }
     }
 
