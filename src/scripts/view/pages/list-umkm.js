@@ -4,9 +4,15 @@ import { createUmkmItemTemplate } from '../templates/template-creator';
 const ListUmkm = {
   async render() {
     return `
-      <section id="explore">
+      <section id="explore" class="exploreUmkm">
+      <div>
+          <div class="separator"></div>
+        </div>
         <div class="explore-con">
-          <div id="umkm-list"></div>
+          <div id="list-umkm"></div>
+        </div>
+        <div>
+          <div class="separator"></div>
         </div>
       </section>
     `;
@@ -14,7 +20,7 @@ const ListUmkm = {
 
   async afterRender() {
     // RENDER UMKM
-    const umkmContainer = document.querySelector('#umkm-list');
+    const umkmContainer = document.querySelector('#list-umkm');
     umkmContainer.innerHTML = '';
     const umkms = await UmkmsDbSource.getUmkms();
 
