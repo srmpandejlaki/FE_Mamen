@@ -84,6 +84,7 @@ class UmkmsDbSource {
         title: 'Token Invalid',
         text: 'Coba untuk Login kembali',
       });
+      window.location.hash = '#/login';
     }
   }
 
