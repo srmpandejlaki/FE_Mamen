@@ -11,10 +11,25 @@ const DetailUmkm = {
      <div id="umkmDetail">
       <div id="umkms" class="umkms">
       </div>
-      <div id="products" class="products">
+      <div>
+        <div class="separator"></div>
       </div>
-       <div id="reviews" class="reviews">
-       </div>
+      <div class="section-title">
+          <h2>Products</h2>
+        </div>
+      <div id="products" class="list-products">
+      </div>
+      <div>
+        <div class="separator"></div>
+      </div>
+      <div class="section-title">
+          <h2>Reviews</h2>
+        </div>
+      <div id="reviews" class="reviews">
+      </div>
+      <div>
+          <div class="separator"></div>
+        </div>
      </div>
     </section>
     `;
@@ -37,10 +52,16 @@ const DetailUmkm = {
 
     // RENDER PRODUCTS BY UMKM
     const productDetails = await ProductsDbSource.getProductsByUmkm(url.id);
-    document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
-
     if (productDetails.length === 0) {
       document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
+    } else {
+      document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
+      document.querySelectorAll('.addImageFormProd').forEach((item) => {
+        item.remove();
+      });
+      document.querySelectorAll('.prod-buttons').forEach((item) => {
+        item.remove();
+      });
     }
 
     // RENDER REVIEWS BY UMKM

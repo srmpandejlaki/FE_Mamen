@@ -1,5 +1,3 @@
-import UmkmsDbSource from '../api/umkms-api';
-
 /* eslint-disable class-methods-use-this */
 class UmkmForm extends HTMLElement {
   emptyContent() {
@@ -8,43 +6,6 @@ class UmkmForm extends HTMLElement {
 
   connectedCallback() {
     this.render();
-  }
-
-  form() {
-    const closeFormButton = document.getElementById('closeFormButton');
-    const popupForm = document.querySelector('.popup-form');
-    const formContent = document.querySelector('.popup-content');
-
-    // Close the form popup
-    closeFormButton.addEventListener('click', () => {
-      popupForm.style.display = 'none';
-    });
-
-    // Close the form when clicking outside the content area
-    window.addEventListener('click', (event) => {
-      if (event.target === popupForm || event.target === formContent) {
-        popupForm.style.display = 'none';
-      }
-    });
-
-    // Form submission handler
-    document.getElementById('umkmForm').addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const name = document.getElementById('name').value;
-      const description = document.getElementById('description').value;
-      const subdistrict = document.getElementById('subdistrict').value;
-      const address = document.getElementById('address').value;
-      const contact = document.getElementById('contact').value;
-      const year = document.getElementById('year').value;
-      const umkm = {
-        name, description, subdistrict, address, contact, year,
-      };
-      await UmkmsDbSource.postUmkm(umkm);
-      await UmkmsDbSource.getUmkmByUser();
-
-      // Close popup after submission
-      popupForm.style.display = 'none';
-    });
   }
 
   render() {
@@ -78,8 +39,6 @@ class UmkmForm extends HTMLElement {
         </div>
     </div>
       `;
-
-    this.form();
   }
 }
 

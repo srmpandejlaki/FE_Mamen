@@ -4,9 +4,15 @@ import { createProductItemTemplate } from '../templates/template-creator';
 const ListProduct = {
   async render() {
     return `
-      <section id="explore">
+      <section id="explore" class="exploreProd">
+      <div>
+          <div class="separator"></div>
+        </div>
         <div class="explore-con">
           <div id="products" class="products"></div>
+        </div>
+        <div>
+          <div class="separator"></div>
         </div>
       </section>
     `;
@@ -18,13 +24,16 @@ const ListProduct = {
     productContainer.innerHTML = '';
     const products = await ProductsDbSource.getProducts();
 
-    products.forEach((product) => {
-      productContainer.innerHTML += createProductItemTemplate(product);
-    });
-
-    if (productContainer.innerHTML === '') {
+    if (products.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
+    } else {
+      products.forEach((product) => {
+        productContainer.innerHTML += createProductItemTemplate(product);
+        document.querySelector('.addImageFormProd').remove();
+        document.querySelector('.prod-buttons').remove();
+      });
     }
+
     // --------------------------------------------
   },
 };

@@ -1,7 +1,6 @@
-import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import { createUmkmItemTemplate, createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -27,7 +26,9 @@ const Home = {
       </section>
       <section id="explore">
         <div class="explore-con">
-          <div id="umkm-list"></div>
+          <div id="umkm-list">
+            <umkm-slider></umkm-slider>
+          </div>
         </div>
         <div class="explore-con">
           <div id="products" class="products"></div>
@@ -35,21 +36,14 @@ const Home = {
         <div class="explore-con">
           <div id="reviews" class="reviews"></div>
         </div>
+        <div>
+          <div class="separator"></div>
+        </div>
       </section>
     `;
   },
 
   async afterRender() {
-    // HEADER & FOOTER VISIBILITY
-    const header = document.querySelector('header');
-    const footer = document.querySelector('footer');
-
-    header.style.display = 'block';
-    footer.style.display = 'flex';
-    // --------------------------------------------
-
-    // HERO IMAGE ALTERNATIF
-
     // CLICK EVENTS
     const cat = document.querySelector('#cat');
     const explore = document.querySelector('#explore');
@@ -59,32 +53,21 @@ const Home = {
     });
     // --------------------------------------------
 
-    // RENDER UMKM
-    const umkmContainer = document.querySelector('#umkm-list');
-    umkmContainer.innerHTML = '';
-    const umkms = await UmkmsDbSource.getUmkms();
-
-    umkms.forEach((umkm) => {
-      umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
-    });
-
-    if (umkmContainer.innerHTML === '') {
-      umkmContainer.innerHTML = 'Tidak ada umkm untuk ditampilkan.';
-    }
-    // --------------------------------------------
-
     // RENDER PRODUCTS
     const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
     const products = await ProductsDbSource.getProducts();
 
-    products.forEach((product) => {
-      productContainer.innerHTML += createProductItemTemplate(product);
-    });
-
-    if (productContainer.innerHTML === '') {
+    if (products.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
+    } else {
+      products.forEach((product) => {
+        productContainer.innerHTML += createProductItemTemplate(product);
+        document.querySelector('.addImageFormProd').remove();
+        document.querySelector('.prod-buttons').remove();
+      });
     }
+
     // --------------------------------------------
 
     // RENDER REVIEWS
