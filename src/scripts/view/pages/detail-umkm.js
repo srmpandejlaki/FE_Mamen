@@ -3,6 +3,7 @@ import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import Loading from '../../utility/loading';
 
 const DetailUmkm = {
   async render() {
@@ -37,16 +38,20 @@ const DetailUmkm = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    // RENDER UMKM DETAILS
+    const umkmContainer = document.querySelector('#umkms');
+    await Loading.loadingPage(umkmContainer);
     const umkmDetails = await UmkmsDbSource.getUmkmById(url.id);
 
-    const umkmContainer = document.querySelector('#umkms');
+    document.querySelector('.pageload').remove();
     const renderDetail = async (umkm) => {
       const umkmItem = document.createElement('umkm-detail');
       umkmItem.umkmw = umkm;
 
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
+      document.getElementById('addImageForm').remove();
+      document.getElementById('edit-detail').remove();
+      document.getElementById('addCategory').remove();
     };
     await renderDetail(umkmDetails);
 

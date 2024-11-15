@@ -1,5 +1,6 @@
 import UrlParser from '../../routes/url-parser';
 import ProductsDbSource from '../../api/products-api';
+import Loading from '../../utility/loading';
 
 const DetailProduct = {
   async render() {
@@ -18,9 +19,11 @@ const DetailProduct = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
+    const productContainer = document.querySelector('#detailProduct');
+    await Loading.loadingPage(productContainer);
     const productDetails = await ProductsDbSource.getProductById(url.id);
 
-    const productContainer = document.querySelector('#detailProduct');
+    document.querySelector('.pageload').remove();
     const renderDetail = async (product) => {
       const productItem = document.createElement('product-detail');
       productItem.productw = product;

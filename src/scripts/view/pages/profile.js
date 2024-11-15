@@ -2,12 +2,11 @@ import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
-import {
-  umkmImage, addCategory, tambahUmkm, editUmkm,
-} from '../../utility/umkmFunction';
+import { tambahUmkm } from '../../utility/umkmFunction';
 import {
   tambahProduk, editProduct, deleteProduct, productImage,
 } from '../../utility/productFunction';
+import Loading from '../../utility/loading';
 
 const Profile = {
   async render() {
@@ -43,8 +42,11 @@ const Profile = {
   },
 
   async afterRender() {
+    const container = document.querySelector('#umkmDetail');
+    await Loading.loadingPage(container);
     const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
+    document.querySelector('.pageload').remove();
     // JIKA USER BELUM MEMPUNYAI UMKM TAMPILKAN TOMBOL TAMBAH UMKM
     if (!umkmDetails[0]) {
       document.querySelector('#umkmDetail').innerHTML = `
@@ -69,18 +71,6 @@ const Profile = {
         umkmContainer.append(umkmItem);
       };
       await renderDetail(umkmDetails[0]);
-
-      const editUmkmButton = document.querySelector('#edit-detail');
-      editUmkmButton.addEventListener('click', () => {
-        document.querySelector('editumkm-form').style.display = 'block';
-      });
-      editUmkm();
-
-      // UPLOAD GAMBAR UMKM
-      umkmImage();
-
-      // TAMBAH KATEGORI
-      addCategory();
 
       // TAMBAH PRODUK
       const newProductButton = document.querySelector('#new-product');

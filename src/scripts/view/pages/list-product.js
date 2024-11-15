@@ -1,4 +1,5 @@
 import ProductsDbSource from '../../api/products-api';
+import Loading from '../../utility/loading';
 import { createProductItemTemplate } from '../templates/template-creator';
 
 const ListProduct = {
@@ -22,8 +23,10 @@ const ListProduct = {
     // RENDER PRODUCT
     const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
+    await Loading.loadingPage(productContainer);
     const products = await ProductsDbSource.getProducts();
 
+    document.querySelector('.pageload').remove();
     if (products.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {

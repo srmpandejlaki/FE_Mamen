@@ -30,10 +30,20 @@ async function tambahUmkm() {
       name, description, subdistrict, address, contact, year,
     };
     await UmkmsDbSource.postUmkm(umkm);
-    await UmkmsDbSource.getUmkmByUser();
+    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     // Close popup after submission
     document.querySelector('umkm-form').style.display = 'none';
+
+    const umkmContainer = document.querySelector('#umkms');
+    const renderDetail = async (umkms) => {
+      const umkmItem = document.createElement('umkm-detail');
+      umkmItem.umkmw = umkms;
+
+      umkmContainer.innerHTML = '';
+      umkmContainer.append(umkmItem);
+    };
+    await renderDetail(umkmDetails[0]);
   });
 }
 
@@ -42,7 +52,6 @@ async function editUmkm() {
 
   const closeFormButton = document.getElementById('closeFormButtonEdit');
   const popupForm = document.querySelector('editumkm-form');
-  const formContent = document.querySelector('#popup-contentEdit');
 
   const { id } = umkmByUser[0];
   document.getElementById('nameEdit').value = umkmByUser[0].name;
@@ -52,20 +61,8 @@ async function editUmkm() {
   document.getElementById('contactEdit').value = umkmByUser[0].contact;
   document.getElementById('yearEdit').value = umkmByUser[0].year;
 
-  // Close the form popup
-  closeFormButton.addEventListener('click', () => {
-    popupForm.style.display = 'none';
-  });
-
-  // Close the form when clicking outside the content area
-  window.addEventListener('click', (event) => {
-    if (event.target === popupForm || event.target === formContent) {
-      popupForm.style.display = 'none';
-    }
-  });
-
   // Form submission handler
-  document.getElementById('umkmFormEdit').addEventListener('submit', async (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
     const name = document.getElementById('nameEdit').value;
     const description = document.getElementById('descriptionEdit').value;
@@ -77,11 +74,31 @@ async function editUmkm() {
       name, description, subdistrict, address, contact, year,
     };
     await UmkmsDbSource.putUmkmById(id, umkm);
-    await UmkmsDbSource.getUmkmByUser();
+    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     // Close popup after submission
     popupForm.style.display = 'none';
+
+    const umkmContainer = document.querySelector('#umkms');
+    const renderDetail = async (umkms) => {
+      const umkmItem = document.createElement('umkm-detail');
+      umkmItem.umkmw = umkms;
+
+      umkmContainer.innerHTML = '';
+      umkmContainer.append(umkmItem);
+    };
+    await renderDetail(umkmDetails[0]);
+  }
+  // Close the form popup
+  closeFormButton.addEventListener('click', () => {
+    popupForm.style.display = 'none';
+    const form = document.getElementById('umkmFormEdit');
+    form.removeEventListener('submit', handleSubmit);
   });
+
+  const form = document.getElementById('umkmFormEdit');
+  form.removeEventListener('submit', handleSubmit);
+  form.addEventListener('submit', handleSubmit);
 }
 
 async function umkmImage() {
@@ -121,6 +138,17 @@ async function umkmImage() {
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
+
+    const umkmDetailss = await UmkmsDbSource.getUmkmByUser();
+    const umkmContainer = document.querySelector('#umkms');
+    const renderDetail = async (umkms) => {
+      const umkmItem = document.createElement('umkm-detail');
+      umkmItem.umkmw = umkms;
+
+      umkmContainer.innerHTML = '';
+      umkmContainer.append(umkmItem);
+    };
+    await renderDetail(umkmDetailss[0]);
   });
 }
 
@@ -144,6 +172,17 @@ async function addCategory() {
     addCategoryForm.style.display = 'none';
     inputCategory.value = '';
     addCategoryBtn.style.display = 'block';
+
+    const umkmDetailss = await UmkmsDbSource.getUmkmByUser();
+    const umkmContainer = document.querySelector('#umkms');
+    const renderDetail = async (umkms) => {
+      const umkmItem = document.createElement('umkm-detail');
+      umkmItem.umkmw = umkms;
+
+      umkmContainer.innerHTML = '';
+      umkmContainer.append(umkmItem);
+    };
+    await renderDetail(umkmDetailss[0]);
   });
 }
 
