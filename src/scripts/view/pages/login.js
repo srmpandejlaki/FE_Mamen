@@ -1,6 +1,6 @@
 import AuthDbSource from '../../api/auth-api';
 import UsersDbSource from '../../api/users-api';
-import UmkmsDbSource from '../../api/umkms-api';
+import Loading from '../../utility/loading';
 
 const Login = {
   async render() {
@@ -64,6 +64,7 @@ const Login = {
   },
 
   async afterRender() {
+    const loginPage = document.querySelector('.login');
     // hide header and footer while rendering the login page
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -101,10 +102,11 @@ const Login = {
 
       try {
         await AuthDbSource.postAuth(auth);
+
         if (localStorage.getItem('accessToken')) {
+          await Loading.loadingPage(loginPage);
           window.location.href = '/';
         }
-        await UmkmsDbSource.getUmkmByUser();
       } catch (error) {
         console.error(error);
       }
