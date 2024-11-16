@@ -14,7 +14,6 @@ async function renderUmkmDetail(umkmContainer, umkmDetail) {
 async function tambahUmkm() {
   const closeFormButton = document.getElementById('closeFormButton');
   const popupForm = document.querySelector('umkm-form');
-  const umkmContainer = document.querySelector('#umkms');
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -30,23 +29,22 @@ async function tambahUmkm() {
 
     try {
       popupForm.style.display = 'none';
-      await Loading.loadingPage(umkmContainer);
 
       await UmkmsDbSource.postUmkm(umkm);
-      const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
-      await renderUmkmDetail(umkmContainer, umkmDetailByUser[0]);
 
-      Swal.fire({
+      await Swal.fire({
         icon: 'success',
         title: 'Berhasil',
         text: 'UMKM berhasil ditambahkan!',
       });
+      window.location.reload();
     } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Gagal',
         text: `Terjadi kesalahan: ${error.message}`,
       });
+      console.log(error);
     }
   }
 
