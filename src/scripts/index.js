@@ -10,6 +10,7 @@ import '../styles/list-umkm.scss';
 import '../styles/list-review.scss';
 import '../styles/form-review.scss';
 import '../styles/info-home.scss';
+import '../styles/loading.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
@@ -25,6 +26,7 @@ import './utility/navbar-tambahan';
 import './utility/header';
 import './utility/umkmFunction';
 import './utility/productFunction';
+import './utility/loading';
 
 import App from './view/app';
 import swRegister from './utility/sw-register';

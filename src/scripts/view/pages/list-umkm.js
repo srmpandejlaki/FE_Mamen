@@ -1,11 +1,12 @@
 import UmkmsDbSource from '../../api/umkms-api';
+import Loading from '../../utility/loading';
 import { createUmkmItemTemplate } from '../templates/template-creator';
 
 const ListUmkm = {
   async render() {
     return `
       <section id="explore" class="exploreUmkm">
-      <div>
+        <div>
           <div class="separator"></div>
         </div>
         <div class="explore-con">
@@ -21,10 +22,11 @@ const ListUmkm = {
   async afterRender() {
     // RENDER UMKM
     const umkmContainer = document.querySelector('#list-umkm');
-    umkmContainer.innerHTML = '';
-    const umkms = await UmkmsDbSource.getUmkms();
+    await Loading.loadingPage(umkmContainer);
+    const allUmkmList = await UmkmsDbSource.getUmkms();
 
-    umkms.forEach((umkm) => {
+    document.querySelector('.pageload').remove();
+    allUmkmList.forEach((umkm) => {
       umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
     });
 

@@ -1,4 +1,5 @@
 import ProductsDbSource from '../../api/products-api';
+import Loading from '../../utility/loading';
 import { createProductItemTemplate } from '../templates/template-creator';
 
 const ListProduct = {
@@ -22,12 +23,14 @@ const ListProduct = {
     // RENDER PRODUCT
     const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
-    const products = await ProductsDbSource.getProducts();
+    await Loading.loadingPage(productContainer);
+    const allProductList = await ProductsDbSource.getProducts();
 
-    if (products.length === 0) {
+    document.querySelector('.pageload').remove();
+    if (allProductList.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {
-      products.forEach((product) => {
+      allProductList.forEach((product) => {
         productContainer.innerHTML += createProductItemTemplate(product);
         document.querySelector('.addImageFormProd').remove();
         document.querySelector('.prod-buttons').remove();

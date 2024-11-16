@@ -3,6 +3,7 @@ import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import Loading from '../../utility/loading';
 
 const DetailUmkm = {
   async render() {
@@ -38,25 +39,29 @@ const DetailUmkm = {
 
   async afterRender() {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
-    // RENDER UMKM DETAILS
-    const umkmDetails = await UmkmsDbSource.getUmkmById(url.id);
-
     const umkmContainer = document.querySelector('#umkms');
-    const renderDetail = async (umkm) => {
+    await Loading.loadingPage(umkmContainer);
+    const umkmById = await UmkmsDbSource.getUmkmById(url.id);
+
+    document.querySelector('.pageload').remove();
+    const renderDetailUmkm = async (umkm) => {
       const umkmItem = document.createElement('umkm-detail');
       umkmItem.umkmw = umkm;
 
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
+      document.getElementById('addImageForm').remove();
+      document.getElementById('edit-detail').remove();
+      document.getElementById('addCategory').remove();
     };
-    await renderDetail(umkmDetails);
+    await renderDetailUmkm(umkmById);
 
     // RENDER PRODUCTS BY UMKM
-    const productDetails = await ProductsDbSource.getProductsByUmkm(url.id);
-    if (productDetails.length === 0) {
+    const productListByUmkm = await ProductsDbSource.getProductsByUmkm(url.id);
+    if (productListByUmkm.length === 0) {
       document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
+      document.querySelector('#products').innerHTML = productListByUmkm.map((product) => createProductItemTemplate(product)).join('');
       document.querySelectorAll('.addImageFormProd').forEach((item) => {
         item.remove();
       });
