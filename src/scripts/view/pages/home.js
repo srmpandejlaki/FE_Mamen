@@ -25,17 +25,34 @@ const Home = {
         <hero-section></hero-section>
       </section>
       <section id="explore">
+        <section class="explore-con infoUMKM">
+          <div class="infoImage">
+            <img class="img1" src="./images/info-image1.jpeg" alt=""> 
+            <img class="img2" src="./images/info-image2.jpeg" alt=""> 
+          </div>
+          <div class="info">
+            <div class="judul">
+              <h2>Ingpo</h2>
+            </div>
+            <div class="infoDesc">
+              <p>kepanjangan umkm</p>
+            </div>
+            <div class="btnInfo">
+              <a href="#">list umkm</a>
+            </div>
+          </div>
+        </section>
         <div class="explore-con">
           <div id="umkm-list">
             <umkm-slider></umkm-slider>
           </div>
         </div>
-        <div class="explore-con">
+        <section class="explore-con">
           <div id="products" class="products"></div>
-        </div>
-        <div class="explore-con">
+        </section>
+        <section class="explore-con">
           <div id="reviews" class="reviews"></div>
-        </div>
+        </section>
         <div>
           <div class="separator"></div>
         </div>
