@@ -75,6 +75,7 @@ class UmkmDetail extends HTMLElement {
             const categoryId = event.target.parentElement.parentElement.dataset.id;
             await CategoriesDbSource.deleteCategoryById(umkmDetails[0].id, categoryId);
             button.parentElement.parentElement.remove();
+            await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
           });
         });
       }

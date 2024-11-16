@@ -5,6 +5,9 @@ import Loading from '../utility/loading';
 class ProductsDbSource {
   static async postProduct(umkmId, product) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'POST',
@@ -21,8 +24,6 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.UMKM_BASE(umkmId), options);
       const responseJson = await response.json();
-      const produkkontainer = document.querySelector('#products');
-      await Loading.loadingPage(produkkontainer);
 
       await this.getProducts();
       Swal.fire({
@@ -84,6 +85,9 @@ class ProductsDbSource {
 
   static async putProductById(umkmId, id, product) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'PUT',
@@ -100,8 +104,6 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
-      const produkkontainer = document.querySelector('#products');
-      await Loading.loadingPage(produkkontainer);
 
       await this.getProducts();
       Swal.fire({
@@ -121,6 +123,9 @@ class ProductsDbSource {
 
   static async deleteProductById(umkmId, id) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'DELETE',
@@ -130,8 +135,6 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
-      const produkkontainer = document.querySelector('#products');
-      await Loading.loadingPage(produkkontainer);
       await this.getProducts();
       Swal.fire({
         title: `${responseJson.message}`,
@@ -149,6 +152,9 @@ class ProductsDbSource {
 
   static async postProductCover(umkmId, id, coverUrl) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
 
       const formData = new FormData();
@@ -163,8 +169,6 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.COVERS(umkmId, id), options);
       const responseJson = await response.json();
-      const produkkontainer = document.querySelector('#products');
-      await Loading.loadingPage(produkkontainer);
       await this.getProducts();
       Swal.fire({
         title: `${responseJson.message}`,

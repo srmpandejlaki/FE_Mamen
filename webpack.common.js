@@ -5,7 +5,6 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-// const CriticalCssPlugin = require('critical-css-webpack-plugin');
 
 require('dotenv').config({
   path: path.resolve('.env'),
@@ -85,8 +84,6 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].bundle.css',
     }),
-
-    // new CriticalCssPlugin(),
 
   ],
 };

@@ -20,6 +20,7 @@ async function tambahUmkm() {
     // Close popup after submission
     popupForm.style.display = 'none';
     await UmkmsDbSource.postUmkm(umkm);
+    await UmkmsDbSource.getUmkmByUser();
 
     const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
 
@@ -74,6 +75,8 @@ async function editUmkm() {
     // Close popup after submission
     popupForm.style.display = 'none';
     await UmkmsDbSource.putUmkmById(id, umkm);
+    await UmkmsDbSource.getUmkmByUser();
+
     const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
 
     const umkmContainer = document.querySelector('#umkms');
@@ -136,6 +139,8 @@ async function umkmImage() {
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
 
+    await UmkmsDbSource.getUmkmByUser();
+
     const umkmDetailByUserSeccond = await UmkmsDbSource.getUmkmByUser();
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
@@ -173,6 +178,8 @@ async function addCategory() {
     addCategoryForm.style.display = 'none';
     inputCategory.value = '';
     addCategoryBtn.style.display = 'block';
+
+    await UmkmsDbSource.getUmkmByUser();
 
     const umkmDetailByUserSeccond = await UmkmsDbSource.getUmkmByUser();
     const umkmContainer = document.querySelector('#umkms');
