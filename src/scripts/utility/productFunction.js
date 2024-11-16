@@ -64,7 +64,6 @@ async function editProduct(id) {
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
     productEditForm.style.display = 'none';
-    form.removeEventListener('submit', handleSubmit);
     productEditForm.remove();
   });
 
@@ -107,7 +106,7 @@ async function productImage(id) {
   const fileInput = document.getElementById(`addimageprod-${id}`);
   const productImg = document.getElementById(`product-imgs-${id}`);
 
-  fileInput.addEventListener('change', async (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
       productImg.src = URL.createObjectURL(file);
@@ -119,17 +118,17 @@ async function productImage(id) {
       resetImg.style.display = 'none';
       submitImg.style.display = 'none';
     }
-  });
+  };
 
-  addImgForm.addEventListener('reset', () => {
+  const handleReset = () => {
     fileInput.value = '';
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
     productImg.src = productById.cover_url || './images/template-product-img.png';
-  });
+  };
 
-  addImgForm.addEventListener('submit', async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const coverUrl = fileInput.files[0];
 
@@ -154,7 +153,16 @@ async function productImage(id) {
         text: `Terjadi kesalahan: ${error.message}`,
       });
     }
-  });
+  }
+
+  fileInput.removeEventListener('change', handleFileChange);
+  fileInput.addEventListener('change', handleFileChange);
+
+  addImgForm.removeEventListener('reset', handleReset);
+  addImgForm.addEventListener('reset', handleReset);
+
+  addImgForm.removeEventListener('submit', handleSubmit);
+  addImgForm.addEventListener('submit', handleSubmit);
 }
 
 export {
