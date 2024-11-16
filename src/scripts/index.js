@@ -9,7 +9,7 @@ import '../styles/list-product.scss';
 import '../styles/list-umkm.scss';
 import '../styles/list-review.scss';
 import '../styles/form-review.scss';
-import '../styles/info-home.scss';
+import '../styles/elemen-pendukung.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';

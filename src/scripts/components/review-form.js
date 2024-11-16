@@ -3,19 +3,19 @@ class reviewForm extends HTMLElement {
     this.innerHTML = '';
   }
 
-  connectedCallBack() {
+  connectedCallback() {
     this.render();
   }
 
   render() {
     this.emptyContent();
     this.innerHTML += `
-      <section class="ReviewForm">
-        <div class="h2Review">
+      <section class="formReviewContainer">
+        <div class="titleFormReview">
           <h2>Form Review</h2>
         </div>
-        <form action="" class="Forms" id="Forms">
-          <div class="desc">
+        <form action="" class="formReview" id="formReview">
+          <div class="formReviewDesc">
             <div>
               <label for="name">Nama</label>
               <input type="text" name="Nama" id="nama">

@@ -1,0 +1,58 @@
+$button: #da281c;
+
+.infoUMKM {
+  display: flex;
+  height: 500px;
+  padding-top: 2rem;
+
+  .infoImage {
+    width: 100%;
+    display: flex;
+
+    img {
+      width: 20%;
+    }
+
+    .img1 {
+      position: absolute;
+
+      left: 20rem;
+    }
+
+    .img2 {
+      position: absolute;
+
+      top: 12rem;
+      left: 6rem;
+      border: 15px solid white;
+    }
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .judul {
+      font-size: 1.5rem;
+    }
+
+    .infoDesc {
+      font-size: 1rem;
+      line-height: 1.5rem;
+      text-align: justify;
+    }
+
+    .btnInfo {
+      a {
+        width: auto;
+        padding: 1rem;
+        background-color: $button;
+        color: white;
+      }
+    }
+  }
+}
+
+// responsive
