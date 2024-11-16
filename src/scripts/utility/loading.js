@@ -7,11 +7,6 @@ class Loading {
     element.innerHTML += createPageLoading();
 
     await Utils.delay();
-
-    const pageload = document.querySelector('.pageload');
-    if (pageload) {
-      pageload.remove();
-    }
   }
 
   static async loadingSection(element) {

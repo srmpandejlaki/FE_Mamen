@@ -23,7 +23,10 @@ const DetailProduct = {
     await Loading.loadingPage(productContainer);
     const productDetails = await ProductsDbSource.getProductById(url.id);
 
-    document.querySelector('.pageload').remove();
+    const pageload = document.querySelector('.pageload');
+    if (pageload) {
+      pageload.remove();
+    }
     const renderDetail = async (product) => {
       const productItem = document.createElement('product-detail');
       productItem.productw = product;

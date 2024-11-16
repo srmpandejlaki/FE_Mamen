@@ -42,8 +42,10 @@ const DetailUmkm = {
     const umkmContainer = document.querySelector('#umkms');
     await Loading.loadingPage(umkmContainer);
     const umkmById = await UmkmsDbSource.getUmkmById(url.id);
-
-    document.querySelector('.pageload').remove();
+    const pageload = document.querySelector('.pageload');
+    if (pageload) {
+      pageload.remove();
+    }
     const renderDetailUmkm = async (umkm) => {
       const umkmItem = document.createElement('umkm-detail');
       umkmItem.umkmw = umkm;

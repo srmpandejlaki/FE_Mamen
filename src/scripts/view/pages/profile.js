@@ -100,6 +100,10 @@ const Profile = {
 
     try {
       const umkmByUser = await UmkmsDbSource.getUmkmByUser();
+      const pageload = document.querySelector('.pageload');
+      if (pageload) {
+        pageload.remove();
+      }
 
       if (!umkmByUser[0]) {
         document.querySelector('#umkmDetail').innerHTML = `

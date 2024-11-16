@@ -47,14 +47,13 @@ class UmkmDetail extends HTMLElement {
         document.querySelector('#listCategory').innerHTML = '-';
       } else {
         document.querySelector('#listCategory').innerHTML = categories.map((category) => `
-            <div class="category" data-id="${category.id}">
-              <p>${category.name}</p>
-            </div>`)
+          <div class="category" data-id="${category.id}">
+            <p>${category.name}</p>
+          </div>`)
           .join('');
       }
     } else {
       const umkmDetails = await UmkmsDbSource.getUmkmByUser();
-
       categories = await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
 
       // RENDER CATEGORIES BY UMKM
@@ -62,10 +61,10 @@ class UmkmDetail extends HTMLElement {
         document.querySelector('#listCategory').innerHTML = 'Belum terdapat kategori. Silahkan menambah terlebih dahulu';
       } else {
         document.querySelector('#listCategory').innerHTML = categories.map((category) => `
-            <div class="category" data-id="${category.id}">
-              <p>${category.name}</p>
-              <button class="delete-category"><i class="fa-solid fa-trash"></i></button>
-            </div>`)
+          <div class="category" data-id="${category.id}">
+            <p>${category.name}</p>
+            <button class="delete-category"><i class="fa-solid fa-trash"></i></button>
+          </div>`)
           .join('');
 
         // DELETE CATEGORY
@@ -75,18 +74,22 @@ class UmkmDetail extends HTMLElement {
             const categoryId = event.target.parentElement.parentElement.dataset.id;
             await CategoriesDbSource.deleteCategoryById(umkmDetails[0].id, categoryId);
             button.parentElement.parentElement.remove();
-            await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
           });
         });
       }
+    }
+
+    // Tombol edit hanya muncul di halaman profile
+    if (window.location.hash === '#/profile') {
       const editUmkmButton = document.querySelector('#edit-detail');
       editUmkmButton.addEventListener('click', () => {
         document.querySelector('editumkm-form').style.display = 'block';
         editUmkm();
       });
-      umkmImage();
-      addCategory();
     }
+
+    umkmImage();
+    addCategory();
   }
 
   render() {
