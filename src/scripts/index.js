@@ -20,6 +20,7 @@ import './components/editUmkm-form';
 import './components/editProduct-form';
 import './components/review-form';
 import './components/umkm-detail';
+import './components/umkm-freedetail';
 import './components/product-detail';
 import './components/umkm-slider';
 import './utility/navbar-tambahan';

@@ -1,67 +1,8 @@
 import Swal from 'sweetalert2';
 import UmkmsDbSource from '../api/umkms-api';
 import ProductsDbSource from '../api/products-api';
-import { createProductItemTemplate } from '../view/templates/template-creator';
-import Loading from './loading';
-
-async function renderProductList(umkmId) {
-  const produkkontainer = document.querySelector('#products');
-  await Loading.loadingPage(produkkontainer);
-  const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmId);
-
-  produkkontainer.innerHTML = '';
-  if (productListByUmkm.length === 0) {
-    produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
-  } else {
-    produkkontainer.innerHTML = productListByUmkm
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .map((productItem) => createProductItemTemplate(productItem))
-      .join('');
-  }
-}
-
-async function tambahProduk() {
-  const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
-  const umkmId = umkmDetailByUser[0].id;
-  const closeFormButton = document.getElementById('closeFormButtonProd');
-  const popupForm = document.querySelector('product-form');
-
-  // Close the form popup
-  closeFormButton.addEventListener('click', () => {
-    popupForm.style.display = 'none';
-  });
-
-  // Form submission handler
-  document.getElementById('productForm').addEventListener('submit', async (event) => {
-    event.preventDefault();
-    const name = document.getElementById('nameprod').value;
-    const product_type = document.getElementById('type').value;
-    const description = document.getElementById('descriptionprod').value;
-    const price = document.getElementById('price').value;
-    const product = {
-      name, product_type, description, price,
-    };
-
-    try {
-      popupForm.style.display = 'none';
-
-      await ProductsDbSource.postProduct(umkmId, product);
-      await renderProductList(umkmId);
-
-      Swal.fire({
-        icon: 'success',
-        title: 'Berhasil',
-        text: 'Produk berhasil ditambahkan!',
-      });
-    } catch (error) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Gagal',
-        text: `Terjadi kesalahan: ${error.message}`,
-      });
-    }
-  });
-}
+// import Loading from './loading';
+import { renderProducts } from '../view/pages/profile';
 
 async function editProduct(id) {
   const produkkontainer = document.querySelector('#products');
@@ -100,7 +41,7 @@ async function editProduct(id) {
       productEditForm.style.display = 'none';
 
       await ProductsDbSource.putProductById(umkmId, id, product);
-      await renderProductList(umkmId);
+      await renderProducts(umkmId);
 
       Swal.fire({
         icon: 'success',
@@ -136,7 +77,7 @@ async function deleteProduct(id) {
 
   try {
     await ProductsDbSource.deleteProductById(umkmId, id);
-    await renderProductList(umkmId);
+    await renderProducts(umkmId);
 
     Swal.fire({
       icon: 'success',
@@ -198,7 +139,7 @@ async function productImage(id) {
       resetImg.style.display = 'none';
       submitImg.style.display = 'none';
 
-      await renderProductList(umkmId);
+      await renderProducts(umkmId);
 
       Swal.fire({
         icon: 'success',
@@ -216,5 +157,5 @@ async function productImage(id) {
 }
 
 export {
-  tambahProduk, editProduct, deleteProduct, productImage,
+  editProduct, deleteProduct, productImage,
 };

@@ -58,7 +58,7 @@ $yellow: #ff9e1b;
   }
 }
 
-umkm-detail {
+umkm-detail, umkm-freedetail {
   width: 100%;
 
   .detail-umkm {
@@ -269,7 +269,7 @@ umkm-detail {
 }
 
 @media screen and (min-width: 768px) {
-  umkm-detail {
+  umkm-detail, umkm-freedetail {
     .detail-umkm {
       flex-direction: row;
       align-items: center;
