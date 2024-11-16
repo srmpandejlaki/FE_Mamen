@@ -1,6 +1,7 @@
 import Swal from 'sweetalert2';
 import { CATEGORIES } from '../globals/api-endpoint';
 import Loading from '../utility/loading';
+import UmkmsDbSource from './umkms-api';
 
 class CategoriesDbSource {
   static async postCategory(umkmId, category) {
@@ -21,7 +22,8 @@ class CategoriesDbSource {
       };
       const response = await fetch(CATEGORIES.UMKM_BASE(umkmId), options);
       const responseJson = await response.json();
-
+      await UmkmsDbSource.getUmkmByUser();
+      document.querySelector('.pageload').remove();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,
@@ -34,6 +36,8 @@ class CategoriesDbSource {
         title: 'Oops...',
         text: 'Gagal menambahkan kategori!',
       });
+    } finally {
+      await UmkmsDbSource.getUmkmByUser();
     }
   }
 
@@ -90,6 +94,7 @@ class CategoriesDbSource {
       };
       const response = await fetch(CATEGORIES.DELETE(umkmId, id), options);
       const responseJson = await response.json();
+      await UmkmsDbSource.getUmkmByUser();
       return responseJson;
     } catch {
       Swal.fire({

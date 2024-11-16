@@ -18,8 +18,9 @@ async function tambahUmkm() {
       name, description, subdistrict, address, contact, year,
     };
     // Close popup after submission
-    document.querySelector('umkm-form').style.display = 'none';
+    popupForm.style.display = 'none';
     await UmkmsDbSource.postUmkm(umkm);
+
     const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
 
     const umkmContainer = document.querySelector('#umkms');
