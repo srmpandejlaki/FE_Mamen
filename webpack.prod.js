@@ -74,14 +74,14 @@ module.exports = merge(common, {
       runtimeCaching: [
         {
           urlPattern: ({ url }) => url.href.startsWith('https://api.mamen.site'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'mamen-api',
           },
         },
         {
           urlPattern: ({ url }) => url.href.startsWith('https://mamenawsbucket.s3.ap-southeast-3.amazonaws.com'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'mamen-pictures',
             expiration: {

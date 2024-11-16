@@ -47,14 +47,11 @@ const DetailUmkm = {
       pageload.remove();
     }
     const renderDetailUmkm = async (umkm) => {
-      const umkmItem = document.createElement('umkm-detail');
+      const umkmItem = document.createElement('umkm-freedetail');
       umkmItem.umkmw = umkm;
 
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
-      document.getElementById('addImageForm').remove();
-      document.getElementById('edit-detail').remove();
-      document.getElementById('addCategory').remove();
     };
     await renderDetailUmkm(umkmById);
 
