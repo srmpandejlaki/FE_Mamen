@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import Swal from 'sweetalert2';
 import UmkmsDbSource from '../api/umkms-api';
 import ProductsDbSource from '../api/products-api';

@@ -44,8 +44,6 @@ async function tambahUmkm() {
 
   closeFormButton.addEventListener('click', () => {
     popupForm.style.display = 'none';
-    const form = document.getElementById('umkmForm');
-    form.removeEventListener('submit', handleSubmit);
   });
 
   const form = document.getElementById('umkmForm');
