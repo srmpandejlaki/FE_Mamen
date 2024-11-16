@@ -92,9 +92,6 @@ class UmkmsDbSource {
 
   static async putUmkmById(id, umkm) {
     try {
-      const umkmContainer = document.querySelector('#umkms');
-      await Loading.loadingPage(umkmContainer);
-
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'PUT',
@@ -111,23 +108,24 @@ class UmkmsDbSource {
           year: umkm.year,
         }),
       };
+
       const response = await fetch(UMKMS.DETAIL(id), options);
+
+      if (!response.ok) {
+        const errorJson = await response.json();
+        throw new Error(errorJson.message || 'Gagal mengupdate UMKM!');
+      }
+
       const responseJson = await response.json();
-
-      await this.getUmkmByUser();
-      document.querySelector('.pageload').remove();
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
-
       return responseJson;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal mengupdate umkm!',
+        text: error.message || 'Terjadi kesalahan saat mengupdate UMKM!',
       });
+
+      throw error;
     }
   }
 

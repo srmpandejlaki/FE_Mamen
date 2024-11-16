@@ -1,5 +1,7 @@
+import Swal from 'sweetalert2';
 import UmkmsDbSource from '../api/umkms-api';
 import CategoriesDbSource from '../api/categories-api';
+import Loading from './loading';
 
 async function tambahUmkm() {
   const closeFormButton = document.getElementById('closeFormButton');
@@ -72,30 +74,53 @@ async function editUmkm() {
     const umkm = {
       name, description, subdistrict, address, contact, year,
     };
-    // Close popup after submission
-    popupForm.style.display = 'none';
-    await UmkmsDbSource.putUmkmById(id, umkm);
-    await UmkmsDbSource.getUmkmByUser();
 
-    const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
+    try {
+      // Close popup while loading
+      popupForm.style.display = 'none';
 
-    const umkmContainer = document.querySelector('#umkms');
-    const renderDetail = async (umkms) => {
-      const umkmItem = document.createElement('umkm-detail');
-      umkmItem.umkmw = umkms;
+      // Update UMKM via API
+      await UmkmsDbSource.putUmkmById(id, umkm);
 
-      umkmContainer.innerHTML = '';
-      umkmContainer.append(umkmItem);
-    };
-    await renderDetail(umkmDetailByUser[0]);
+      const umkmContainer = document.querySelector('#umkms');
+      await Loading.loadingPage(umkmContainer);
+
+      // Fetch updated data
+      const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
+      const renderDetail = async (umkms) => {
+        const umkmItem = document.createElement('umkm-detail');
+        umkmItem.umkmw = umkms;
+
+        umkmContainer.innerHTML = '';
+        umkmContainer.append(umkmItem);
+      };
+      await renderDetail(umkmDetailByUser[0]);
+
+      // Show success message
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil',
+        text: 'Data UMKM berhasil diperbarui!',
+      });
+    } catch (error) {
+      // Show error message
+      Swal.fire({
+        icon: 'error',
+        title: 'Gagal',
+        text: `Terjadi kesalahan: ${error.message}`,
+      });
+    }
   }
+
   const form = document.getElementById('umkmFormEdit');
+
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
     popupForm.style.display = 'none';
     form.removeEventListener('submit', handleSubmit);
   });
 
+  // Ensure no duplicate listeners
   form.removeEventListener('submit', handleSubmit);
   form.addEventListener('submit', handleSubmit);
 }
