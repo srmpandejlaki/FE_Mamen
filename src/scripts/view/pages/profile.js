@@ -15,7 +15,6 @@ const Profile = {
       <umkm-form></umkm-form>
       <editumkm-form></editumkm-form>
       <product-form></product-form>
-      <editproduct-form></editproduct-form>
       <div id="umkmDetail" class="child-section">
         <div id="umkms" class="umkms"></div>
         <div class="product-separator">
@@ -94,7 +93,6 @@ const Profile = {
 
           if (target.classList.contains('editProdBtn')) {
             const productId = target.dataset.id;
-            document.querySelector('editproduct-form').style.display = 'block';
             editProduct(productId);
           }
 

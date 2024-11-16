@@ -1,9 +1,13 @@
 import Swal from 'sweetalert2';
 import { UMKMS } from '../globals/api-endpoint';
+import Loading from '../utility/loading';
 
 class UmkmsDbSource {
   static async postUmkm(umkm) {
     try {
+      const umkmContainer = document.querySelector('#umkms');
+      await Loading.loadingPage(umkmContainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'POST',
@@ -90,6 +94,9 @@ class UmkmsDbSource {
 
   static async putUmkmById(id, umkm) {
     try {
+      const umkmContainer = document.querySelector('#umkms');
+      await Loading.loadingPage(umkmContainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'PUT',
@@ -147,6 +154,9 @@ class UmkmsDbSource {
 
   static async postUmkmCover(umkmId, coverUrl) {
     try {
+      const umkmContainer = document.querySelector('#umkms');
+      await Loading.loadingPage(umkmContainer);
+
       const accessToken = localStorage.getItem('accessToken');
 
       const formData = new FormData();
