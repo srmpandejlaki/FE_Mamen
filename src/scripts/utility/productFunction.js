@@ -25,6 +25,7 @@ async function tambahProduk() {
     // Close popup after submission
     popupForm.style.display = 'none';
     await ProductsDbSource.postProduct(umkmDetailByUser[0].id, product);
+    await ProductsDbSource.getProductsByUmkm(umkmDetailByUser[0].id);
 
     const produkkontainer = document.querySelector('#products');
 
@@ -76,6 +77,7 @@ async function editProduct(id) {
     productEditForm.style.display = 'none';
     await ProductsDbSource.putProductById(umkmId, id, product);
     productEditForm.remove();
+    await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
     const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
@@ -106,6 +108,7 @@ async function deleteProduct(id) {
   const umkmId = umkmByUser[0].id;
 
   await ProductsDbSource.deleteProductById(umkmId, id);
+  await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
   const produkkontainer = document.querySelector('#products');
 
@@ -159,6 +162,8 @@ async function productImage(id) {
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
+
+    await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
     const produkkontainer = document.querySelector('#products');
 
