@@ -2,29 +2,39 @@ $button: #da281c;
 
 .infoUMKM {
   display: flex;
-  height: 500px;
+  // height: 500px;
   padding-top: 2rem;
 
-  .infoImage {
-    width: 100%;
-    display: flex;
+  gap: 2rem;
 
-    img {
-      width: 20%;
-    }
+  .infoImage {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
 
     .img1 {
+      width: 65%;
       position: absolute;
+      right: 0;
+      top: 0;
+    }
 
-      left: 20rem;
+    .img1 img {
+      width: 100%;
+      display: block;
     }
 
     .img2 {
+      width: 55%;
       position: absolute;
+      left: 0;
+      bottom: 0;
+    }
 
-      top: 12rem;
-      left: 6rem;
-      border: 15px solid white;
+    .img2 img {
+      width: 100%;
+      display: block;
     }
   }
 
@@ -35,16 +45,18 @@ $button: #da281c;
     justify-content: space-between;
 
     .judul {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
     }
 
     .infoDesc {
-      font-size: 1rem;
+      font-size: 1.2rem;
       line-height: 1.5rem;
       text-align: justify;
     }
 
     .btnInfo {
+      margin: 1rem 0;
+
       a {
         width: auto;
         padding: 1rem;
@@ -56,3 +68,27 @@ $button: #da281c;
 }
 
 // responsive
+@media screen and (max-width: 425px) {
+  .infoUMKM {
+    flex-direction: column;
+  }
+
+  .infoImage {
+    height: 200px;
+  }
+
+  .img1 {
+    width: 55%;
+  }
+  .img2 {
+    width: 50%;
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+
+  .btnInfo {
+    margin: 1.5rem 0;
+  }
+}

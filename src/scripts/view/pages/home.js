@@ -41,11 +41,14 @@ const Home = {
                   merupakan tulang punggung perekonomian yang berperan penting dalam mendorong perekonomian lokal, termasuk di Manado, yang kaya akan potensi kuliner, kerajinan tangan, dan pariwisata. <br>
                   Dengan memanfaatkan sumber daya lokal, seperti hasil laut dan budaya khas Minahasa, UMKM di Manado mampu menciptakan produk unik yang tidak hanya memenuhi kebutuhan pasar domestik,
                   tetapi juga berpotensi menembus pasar internasional. <br>
-                  Dari berbagai sumber daya yang tersedia, UMKM di Manado dapat menciptakan produk yang terjamin kualitas, harganya terjangkau, dan tersedia di pasar global.
+                  Dari berbagai sumber daya yang tersedia, UMKM di Manado dapat menciptakan produk yang terjamin kualitas, harganya terjangkau, dan tersedia di pasar global. <br>
+                  <br>
+                  Di sini kami memberikan daftar UMKM yang mau mempromosikan usaha mereka lewat website kami. <br>
+                  Silahkan klik tombol di bawah ini.
                 </p>
               </div>
               <div class="btnInfo">
-                <a href="#">list umkm</a>
+                <a href="#/umkms">list umkm</a>
               </div>
             </div>
           </div>
@@ -55,6 +58,27 @@ const Home = {
             <umkm-slider></umkm-slider>
           </div>
         </div>
+        <section class="explore-con">
+          <div class="infoProduk">
+            <div class="info">
+              <div class="judul">
+                <h2>Ingpo</h2>
+              </div>
+              <div class="infoDesc">
+                <p>kepanjangan umkm</p>
+              </div>
+              <div class="btnInfo">
+                <a href="#/products">list umkm</a>
+              </div>
+            </div>
+            <div class="infoImage">
+              <img src="./images/infoProd-image1.jpeg" alt=""> 
+              <img src="./images/infoProd-image2.jpeg" alt=""> 
+              <img src="./images/infoProd-image3.jpeg" alt=""> 
+              <img src="./images/infoProd-image4.jpeg" alt=""> 
+            </div>
+          </div>
+        </section>
         <section class="explore-con">
           <div id="products" class="products"></div>
         </section>
