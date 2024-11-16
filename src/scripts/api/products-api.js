@@ -25,6 +25,7 @@ class ProductsDbSource {
       const response = await fetch(PRODUCTS.UMKM_BASE(umkmId), options);
       const responseJson = await response.json();
 
+      await this.getProducts();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,
@@ -104,6 +105,7 @@ class ProductsDbSource {
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
 
+      await this.getProducts();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,
@@ -133,6 +135,7 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
+      await this.getProducts();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,
@@ -166,6 +169,7 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.COVERS(umkmId, id), options);
       const responseJson = await response.json();
+      await this.getProducts();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,

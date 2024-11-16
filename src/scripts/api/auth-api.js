@@ -27,6 +27,7 @@ class AuthDbSource {
 
       return responseJson.data;
     } catch {
+      document.querySelector('.pageload').remove();
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
