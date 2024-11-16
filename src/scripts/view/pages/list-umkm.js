@@ -23,10 +23,10 @@ const ListUmkm = {
     // RENDER UMKM
     const umkmContainer = document.querySelector('#list-umkm');
     await Loading.loadingPage(umkmContainer);
-    const umkms = await UmkmsDbSource.getUmkms();
+    const allUmkmList = await UmkmsDbSource.getUmkms();
 
     document.querySelector('.pageload').remove();
-    umkms.forEach((umkm) => {
+    allUmkmList.forEach((umkm) => {
       umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
     });
 

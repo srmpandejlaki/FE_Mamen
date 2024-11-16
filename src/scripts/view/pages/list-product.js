@@ -24,13 +24,13 @@ const ListProduct = {
     const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
     await Loading.loadingPage(productContainer);
-    const products = await ProductsDbSource.getProducts();
+    const allProductList = await ProductsDbSource.getProducts();
 
     document.querySelector('.pageload').remove();
-    if (products.length === 0) {
+    if (allProductList.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {
-      products.forEach((product) => {
+      allProductList.forEach((product) => {
         productContainer.innerHTML += createProductItemTemplate(product);
         document.querySelector('.addImageFormProd').remove();
         document.querySelector('.prod-buttons').remove();
