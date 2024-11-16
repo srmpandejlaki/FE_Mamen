@@ -29,7 +29,7 @@ class reviewForm extends HTMLElement {
             <label for="rating">Rating</label>
             <input type="number" name="rating" id="rating">
           </div>
-          <button type="submit">upload</button>
+          <button class="btnFormReview" type="submit">Upload</button>
         </form>
       </section>
     `;
