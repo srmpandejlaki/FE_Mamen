@@ -33,7 +33,10 @@ async function tambahProduk() {
     if (productDetails.length === 0) {
       produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      produkkontainer.innerHTML = productDetails.map((productItem) => createProductItemTemplate(productItem)).join('');
+      document.querySelector('#products').innerHTML = productDetails
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
     }
   });
 }
@@ -79,7 +82,10 @@ async function editProduct(id) {
     if (productDetails.length === 0) {
       produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      produkkontainer.innerHTML = productDetails.map((productItem) => createProductItemTemplate(productItem)).join('');
+      document.querySelector('#products').innerHTML = productDetails
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
     }
   }
   // Close the form popup
@@ -109,7 +115,10 @@ async function deleteProduct(id) {
   if (productDetailss.length === 0) {
     produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
   } else {
-    produkkontainer.innerHTML = productDetailss.map((productItem) => createProductItemTemplate(productItem)).join('');
+    document.querySelector('#products').innerHTML = productDetailss
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((productItem) => createProductItemTemplate(productItem))
+      .join('');
   }
 }
 
@@ -159,7 +168,10 @@ async function productImage(id) {
     if (productDetail.length === 0) {
       produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      produkkontainer.innerHTML = productDetail.map((productItem) => createProductItemTemplate(productItem)).join('');
+      document.querySelector('#products').innerHTML = productDetail
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
     }
   });
 }

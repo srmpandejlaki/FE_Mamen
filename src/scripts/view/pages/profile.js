@@ -83,7 +83,10 @@ const Profile = {
       if (productDetails.length === 0) {
         document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
       } else {
-        document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
+        document.querySelector('#products').innerHTML = productDetails
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((product) => createProductItemTemplate(product))
+          .join('');
 
         const productContainer = document.querySelector('#products');
 
