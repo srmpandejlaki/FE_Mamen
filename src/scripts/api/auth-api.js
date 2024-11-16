@@ -1,9 +1,13 @@
 import Swal from 'sweetalert2';
 import { AUTHENTICATIONS } from '../globals/api-endpoint';
+import Loading from '../utility/loading';
 
 class AuthDbSource {
   static async postAuth(auth) {
     try {
+      const kontainer = document.querySelector('.login');
+      await Loading.loadingPage(kontainer);
+
       const options = {
         method: 'POST',
         headers: {

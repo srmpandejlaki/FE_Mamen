@@ -1,9 +1,13 @@
 import Swal from 'sweetalert2';
 import { PRODUCTS } from '../globals/api-endpoint';
+import Loading from '../utility/loading';
 
 class ProductsDbSource {
   static async postProduct(umkmId, product) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'POST',
@@ -80,6 +84,9 @@ class ProductsDbSource {
 
   static async putProductById(umkmId, id, product) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'PUT',
@@ -114,6 +121,9 @@ class ProductsDbSource {
 
   static async deleteProductById(umkmId, id) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'DELETE',
@@ -139,6 +149,9 @@ class ProductsDbSource {
 
   static async postProductCover(umkmId, id, coverUrl) {
     try {
+      const produkkontainer = document.querySelector('#products');
+      await Loading.loadingPage(produkkontainer);
+
       const accessToken = localStorage.getItem('accessToken');
 
       const formData = new FormData();

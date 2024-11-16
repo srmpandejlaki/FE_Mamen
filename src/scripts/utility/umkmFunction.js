@@ -4,21 +4,9 @@ import CategoriesDbSource from '../api/categories-api';
 async function tambahUmkm() {
   const closeFormButton = document.getElementById('closeFormButton');
   const popupForm = document.querySelector('umkm-form');
-  const formContent = document.querySelector('#popup-content');
-  // Close the form popup
-  closeFormButton.addEventListener('click', () => {
-    document.querySelector('umkm-form').style.display = 'none';
-  });
-
-  // Close the form when clicking outside the content area
-  window.addEventListener('click', (event) => {
-    if (event.target === popupForm || event.target === formContent) {
-      popupForm.style.display = 'none';
-    }
-  });
 
   // Form submission handler
-  document.getElementById('umkmForm').addEventListener('submit', async (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
     const name = document.getElementById('name').value;
     const description = document.getElementById('description').value;
@@ -29,11 +17,10 @@ async function tambahUmkm() {
     const umkm = {
       name, description, subdistrict, address, contact, year,
     };
-    await UmkmsDbSource.postUmkm(umkm);
-    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
-
     // Close popup after submission
     document.querySelector('umkm-form').style.display = 'none';
+    await UmkmsDbSource.postUmkm(umkm);
+    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
@@ -44,7 +31,17 @@ async function tambahUmkm() {
       umkmContainer.append(umkmItem);
     };
     await renderDetail(umkmDetails[0]);
+  }
+  // Close the form popup
+  closeFormButton.addEventListener('click', () => {
+    popupForm.style.display = 'none';
+    const form = document.getElementById('umkmForm');
+    form.removeEventListener('submit', handleSubmit);
   });
+
+  const form = document.getElementById('umkmForm');
+  form.removeEventListener('submit', handleSubmit);
+  form.addEventListener('submit', handleSubmit);
 }
 
 async function editUmkm() {
@@ -73,11 +70,10 @@ async function editUmkm() {
     const umkm = {
       name, description, subdistrict, address, contact, year,
     };
-    await UmkmsDbSource.putUmkmById(id, umkm);
-    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
-
     // Close popup after submission
     popupForm.style.display = 'none';
+    await UmkmsDbSource.putUmkmById(id, umkm);
+    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
@@ -131,7 +127,7 @@ async function umkmImage() {
     umkmImg.src = `${umkmDetails[0].cover_url ? umkmDetails[0].cover_url : './images/hero-image2.jpg'}`;
   });
 
-  addImgForm.addEventListener('submit', async (e) => {
+  async function handleSubmit(e) {
     e.preventDefault();
     const coverUrl = fileInput.files[0];
     await UmkmsDbSource.postUmkmCover(umkmDetails[0].id, coverUrl);
@@ -149,7 +145,10 @@ async function umkmImage() {
       umkmContainer.append(umkmItem);
     };
     await renderDetail(umkmDetailss[0]);
-  });
+  }
+
+  addImgForm.removeEventListener('submit', handleSubmit);
+  addImgForm.addEventListener('submit', handleSubmit);
 }
 
 async function addCategory() {

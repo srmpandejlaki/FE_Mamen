@@ -15,7 +15,6 @@ const Profile = {
       <umkm-form></umkm-form>
       <editumkm-form></editumkm-form>
       <product-form></product-form>
-      <editproduct-form></editproduct-form>
       <div id="umkmDetail" class="child-section">
         <div id="umkms" class="umkms"></div>
         <div class="product-separator">
@@ -84,7 +83,10 @@ const Profile = {
       if (productDetails.length === 0) {
         document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
       } else {
-        document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
+        document.querySelector('#products').innerHTML = productDetails
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((product) => createProductItemTemplate(product))
+          .join('');
 
         const productContainer = document.querySelector('#products');
 
@@ -94,7 +96,6 @@ const Profile = {
 
           if (target.classList.contains('editProdBtn')) {
             const productId = target.dataset.id;
-            document.querySelector('editproduct-form').style.display = 'block';
             editProduct(productId);
           }
 

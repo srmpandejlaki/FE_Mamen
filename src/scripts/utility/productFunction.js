@@ -6,18 +6,10 @@ async function tambahProduk() {
   const umkm = await UmkmsDbSource.getUmkmByUser();
   const closeFormButton = document.getElementById('closeFormButtonProd');
   const popupForm = document.querySelector('product-form');
-  const formContent = document.querySelector('.popup-contentProd');
 
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
     popupForm.style.display = 'none';
-  });
-
-  // Close the form when clicking outside the content area
-  window.addEventListener('click', (event) => {
-    if (event.target === popupForm || event.target === formContent) {
-      popupForm.style.display = 'none';
-    }
   });
 
   // Form submission handler
@@ -30,63 +22,82 @@ async function tambahProduk() {
     const product = {
       name, product_type, description, price,
     };
-    await ProductsDbSource.postProduct(umkm[0].id, product);
-
     // Close popup after submission
     popupForm.style.display = 'none';
+    await ProductsDbSource.postProduct(umkm[0].id, product);
+
+    const produkkontainer = document.querySelector('#products');
+
     const productDetails = await ProductsDbSource.getProductsByUmkm(umkm[0].id);
+
     if (productDetails.length === 0) {
-      document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
+      produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetails.map((productItem) => createProductItemTemplate(productItem)).join('');
+      document.querySelector('#products').innerHTML = productDetails
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
     }
   });
 }
 
 async function editProduct(id) {
+  const produkkontainer = document.querySelector('#products');
   const productById = await ProductsDbSource.getProductById(id);
 
-  const closeFormButton = document.getElementById('closeFormButtonProdEdit');
-  const popupForm = document.querySelector('editproduct-form');
+  const renderEditform = async (prod) => {
+    const productEditForm = document.createElement('editproduct-form');
+    productEditForm.productw = prod;
+    produkkontainer.appendChild(productEditForm);
+  };
+  await renderEditform(productById);
 
-  document.getElementById('nameprodedit').value = productById.name;
-  document.getElementById('typeedit').value = productById.product_type;
-  document.getElementById('descriptionprodedit').value = productById.description;
-  document.getElementById('priceedit').value = productById.price;
+  const productEditForm = document.querySelector('editproduct-form');
+  const closeFormButton = document.getElementById(`closeFormButtonProdEdit-${id}`);
+
+  document.getElementById(`nameprodedit-${id}`).value = productById.name;
+  document.getElementById(`typeedit-${id}`).value = productById.product_type;
+  document.getElementById(`descriptionprodedit-${id}`).value = productById.description;
+  document.getElementById(`priceedit-${id}`).value = productById.price;
 
   const umkmByUser = await UmkmsDbSource.getUmkmByUser();
   const umkmId = umkmByUser[0].id;
   // Form submission handler
   async function handleSubmit(event) {
     event.preventDefault();
-    const name = document.getElementById('nameprodedit').value;
-    const product_type = document.getElementById('typeedit').value;
-    const description = document.getElementById('descriptionprodedit').value;
-    const price = document.getElementById('priceedit').value;
+    const name = document.getElementById(`nameprodedit-${id}`).value;
+    const product_type = document.getElementById(`typeedit-${id}`).value;
+    const description = document.getElementById(`descriptionprodedit-${id}`).value;
+    const price = document.getElementById(`priceedit-${id}`).value;
     const product = {
       name, product_type, description, price,
     };
-    await ProductsDbSource.putProductById(umkmId, id, product);
-
     // Close popup after submission
-    popupForm.style.display = 'none';
+    productEditForm.style.display = 'none';
+    await ProductsDbSource.putProductById(umkmId, id, product);
+    productEditForm.remove();
 
     const productDetails = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
+
     if (productDetails.length === 0) {
-      document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
+      produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetails.map((productItem) => createProductItemTemplate(productItem)).join('');
+      document.querySelector('#products').innerHTML = productDetails
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
     }
   }
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
-    popupForm.style.display = 'none';
-    const form = document.getElementById('productFormEdit');
+    productEditForm.style.display = 'none';
+    const form = document.getElementById(`productFormEdit-${id}`);
     form.removeEventListener('submit', handleSubmit);
+    productEditForm.remove();
   });
 
   // Remove any existing submit listener
-  const form = document.getElementById('productFormEdit');
+  const form = document.getElementById(`productFormEdit-${id}`);
   form.removeEventListener('submit', handleSubmit);
   form.addEventListener('submit', handleSubmit);
 }
@@ -96,11 +107,18 @@ async function deleteProduct(id) {
   const umkmId = umkmByUser[0].id;
 
   await ProductsDbSource.deleteProductById(umkmId, id);
+
+  const produkkontainer = document.querySelector('#products');
+
   const productDetailss = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
+
   if (productDetailss.length === 0) {
-    document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
+    produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
   } else {
-    document.querySelector('#products').innerHTML = productDetailss.map((productItem) => createProductItemTemplate(productItem)).join('');
+    document.querySelector('#products').innerHTML = productDetailss
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((productItem) => createProductItemTemplate(productItem))
+      .join('');
   }
 }
 
@@ -143,11 +161,17 @@ async function productImage(id) {
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
 
+    const produkkontainer = document.querySelector('#products');
+
     const productDetail = await ProductsDbSource.getProductsByUmkm(umkmDetails[0].id);
+
     if (productDetail.length === 0) {
-      document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
+      produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetail.map((productItem) => createProductItemTemplate(productItem)).join('');
+      document.querySelector('#products').innerHTML = productDetail
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
     }
   });
 }
