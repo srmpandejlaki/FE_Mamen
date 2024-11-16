@@ -40,10 +40,10 @@ const DetailUmkm = {
     const url = UrlParser.parseActiveUrlWithoutCombiner();
     const umkmContainer = document.querySelector('#umkms');
     await Loading.loadingPage(umkmContainer);
-    const umkmDetails = await UmkmsDbSource.getUmkmById(url.id);
+    const umkmById = await UmkmsDbSource.getUmkmById(url.id);
 
     document.querySelector('.pageload').remove();
-    const renderDetail = async (umkm) => {
+    const renderDetailUmkm = async (umkm) => {
       const umkmItem = document.createElement('umkm-detail');
       umkmItem.umkmw = umkm;
 
@@ -53,14 +53,14 @@ const DetailUmkm = {
       document.getElementById('edit-detail').remove();
       document.getElementById('addCategory').remove();
     };
-    await renderDetail(umkmDetails);
+    await renderDetailUmkm(umkmById);
 
     // RENDER PRODUCTS BY UMKM
-    const productDetails = await ProductsDbSource.getProductsByUmkm(url.id);
-    if (productDetails.length === 0) {
+    const productListByUmkm = await ProductsDbSource.getProductsByUmkm(url.id);
+    if (productListByUmkm.length === 0) {
       document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
+      document.querySelector('#products').innerHTML = productListByUmkm.map((product) => createProductItemTemplate(product)).join('');
       document.querySelectorAll('.addImageFormProd').forEach((item) => {
         item.remove();
       });

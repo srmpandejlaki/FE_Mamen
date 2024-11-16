@@ -3,7 +3,7 @@ import ProductsDbSource from '../api/products-api';
 import { createProductItemTemplate } from '../view/templates/template-creator';
 
 async function tambahProduk() {
-  const umkm = await UmkmsDbSource.getUmkmByUser();
+  const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
   const closeFormButton = document.getElementById('closeFormButtonProd');
   const popupForm = document.querySelector('product-form');
 
@@ -24,16 +24,16 @@ async function tambahProduk() {
     };
     // Close popup after submission
     popupForm.style.display = 'none';
-    await ProductsDbSource.postProduct(umkm[0].id, product);
+    await ProductsDbSource.postProduct(umkmDetailByUser[0].id, product);
 
     const produkkontainer = document.querySelector('#products');
 
-    const productDetails = await ProductsDbSource.getProductsByUmkm(umkm[0].id);
+    const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmDetailByUser[0].id);
 
-    if (productDetails.length === 0) {
+    if (productListByUmkm.length === 0) {
       produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetails
+      document.querySelector('#products').innerHTML = productListByUmkm
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((productItem) => createProductItemTemplate(productItem))
         .join('');
@@ -77,27 +77,26 @@ async function editProduct(id) {
     await ProductsDbSource.putProductById(umkmId, id, product);
     productEditForm.remove();
 
-    const productDetails = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
+    const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
-    if (productDetails.length === 0) {
+    if (productListByUmkm.length === 0) {
       produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetails
+      document.querySelector('#products').innerHTML = productListByUmkm
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((productItem) => createProductItemTemplate(productItem))
         .join('');
     }
   }
+  const form = document.getElementById(`productFormEdit-${id}`);
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
     productEditForm.style.display = 'none';
-    const form = document.getElementById(`productFormEdit-${id}`);
     form.removeEventListener('submit', handleSubmit);
     productEditForm.remove();
   });
 
   // Remove any existing submit listener
-  const form = document.getElementById(`productFormEdit-${id}`);
   form.removeEventListener('submit', handleSubmit);
   form.addEventListener('submit', handleSubmit);
 }
@@ -110,12 +109,12 @@ async function deleteProduct(id) {
 
   const produkkontainer = document.querySelector('#products');
 
-  const productDetailss = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
+  const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
-  if (productDetailss.length === 0) {
+  if (productListByUmkm.length === 0) {
     produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
   } else {
-    document.querySelector('#products').innerHTML = productDetailss
+    document.querySelector('#products').innerHTML = productListByUmkm
       .sort((a, b) => a.name.localeCompare(b.name))
       .map((productItem) => createProductItemTemplate(productItem))
       .join('');
@@ -123,8 +122,8 @@ async function deleteProduct(id) {
 }
 
 async function productImage(id) {
-  const productDetails = await ProductsDbSource.getProductById(id);
-  const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+  const productById = await ProductsDbSource.getProductById(id);
+  const umkmByUser = await UmkmsDbSource.getUmkmByUser();
   // UPLOAD GAMBAR UMKM
   const labelAddImg = document.getElementById(`addImgLabelProd-${id}`);
   const resetImg = document.getElementById(`resetImgProd-${id}`);
@@ -150,25 +149,25 @@ async function productImage(id) {
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
-    productImg.src = `${productDetails.cover_url ? productDetails.cover_url : './images/template-product-img.png'}`;
+    productImg.src = `${productById.cover_url ? productById.cover_url : './images/template-product-img.png'}`;
   });
 
   addImgForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const coverUrl = fileInput.files[0];
-    await ProductsDbSource.postProductCover(umkmDetails[0].id, id, coverUrl);
+    await ProductsDbSource.postProductCover(umkmByUser[0].id, id, coverUrl);
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
 
     const produkkontainer = document.querySelector('#products');
 
-    const productDetail = await ProductsDbSource.getProductsByUmkm(umkmDetails[0].id);
+    const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
 
-    if (productDetail.length === 0) {
+    if (productListByUmkm.length === 0) {
       produkkontainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
     } else {
-      document.querySelector('#products').innerHTML = productDetail
+      document.querySelector('#products').innerHTML = productListByUmkm
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((productItem) => createProductItemTemplate(productItem))
         .join('');

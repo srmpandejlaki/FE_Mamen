@@ -20,7 +20,7 @@ async function tambahUmkm() {
     // Close popup after submission
     document.querySelector('umkm-form').style.display = 'none';
     await UmkmsDbSource.postUmkm(umkm);
-    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+    const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
 
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
@@ -30,7 +30,7 @@ async function tambahUmkm() {
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
     };
-    await renderDetail(umkmDetails[0]);
+    await renderDetail(umkmDetailByUser[0]);
   }
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
@@ -73,7 +73,7 @@ async function editUmkm() {
     // Close popup after submission
     popupForm.style.display = 'none';
     await UmkmsDbSource.putUmkmById(id, umkm);
-    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+    const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
 
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
@@ -83,22 +83,21 @@ async function editUmkm() {
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
     };
-    await renderDetail(umkmDetails[0]);
+    await renderDetail(umkmDetailByUser[0]);
   }
+  const form = document.getElementById('umkmFormEdit');
   // Close the form popup
   closeFormButton.addEventListener('click', () => {
     popupForm.style.display = 'none';
-    const form = document.getElementById('umkmFormEdit');
     form.removeEventListener('submit', handleSubmit);
   });
 
-  const form = document.getElementById('umkmFormEdit');
   form.removeEventListener('submit', handleSubmit);
   form.addEventListener('submit', handleSubmit);
 }
 
 async function umkmImage() {
-  const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+  const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
   // UPLOAD GAMBAR UMKM
   const labelAddImg = document.getElementById('addImgLabel');
   const resetImg = document.getElementById('resetImg');
@@ -124,18 +123,19 @@ async function umkmImage() {
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
-    umkmImg.src = `${umkmDetails[0].cover_url ? umkmDetails[0].cover_url : './images/hero-image2.jpg'}`;
+    umkmImg.src = `${umkmDetailByUser[0].cover_url ? umkmDetailByUser[0].cover_url : './images/hero-image2.jpg'}`;
   });
 
   async function handleSubmit(e) {
     e.preventDefault();
     const coverUrl = fileInput.files[0];
-    await UmkmsDbSource.postUmkmCover(umkmDetails[0].id, coverUrl);
+    await UmkmsDbSource.postUmkmCover(umkmDetailByUser[0].id, coverUrl);
+
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
 
-    const umkmDetailss = await UmkmsDbSource.getUmkmByUser();
+    const umkmDetailByUserSeccond = await UmkmsDbSource.getUmkmByUser();
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
       const umkmItem = document.createElement('umkm-detail');
@@ -144,7 +144,7 @@ async function umkmImage() {
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
     };
-    await renderDetail(umkmDetailss[0]);
+    await renderDetail(umkmDetailByUserSeccond[0]);
   }
 
   addImgForm.removeEventListener('submit', handleSubmit);
@@ -152,7 +152,7 @@ async function umkmImage() {
 }
 
 async function addCategory() {
-  const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+  const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
   // TAMBAH KATEGORI
   const addCategoryBtn = document.getElementById('addCategory');
   const addCategoryForm = document.getElementById('form-addCategory');
@@ -167,12 +167,13 @@ async function addCategory() {
     e.preventDefault();
     const name = inputCategory.value;
     const category = { name };
-    await CategoriesDbSource.postCategory(umkmDetails[0].id, category);
+    await CategoriesDbSource.postCategory(umkmDetailByUser[0].id, category);
+
     addCategoryForm.style.display = 'none';
     inputCategory.value = '';
     addCategoryBtn.style.display = 'block';
 
-    const umkmDetailss = await UmkmsDbSource.getUmkmByUser();
+    const umkmDetailByUserSeccond = await UmkmsDbSource.getUmkmByUser();
     const umkmContainer = document.querySelector('#umkms');
     const renderDetail = async (umkms) => {
       const umkmItem = document.createElement('umkm-detail');
@@ -181,7 +182,7 @@ async function addCategory() {
       umkmContainer.innerHTML = '';
       umkmContainer.append(umkmItem);
     };
-    await renderDetail(umkmDetailss[0]);
+    await renderDetail(umkmDetailByUserSeccond[0]);
   });
 }
 

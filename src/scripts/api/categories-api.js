@@ -81,9 +81,6 @@ class CategoriesDbSource {
 
   static async deleteCategoryById(umkmId, id) {
     try {
-      const umkmContainer = document.querySelector('#umkms');
-      await Loading.loadingPage(umkmContainer);
-
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'DELETE',

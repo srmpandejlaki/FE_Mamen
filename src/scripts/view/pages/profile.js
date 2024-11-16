@@ -43,11 +43,11 @@ const Profile = {
   async afterRender() {
     const container = document.querySelector('#umkmDetail');
     await Loading.loadingPage(container);
-    const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+    const umkmByUser = await UmkmsDbSource.getUmkmByUser();
 
     document.querySelector('.pageload').remove();
     // JIKA USER BELUM MEMPUNYAI UMKM TAMPILKAN TOMBOL TAMBAH UMKM
-    if (!umkmDetails[0]) {
+    if (!umkmByUser[0]) {
       document.querySelector('#umkmDetail').innerHTML = `
       <div class="blank-profile">
       <p>Tidak ada UMKM yang ditemukan. Silahkan menambah UMKM terlebih dahulu.</p>
@@ -62,14 +62,14 @@ const Profile = {
     } else {
       // JIKA USER MEMPUNYAI UMKM TAMPILKAN DETAIL UMKM
       const umkmContainer = document.querySelector('#umkms');
-      const renderDetail = async (umkm) => {
+      const renderDetailUmkm = async (umkm) => {
         const umkmItem = document.createElement('umkm-detail');
         umkmItem.umkmw = umkm;
 
         umkmContainer.innerHTML = '';
         umkmContainer.append(umkmItem);
       };
-      await renderDetail(umkmDetails[0]);
+      await renderDetailUmkm(umkmByUser[0]);
 
       // TAMBAH PRODUK
       const newProductButton = document.querySelector('#new-product');
@@ -79,11 +79,11 @@ const Profile = {
       tambahProduk();
 
       // RENDER PRODUCTS BY UMKM
-      const productDetails = await ProductsDbSource.getProductsByUmkm(umkmDetails[0].id);
-      if (productDetails.length === 0) {
+      const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
+      if (productListByUmkm.length === 0) {
         document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
       } else {
-        document.querySelector('#products').innerHTML = productDetails
+        document.querySelector('#products').innerHTML = productListByUmkm
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((product) => createProductItemTemplate(product))
           .join('');
@@ -112,10 +112,10 @@ const Profile = {
       }
 
       // RENDER REVIEWS BY UMKM
-      const reviewDetails = await ReviewsDbSource.getReviewsByUmkm(umkmDetails[0].id);
-      document.querySelector('#reviews').innerHTML = reviewDetails.map((review) => createReviewItemTemplate(review)).join('');
+      const reviewListByUmkm = await ReviewsDbSource.getReviewsByUmkm(umkmByUser[0].id);
+      document.querySelector('#reviews').innerHTML = reviewListByUmkm.map((review) => createReviewItemTemplate(review)).join('');
 
-      if (reviewDetails.length === 0) {
+      if (reviewListByUmkm.length === 0) {
         document.querySelector('#reviews').innerHTML = 'Tidak ada review yang ditampilkan.';
       }
     }
