@@ -38,7 +38,7 @@ class UmkmForm extends HTMLElement {
             </form>
         </div>
     </div>
-      `;
+    `;
   }
 }
 
