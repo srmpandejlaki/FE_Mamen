@@ -76,13 +76,21 @@ async function deleteProduct(id) {
   const umkmId = umkmDetailByUser[0].id;
 
   try {
-    await ProductsDbSource.deleteProductById(umkmId, id);
-    await renderProducts(umkmId);
-
     Swal.fire({
-      icon: 'success',
-      title: 'Berhasil',
-      text: 'Produk berhasil dihapus!',
+      title: 'Hapus Produk?',
+      text: 'Produk ini akan dihapus secara permanen.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Hapus',
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        await ProductsDbSource.deleteProductById(umkmId, id)
+          .then(async () => {
+            await renderProducts(umkmId);
+          });
+      }
     });
   } catch (error) {
     Swal.fire({
