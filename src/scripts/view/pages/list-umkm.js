@@ -9,6 +9,7 @@ const ListUmkm = {
         <div>
           <div class="separator"></div>
         </div>
+        <search-bar></search-bar>
         <div class="explore-con">
           <div id="list-umkm"></div>
         </div>

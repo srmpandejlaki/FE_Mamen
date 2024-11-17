@@ -21,13 +21,13 @@ class reviewForm extends HTMLElement {
               <input type="text" name="Nama" id="nama">
             </div>
             <div>
+              <label for="rating">Rating</label>
+              <input type="number" name="rating" id="rating">
+            </div>
+            <div>
               <label for="reviews">Review</label>
               <textarea name="review" id="review"></textarea>
             </div>
-          </div>
-          <div>
-            <label for="rating">Rating</label>
-            <input type="number" name="rating" id="rating">
           </div>
           <button class="btnFormReview" type="submit">Upload</button>
         </form>
