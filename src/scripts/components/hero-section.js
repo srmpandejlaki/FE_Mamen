@@ -10,18 +10,18 @@ class HeroSection extends HTMLElement {
   render() {
     this.emptyContent();
     this.innerHTML += `
-       <div class="home-container">
-          <div class="home-content">
-            <h1>Halloo <span>Selamat</span> Datang!</h1>
-            <p>
-               "Bisnis kecil bukan berarti mimpi kecil. Kualitas adalah kunci untuk mendapatkan kepercayaan dan keberlanjutan dalam bisnis.<br>Dapatkan produk berkualitas dari Kota Manado"
-            </p>
-            <button id="cat">
-              Jelajahi Sekarang <i class="fa-solid fa-arrow-right"></i>
-            </button>
-          </div>
+      <div class="home-container">
+        <div class="home-content">
+          <h1>Halloo <span>Selamat</span> Datang!</h1>
+          <p>
+            "Bisnis kecil bukan berarti mimpi kecil. Kualitas adalah kunci untuk mendapatkan kepercayaan dan keberlanjutan dalam bisnis.<br>Dapatkan produk berkualitas dari Kota Manado"
+          </p>
+          <button id="cat">
+          Jelajahi Sekarang <i class="fa-solid fa-arrow-right"></i>
+          </button>
         </div>
-      `;
+      </div>
+    `;
   }
 }
 
