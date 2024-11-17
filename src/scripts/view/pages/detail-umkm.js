@@ -36,10 +36,10 @@ const renderProducts = async (umkmId) => {
   const products = await ProductsDbSource.getProductsByUmkm(umkmId);
   productContainer.innerHTML = '';
   try {
-    productContainer.innerHTML = products
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .map((productItem) => createProductItemTemplate(productItem))
-      .join('');
+    productContainer.innerHTML = products.length > 0
+      ? products.sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('') : 'Tidak ada produk untuk ditampilkan.';
 
     document.querySelectorAll('.addImageFormProd').forEach((item) => {
       item.remove();
