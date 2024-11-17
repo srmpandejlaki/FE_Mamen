@@ -61,7 +61,7 @@ async function umkmImage() {
   const fileInput = document.getElementById('addimage');
   const umkmImg = document.getElementById('umkm-img');
 
-  fileInput.addEventListener('change', (event) => {
+  const handleFileChange = async (event) => {
     const file = event.target.files[0];
     if (file) {
       umkmImg.src = URL.createObjectURL(file);
@@ -73,15 +73,15 @@ async function umkmImage() {
       resetImg.style.display = 'none';
       submitImg.style.display = 'none';
     }
-  });
+  };
 
-  addImgForm.addEventListener('reset', () => {
+  const handleReset = () => {
     fileInput.value = '';
     labelAddImg.style.display = 'inline-block';
     resetImg.style.display = 'none';
     submitImg.style.display = 'none';
     umkmImg.src = umkmDetailByUser[0].cover_url || './images/hero-image2.jpg';
-  });
+  };
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -109,6 +109,12 @@ async function umkmImage() {
       });
     }
   }
+
+  fileInput.removeEventListener('change', handleFileChange);
+  fileInput.addEventListener('change', handleFileChange);
+
+  addImgForm.removeEventListener('reset', handleReset);
+  addImgForm.addEventListener('reset', handleReset);
 
   addImgForm.removeEventListener('submit', handleSubmit);
   addImgForm.addEventListener('submit', handleSubmit);
