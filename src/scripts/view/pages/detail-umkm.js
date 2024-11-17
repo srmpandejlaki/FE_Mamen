@@ -4,6 +4,67 @@ import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 import Loading from '../../utility/loading';
+import CategoriesDbSource from '../../api/categories-api';
+
+const renderUmkm = async (umkm) => {
+  const umkmContainer = document.querySelector('#umkms');
+  const umkmItem = document.createElement('umkm-freedetail');
+  umkmItem.umkmw = umkm;
+  umkmContainer.innerHTML = '';
+  umkmContainer.append(umkmItem);
+};
+
+const renderCategories = async (umkmId) => {
+  const categoriesContainer = document.querySelector('#listCategory');
+  const categories = await CategoriesDbSource.getCategoriesByUmkm(umkmId);
+  categoriesContainer.innerHTML = '';
+  // RENDER CATEGORIES BY UMKM
+  if (categories.length === 0) {
+    categoriesContainer.innerHTML = 'Belum terdapat kategori. Silahkan menambah terlebih dahulu';
+  } else {
+    categoriesContainer.innerHTML = categories.map((category) => `
+          <div class="category" data-id="${category.id}">
+            <p>${category.name}</p>
+          </div>`)
+      .join('');
+  }
+};
+
+const renderProducts = async (umkmId) => {
+  const productContainer = document.querySelector('#products');
+
+  const products = await ProductsDbSource.getProductsByUmkm(umkmId);
+  productContainer.innerHTML = '';
+  try {
+    productContainer.innerHTML = products
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((productItem) => createProductItemTemplate(productItem))
+      .join('');
+
+    document.querySelectorAll('.addImageFormProd').forEach((item) => {
+      item.remove();
+    });
+    document.querySelectorAll('.prod-buttons').forEach((item) => {
+      item.remove();
+    });
+  } catch {
+    productContainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
+  }
+};
+
+const renderReviews = async (umkmId) => {
+  const reviewContainer = document.querySelector('#reviews');
+
+  const reviews = await ReviewsDbSource.getReviewsByUmkm(umkmId);
+  reviewContainer.innerHTML = '';
+  try {
+    reviewContainer.innerHTML = reviews.length > 0
+      ? reviews.map((review) => createReviewItemTemplate(review)).join('')
+      : 'Tidak ada review yang ditampilkan.';
+  } catch {
+    reviewContainer.innerHTML = 'Terjadi kesalahan saat memuat ulasan.';
+  }
+};
 
 const DetailUmkm = {
   async render() {
@@ -26,9 +87,9 @@ const DetailUmkm = {
       <div class="section-title">
           <h2>Reviews</h2>
       </div>
-      <form-review></form-review>
       <div id="reviews" class="reviews">
       </div>
+      <form-review></form-review>
       <div>
           <div class="separator"></div>
         </div>
@@ -46,36 +107,40 @@ const DetailUmkm = {
     if (pageload) {
       pageload.remove();
     }
-    const renderDetailUmkm = async (umkm) => {
-      const umkmItem = document.createElement('umkm-freedetail');
-      umkmItem.umkmw = umkm;
 
-      umkmContainer.innerHTML = '';
-      umkmContainer.append(umkmItem);
-    };
-    await renderDetailUmkm(umkmById);
-
+    // RENDER UMKM DETAILS
+    renderUmkm(umkmById);
+    // RENDER CATEGORIES BY UMKM
+    renderCategories(url.id);
     // RENDER PRODUCTS BY UMKM
-    const productListByUmkm = await ProductsDbSource.getProductsByUmkm(url.id);
-    if (productListByUmkm.length === 0) {
-      document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
-    } else {
-      document.querySelector('#products').innerHTML = productListByUmkm.map((product) => createProductItemTemplate(product)).join('');
-      document.querySelectorAll('.addImageFormProd').forEach((item) => {
-        item.remove();
-      });
-      document.querySelectorAll('.prod-buttons').forEach((item) => {
-        item.remove();
-      });
-    }
-
+    renderProducts(url.id);
     // RENDER REVIEWS BY UMKM
-    const reviewDetails = await ReviewsDbSource.getReviewsByUmkm(url.id);
-    document.querySelector('#reviews').innerHTML = reviewDetails.map((review) => createReviewItemTemplate(review)).join('');
+    renderReviews(url.id);
 
-    if (reviewDetails.length === 0) {
-      document.querySelector('#reviews').innerHTML = 'Tidak ada review yang ditampilkan.';
-    }
+    // ADD REVIEW
+    const formNewReview = document.getElementById('formReview');
+    formNewReview.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      const name = document.getElementById('namaReviewer').value;
+      const review = document.getElementById('reviewBody').value;
+      const user_rating = document.getElementById('userRating').value;
+
+      const newReview = { name, review, user_rating };
+      const umkmId = url.id;
+
+      ReviewsDbSource.postReview(umkmId, newReview).then(async () => {
+        await ReviewsDbSource.getReviewsByUmkm(umkmId).then(async () => {
+          await renderReviews(umkmId);
+        }).then(async () => {
+          const umkm = await UmkmsDbSource.getUmkmById(umkmId);
+          renderUmkm(umkm);
+        });
+      });
+      formNewReview.reset();
+    });
+
+    // ADD REVIEW
   },
 };
 

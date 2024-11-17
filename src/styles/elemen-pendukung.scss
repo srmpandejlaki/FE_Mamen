@@ -1,0 +1,108 @@
+$button: #da281c;
+
+.infoUMKM {
+  display: flex;
+  padding-top: 2rem;
+
+  gap: 2rem;
+
+  .infoImage {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 500px;
+
+    .img1 {
+      width: 65%;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    .img1 img {
+      width: 100%;
+      display: block;
+    }
+
+    .img2 {
+      width: 55%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+
+    .img2 img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    .judul {
+      font-size: 1.3rem;
+    }
+
+    .infoDesc {
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+      text-align: justify;
+    }
+
+    .btnInfo {
+      margin: 1rem 0;
+
+      a {
+        width: auto;
+        padding: 1rem;
+        background-color: $button;
+        color: white;
+      }
+    }
+  }
+}
+
+.infoProduk {
+  display: flex;
+  gap: 2rem;
+
+  .infoImage {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    img {
+      width: 300px;
+    }
+  }
+}
+
+// responsive
+@media screen and (max-width: 425px) {
+  .infoUMKM {
+    flex-direction: column;
+  }
+
+  .infoImage {
+    height: 200px;
+  }
+
+  .img1 {
+    width: 55%;
+  }
+  .img2 {
+    width: 50%;
+  }
+
+  .info {
+    font-size: 1rem;
+  }
+
+  .btnInfo {
+    margin: 1.5rem 0;
+  }
+}

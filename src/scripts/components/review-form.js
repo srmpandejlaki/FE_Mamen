@@ -3,33 +3,34 @@ class reviewForm extends HTMLElement {
     this.innerHTML = '';
   }
 
-  connectedCallBack() {
+  connectedCallback() {
     this.render();
   }
 
   render() {
     this.emptyContent();
     this.innerHTML += `
-      <section class="ReviewForm">
-        <div class="h2Review">
+      <section class="formReviewContainer">
+        <div class="titleFormReview">
           <h2>Form Review</h2>
         </div>
-        <form action="" class="Forms" id="Forms">
-          <div class="desc">
-            <div>
+        <form action="" class="formReview" id="formReview">
+          <div class="formReviewDesc">
+            <div class="nama-review">
               <label for="name">Nama</label>
-              <input type="text" name="Nama" id="nama">
+              <input type="text" name="Nama" id="namaReviewer" placeholder="Nama">
             </div>
-            <div>
+            <div class="rating-review">
+              <label for="rating">Rating</label>
+              <input type="number" name="rating" id="userRating" min="1" max="5" placeholder="1 - 5">
+            </div>
+            <div class="body-reviews">
               <label for="reviews">Review</label>
-              <textarea name="review" id="review"></textarea>
+              <textarea name="review" id="reviewBody" placeholder="Deskripsi"></textarea>
             </div>
           </div>
-          <div>
-            <label for="rating">Rating</label>
-            <input type="number" name="rating" id="rating">
-          </div>
-          <button type="submit">upload</button>
+          
+          <button class="btnFormReview" type="submit">Upload</button>
         </form>
       </section>
     `;
