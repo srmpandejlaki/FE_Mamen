@@ -16,7 +16,7 @@ class FooterBar extends HTMLElement {
             <a href="#" class="footer-logo"><h3>Mamen</h3></a>
 
             <p class="footer-description">
-              Temukan UMKM lokal di Mamen – Temukan dan dukung UMKM lokal di Mamen! Jelajahi bisnis-bisnis unik dari Sulawesi Utara dan bantu tumbuhkan ekonomi bersama.
+              Temukan dan dukung UMKM lokal di Mamen! Jelajahi bisnis-bisnis unik dari Sulawesi Utara dan bantu tumbuhkan ekonomi bersama.
             </p>
           </div>
 
