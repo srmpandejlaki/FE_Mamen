@@ -18,6 +18,7 @@ class ProductForm extends HTMLElement {
     const umkmId = umkmDetailByUser[0].id;
     const closeFormButton = document.getElementById('closeFormButtonProd');
     const popupForm = document.querySelector('product-form');
+    const form = document.getElementById('productForm');
 
     // Form submission handler
     async function handleSubmit(event) {
@@ -35,6 +36,7 @@ class ProductForm extends HTMLElement {
 
         await ProductsDbSource.postProduct(umkmId, product);
 
+        form.reset();
         await renderProducts(umkmId);
 
         Swal.fire({
@@ -50,8 +52,6 @@ class ProductForm extends HTMLElement {
         });
       }
     }
-
-    const form = document.getElementById('productForm');
 
     // Close the form popup
     closeFormButton.addEventListener('click', () => {
