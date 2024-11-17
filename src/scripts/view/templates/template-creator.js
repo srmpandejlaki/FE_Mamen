@@ -90,9 +90,28 @@ const createReviewItemTemplate = (review) => `
             </div>
           </div>
 `;
+
+const createPageLoading = () => `
+  <div class="pageload">
+    <div class="pageCenter">
+      <div class="pageRing"></div>
+    </div>
+  </div>
+`;
+
+const createSectionLoading = () => `
+  <div class="sectionload">
+    <div class="sectionCenter">
+      <div class="sectionRing"></div>
+    </div>
+  </div>
+  `;
+
 export {
   createUmkmSliderTemplate,
   createUmkmItemTemplate,
   createProductItemTemplate,
   createReviewItemTemplate,
+  createPageLoading,
+  createSectionLoading,
 };

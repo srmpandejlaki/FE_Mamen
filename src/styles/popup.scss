@@ -21,8 +21,7 @@ $black: rgb(23, 27, 30);
 
 umkm-form,
 product-form,
-editumkm-form,
-editproduct-form {
+editumkm-form {
   display: none;
 }
 
@@ -30,7 +29,7 @@ editproduct-form {
 .popup-form,
 .popup-formProd,
 #popupFormEdit,
-#popupFormProdEdit {
+.popup-formProdEdit {
   position: fixed;
   top: 0;
   left: 0;
@@ -86,7 +85,7 @@ editproduct-form {
     .close-button,
     .close-buttonProd,
     #closeFormButtonEdit,
-    #closeFormButtonProdEdit {
+    .close-buttonProdEdit {
       position: absolute;
       top: 4rem;
       right: 3rem;

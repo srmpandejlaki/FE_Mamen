@@ -25,6 +25,7 @@ import './utility/navbar-tambahan';
 import './utility/header';
 import './utility/umkmFunction';
 import './utility/productFunction';
+import './utility/loading';
 
 import App from './view/app';
 import swRegister from './utility/sw-register';

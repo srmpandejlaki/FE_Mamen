@@ -81,6 +81,7 @@ html {
   }
 }
 
+
 header {
   position: fixed;
   top: 0;
@@ -285,6 +286,7 @@ main {
   flex-direction: column;
   align-items: center;
   width: 100%;
+  min-height: 728px;
   flex: 1;
 }
 
@@ -459,7 +461,7 @@ footer-bar {
     margin-bottom: 1rem;
   }
   .footer-description {
-    line-height: 1.5rem;
+    line-height: 1.75rem;
   }
 }
 

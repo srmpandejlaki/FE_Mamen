@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import { UMKMS } from '../globals/api-endpoint';
+import Loading from '../utility/loading';
 
 class UmkmsDbSource {
   static async postUmkm(umkm) {
@@ -23,6 +24,7 @@ class UmkmsDbSource {
       const response = await fetch(UMKMS.BASE, options);
       const responseJson = await response.json();
 
+      await this.getUmkmByUser();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,
@@ -84,11 +86,15 @@ class UmkmsDbSource {
         title: 'Token Invalid',
         text: 'Coba untuk Login kembali',
       });
+      window.location.hash = '#/login';
     }
   }
 
   static async putUmkmById(id, umkm) {
     try {
+      const umkmContainer = document.querySelector('#umkms');
+      await Loading.loadingPage(umkmContainer);
+
       const accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'PUT',
@@ -108,6 +114,8 @@ class UmkmsDbSource {
       const response = await fetch(UMKMS.DETAIL(id), options);
       const responseJson = await response.json();
 
+      await this.getUmkmByUser();
+      document.querySelector('.pageload').remove();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,
@@ -146,6 +154,9 @@ class UmkmsDbSource {
 
   static async postUmkmCover(umkmId, coverUrl) {
     try {
+      const umkmContainer = document.querySelector('#umkms');
+      await Loading.loadingPage(umkmContainer);
+
       const accessToken = localStorage.getItem('accessToken');
 
       const formData = new FormData();
@@ -161,6 +172,8 @@ class UmkmsDbSource {
       const response = await fetch(UMKMS.COVERS(umkmId), options);
       const responseJson = await response.json();
 
+      await this.getUmkmByUser();
+      document.querySelector('.pageload').remove();
       Swal.fire({
         title: `${responseJson.message}`,
         text: `${responseJson.status}`,

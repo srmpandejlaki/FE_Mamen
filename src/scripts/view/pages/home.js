@@ -105,12 +105,12 @@ const Home = {
     // RENDER PRODUCTS
     const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
-    const products = await ProductsDbSource.getProducts();
+    const allProductList = await ProductsDbSource.getProducts();
 
-    if (products.length === 0) {
+    if (allProductList.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {
-      products.forEach((product) => {
+      allProductList.forEach((product) => {
         productContainer.innerHTML += createProductItemTemplate(product);
         document.querySelector('.addImageFormProd').remove();
         document.querySelector('.prod-buttons').remove();
