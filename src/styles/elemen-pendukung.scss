@@ -2,7 +2,6 @@ $button: #da281c;
 
 .infoUMKM {
   display: flex;
-  // height: 500px;
   padding-top: 2rem;
 
   gap: 2rem;
@@ -63,6 +62,21 @@ $button: #da281c;
         background-color: $button;
         color: white;
       }
+    }
+  }
+}
+
+.infoProduk {
+  display: flex;
+  gap: 2rem;
+
+  .infoImage {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    img {
+      width: 300px;
     }
   }
 }
