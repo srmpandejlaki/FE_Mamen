@@ -11,8 +11,13 @@ class searchBar extends HTMLElement {
     this.emptyContent();
     this.innerHTML += `
       <div class="searchContainer">
-        <input type="text" id="searchInput" placeholder="Cari UMKM...">
-        <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        <form>
+          <input type="text" id="searchInput" placeholder="Cari Sesuatu...">
+          <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+        <div>
+          <button>Filter</button>
+        </div>
       </div>
     `;
   }
