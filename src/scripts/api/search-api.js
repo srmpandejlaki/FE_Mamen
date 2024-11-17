@@ -7,7 +7,7 @@ class SearchDbSource {
       const responseJson = await response.json();
       return responseJson.data;
     } catch (error) {
-      return []; // Return an empty array if there's an error
+      return [];
     }
   }
 }
