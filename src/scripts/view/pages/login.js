@@ -9,7 +9,7 @@ const Login = {
     <section class="login-section">
         <!-- Left side: Image -->
         <div class="login-image">
-            <img src="./images/login-image.jpeg" alt="Login Image">
+          <img src="./images/login-image.jpeg" alt="Login Image">
         </div>
 
         <!-- Right side: Form Container -->
@@ -22,7 +22,9 @@ const Login = {
             <!-- Login Form -->
             <form id="loginForm" class="form act">
               <div class="img">
-                <img src="./images/LogoMamen.png" alt="Logo Mamen">
+                <a href="/">
+                  <img src="./images/LogoMamen.png" alt="Logo Mamen">
+                </a>
               </div>
               <div>
                 <h2>Login</h2>

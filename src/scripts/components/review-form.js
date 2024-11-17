@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 class reviewForm extends HTMLElement {
   emptyContent() {
     this.innerHTML = '';
@@ -5,6 +6,15 @@ class reviewForm extends HTMLElement {
 
   connectedCallback() {
     this.render();
+  }
+
+  otorisasi() {
+    const formDisabler = document.querySelector('.formDisabler');
+
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      formDisabler.remove();
+    }
   }
 
   render() {
@@ -15,6 +25,7 @@ class reviewForm extends HTMLElement {
           <h2>Form Review</h2>
         </div>
         <form action="" class="formReview" id="formReview">
+          <div class="formDisabler"><p class="disablerText">Harap Login terlebih dahulu untuk memberikan review</p></div>
           <div class="formReviewDesc">
             <div class="nama-review">
               <label for="name">Nama</label>
@@ -34,6 +45,7 @@ class reviewForm extends HTMLElement {
         </form>
       </section>
     `;
+    this.otorisasi();
   }
 }
 

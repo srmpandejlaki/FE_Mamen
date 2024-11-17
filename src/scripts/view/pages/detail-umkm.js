@@ -1,3 +1,4 @@
+import { jwtDecode } from 'jwt-decode';
 import UrlParser from '../../routes/url-parser';
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
@@ -116,6 +117,17 @@ const DetailUmkm = {
     renderProducts(url.id);
     // RENDER REVIEWS BY UMKM
     renderReviews(url.id);
+
+    // OTORISASI OWNER FOR ADD REVIEW
+    const accessToken = localStorage.getItem('accessToken');
+    if (accessToken) {
+      const userId = jwtDecode(accessToken);
+
+      if (umkmById.owner === userId.id) {
+        const formReview = document.querySelector('form-review');
+        formReview.style.display = 'none';
+      }
+    }
 
     // ADD REVIEW
     const formNewReview = document.getElementById('formReview');
