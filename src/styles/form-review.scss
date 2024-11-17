@@ -4,12 +4,13 @@ $merah: #da281c;
 
 // styling
 form-review {
-  padding-inline: 1rem;
+  margin-inline: auto;
+  width: 100%;
+  max-width: 900px;
 }
 .formReviewContainer {
   flex-direction: column;
   padding: 2rem;
-  margin: 0 8%;
 
   border: 1px solid $merah;
 
