@@ -12,7 +12,7 @@ form-review {
   margin: 0 8%;
 
   border: 1px solid $merah;
-  
+
   .titleFormReview {
     h2 {
       color: $title;
@@ -25,29 +25,44 @@ form-review {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    position: relative;
+
+    .formDisabler {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
     .formReviewDesc {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 1rem;
-  
+
       .nama-review {
         flex-basis: 65%;
         flex-grow: 1;
       }
-  
-      .rating-review{
+
+      .rating-review {
         flex-basis: 30%;
         flex-grow: 1;
       }
-  
+
       .body-reviews {
         flex-basis: 100%;
       }
-  
+
       div {
-        input, textarea {
+        input,
+        textarea {
           width: 100%;
           padding: 0.5rem;
           border: 1px solid rgb(0, 0, 0);
@@ -58,7 +73,6 @@ form-review {
           min-height: 8rem;
         }
       }
-  
     }
     .btnFormReview {
       min-height: 44px;
@@ -68,10 +82,8 @@ form-review {
       cursor: pointer;
     }
   }
-
 }
 
 // responsive
 @media screen and (min-width: 768px) {
-  
 }
