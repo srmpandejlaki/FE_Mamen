@@ -14,7 +14,7 @@ class HeroSection extends HTMLElement {
           <div class="home-content">
             <h1>Halloo <span>Selamat</span> Datang!</h1>
             <p>
-               "Bisnis kecil bukan berarti mimpi kecil. Kualitas adalah kunci untuk mendapatkan kepercayaan dan keberlanjutan dalam bisnis. Dapatkan "
+               "Bisnis kecil bukan berarti mimpi kecil. Kualitas adalah kunci untuk mendapatkan kepercayaan dan keberlanjutan dalam bisnis.<br>Dapatkan produk berkualitas dari Kota Manado"
             </p>
             <button id="cat">
               Jelajahi Sekarang <i class="fa-solid fa-arrow-right"></i>

@@ -5,8 +5,6 @@ $button: #da281c;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: space-between;
 
-  padding: 2rem 0;
-
   .infoImage {
     width: 100%;
     display: flex;
@@ -74,6 +72,8 @@ $button: #da281c;
   }
 
   .infoUMKM, .infoProduk {
+    padding: 2rem 0;
+    
     .infoImage {
       img {
         width: 90%;
