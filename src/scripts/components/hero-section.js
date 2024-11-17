@@ -14,7 +14,7 @@ class HeroSection extends HTMLElement {
           <div class="home-content">
             <h1>Halloo <span>Selamat</span> Datang!</h1>
             <p>
-               "Makanan adalah segalanya bagi kita. Ini merupakan perpanjangan dari perasaan nasionalis, perasaan etnis, sejarah pribadimu, provinsimu, daerahmu, sukumu, nenekmu. Itu tidak dapat dipisahkan sejak awal." - Anthony Bourdain
+               "Bisnis kecil bukan berarti mimpi kecil. Kualitas adalah kunci untuk mendapatkan kepercayaan dan keberlanjutan dalam bisnis. Dapatkan "
             </p>
             <button id="cat">
               Jelajahi Sekarang <i class="fa-solid fa-arrow-right"></i>
