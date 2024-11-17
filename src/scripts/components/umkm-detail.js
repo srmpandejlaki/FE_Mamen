@@ -46,6 +46,30 @@ class UmkmDetail extends HTMLElement {
       document.querySelector('editumkm-form').style.display = 'block';
     });
 
+    // DELETE UMKM
+    const deleteUmkmButton = document.querySelector('.title-con');
+    deleteUmkmButton.addEventListener('click', async (event) => {
+      const target = event.target.closest('#delete-umkm');
+      if (!target) return;
+
+      Swal.fire({
+        title: 'Hapus UMKM?',
+        text: 'UMKM ini akan dihapus secara permanen.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          UmkmsDbSource.deleteUmkmById(id)
+            .then(() => {
+              window.location.href = '/';
+            });
+        }
+      });
+    });
+
     // CATEGORY UMKM
     renderCategories(id);
 
@@ -111,6 +135,7 @@ class UmkmDetail extends HTMLElement {
         <div class="title-con">
           <h1 id="title-umkm">${this.umkm.name}</h1>
           <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
+          <button id="delete-umkm" data-id="${this.umkm.id}"><i class="fa-solid fa-trash-can"></i></button>
         </div>
         <div class="detail-con">
           <table>

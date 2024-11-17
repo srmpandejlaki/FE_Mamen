@@ -141,6 +141,7 @@ umkm-detail, umkm-freedetail {
   .title-con {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 
     h1 {
       font-size: 1.5rem;
@@ -149,7 +150,7 @@ umkm-detail, umkm-freedetail {
       text-align: center;
     }
 
-    #edit-detail {
+    #edit-detail, #delete-umkm {
       background-color: white;
       color: black;
       padding: 0.5rem 1rem;

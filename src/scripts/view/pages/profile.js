@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
@@ -70,8 +71,6 @@ const Profile = {
     return `
       <section id="detailContainer">
         <umkm-form></umkm-form>
-        <editumkm-form></editumkm-form>
-        <product-form></product-form>
         <div id="umkmDetail" class="child-section">
           <div id="umkms" class="umkms"></div>
           <div class="product-separator">
@@ -122,6 +121,11 @@ const Profile = {
       if (pageload) {
         pageload.remove();
       }
+
+      const editForm = document.createElement('editumkm-form');
+      const tambahProdukForm = document.createElement('product-form');
+      container.appendChild(editForm);
+      container.appendChild(tambahProdukForm);
 
       // UMKM
       renderUmkm(umkmByUser[0]);

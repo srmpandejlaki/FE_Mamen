@@ -5,6 +5,7 @@ const createUmkmSliderTemplate = (umkm) => `
               data-id="${umkm.id}" 
               class="slides"
               style="background-image: url(${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'})"
+              onerror="this.onerror=null;this.style.backgroundImage=url('./images/template-umkm-img.png');"
             >
             <span>${umkm.rating}</span>
               <div class="content">
