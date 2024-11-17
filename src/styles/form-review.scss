@@ -1,22 +1,52 @@
 // color pallette
 $title: black;
+$merah: #da281c;
 
 // styling
-.ReviewForm {
-  .h2Review {
+.formReviewContainer {
+  align-items: center;
+  padding: 2rem;
+  margin: 0 10rem;
+
+  border: 1px solid $merah;
+  
+  .titleFormReview {
     h2 {
       color: $title;
-
       text-align: center;
+      margin-bottom: 1rem;
     }
   }
 
-  .Forms {
-    display: flex;
-    justify-content: space-between;
+  .formReview {
+    display: grid;
+    // grid-template-columns: 1fr 1fr;
+    gap: 1rem;
 
+    input, textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid rgb(0, 0, 0);
+      color: black;
+    }
     .desc {
       padding: 1rem;
     }
+
+    .btnFormReview {
+      min-height: 44px;
+      background-color: $merah;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
   }
+}
+
+// responsive
+@media screen and (max-width: 425px) {
+  .formReviewContainer {
+    margin: 0;
+  } 
 }

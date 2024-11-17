@@ -3,19 +3,19 @@ class reviewForm extends HTMLElement {
     this.innerHTML = '';
   }
 
-  connectedCallBack() {
+  connectedCallback() {
     this.render();
   }
 
   render() {
     this.emptyContent();
     this.innerHTML += `
-      <section class="ReviewForm">
-        <div class="h2Review">
+      <section class="formReviewContainer">
+        <div class="titleFormReview">
           <h2>Form Review</h2>
         </div>
-        <form action="" class="Forms" id="Forms">
-          <div class="desc">
+        <form action="" class="formReview" id="formReview">
+          <div class="formReviewDesc">
             <div>
               <label for="name">Nama</label>
               <input type="text" name="Nama" id="nama">
@@ -29,7 +29,7 @@ class reviewForm extends HTMLElement {
             <label for="rating">Rating</label>
             <input type="number" name="rating" id="rating">
           </div>
-          <button type="submit">upload</button>
+          <button class="btnFormReview" type="submit">Upload</button>
         </form>
       </section>
     `;
