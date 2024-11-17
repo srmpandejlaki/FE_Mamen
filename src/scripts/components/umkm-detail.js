@@ -64,7 +64,7 @@ class UmkmDetail extends HTMLElement {
         if (result.isConfirmed) {
           UmkmsDbSource.deleteUmkmById(id)
             .then(() => {
-              window.location.href = '/';
+              window.location.reload();
             });
         }
       });
