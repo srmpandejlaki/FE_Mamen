@@ -15,9 +15,6 @@ class searchBar extends HTMLElement {
           <input type="text" id="searchInput" placeholder="Cari Sesuatu...">
           <button id="searchButton"><i class="fa-solid fa-magnifying-glass"></i></button>
         </form>
-        <div>
-          <button>Filter</button>
-        </div>
       </div>
     `;
   }

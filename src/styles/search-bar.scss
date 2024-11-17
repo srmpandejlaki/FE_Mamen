@@ -1,6 +1,5 @@
 .searchContainer {
   display: flex;
-  flex-wrap: wrap;
   margin: 2rem 8%;
   gap: 1rem;
 
@@ -20,5 +19,6 @@
 
   button {
     border-radius: 50px;
+    cursor: pointer;
   }
 }
