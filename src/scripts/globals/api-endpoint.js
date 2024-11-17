@@ -1,7 +1,7 @@
 import CONFIG from './config';
 
 const BASE = {
-  SEARCH: (query) => `${CONFIG.BASE_URL}/search?q=${query}`,
+  SEARCH: (query) => `${CONFIG.BASE_URL}/search?query=${query}`,
 };
 
 const USERS = {

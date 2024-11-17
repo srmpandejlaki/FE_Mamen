@@ -375,8 +375,7 @@ main {
         display: inline-block;
         min-height: 44px;
         min-width: 44px;
-        font-size: 1.5rem;
-        line-height: 1.4;
+        line-height: 1.4rem;
         padding: 0.8rem 1.6rem;
         background-color: #da291cf6;
         border-radius: 0.2rem;
@@ -396,7 +395,6 @@ main {
           background-color: red;
           box-shadow: 1px 1px 3px rgba(0, 0, 3, 0.568);
           transition: ease-in-out 0.3s;
-          padding: 0.8rem 1.8rem;
 
           i {
             margin-left: 1rem;
@@ -547,6 +545,19 @@ footer-bar {
 
   .footer-group {
     flex-direction: row-reverse;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  #home {
+    .home-container {
+      .home-content {
+        button {
+          font-size: 1.5rem;
+          padding: 1rem 2rem;
+        }
+      }
+    }
   }
 }
 

@@ -40,7 +40,6 @@ class reviewForm extends HTMLElement {
               <textarea name="review" id="reviewBody" placeholder="Deskripsi"></textarea>
             </div>
           </div>
-          
           <button class="btnFormReview" type="submit">Upload</button>
         </form>
       </section>

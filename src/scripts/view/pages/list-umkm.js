@@ -1,6 +1,18 @@
+import SearchDbSource from '../../api/search-api';
 import UmkmsDbSource from '../../api/umkms-api';
 import Loading from '../../utility/loading';
 import { createUmkmItemTemplate } from '../templates/template-creator';
+
+const renderUmkm = async (list) => {
+  const umkmContainer = document.querySelector('#list-umkm');
+  umkmContainer.innerHTML = '';
+  list.forEach((umkm) => {
+    umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
+  });
+  if (umkmContainer.innerHTML === '') {
+    umkmContainer.innerHTML = 'Tidak ada umkm yang ditemukan.';
+  }
+};
 
 const ListUmkm = {
   async render() {
@@ -9,6 +21,7 @@ const ListUmkm = {
         <div>
           <div class="separator"></div>
         </div>
+        <search-bar></search-bar>
         <div class="explore-con">
           <div id="list-umkm"></div>
         </div>
@@ -28,14 +41,24 @@ const ListUmkm = {
     if (pageload) {
       pageload.remove();
     }
-    allUmkmList.forEach((umkm) => {
-      umkmContainer.innerHTML += createUmkmItemTemplate(umkm);
+    await renderUmkm(allUmkmList);
+
+    const searchInput = document.getElementById('searchInput');
+    const searchForm = document.getElementById('searchForm');
+
+    searchInput.addEventListener('input', async (e) => {
+      e.preventDefault();
+      const query = searchInput.value;
+      const filteredUmkms = await SearchDbSource.search(query);
+      await renderUmkm(filteredUmkms.umkms);
     });
 
-    if (umkmContainer.innerHTML === '') {
-      umkmContainer.innerHTML = 'Tidak ada umkm untuk ditampilkan.';
-    }
-    // --------------------------------------------
+    searchForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const query = searchInput.value;
+      const filteredUmkms = await SearchDbSource.search(query);
+      await renderUmkm(filteredUmkms.umkms);
+    });
   },
 };
 
