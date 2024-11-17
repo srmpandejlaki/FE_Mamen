@@ -9,6 +9,7 @@ const ListProduct = {
       <div>
           <div class="separator"></div>
         </div>
+        <search-bar></search-bar>
         <div class="explore-con">
           <div id="products" class="products"></div>
         </div>
