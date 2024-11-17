@@ -26,9 +26,9 @@ const DetailUmkm = {
       <div class="section-title">
           <h2>Reviews</h2>
       </div>
-      <form-review></form-review>
       <div id="reviews" class="reviews">
       </div>
+      <form-review></form-review>
       <div>
           <div class="separator"></div>
         </div>
