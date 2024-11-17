@@ -58,7 +58,8 @@ $yellow: #ff9e1b;
   }
 }
 
-umkm-detail {
+umkm-detail,
+umkm-freedetail {
   width: 100%;
 
   .detail-umkm {
@@ -141,6 +142,7 @@ umkm-detail {
   .title-con {
     display: flex;
     align-items: center;
+    gap: 0.5rem;
 
     h1 {
       font-size: 1.5rem;
@@ -149,7 +151,8 @@ umkm-detail {
       text-align: center;
     }
 
-    #edit-detail {
+    #edit-detail,
+    #delete-umkm {
       background-color: white;
       color: black;
       padding: 0.5rem 1rem;
@@ -269,7 +272,8 @@ umkm-detail {
 }
 
 @media screen and (min-width: 768px) {
-  umkm-detail {
+  umkm-detail,
+  umkm-freedetail {
     .detail-umkm {
       flex-direction: row;
       align-items: center;

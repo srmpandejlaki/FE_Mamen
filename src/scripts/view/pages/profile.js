@@ -1,123 +1,159 @@
+/* eslint-disable import/no-cycle */
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
-import { tambahUmkm } from '../../utility/umkmFunction';
 import {
-  tambahProduk, editProduct, deleteProduct, productImage,
+  tambahUmkm,
+} from '../../utility/umkmFunction';
+import {
+  editProduct, deleteProduct, productImage,
 } from '../../utility/productFunction';
 import Loading from '../../utility/loading';
+import CategoriesDbSource from '../../api/categories-api';
+
+export const renderUmkm = async (umkm) => {
+  const umkmContainer = document.querySelector('#umkms');
+  const umkmItem = document.createElement('umkm-detail');
+  umkmItem.umkmw = umkm;
+  umkmContainer.innerHTML = '';
+  umkmContainer.append(umkmItem);
+};
+
+export const renderCategories = async (umkmId) => {
+  const categoriesContainer = document.querySelector('#listCategory');
+  const categories = await CategoriesDbSource.getCategoriesByUmkm(umkmId);
+  categoriesContainer.innerHTML = '';
+  // RENDER CATEGORIES BY UMKM
+  if (categories.length === 0) {
+    categoriesContainer.innerHTML = 'Belum terdapat kategori. Silahkan menambah terlebih dahulu';
+  } else {
+    categoriesContainer.innerHTML = categories.map((category) => `
+          <div class="category" data-id="${category.id}">
+            <p>${category.name}</p>
+            <button class="delete-category"><i class="fa-solid fa-trash"></i></button>
+          </div>`)
+      .join('');
+  }
+};
+
+export const renderProducts = async (umkmId) => {
+  const productContainer = document.querySelector('#products');
+
+  const products = await ProductsDbSource.getProductsByUmkm(umkmId);
+  productContainer.innerHTML = '';
+  try {
+    productContainer.innerHTML = products
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((productItem) => createProductItemTemplate(productItem))
+      .join('');
+  } catch {
+    productContainer.innerHTML = 'Terjadi kesalahan saat memuat produk.';
+  }
+};
+
+export const renderReviews = async (umkmId) => {
+  const reviewContainer = document.querySelector('#reviews');
+
+  const reviews = await ReviewsDbSource.getReviewsByUmkm(umkmId);
+  reviewContainer.innerHTML = '';
+  try {
+    reviewContainer.innerHTML = reviews.length > 0
+      ? reviews.map((review) => createReviewItemTemplate(review)).join('')
+      : 'Tidak ada review yang ditampilkan.';
+  } catch {
+    reviewContainer.innerHTML = 'Terjadi kesalahan saat memuat ulasan.';
+  }
+};
 
 const Profile = {
   async render() {
     return `
       <section id="detailContainer">
-      <umkm-form></umkm-form>
-      <editumkm-form></editumkm-form>
-      <product-form></product-form>
-      <div id="umkmDetail" class="child-section">
-        <div id="umkms" class="umkms"></div>
-        <div class="product-separator">
-          <div class="separator"></div>
+        <umkm-form></umkm-form>
+        <div id="umkmDetail" class="child-section">
+          <div id="umkms" class="umkms"></div>
+          <div class="product-separator">
+            <div class="separator"></div>
+          </div>
+          <div class="section-title">
+            <h2>Products</h2>
+            <button id="new-product">Tambah Produk</button>
+          </div>
+          <div id="products" class="list-products"></div>
+          <div>
+            <div class="separator"></div>
+          </div>
+          <div class="section-title">
+            <h2>Reviews</h2>
+          </div>
+          <div id="reviews" class="reviews"></div>
+          <div>
+            <div class="separator"></div>
+          </div>
         </div>
-        <div class="section-title">
-          <h2>Products</h2>
-          <button id="new-product">Tambah Produk</button>
-        </div>
-        <div id="products" class="list-products"></div>
-        <div>
-          <div class="separator"></div>
-        </div>
-        <div class="section-title">
-          <h2>Reviews</h2>
-        </div>
-        <div id="reviews" class="reviews"></div>
-        <div>
-          <div class="separator"></div>
-        </div>
-      </div>
-    </section>
+      </section>
     `;
   },
 
   async afterRender() {
     const container = document.querySelector('#umkmDetail');
     await Loading.loadingPage(container);
+
+    const pageload = document.querySelector('.pageload');
     const umkmByUser = await UmkmsDbSource.getUmkmByUser();
 
-    document.querySelector('.pageload').remove();
-    // JIKA USER BELUM MEMPUNYAI UMKM TAMPILKAN TOMBOL TAMBAH UMKM
     if (!umkmByUser[0]) {
-      document.querySelector('#umkmDetail').innerHTML = `
-      <div class="blank-profile">
-      <p>Tidak ada UMKM yang ditemukan. Silahkan menambah UMKM terlebih dahulu.</p>
-      <button id="new-umkm">Tambah UMKM</button>
-      </div>`;
-
-      const newUmkmButton = document.querySelector('#new-umkm');
-      newUmkmButton.addEventListener('click', () => {
+      if (pageload) {
+        pageload.remove();
+      }
+      container.innerHTML = `
+          <div class="blank-profile">
+            <p>Tidak ada UMKM yang ditemukan. Silahkan menambah UMKM terlebih dahulu.</p>
+            <button id="new-umkm">Tambah UMKM</button>
+          </div>`;
+      document.querySelector('#new-umkm').addEventListener('click', () => {
         document.querySelector('umkm-form').style.display = 'block';
       });
       tambahUmkm();
     } else {
-      // JIKA USER MEMPUNYAI UMKM TAMPILKAN DETAIL UMKM
-      const umkmContainer = document.querySelector('#umkms');
-      const renderDetailUmkm = async (umkm) => {
-        const umkmItem = document.createElement('umkm-detail');
-        umkmItem.umkmw = umkm;
+      const { id } = umkmByUser[0];
+      if (pageload) {
+        pageload.remove();
+      }
 
-        umkmContainer.innerHTML = '';
-        umkmContainer.append(umkmItem);
-      };
-      await renderDetailUmkm(umkmByUser[0]);
+      const editForm = document.createElement('editumkm-form');
+      const tambahProdukForm = document.createElement('product-form');
+      container.appendChild(editForm);
+      container.appendChild(tambahProdukForm);
 
-      // TAMBAH PRODUK
+      // UMKM
+      renderUmkm(umkmByUser[0]);
+
+      // PRODUCT UMKM
       const newProductButton = document.querySelector('#new-product');
       newProductButton.addEventListener('click', () => {
         document.querySelector('product-form').style.display = 'block';
       });
-      tambahProduk();
 
-      // RENDER PRODUCTS BY UMKM
-      const productListByUmkm = await ProductsDbSource.getProductsByUmkm(umkmByUser[0].id);
-      if (productListByUmkm.length === 0) {
-        document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
-      } else {
-        document.querySelector('#products').innerHTML = productListByUmkm
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map((product) => createProductItemTemplate(product))
-          .join('');
+      renderProducts(id);
+      const productContainer = document.querySelector('#products');
+      productContainer.addEventListener('click', (event) => {
+        const target = event.target.closest('.editProdBtn, .deleteProdBtn, .addImageFormProd');
+        if (!target) return;
 
-        const productContainer = document.querySelector('#products');
+        const productId = target.dataset.id;
 
-        // TOMBOL EDIT DAN HAPUS PRODUK
-        productContainer.addEventListener('click', async (event) => {
-          const target = event.target.parentElement;
-
-          if (target.classList.contains('editProdBtn')) {
-            const productId = target.dataset.id;
-            editProduct(productId);
-          }
-
-          if (target.classList.contains('deleteProdBtn')) {
-            const productId = target.dataset.id;
-            deleteProduct(productId);
-          }
-          // UPLOAD GAMBAR PRODUK
-          if (target.classList.contains('addImageFormProd')) {
-            const { id } = target.dataset;
-            productImage(id);
-          }
-        });
-      }
-
-      // RENDER REVIEWS BY UMKM
-      const reviewListByUmkm = await ReviewsDbSource.getReviewsByUmkm(umkmByUser[0].id);
-      document.querySelector('#reviews').innerHTML = reviewListByUmkm.map((review) => createReviewItemTemplate(review)).join('');
-
-      if (reviewListByUmkm.length === 0) {
-        document.querySelector('#reviews').innerHTML = 'Tidak ada review yang ditampilkan.';
-      }
+        if (target.classList.contains('editProdBtn')) {
+          editProduct(productId);
+        } else if (target.classList.contains('deleteProdBtn')) {
+          deleteProduct(productId);
+        } else if (target.classList.contains('addImageFormProd')) {
+          productImage(productId);
+        }
+      });
+      // REVIEW UMKM
+      renderReviews(id);
     }
   },
 };

@@ -3,13 +3,16 @@ $title: black;
 $merah: #da281c;
 
 // styling
+form-review {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 900px;
+}
 .formReviewContainer {
-  align-items: center;
+  flex-direction: column;
   padding: 2rem;
-  margin: 0 8%;
-
   border: 1px solid $merah;
-  
+
   .titleFormReview {
     h2 {
       color: $title;
@@ -21,19 +24,56 @@ $merah: #da281c;
   .formReview {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
+    position: relative;
 
-    input, textarea {
+    .formDisabler {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
-      padding: 0.5rem;
-      margin-bottom: 1rem;
-      border: 1px solid rgb(0, 0, 0);
-      color: black;
-    }
-    .desc {
-      padding: 1rem;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
+    .formReviewDesc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      .nama-review {
+        flex-basis: 65%;
+        flex-grow: 1;
+      }
+
+      .rating-review {
+        flex-basis: 30%;
+        flex-grow: 1;
+      }
+
+      .body-reviews {
+        flex-basis: 100%;
+      }
+
+      div {
+        input,
+        textarea {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid rgb(0, 0, 0);
+          color: black;
+        }
+
+        textarea {
+          min-height: 8rem;
+        }
+      }
+    }
     .btnFormReview {
       min-height: 44px;
       background-color: $merah;
@@ -45,8 +85,5 @@ $merah: #da281c;
 }
 
 // responsive
-@media screen and (max-width: 425px) {
-  .formReviewContainer {
-    margin: 0;
-  } 
+@media screen and (min-width: 768px) {
 }

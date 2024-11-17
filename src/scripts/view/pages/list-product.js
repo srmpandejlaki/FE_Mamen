@@ -26,8 +26,10 @@ const ListProduct = {
     productContainer.innerHTML = '';
     await Loading.loadingPage(productContainer);
     const allProductList = await ProductsDbSource.getProducts();
-
-    document.querySelector('.pageload').remove();
+    const pageload = document.querySelector('.pageload');
+    if (pageload) {
+      pageload.remove();
+    }
     if (allProductList.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {

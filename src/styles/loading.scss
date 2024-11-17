@@ -10,76 +10,58 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.pageCenter {
-  position: relative;
-  border-radius: 50%;
-  width: 100px;
-  height: 100px;
-  background: transparent;
-  box-shadow: 0 4px 0 rgb(0, 0, 0);
-  animation: animate 1s linear infinite;
-}
-.pageRing {
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  animation: spin 1s linear infinite;
-}
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
+  .pageCenter {
+    position: relative;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    background: transparent;
+    box-shadow: 0 4px 0 rgb(0, 0, 0);
+    animation: animate 1s linear infinite;
+    .pageRing {
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      animation: spin 1s linear infinite;
+    }
   }
 }
 
+// inline loading
 .sectionload {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100vw;
-  background-color: transparent;
-  z-index: 9999;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.sectionCenter {
-  position: relative;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  background: transparent;
-  box-shadow: 0 4px 0 rgb(0, 0, 0);
-  animation: animate 1s linear infinite;
-}
-.sectionRing {
-  border-radius: 50%;
-  background: transparent;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: absolute;
-  width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
-  animation: spin 1s linear infinite;
+  width: 100%;
+  background-color: white;
+  .sectionCenter {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    box-shadow: 0 4px 0 rgb(0, 0, 0);
+    animation: animate 1s linear infinite;
+    .sectionRing {
+      border-radius: 50%;
+      background: transparent;
+      box-shadow: 0 4px 8px transparent;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      animation: spin 1s linear infinite;
+    }
+  }
 }
+
 @keyframes animate {
   0% {
     transform: rotate(0deg);

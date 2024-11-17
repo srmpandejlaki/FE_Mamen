@@ -1,8 +1,9 @@
 /* eslint-disable class-methods-use-this */
-import UmkmsDbSource from '../api/umkms-api';
+import Swal from 'sweetalert2';
 import CategoriesDbSource from '../api/categories-api';
-import UrlParser from '../routes/url-parser';
-import { umkmImage, addCategory, editUmkm } from '../utility/umkmFunction';
+import { addCategory, umkmImage } from '../utility/umkmFunction';
+import { renderCategories } from '../view/pages/profile';
+import UmkmsDbSource from '../api/umkms-api';
 
 class UmkmDetail extends HTMLElement {
   constructor() {
@@ -35,57 +36,78 @@ class UmkmDetail extends HTMLElement {
     this.innerHTML = '';
   }
 
-  async categories() {
-    let categories;
+  async crud() {
+    const umkmByUser = await UmkmsDbSource.getUmkmByUser();
+    const { id } = umkmByUser[0];
 
-    if (window.location.hash !== '#/profile') {
-      const url = UrlParser.parseActiveUrlWithoutCombiner();
-      categories = await CategoriesDbSource.getCategoriesByUmkm(url.id);
+    // EDIT UMKM
+    const editUmkmButton = document.querySelector('#edit-detail');
+    editUmkmButton.addEventListener('click', () => {
+      document.querySelector('editumkm-form').style.display = 'block';
+    });
 
-      // RENDER CATEGORIES BY UMKM
-      if (categories.length === 0) {
-        document.querySelector('#listCategory').innerHTML = '-';
-      } else {
-        document.querySelector('#listCategory').innerHTML = categories.map((category) => `
-            <div class="category" data-id="${category.id}">
-              <p>${category.name}</p>
-            </div>`)
-          .join('');
-      }
-    } else {
-      const umkmDetails = await UmkmsDbSource.getUmkmByUser();
+    // DELETE UMKM
+    const deleteUmkmButton = document.querySelector('.title-con');
+    deleteUmkmButton.addEventListener('click', async (event) => {
+      const target = event.target.closest('#delete-umkm');
+      if (!target) return;
 
-      categories = await CategoriesDbSource.getCategoriesByUmkm(umkmDetails[0].id);
-
-      // RENDER CATEGORIES BY UMKM
-      if (categories.length === 0) {
-        document.querySelector('#listCategory').innerHTML = 'Belum terdapat kategori. Silahkan menambah terlebih dahulu';
-      } else {
-        document.querySelector('#listCategory').innerHTML = categories.map((category) => `
-            <div class="category" data-id="${category.id}">
-              <p>${category.name}</p>
-              <button class="delete-category"><i class="fa-solid fa-trash"></i></button>
-            </div>`)
-          .join('');
-
-        // DELETE CATEGORY
-        const deleteCategoryButtons = document.querySelectorAll('.fa-trash');
-        deleteCategoryButtons.forEach((button) => {
-          button.addEventListener('click', async (event) => {
-            const categoryId = event.target.parentElement.parentElement.dataset.id;
-            await CategoriesDbSource.deleteCategoryById(umkmDetails[0].id, categoryId);
-            button.parentElement.parentElement.remove();
-          });
-        });
-      }
-      const editUmkmButton = document.querySelector('#edit-detail');
-      editUmkmButton.addEventListener('click', () => {
-        document.querySelector('editumkm-form').style.display = 'block';
-        editUmkm();
+      Swal.fire({
+        title: 'Hapus UMKM?',
+        text: 'UMKM ini akan dihapus secara permanen.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          UmkmsDbSource.deleteUmkmById(id)
+            .then(() => {
+              window.location.reload();
+            });
+        }
       });
-      umkmImage();
-      addCategory();
-    }
+    });
+
+    // CATEGORY UMKM
+    renderCategories(id);
+
+    // ADD CATEGORY
+    const addCategoryBtn = document.querySelector('#addCategory');
+    const addCategoryForm = document.querySelector('#form-addCategory');
+    addCategoryBtn.addEventListener('click', () => {
+      addCategoryForm.style.display = 'flex';
+      addCategoryBtn.style.display = 'none';
+    });
+    addCategory();
+
+    // DELETE CATEGORY
+    const categoriesContainer = document.querySelector('#listCategory');
+    categoriesContainer.addEventListener('click', (event) => {
+      const target = event.target.closest('.delete-category');
+      if (!target) return;
+
+      const categoryId = target.parentElement.dataset.id;
+      Swal.fire({
+        title: 'Hapus Kategori?',
+        text: 'Kategori ini akan dihapus secara permanen.',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          CategoriesDbSource.deleteCategoryById(id, categoryId)
+            .then(() => {
+              renderCategories(id);
+            });
+        }
+      });
+    });
+    // ADD IMAGE
+    umkmImage();
   }
 
   render() {
@@ -113,6 +135,7 @@ class UmkmDetail extends HTMLElement {
         <div class="title-con">
           <h1 id="title-umkm">${this.umkm.name}</h1>
           <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
+          <button id="delete-umkm" data-id="${this.umkm.id}"><i class="fa-solid fa-trash-can"></i></button>
         </div>
         <div class="detail-con">
           <table>
@@ -160,7 +183,7 @@ class UmkmDetail extends HTMLElement {
       </section>
      </article>
         `;
-    this.categories();
+    this.crud();
   }
 }
 
