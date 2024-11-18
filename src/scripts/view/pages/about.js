@@ -67,8 +67,11 @@ const AboutUs = {
 
   async afterRender() {
     const container = document.querySelector('#aboutSection');
-    Loading.loadingPage(container);
-    container.innerHTML = '';
+    await Loading.loadingPage(container);
+    const pageload = document.querySelector('.pageload');
+    if (pageload) {
+      pageload.remove();
+    }
   },
 };
 
