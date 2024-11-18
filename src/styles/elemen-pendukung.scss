@@ -33,8 +33,10 @@ $button: #da281c;
 }
 
 .infoUMKM {
+  padding: 5rem 0;
   .infoDesc {
     font-size: 1.2rem;
+    padding: 0 2rem 0 0;
   }
 }
 
@@ -50,11 +52,16 @@ $button: #da281c;
 }
 
 .infoProduk {
+  padding: 5rem 0 8rem;
+  .info {
+    padding: 0 0 0 2rem;
+  }
   .infoDesc {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .btnInfo {
+    display: flex;
     flex-wrap: wrap;
     align-items: end;
   }

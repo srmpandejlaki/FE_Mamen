@@ -1,4 +1,5 @@
 $yellow: #ff9e1b;
+$red: #da281c;
 
 .separator {
   width: 100%;
@@ -47,8 +48,7 @@ $yellow: #ff9e1b;
     padding-top: 6.5rem;
     overflow: hidden;
 
-    #umkms,
-    #detailProduct {
+    #umkms {
       min-height: 600px;
       display: flex;
       align-items: center;
@@ -159,8 +159,6 @@ umkm-detail {
   }
 
   .detail-con {
-    padding: 0 1rem;
-
     table {
       tr {
         td {
@@ -201,7 +199,7 @@ umkm-detail {
           padding: 0.5rem 1rem;
           background-color: black;
           color: white;
-          border: 1px solid black;
+          border: 1px solid $yellow;
           cursor: pointer;
         }
       }
@@ -217,7 +215,7 @@ umkm-detail {
         justify-content: space-between;
         align-items: center;
         gap: 0.5rem;
-        background-color: black;
+        background-color: $yellow;
         color: white;
         padding: 0.5rem 1rem;
 
@@ -245,6 +243,10 @@ umkm-detail {
     }
   }
 
+  .detail-con td, .category-con {
+    font-size: 0.85rem;
+  }
+
   .description-con {
     position: relative;
     padding: 0;
@@ -256,12 +258,12 @@ umkm-detail {
       display: flex;
       gap: 1rem;
       flex-direction: column;
-      padding: 1rem 2rem 3rem;
+      padding: 1rem 0.5rem;
       box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
 
       p {
         color: black;
-        font-size: 1rem;
+        font-size: 0.85rem;
         line-height: 1.5rem;
       }
     }
@@ -284,6 +286,7 @@ umkm-detail {
         width: 114%;
         left: -15%;
         top: -1rem;
+        padding: 1rem 2rem 3rem;
       }
     }
   }
