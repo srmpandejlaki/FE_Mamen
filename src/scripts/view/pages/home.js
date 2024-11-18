@@ -73,7 +73,7 @@ const Home = {
           </div>
         </section>
         <section class="explore-con">
-          <div id="products" class="products"></div>
+          <div id="products" class="products scroll"></div>
         </section>
         <section class="explore-con">
           <div id="reviews" class="reviews"></div>

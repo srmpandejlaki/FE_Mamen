@@ -1,5 +1,6 @@
+/* eslint-disable import/newline-after-import */
 // import CONFIG from '../../globals/config';
-
+import Utils from '../../utility/utils';
 const createUmkmSliderTemplate = (umkm) => `
             <div
               data-id="${umkm.id}" 
@@ -79,14 +80,17 @@ const createProductItemTemplate = (product) => `
 
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
-            <div class="review-name">
+          <div class="review-des">
+            <p>" ${review.review} "</p>
+          </div>
+            <div class="review-rating">
               <h3>${review.user_rating}</h3>
             </div>
-            <div class="review-des">
-              <p>" ${review.review} "</p>
+            <div class="review-name">
+              <p>${review.name}</p>
             </div>
             <div class="review-date">
-              <p>${review.name}</p>
+              <p>${Utils.parseDate(review.date)}</p>
             </div>
           </div>
 `;
