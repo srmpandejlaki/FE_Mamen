@@ -77,9 +77,9 @@ class UmkmDetail extends HTMLElement {
           .join('');
       }
 
-      document.getElementById('addImageForm').style.display = 'none';
-      document.getElementById('edit-detail').style.display = 'none';
-      document.getElementById('addCategory').style.display = 'none';
+      document.getElementById('addImageForm').remove();
+      document.getElementById('edit-detail').remove();
+      document.getElementById('addCategory').remove();
     }
   }
 

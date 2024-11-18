@@ -2,24 +2,47 @@ import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
-import CategoriesDbSource from '../../api/categories-api';
+import {
+  umkmImage, addCategory, tambahUmkm, editUmkm,
+} from '../../utility/umkmFunction';
+import {
+  tambahProduk, editProduct, deleteProduct, productImage,
+} from '../../utility/productFunction';
 
 const Profile = {
   async render() {
     return `
       <section id="detailContainer">
       <umkm-form></umkm-form>
+      <editumkm-form></editumkm-form>
+      <product-form></product-form>
+      <editproduct-form></editproduct-form>
       <div id="umkmDetail" class="child-section">
         <div id="umkms" class="umkms"></div>
-        <div id="products" class="products"></div>
+        <div class="product-separator">
+          <div class="separator"></div>
+        </div>
+        <div class="section-title">
+          <h2>Products</h2>
+          <button id="new-product">Tambah Produk</button>
+        </div>
+        <div id="products" class="list-products"></div>
+        <div>
+          <div class="separator"></div>
+        </div>
+        <div class="section-title">
+          <h2>Reviews</h2>
+        </div>
         <div id="reviews" class="reviews"></div>
+        <div>
+          <div class="separator"></div>
+        </div>
       </div>
     </section>
     `;
   },
 
   async afterRender() {
-    const container = document.querySelector('#detailContainer');
     const umkmDetails = await UmkmsDbSource.getUmkmByUser();
 
     // JIKA USER BELUM MEMPUNYAI UMKM TAMPILKAN TOMBOL TAMBAH UMKM
@@ -32,8 +55,9 @@ const Profile = {
 
       const newUmkmButton = document.querySelector('#new-umkm');
       newUmkmButton.addEventListener('click', () => {
-        document.querySelector('.popup-form').style.display = 'flex';
+        document.querySelector('umkm-form').style.display = 'block';
       });
+      tambahUmkm();
     } else {
       // JIKA USER MEMPUNYAI UMKM TAMPILKAN DETAIL UMKM
       const umkmContainer = document.querySelector('#umkms');
@@ -46,78 +70,54 @@ const Profile = {
       };
       await renderDetail(umkmDetails[0]);
 
-      // DI DALAM PROFILE DITAMBAHKAN EDIT BUTTON DI DETAIL UMKM
-      const formEdit = document.createElement('editumkm-form');
-      container.append(formEdit);
-
       const editUmkmButton = document.querySelector('#edit-detail');
       editUmkmButton.addEventListener('click', () => {
-        document.querySelector('#popupFormEdit').style.display = 'flex';
+        document.querySelector('editumkm-form').style.display = 'block';
       });
+      editUmkm();
 
       // UPLOAD GAMBAR UMKM
-      const labelAddImg = document.getElementById('addImgLabel');
-      const resetImg = document.getElementById('resetImg');
-      const submitImg = document.getElementById('submitImg');
-      const addImgForm = document.getElementById('addImageForm');
-      const fileInput = document.getElementById('addimage');
-      const umkmImg = document.getElementById('umkm-img');
-      fileInput.addEventListener('change', async (event) => {
-        const file = event.target.files[0];
-        if (file) {
-          umkmImg.src = URL.createObjectURL(file);
-          labelAddImg.style.display = 'none';
-          resetImg.style.display = 'inline-block';
-          submitImg.style.display = 'inline-block';
-        } else {
-          labelAddImg.style.display = 'inline-block';
-          resetImg.style.display = 'none';
-          submitImg.style.display = 'none';
-        }
-      });
-      addImgForm.addEventListener('reset', () => {
-        fileInput.value = '';
-        labelAddImg.style.display = 'inline-block';
-        resetImg.style.display = 'none';
-        submitImg.style.display = 'none';
-        umkmImg.src = `${umkmDetails[0].cover_url ? umkmDetails[0].cover_url : './images/hero-image2.webp'}`;
-      });
-
-      addImgForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const coverUrl = fileInput.files[0];
-        await UmkmsDbSource.postUmkmCover(umkmDetails[0].id, coverUrl);
-        labelAddImg.style.display = 'inline-block';
-        resetImg.style.display = 'none';
-        submitImg.style.display = 'none';
-      });
+      umkmImage();
 
       // TAMBAH KATEGORI
-      const addCategoryBtn = document.getElementById('addCategory');
-      const addCategoryForm = document.getElementById('form-addCategory');
-      const inputCategory = document.getElementById('input-category');
+      addCategory();
 
-      addCategoryBtn.addEventListener('click', () => {
-        addCategoryForm.style.display = 'flex';
-        addCategoryBtn.style.display = 'none';
+      // TAMBAH PRODUK
+      const newProductButton = document.querySelector('#new-product');
+      newProductButton.addEventListener('click', () => {
+        document.querySelector('product-form').style.display = 'block';
       });
-
-      addCategoryForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const name = inputCategory.value;
-        const category = { name };
-        await CategoriesDbSource.postCategory(umkmDetails[0].id, category);
-        addCategoryForm.style.display = 'none';
-        inputCategory.value = '';
-        addCategoryBtn.style.display = 'block';
-      });
+      tambahProduk();
 
       // RENDER PRODUCTS BY UMKM
       const productDetails = await ProductsDbSource.getProductsByUmkm(umkmDetails[0].id);
-      document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
-
       if (productDetails.length === 0) {
         document.querySelector('#products').innerHTML = 'Tidak ada produk yang ditampilkan.';
+      } else {
+        document.querySelector('#products').innerHTML = productDetails.map((product) => createProductItemTemplate(product)).join('');
+
+        const productContainer = document.querySelector('#products');
+
+        // TOMBOL EDIT DAN HAPUS PRODUK
+        productContainer.addEventListener('click', async (event) => {
+          const target = event.target.parentElement;
+
+          if (target.classList.contains('editProdBtn')) {
+            const productId = target.dataset.id;
+            document.querySelector('editproduct-form').style.display = 'block';
+            editProduct(productId);
+          }
+
+          if (target.classList.contains('deleteProdBtn')) {
+            const productId = target.dataset.id;
+            deleteProduct(productId);
+          }
+          // UPLOAD GAMBAR PRODUK
+          if (target.classList.contains('addImageFormProd')) {
+            const { id } = target.dataset;
+            productImage(id);
+          }
+        });
       }
 
       // RENDER REVIEWS BY UMKM
