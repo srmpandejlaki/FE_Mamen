@@ -8,6 +8,7 @@ import '../styles/umkm-slider.scss';
 import '../styles/list-product.scss';
 import '../styles/list-umkm.scss';
 import '../styles/list-review.scss';
+import '../styles/about.scss';
 import './components/footer-bar';
 import './components/header-bar';
 import './components/hero-section';
