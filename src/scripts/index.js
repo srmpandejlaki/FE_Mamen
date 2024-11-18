@@ -8,6 +8,7 @@ import '../styles/umkm-slider.scss';
 import '../styles/list-product.scss';
 import '../styles/list-umkm.scss';
 import '../styles/list-review.scss';
+import '../styles/about.scss';
 import '../styles/loading.scss';
 import '../styles/form-review.scss';
 import '../styles/elemen-pendukung.scss';
