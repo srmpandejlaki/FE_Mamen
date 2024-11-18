@@ -16,14 +16,22 @@ $black: rgb(255, 255, 255);
   .review-item {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     background-color: white;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
+    
+    gap: 1rem;
     border-bottom: 1px solid $yellow;
     padding: 0.5rem 1rem;
 
-    width: 250px;
-    height: 100px;
+    width: 300px;
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+
+    .desc-con {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
 
     .review-name {
       overflow: auto;
@@ -50,6 +58,21 @@ $black: rgb(255, 255, 255);
         color: black;
         font-size: 0.9rem;
         color: rgb(203, 203, 203);
+      }
+    }
+
+    .review-rating {
+      display: flex;
+      justify-content: end;
+
+      width: auto;
+      
+      h3, i {
+        color: white;
+        background-color: $yellow;
+        
+        padding: 0.25rem 0.5rem;
+        border-radius: 25px;
       }
     }
   }
