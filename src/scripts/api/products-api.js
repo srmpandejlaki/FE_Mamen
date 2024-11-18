@@ -21,18 +21,14 @@ class ProductsDbSource {
       const response = await fetch(PRODUCTS.UMKM_BASE(umkmId), options);
       const responseJson = await response.json();
 
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
+      if (!response.ok) {
+        throw new Error(responseJson.message || 'Gagal menambahkan produk!');
+      }
 
       return responseJson.data;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal menambahkan product!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
   }
 
@@ -40,13 +36,15 @@ class ProductsDbSource {
     try {
       const response = await fetch(PRODUCTS.UMKM_BASE(umkmId));
       const responseJson = await response.json();
+
+      if (!response.ok) {
+        throw new Error('Gagal mendapatkan produk UMKM!');
+      }
+
       return responseJson.data.products;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal menampilkan list produk!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
   }
 
@@ -54,13 +52,15 @@ class ProductsDbSource {
     try {
       const response = await fetch(PRODUCTS.BASE);
       const responseJson = await response.json();
+
+      if (!response.ok) {
+        throw new Error('Gagal mendapatkan list produk!');
+      }
+
       return responseJson.data.products;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal mendapatkan list produk!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
   }
 
@@ -68,13 +68,15 @@ class ProductsDbSource {
     try {
       const response = await fetch(PRODUCTS.DETAIL(id));
       const responseJson = await response.json();
+
+      if (!response.ok) {
+        throw new Error('Gagal mendapatkan produk!');
+      }
+
       return responseJson.data.product;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal mendapatkan produk!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
   }
 
@@ -97,18 +99,14 @@ class ProductsDbSource {
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
 
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
+      if (!response.ok) {
+        throw new Error(responseJson.message || 'Gagal mengupdate produk!');
+      }
 
       return responseJson;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal mengupdate produk!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
   }
 
@@ -123,24 +121,21 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.UMKM_DETAIL_BASE(umkmId, id), options);
       const responseJson = await response.json();
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
+
+      if (!response.ok) {
+        throw new Error('Gagal menghapus produk!');
+      }
+
       return responseJson;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal menghapus produk!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
   }
 
   static async postProductCover(umkmId, id, coverUrl) {
     try {
       const accessToken = localStorage.getItem('accessToken');
-
       const formData = new FormData();
       formData.append('cover_url', coverUrl);
 
@@ -153,18 +148,25 @@ class ProductsDbSource {
       };
       const response = await fetch(PRODUCTS.COVERS(umkmId, id), options);
       const responseJson = await response.json();
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
+
+      if (!response.ok) {
+        throw new Error('Gagal menambahkan cover produk!');
+      }
+
       return responseJson;
-    } catch {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Gagal menambahkan cover produk!',
-      });
+    } catch (error) {
+      this.handleError(error);
+      throw error;
     }
+  }
+
+  // Handle error and show SweetAlert
+  static handleError(error) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: error.message || 'Terjadi kesalahan!',
+    });
   }
 }
 

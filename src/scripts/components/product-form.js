@@ -1,3 +1,8 @@
+const { default: Swal } = require('sweetalert2');
+const { default: ProductsDbSource } = require('../api/products-api');
+const { default: UmkmsDbSource } = require('../api/umkms-api');
+const { renderProducts } = require('../view/pages/profile');
+
 /* eslint-disable class-methods-use-this */
 class ProductForm extends HTMLElement {
   emptyContent() {
@@ -6,6 +11,55 @@ class ProductForm extends HTMLElement {
 
   connectedCallback() {
     this.render();
+  }
+
+  async tambahProduk() {
+    const umkmDetailByUser = await UmkmsDbSource.getUmkmByUser();
+    const umkmId = umkmDetailByUser[0].id;
+    const closeFormButton = document.getElementById('closeFormButtonProd');
+    const popupForm = document.querySelector('product-form');
+    const form = document.getElementById('productForm');
+
+    // Form submission handler
+    async function handleSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('nameprod').value;
+      const product_type = document.getElementById('type').value;
+      const description = document.getElementById('descriptionprod').value;
+      const price = document.getElementById('price').value;
+      const product = {
+        name, product_type, description, price,
+      };
+
+      try {
+        popupForm.style.display = 'none';
+
+        await ProductsDbSource.postProduct(umkmId, product);
+
+        form.reset();
+        await renderProducts(umkmId);
+
+        Swal.fire({
+          icon: 'success',
+          title: 'Berhasil',
+          text: 'Produk berhasil ditambahkan!',
+        });
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Gagal',
+          text: `Terjadi kesalahan: ${error.message}`,
+        });
+      }
+    }
+
+    // Close the form popup
+    closeFormButton.addEventListener('click', () => {
+      popupForm.style.display = 'none';
+    });
+
+    form.removeEventListener('submit', handleSubmit);
+    form.addEventListener('submit', handleSubmit);
   }
 
   render() {
@@ -33,6 +87,7 @@ class ProductForm extends HTMLElement {
         </div>
     </div>
       `;
+    this.tambahProduk();
   }
 }
 

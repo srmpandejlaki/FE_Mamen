@@ -61,7 +61,7 @@ class HeaderBar extends HTMLElement {
         <div class="navbar-con">
         <div class="navbar">
           <div class="nav-title">
-            <a href="" class="title">Ma<span>men</span> </a>
+            <a href="/" class="title">Ma<span>men</span> </a>
           </div>
           <nav>
             <ul class="nav-list" id="nav-list">

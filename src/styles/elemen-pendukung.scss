@@ -1,0 +1,91 @@
+$button: #da281c;
+
+.infoUMKM, .infoProduk {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  justify-content: space-between;
+
+  .infoImage {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+    img {
+      width: 400px;
+    }
+  }
+
+  .info {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-around;
+    
+    .judul {
+      font-size: 1.3rem;
+    }
+
+    .infoDesc {
+      line-height: 1.5rem;
+      text-align: justify;
+    }
+  }
+}
+
+.infoUMKM {
+  .infoDesc {
+    font-size: 1.2rem;
+  }
+}
+
+.btnInfo {
+  margin: 1rem 0;
+
+  a {
+    width: auto;
+    padding: 1rem;
+    background-color: $button;
+    color: white;
+  }
+}
+
+.infoProduk {
+  .infoDesc {
+    font-size: 1.5rem;
+  }
+
+  .btnInfo {
+    flex-wrap: wrap;
+    align-items: end;
+  }
+}
+
+// responsive
+@media screen and (max-width: 768px) {
+  .infoProduk {
+    display: flex;
+    flex-direction: column-reverse;
+
+    .info {
+      gap: 1.5rem;
+    }
+  }
+
+  .infoUMKM, .infoProduk {
+    padding: 2rem 0;
+    
+    .infoImage {
+      img {
+        width: 90%;
+      }
+    }
+
+    .judul {
+      font-size: 0.8rem;
+    }
+
+    .infoDesc {
+      font-size: 1rem;
+    }
+  }
+}

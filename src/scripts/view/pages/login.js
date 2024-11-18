@@ -1,6 +1,6 @@
 import AuthDbSource from '../../api/auth-api';
 import UsersDbSource from '../../api/users-api';
-import UmkmsDbSource from '../../api/umkms-api';
+import Loading from '../../utility/loading';
 
 const Login = {
   async render() {
@@ -9,7 +9,7 @@ const Login = {
     <section class="login-section">
         <!-- Left side: Image -->
         <div class="login-image">
-            <img src="./images/hero-image2.webp" alt="Login Image">
+          <img src="./images/login-image.jpeg" alt="Login Image">
         </div>
 
         <!-- Right side: Form Container -->
@@ -21,6 +21,11 @@ const Login = {
 
             <!-- Login Form -->
             <form id="loginForm" class="form act">
+              <div class="img">
+                <a href="/">
+                  <img src="./images/LogoMamen.png" alt="Logo Mamen">
+                </a>
+              </div>
               <div>
                 <h2>Login</h2>
                 <div>
@@ -61,6 +66,7 @@ const Login = {
   },
 
   async afterRender() {
+    const loginPage = document.querySelector('.login');
     // hide header and footer while rendering the login page
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -98,10 +104,11 @@ const Login = {
 
       try {
         await AuthDbSource.postAuth(auth);
+
         if (localStorage.getItem('accessToken')) {
+          await Loading.loadingPage(loginPage);
           window.location.href = '/';
         }
-        await UmkmsDbSource.getUmkmByUser();
       } catch (error) {
         console.error(error);
       }

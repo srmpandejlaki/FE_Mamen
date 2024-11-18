@@ -5,6 +5,7 @@ const createUmkmSliderTemplate = (umkm) => `
               data-id="${umkm.id}" 
               class="slides"
               style="background-image: url(${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'})"
+              onerror="this.onerror=null;this.style.backgroundImage=url('./images/template-umkm-img.png');"
             >
             <span>${umkm.rating}</span>
               <div class="content">
@@ -90,9 +91,28 @@ const createReviewItemTemplate = (review) => `
             </div>
           </div>
 `;
+
+const createPageLoading = () => `
+  <div class="pageload">
+    <div class="pageCenter">
+      <div class="pageRing"></div>
+    </div>
+  </div>
+`;
+
+const createSectionLoading = () => `
+  <div class="sectionload">
+    <div class="sectionCenter">
+      <div class="sectionRing"></div>
+    </div>
+  </div>
+  `;
+
 export {
   createUmkmSliderTemplate,
   createUmkmItemTemplate,
   createProductItemTemplate,
   createReviewItemTemplate,
+  createPageLoading,
+  createSectionLoading,
 };

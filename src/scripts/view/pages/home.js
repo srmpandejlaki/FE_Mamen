@@ -25,17 +25,59 @@ const Home = {
         <hero-section></hero-section>
       </section>
       <section id="explore">
+        <section class="explore-con">
+          <div class="infoUMKM">
+            <div class="infoImage">
+              <img src="./images/home-umkm.png" alt="Gambar Ilustrasi UMKM"> 
+            </div>
+            <div class="info">
+              <div class="judul">
+                <h3><i class="fa-sharp fa-solid fa-lightbulb"></i>  Ingpo</h3>
+              </div>
+              <div class="infoDesc">
+                <p>
+                  UMKM (Usaha Mikro, Kecil, dan Menengah) <br> 
+                  merupakan tulang punggung perekonomian yang memiliki peran penting dalam 
+                  mendorong perekonomian lokal, termasuk di Kota Manado. <br> <br>
+                  Dengan memanfaatkan sumber daya lokal, seperti hasil laut dan budaya 
+                  khas Minahasa, UMKM di Manado mampu menciptakan produk unik dan berpotensi menembus pasar internasional. <br>
+                </p>
+              </div>
+              <div class="btnInfo">
+                <a href="#/umkms">list umkm</a>
+              </div>
+            </div>
+          </div>
+        </section>
         <div class="explore-con">
           <div id="umkm-list">
             <umkm-slider></umkm-slider>
           </div>
         </div>
-        <div class="explore-con">
+        <section class="explore-con">
+          <div class="infoProduk">
+            <div class="info">
+              <div class="judul">
+                <h2>Tentang Produk</h2>
+              </div>
+              <div class="infoDesc">
+                <p>Jelajahi produk-produk berkualitas dari semua UMKM yang terdaftar disini.<br>Ayo temukan produk berupa barang, makanan, minuman, dan lainnya di sini.</p>
+              </div>
+              <div class="btnInfo">
+                <a href="#/products">list produk</a>
+              </div>
+            </div>
+            <div class="infoImage"> 
+              <img src="./images/home-product.png" alt="Gambar Ilustrasi UMKM"> 
+            </div>
+          </div>
+        </section>
+        <section class="explore-con">
           <div id="products" class="products"></div>
-        </div>
-        <div class="explore-con">
+        </section>
+        <section class="explore-con">
           <div id="reviews" class="reviews"></div>
-        </div>
+        </section>
         <div>
           <div class="separator"></div>
         </div>
@@ -56,12 +98,12 @@ const Home = {
     // RENDER PRODUCTS
     const productContainer = document.querySelector('#products');
     productContainer.innerHTML = '';
-    const products = await ProductsDbSource.getProducts();
+    const allProductList = await ProductsDbSource.getProducts();
 
-    if (products.length === 0) {
+    if (allProductList.length === 0) {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {
-      products.forEach((product) => {
+      allProductList.forEach((product) => {
         productContainer.innerHTML += createProductItemTemplate(product);
         document.querySelector('.addImageFormProd').remove();
         document.querySelector('.prod-buttons').remove();
