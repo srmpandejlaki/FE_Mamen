@@ -169,8 +169,11 @@ async function productImage(id) {
   addImgForm.removeEventListener('reset', handleReset);
   addImgForm.addEventListener('reset', handleReset);
 
-  addImgForm.removeEventListener('submit', handleSubmit);
-  addImgForm.addEventListener('submit', handleSubmit);
+  if (!addImgForm.onSubmitListener) {
+    addImgForm.removeEventListener('submit', handleSubmit);
+    addImgForm.addEventListener('submit', handleSubmit);
+    addImgForm.onSubmitListener = true;
+  }
 }
 
 export {
