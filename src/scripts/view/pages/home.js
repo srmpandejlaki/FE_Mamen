@@ -58,7 +58,7 @@ const Home = {
           <div class="infoProduk">
             <div class="info">
               <div class="judul">
-                <h2>Tentang Produk</h2>
+                <h2><i class="fa-solid fa-question"></i> Tentang Produk</h2>
               </div>
               <div class="infoDesc">
                 <p>Jelajahi produk-produk berkualitas dari semua UMKM yang terdaftar disini.<br>Ayo temukan produk berupa barang, makanan, minuman, dan lainnya di sini.</p>
