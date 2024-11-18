@@ -1,6 +1,7 @@
 $button: #da281c;
 
-.infoUMKM, .infoProduk {
+.infoUMKM,
+.infoProduk {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   justify-content: space-between;
@@ -9,7 +10,7 @@ $button: #da281c;
     width: 100%;
     display: flex;
     justify-content: center;
-    
+
     img {
       width: 400px;
     }
@@ -20,7 +21,7 @@ $button: #da281c;
     display: flex;
     flex-wrap: wrap;
     align-content: space-around;
-    
+
     .judul {
       font-size: 1.3rem;
     }
@@ -71,9 +72,10 @@ $button: #da281c;
     }
   }
 
-  .infoUMKM, .infoProduk {
+  .infoUMKM,
+  .infoProduk {
     padding: 2rem 0;
-    
+
     .infoImage {
       img {
         width: 90%;
