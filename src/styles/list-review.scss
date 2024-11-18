@@ -6,7 +6,6 @@ $black: rgb(255, 255, 255);
 #reviews {
   position: absolute;
   display: flex;
-  width: 100%;
   gap: 1.25rem;
   padding: 5rem;
   position: relative;
@@ -17,11 +16,11 @@ $black: rgb(255, 255, 255);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     background-color: white;
     
-    gap: 1rem;
+    gap: 1.2rem;
     border-bottom: 1px solid $yellow;
-    padding: 0.5rem 1rem;
+    padding: 0.8rem 1rem;
 
-    width: 300px;
+    min-width: 300px;
     height: 120px;
 
     display: flex;
