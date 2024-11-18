@@ -73,10 +73,10 @@ const Home = {
           </div>
         </section>
         <section class="explore-con">
-          <div id="products" class="products scroll"></div>
+          <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
-          <div id="reviews" class="reviews"></div>
+          <div id="reviews" class="infinite-scroll"></div>
         </section>
         <div>
           <div class="separator"></div>
