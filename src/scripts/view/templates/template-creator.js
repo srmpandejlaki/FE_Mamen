@@ -83,10 +83,10 @@ const createReviewItemTemplate = (review) => `
           <div class="review-item">
             <div>
               <div class="review-rating">
-                <h3><i>&#9734;</i> ${review.user_rating}</h3>
+                <h4><i>&#9734;</i>${review.user_rating}</h4>
               </div>
               <div class="review-des">
-                <p>" ${review.review} "</p>
+                <p>" ${review.review} hehehe"</p>
               </div>
             </div>
             <div class="desc-con">

@@ -28,7 +28,7 @@ const Home = {
         <section class="explore-con">
           <div class="infoUMKM">
             <div class="infoImage">
-              <img src="./images/17.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/info-umkm.png" alt="Gambar Ilustrasi UMKM"> 
             </div>
             <div class="info">
               <div class="judul">
@@ -68,7 +68,7 @@ const Home = {
               </div>
             </div>
             <div class="infoImage"> 
-              <img src="./images/19.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/info-product.png" alt="Gambar Ilustrasi UMKM"> 
             </div>
           </div>
         </section>
