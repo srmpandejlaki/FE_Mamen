@@ -28,7 +28,7 @@ const Home = {
         <section class="explore-con">
           <div class="infoUMKM">
             <div class="infoImage">
-              <img src="./images/home-umkm.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/17.png" alt="Gambar Ilustrasi UMKM"> 
             </div>
             <div class="info">
               <div class="judul">
@@ -58,7 +58,7 @@ const Home = {
           <div class="infoProduk">
             <div class="info">
               <div class="judul">
-                <h2>Tentang Produk</h2>
+                <h2><i class="fa-solid fa-question"></i> Tentang Produk</h2>
               </div>
               <div class="infoDesc">
                 <p>Jelajahi produk-produk berkualitas dari semua UMKM yang terdaftar disini.<br>Ayo temukan produk berupa barang, makanan, minuman, dan lainnya di sini.</p>
@@ -68,15 +68,15 @@ const Home = {
               </div>
             </div>
             <div class="infoImage"> 
-              <img src="./images/home-product.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/19.png" alt="Gambar Ilustrasi UMKM"> 
             </div>
           </div>
         </section>
         <section class="explore-con">
-          <div id="products" class="products"></div>
+          <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
-          <div id="reviews" class="reviews"></div>
+          <div id="reviews" class="infinite-scroll"></div>
         </section>
         <div>
           <div class="separator"></div>
