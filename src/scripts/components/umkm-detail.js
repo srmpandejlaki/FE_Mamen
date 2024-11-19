@@ -127,7 +127,7 @@ class UmkmDetail extends HTMLElement {
         <form id="addImageForm">
           <label id="addImgLabel" for="addimage"><i class="fa-solid fa-download"></i></label>
           <input type="file" id="addimage" accept="image/*" name="addimage" placeholder="Maks. 2mb" required>
-          <button id="resetImg" type="reset">reset</button>
+          <button id="resetImg" type="reset">Reset</button>
           <button id="submitImg" type="submit">Submit</button>
         </form>
       </section>

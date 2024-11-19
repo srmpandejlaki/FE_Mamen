@@ -112,6 +112,7 @@ const Profile = {
 
           <img class="blankImg" src="./images/newumkm.png">
           <div class="blankCon">
+            <h2>Nothing in here...</h2>
             <p>Kamu belum mempunyai UMKM. Silahkan menambah UMKM terlebih dahulu.</p>
             <button id="new-umkm">Tambah UMKM</button>
           </div>
