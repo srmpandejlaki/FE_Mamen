@@ -109,8 +109,12 @@ const Profile = {
       }
       container.innerHTML = `
           <div class="blank-profile">
-            <p>Tidak ada UMKM yang ditemukan. Silahkan menambah UMKM terlebih dahulu.</p>
+
+          <img class="blankImg" src="./images/newumkm.png">
+          <div class="blankCon">
+            <p>Kamu belum mempunyai UMKM. Silahkan menambah UMKM terlebih dahulu.</p>
             <button id="new-umkm">Tambah UMKM</button>
+          </div>
           </div>`;
       document.querySelector('#new-umkm').addEventListener('click', () => {
         document.querySelector('umkm-form').style.display = 'block';

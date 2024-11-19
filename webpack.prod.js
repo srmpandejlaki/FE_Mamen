@@ -80,7 +80,7 @@ module.exports = merge(common, {
           },
         },
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://mamenawsbucket.s3.ap-southeast-3.amazonaws.com'),
+          urlPattern: ({ url }) => url.href.startsWith('https://res.cloudinary.com/dtkczgmyn/image/upload/v1731908514/mamenimage/'),
           handler: 'NetworkFirst',
           options: {
             cacheName: 'mamen-pictures',
