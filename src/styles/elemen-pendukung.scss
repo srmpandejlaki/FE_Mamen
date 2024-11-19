@@ -1,4 +1,5 @@
 $button: #da281c;
+$icon: #ff9e1b;
 
 .infoUMKM,
 .infoProduk {
@@ -10,7 +11,6 @@ $button: #da281c;
     width: 100%;
     display: flex;
     justify-content: center;
-
     img {
       width: 400px;
     }
@@ -22,6 +22,10 @@ $button: #da281c;
     flex-wrap: wrap;
     align-content: space-around;
 
+    i {
+      color: $icon;
+    }
+    
     .judul {
       font-size: 1.3rem;
     }
@@ -34,8 +38,11 @@ $button: #da281c;
 }
 
 .infoUMKM {
+  padding: 5rem 0;
+
   .infoDesc {
     font-size: 1.2rem;
+    padding: 0 2rem 0 0;
   }
 }
 
@@ -51,11 +58,17 @@ $button: #da281c;
 }
 
 .infoProduk {
+  padding: 5rem 0 8rem;
+  
+  .info {
+    padding: 0 0 0 2rem;
+  }
   .infoDesc {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   .btnInfo {
+    display: flex;
     flex-wrap: wrap;
     align-items: end;
   }
@@ -75,7 +88,6 @@ $button: #da281c;
   .infoUMKM,
   .infoProduk {
     padding: 2rem 0;
-
     .infoImage {
       img {
         width: 90%;
@@ -88,6 +100,37 @@ $button: #da281c;
 
     .infoDesc {
       font-size: 1rem;
+      padding: 0;
+    }
+  }
+
+  .infoUMKM {
+    .infoImage {
+      img {
+        height: 75%;
+      }
+    }
+    
+    .info {
+      gap: 1rem;
+
+      .infoDesc {
+        padding: 0;
+      }
+    }
+  }
+
+  .infoProduk {
+    gap: 2rem;
+
+    .infoImage {
+      img {
+        width: 300px;
+      }
+    }
+    
+    .info {
+      padding: 0;
     }
   }
 }
