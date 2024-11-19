@@ -32,7 +32,7 @@ const Home = {
             </div>
             <div class="info">
               <div class="judul">
-                <h3><i class="fa-sharp fa-solid fa-lightbulb"></i>  Ingpo</h3>
+                <h2><i class="fa-sharp fa-solid fa-lightbulb"></i>  Ingpo</h2>
               </div>
               <div class="infoDesc">
                 <p>

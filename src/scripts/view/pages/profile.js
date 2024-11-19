@@ -47,6 +47,9 @@ export const renderProducts = async (umkmId) => {
       .sort((a, b) => a.name.localeCompare(b.name))
       .map((productItem) => createProductItemTemplate(productItem))
       .join('');
+    if (productContainer.innerHTML === '') {
+      productContainer.innerHTML = 'Belum ada produk untuk ditampilkan.';
+    }
   } catch {
     productContainer.innerHTML = 'Terjadi kesalahan saat memuat produk.';
   }
