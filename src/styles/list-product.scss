@@ -8,7 +8,12 @@ $black: rgb(255, 255, 255);
 }
 
 .list-products {
-  padding-top: 5rem;
+  padding-block: 5rem 1rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+
+  width: 100%;
 
   .product-card {
     width: 250px;
