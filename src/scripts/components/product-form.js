@@ -65,24 +65,29 @@ class ProductForm extends HTMLElement {
   render() {
     this.emptyContent();
     this.innerHTML += `
-    <div id="popupFormProd" class="popup-formProd">
-        <div class="popup-contentProd">
-            <span id="closeFormButtonProd" class="close-buttonProd">&times;</span>
+    <div id="popupFormProd" class="popup-form">
+        <div class="popup-content">
+            <span id="closeFormButtonProd" class="close-button">&times;</span>
             <h2>Tambah Product</h2>
-            <form id="productForm">
-                <label for="nameprod">Nama:</label>
+            <form id="productForm" class="product-form">
+              <div class="nameProdCon">
+                <label for="nameprod">Nama :</label>
                 <input type="text" id="nameprod" name="nameprod" required>
-                
-                <label for="type">Product Type:</label>
+              </div>
+              <div class="typeCon">
+                <label for="type">Tipe Produk :</label>
                 <input type="text" id="type" name="type" required>
-
-                <label for="descriptionprod">Description:</label>
+              </div>
+              <div class="priceCon">
+                <label for="price">Harga :</label>
+                <input type="number" id="price" name="price" placeholder="Angka ditulis tanpa spasi/elemen lainnya" required>
+              </div>
+              <div class="descCon">
+                <label for="descriptionprod">Deskripsi :</label>
                 <textarea id="descriptionprod" name="descriptionprod" required></textarea>
-
-                <label for="price">Price:</label>
-                <input type="number" id="price" name="price" required>
-
-                <button type="submit">Submit</button>
+              </div>
+              
+              <button type="submit">Submit</button>
             </form>
         </div>
     </div>

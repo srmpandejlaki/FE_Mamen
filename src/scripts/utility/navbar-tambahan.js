@@ -7,11 +7,6 @@ const linkAction = () => {
 };
 navLink.forEach((n) => n.addEventListener('click', linkAction));
 
-const linkFocus = () => {
-  navList.style.top = '-2rem';
-};
-navLink.forEach((n) => n.addEventListener('focus', linkFocus));
-
 const linkBlur = () => {
   navList.style.top = '';
 };
