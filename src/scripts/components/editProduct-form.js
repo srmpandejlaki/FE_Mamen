@@ -25,24 +25,28 @@ class editProductForm extends HTMLElement {
   render() {
     this.emptyContent();
     this.innerHTML += `
-    <div id="popupFormProdEdit-${this.product.id}" class="popup-formProdEdit">
-        <div class="popup-contentProdEdit">
-            <span id="closeFormButtonProdEdit-${this.product.id}" class="close-buttonProdEdit">&times;</span>
+    <div id="popupFormProdEdit-${this.product.id}" class="popup-form">
+        <div class="popup-content">
+            <span id="closeFormButtonProdEdit-${this.product.id}" class="close-button">&times;</span>
             <h2>Tambah Product</h2>
-            <form id="productFormEdit-${this.product.id}">
-                <label for="nameprodedit-${this.product.id}">Nama:</label>
+            <form id="productFormEdit-${this.product.id}" class="product-form">
+              <div class="nameProdCon">
+                <label for="nameprodedit-${this.product.id}">Nama :</label>
                 <input type="text" id="nameprodedit-${this.product.id}" name="nameprodedit-${this.product.id}" required>
-                
-                <label for="typeedit-${this.product.id}">Product Type:</label>
+              </div>
+              <div class="typeCon">
+                <label for="typeedit-${this.product.id}">Tipe Produk :</label>
                 <input type="text" id="typeedit-${this.product.id}" name="typeedit-${this.product.id}" required>
-
-                <label for="descriptionprodedit-${this.product.id}">Description:</label>
-                <textarea id="descriptionprodedit-${this.product.id}" name="descriptionprodedit-${this.product.id}" required></textarea>
-
-                <label for="priceedit-${this.product.id}">Price:</label>
+              </div>
+              <div class="priceCon">
+                <label for="priceedit-${this.product.id}">Harga :</label>
                 <input type="number" id="priceedit-${this.product.id}" name="priceedit-${this.product.id}" required>
-
-                <button type="submit">Submit</button>
+              </div>
+              <div class="descCon">
+                <label for="descriptionprodedit-${this.product.id}">Deskripsi :</label>
+                <textarea id="descriptionprodedit-${this.product.id}" name="descriptionprodedit-${this.product.id}" required></textarea>
+              </div>
+              <button type="submit">Submit</button>
             </form>
         </div>
     </div>

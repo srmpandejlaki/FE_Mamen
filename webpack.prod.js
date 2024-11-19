@@ -92,14 +92,21 @@ module.exports = merge(common, {
         },
         {
           urlPattern: ({ url }) => url.href.startsWith('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'font-awesome',
           },
         },
         {
           urlPattern: ({ url }) => url.href.startsWith('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/webfonts/'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'font-awesome',
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css'),
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'font-awesome',
           },

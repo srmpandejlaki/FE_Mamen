@@ -15,26 +15,32 @@ class UmkmForm extends HTMLElement {
         <div class="popup-content">
             <span id="closeFormButton" class="close-button">&times;</span>
             <h2>Tambah UMKM</h2>
-            <form id="umkmForm">
-                <label for="name">Nama:</label>
+            <form id="umkmForm" class="umkm-form">
+              <div class="nameCon">
+                <label for="name">Nama :</label>
                 <input type="text" id="name" name="name" required>
-
-                <label for="description">Description:</label>
-                <textarea id="description" name="description" required></textarea>
-
-                <label for="subdistrict">Subdistrict:</label>
-                <input type="text" id="subdistrict" name="subdistrict" required>
-
-                <label for="address">Address:</label>
+              </div>
+              <div class="subCon">
+                  <label for="subdistrict">Daerah / Kecamatan :</label>
+                  <input type="text" id="subdistrict" name="subdistrict" required>
+              </div>
+              <div class="almCon">
+                <label for="address">Alamat :</label>
                 <input type="text" id="address" name="address" required>
-
-                <label for="contact">Contact:</label>
+              </div>
+              <div class="contactCon">
+                <label for="contact">No. Kontak / Social Media :</label>
                 <input type="text" id="contact" name="contact" required>
-
-                <label for="year">Year:</label>
+              </div>
+              <div class="yearCon">
+                <label for="year">Tahun Dibuat :</label>
                 <input type="number" id="year" name="year" min="1900" max="2024" required>
-
-                <button type="submit">Submit</button>
+              </div>
+              <div class="descCon">
+                <label for="description">Deskripsi :</label>
+                <textarea id="description" name="description" required></textarea>
+              </div>
+              <button type="submit">Submit</button>
             </form>
         </div>
     </div>
