@@ -108,7 +108,6 @@ class FooterBar extends HTMLElement {
           <div class="footer-social">
             <a
               href="https://web.facebook.com/mutiara.pandelaki/"
-              target="_blank"
               class="footer-social-link"
             >
               <i class="ri-facebook-line"></i>
@@ -116,7 +115,6 @@ class FooterBar extends HTMLElement {
 
             <a
               href="https://www.instagram.com/apriliamnc?igsh=bG81NjdhYnZrdjBq"
-              target="_blank"
               class="footer-social-link"
             >
               <i class="ri-instagram-line"></i>
@@ -124,7 +122,6 @@ class FooterBar extends HTMLElement {
 
             <a
               href="https://x.com/Isshoo25"
-              target="_blank"
               class="footer-social-link"
             >
               <i class="ri-twitter-line"></i>
@@ -132,7 +129,6 @@ class FooterBar extends HTMLElement {
 
             <a
               href="https://youtube.com/@lianva?si=QdDK6UDVSNT6TN5q"
-              target="_blank"
               class="footer-social-link"
             >
               <i class="ri-youtube-line"></i>

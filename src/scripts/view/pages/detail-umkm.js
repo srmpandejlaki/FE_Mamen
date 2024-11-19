@@ -40,7 +40,7 @@ const renderProducts = async (umkmId) => {
     productContainer.innerHTML = products.length > 0
       ? products.sort((a, b) => a.name.localeCompare(b.name))
         .map((productItem) => createProductItemTemplate(productItem))
-        .join('') : 'Tidak ada produk untuk ditampilkan.';
+        .join('') : 'Belum ada produk untuk ditampilkan.';
 
     document.querySelectorAll('.addImageFormProd').forEach((item) => {
       item.remove();
