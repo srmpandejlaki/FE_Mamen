@@ -18,15 +18,9 @@ const ListUmkm = {
   async render() {
     return `
       <section id="explore" class="exploreUmkm">
-        <div>
-          <div class="separator"></div>
-        </div>
         <search-bar></search-bar>
-        <div class="explore-con">
+        <div class="explore-con page-list-umkm">
           <div id="list-umkm"></div>
-        </div>
-        <div>
-          <div class="separator"></div>
         </div>
       </section>
     `;

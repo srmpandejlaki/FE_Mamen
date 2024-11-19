@@ -127,15 +127,17 @@ class UmkmDetail extends HTMLElement {
         <form id="addImageForm">
           <label id="addImgLabel" for="addimage"><i class="fa-solid fa-download"></i></label>
           <input type="file" id="addimage" accept="image/*" name="addimage" placeholder="Maks. 2mb" required>
-          <button id="resetImg" type="reset">reset</button>
+          <button id="resetImg" type="reset">Reset</button>
           <button id="submitImg" type="submit">Submit</button>
         </form>
       </section>
       <section class="infoSection">
         <div class="title-con">
           <h1 id="title-umkm">${this.umkm.name}</h1>
-          <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
-          <button id="delete-umkm" data-id="${this.umkm.id}"><i class="fa-solid fa-trash-can"></i></button>
+          <div class="umkm-buttons">
+            <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
+            <button id="delete-umkm" data-id="${this.umkm.id}"><i class="fa-solid fa-trash-can"></i></button>
+          </div>
         </div>
         <div class="detail-con">
           <table>
@@ -171,6 +173,9 @@ class UmkmDetail extends HTMLElement {
             </form>
           </div>
           <div id="listCategory">
+          <div class="category" style="background-color: transparent">
+            <p style="color: transparent">tes</p>
+          </div>
           </div>
         </div>
         <div class="description-con">

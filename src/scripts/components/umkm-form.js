@@ -15,7 +15,7 @@ class UmkmForm extends HTMLElement {
         <div class="popup-content">
             <span id="closeFormButton" class="close-button">&times;</span>
             <h2>Tambah UMKM</h2>
-            <form id="umkmForm">
+            <form id="umkmForm" class="umkm-form">
               <div class="nameCon">
                 <label for="name">Nama :</label>
                 <input type="text" id="name" name="name" required>
@@ -33,7 +33,7 @@ class UmkmForm extends HTMLElement {
                 <input type="text" id="contact" name="contact" required>
               </div>
               <div class="yearCon">
-                <label for="year">Tahun Berdiri :</label>
+                <label for="year">Tahun Dibuat :</label>
                 <input type="number" id="year" name="year" min="1900" max="2024" required>
               </div>
               <div class="descCon">
