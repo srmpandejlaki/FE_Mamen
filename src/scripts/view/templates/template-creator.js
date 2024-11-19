@@ -86,7 +86,7 @@ const createReviewItemTemplate = (review) => `
                 <h4><i>&#9734;</i>${review.user_rating}</h4>
               </div>
               <div class="review-des">
-                <p>" ${review.review} hehehe"</p>
+                <p>" ${review.review} "</p>
               </div>
             </div>
             <div class="desc-con">

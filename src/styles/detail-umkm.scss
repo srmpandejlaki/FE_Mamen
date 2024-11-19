@@ -273,6 +273,11 @@ umkm-freedetail {
   }
 }
 
+.section-review {
+  display: flex;
+  gap: 2rem;
+}
+
 @media screen and (min-width: 768px) {
   umkm-detail,
   umkm-freedetail {
