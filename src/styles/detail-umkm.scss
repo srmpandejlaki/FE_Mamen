@@ -164,13 +164,13 @@ umkm-freedetail {
 .infoSection {
   flex: 6;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
 
   .title-con {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    flex-direction: column-reverse;
+    gap: 1.25rem;
 
     h1 {
       font-size: 1.5rem;
@@ -178,14 +178,19 @@ umkm-freedetail {
       flex: 1;
       text-align: center;
     }
+    .umkm-buttons {
+      display: flex;
+      gap: 0.5rem;
+      align-self: flex-end;
 
-    #edit-detail,
-    #delete-umkm {
-      background-color: white;
-      color: black;
-      padding: 0.5rem 1rem;
-      border: 1px solid black;
-      cursor: pointer;
+      #edit-detail,
+      #delete-umkm {
+        background-color: white;
+        color: black;
+        padding: 0.5rem 1rem;
+        border: 1px solid black;
+        cursor: pointer;
+      }
     }
   }
 
@@ -194,6 +199,7 @@ umkm-freedetail {
       tr {
         td {
           padding: 0.5rem;
+          font-size: 1rem;
         }
       }
     }
@@ -208,6 +214,9 @@ umkm-freedetail {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      p {
+        font-size: 1rem;
+      }
       #addCategory {
         background-color: white;
         color: black;
@@ -311,6 +320,15 @@ umkm-freedetail {
   }
 
   .infoSection {
+    gap: 2rem;
+    .title-con {
+      align-items: center;
+    flex-direction: row;
+
+    
+    
+  }
+
     .description-con {
       padding: 2rem;
       div {

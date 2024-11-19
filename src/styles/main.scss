@@ -424,6 +424,13 @@ main {
     position: relative;
     overflow: hidden;
   }
+
+  &.exploreUmkm {
+    padding-block: 6rem;
+  }
+  &.exploreProd {
+    padding-block: 6rem;
+  }
 }
 
 footer {

@@ -134,8 +134,10 @@ class UmkmDetail extends HTMLElement {
       <section class="infoSection">
         <div class="title-con">
           <h1 id="title-umkm">${this.umkm.name}</h1>
-          <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
-          <button id="delete-umkm" data-id="${this.umkm.id}"><i class="fa-solid fa-trash-can"></i></button>
+          <div class="umkm-buttons">
+            <button id="edit-detail"><i class="fa-regular fa-pen-to-square"></i></button>
+            <button id="delete-umkm" data-id="${this.umkm.id}"><i class="fa-solid fa-trash-can"></i></button>
+          </div>
         </div>
         <div class="detail-con">
           <table>
