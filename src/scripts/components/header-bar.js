@@ -96,7 +96,7 @@ class HeaderBar extends HTMLElement {
             </div>
             <!-- toggle button -->
             <button class="nav-toggle" id="nav-toggle">
-              <i>&#9776;</i>
+              <i class="fa-solid fa-bars"></i>
             </button>
           </div>
         </div>
