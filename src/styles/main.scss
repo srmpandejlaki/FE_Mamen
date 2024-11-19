@@ -437,6 +437,11 @@ footer {
   display: flex;
   padding-block: 5rem 3rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #91140b;
+
+  a, h3, i, p {
+    color: white;
+  }
 }
 
 footer-bar {
@@ -488,7 +493,6 @@ footer-bar {
     .footer-links {
       display: grid;
       gap: 1rem;
-
       li {
         .footer-link {
           transition: color 0.4s;
