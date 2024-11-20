@@ -11,6 +11,7 @@ import {
 } from '../../utility/productFunction';
 import Loading from '../../utility/loading';
 import CategoriesDbSource from '../../api/categories-api';
+import ProfileGsapJs from '../../utility/animation/profile-page/profile-gsap';
 
 export const renderUmkm = async (umkm) => {
   const umkmContainer = document.querySelector('#umkms');
@@ -137,6 +138,7 @@ const Profile = {
 
       // UMKM
       renderUmkm(umkmByUser[0]);
+      ProfileGsapJs();
 
       // PRODUCT UMKM
       const newProductButton = document.querySelector('#new-product');
