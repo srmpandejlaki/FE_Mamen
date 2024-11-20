@@ -107,32 +107,28 @@ class FooterBar extends HTMLElement {
           
           <div class="footer-social">
             <a
-              href="https://www.facebook.com/"
-              target="_blank"
+              href="https://web.facebook.com/mutiara.pandelaki/"
               class="footer-social-link"
             >
               <i class="ri-facebook-line"></i>
             </a>
 
             <a
-              href="https://www.instagram.com/"
-              target="_blank"
+              href="https://www.instagram.com/apriliamnc?igsh=bG81NjdhYnZrdjBq"
               class="footer-social-link"
             >
               <i class="ri-instagram-line"></i>
             </a>
 
             <a
-              href="https://twitter.com/"
-              target="_blank"
+              href="https://x.com/Isshoo25"
               class="footer-social-link"
             >
               <i class="ri-twitter-line"></i>
             </a>
 
             <a
-              href="https://www.youtube.com/@Isshoo-st"
-              target="_blank"
+              href="https://youtube.com/@lianva?si=QdDK6UDVSNT6TN5q"
               class="footer-social-link"
             >
               <i class="ri-youtube-line"></i>

@@ -82,6 +82,9 @@ class UmkmFreeDetail extends HTMLElement {
             
           </div>
           <div id="listCategory">
+          <div class="category" style="background-color: transparent">
+            <p style="color: transparent">tes</p>
+          </div>
           </div>
         </div>
         <div class="description-con">

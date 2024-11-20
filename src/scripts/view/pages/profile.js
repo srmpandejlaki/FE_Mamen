@@ -47,6 +47,9 @@ export const renderProducts = async (umkmId) => {
       .sort((a, b) => a.name.localeCompare(b.name))
       .map((productItem) => createProductItemTemplate(productItem))
       .join('');
+    if (productContainer.innerHTML === '') {
+      productContainer.innerHTML = 'Belum ada produk untuk ditampilkan.';
+    }
   } catch {
     productContainer.innerHTML = 'Terjadi kesalahan saat memuat produk.';
   }
@@ -112,6 +115,7 @@ const Profile = {
 
           <img class="blankImg" src="./images/newumkm.png">
           <div class="blankCon">
+            <h2>Nothing in here...</h2>
             <p>Kamu belum mempunyai UMKM. Silahkan menambah UMKM terlebih dahulu.</p>
             <button id="new-umkm">Tambah UMKM</button>
           </div>

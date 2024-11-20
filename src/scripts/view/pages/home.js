@@ -9,16 +9,16 @@ const Home = {
         <picture>
           <source 
             type="image/jpeg" 
-            srcset="./images/hero-image2.jpg">
+            srcset="./images/hero-image.jpg">
           <source 
             type="image/webp"
-            srcset="./images/hero-image2.webp">
+            srcset="./images/hero-image.webp">
           <source 
             type="image/jpeg"
             media="(max-width: 600px)" 
-            srcset="./images/hero-image2-small.jpg">
+            srcset="./images/hero-image-small.jpg">
           <img
-            src='./images/hero-image2.jpg' 
+            src='./images/hero-image.jpg' 
             alt="Hero Image"
           >
         </picture>
@@ -28,11 +28,11 @@ const Home = {
         <section class="explore-con">
           <div class="infoUMKM">
             <div class="infoImage">
-              <img src="./images/17.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/info-umkm.png" alt="Gambar Ilustrasi UMKM"> 
             </div>
             <div class="info">
               <div class="judul">
-                <h3><i class="fa-sharp fa-solid fa-lightbulb"></i>  Ingpo</h3>
+                <h2><i class="fa-sharp fa-solid fa-lightbulb"></i>  Ingpo</h2>
               </div>
               <div class="infoDesc">
                 <p>
@@ -68,7 +68,7 @@ const Home = {
               </div>
             </div>
             <div class="infoImage"> 
-              <img src="./images/19.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/info-product.png" alt="Gambar Ilustrasi UMKM"> 
             </div>
           </div>
         </section>

@@ -25,6 +25,11 @@ $text: black;
     width: 100%;
     align-items: center;
 
+    h2 {
+      font-size: 2rem;
+      text-align: center;
+    }
+
     p {
       font-size: 1rem;
       text-align: center;
@@ -59,10 +64,7 @@ editumkm-form {
 }
 
 // Popup Form
-.popup-form,
-.popup-formProd,
-#popupFormEdit,
-.popup-formProdEdit {
+.popup-form {
   position: fixed;
   top: 0;
   left: 0;
@@ -74,10 +76,8 @@ editumkm-form {
   z-index: 1000;
   display: flex;
 
-  .popup-content,
-  .popup-contentProd,
-  #popup-contentEdit,
-  .popup-contentProdEdit {
+  .popup-content {
+    max-width: 750px;
     position: relative;
     width: 80%;
     padding: 2rem;
@@ -91,7 +91,7 @@ editumkm-form {
       color: $text;
     }
 
-    #umkmForm {
+    .umkm-form, .product-form {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -125,15 +125,11 @@ editumkm-form {
         color: $text;
         border: none;
         cursor: pointer;
-        margin-top: 1rem;
         color: white;
       }
     }
 
-    .close-button,
-    .close-buttonProd,
-    #closeFormButtonEdit,
-    .close-buttonProdEdit {
+    .close-button {
       position: absolute;
       color: $text;
       top: 0;
@@ -172,7 +168,7 @@ editumkm-form {
 
   .popup-form {
     .popup-content {
-      #umkmForm {
+      .umkm-form, .product-form {
         flex-direction: row;
 
         .nameCon,
@@ -183,12 +179,12 @@ editumkm-form {
         .yearCon {
           flex: 30%;
         }
+        .typeCon, .priceCon {
+          flex: 48%;
+        }
       }
     }
-    .close-button,
-    .close-buttonProd,
-    #closeFormButtonEdit,
-    .close-buttonProdEdit {
+    .close-button {
       position: absolute;
       color: $text;
       top: 0;

@@ -95,8 +95,8 @@ class HeaderBar extends HTMLElement {
               </a>
             </div>
             <!-- toggle button -->
-            <button class="nav-toggle" id="nav-toggle">
-              <i>&#9776;</i>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Menu Button">
+              <i class="fa-solid fa-bars"></i>
             </button>
           </div>
         </div>

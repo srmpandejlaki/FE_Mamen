@@ -5,8 +5,7 @@ $black: rgb(255, 255, 255);
 
 #reviews {
   display: flex;
-  justify-content: space-between;
-
+  gap: 2rem;
   padding: 5rem 0;
 
   .review-item {
@@ -61,12 +60,12 @@ $black: rgb(255, 255, 255);
       display: flex;
       justify-content: end;
       
-      h3, i {
+      h4, i {
         color: white;
         background-color: $yellow;
         text-align: center;
         
-        padding: 0.25rem 0.5rem;
+        padding: 0.25rem;
         border-radius: 25px;
       }
     }

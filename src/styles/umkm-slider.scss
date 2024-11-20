@@ -73,7 +73,7 @@
         left: calc(45% + (200px * ($i - 2)));
         background-size: cover;
 
-        @if $i > 6 {
+        @if $i > 12 {
           opacity: 0;
         }
       }
@@ -148,8 +148,8 @@
       display: inline-block;
       font-size: 1rem;
       color: white;
-      background-color: black;
-      padding: 0.25rem 1rem;
+      background-color: red;
+      padding: 0.5rem 1rem;
     }
   }
 }
