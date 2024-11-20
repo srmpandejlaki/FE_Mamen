@@ -15,6 +15,7 @@ import ProfileGsapJs from '../../utility/animation/profile-page/profile-gsap';
 import ProfileProdukGsapJs from '../../utility/animation/profile-page/profile-produk-gsap';
 import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import profileReviewGsapJs from '../../utility/animation/profile-page/profile-review-gsap';
+import blankProfileGsapJs from '../../utility/animation/profile-page/blank-profile-gsap';
 
 export const renderUmkm = async (umkm) => {
   const umkmContainer = document.querySelector('#umkms');
@@ -128,6 +129,7 @@ const Profile = {
         document.querySelector('umkm-form').style.display = 'block';
       });
       tambahUmkm();
+      blankProfileGsapJs();
       footerGsapJs();
     } else {
       const { id } = umkmByUser[0];

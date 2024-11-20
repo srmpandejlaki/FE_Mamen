@@ -14,7 +14,7 @@ export default function footerGsapJs() {
       trigger: 'footer-bar', // Elemen container yang memicu animasi
       start: 'top 90%', // Mulai animasi saat container mencapai 80% dari viewport
       end: 'bottom 10%', // Selesai animasi saat container mencapai 20% dari viewport
-      toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
+      toggleActions: 'play', // Mainkan animasi maju dan mundur
     },
   });
 }
