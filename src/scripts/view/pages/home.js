@@ -1,5 +1,6 @@
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
+import homeGsapJs from '../../utility/animation/home-gsap';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
@@ -86,6 +87,7 @@ const Home = {
   },
 
   async afterRender() {
+    homeGsapJs();
     // CLICK EVENTS
     const cat = document.querySelector('#cat');
     const explore = document.querySelector('#explore');
