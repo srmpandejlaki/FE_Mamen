@@ -188,6 +188,19 @@ header {
               width: 70%;
             }
           }
+          .nav-link.active-link {
+            &::after {
+              content: "";
+              width: 70%;
+              height: 2px;
+              background-color: $red;
+              position: absolute;
+              left: 0;
+              bottom: 0rem;
+              transition: width 0.3s;
+            }
+          }
+          
         }
       }
 
