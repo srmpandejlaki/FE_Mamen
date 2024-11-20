@@ -339,7 +339,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    padding: 0 8%;
+    padding: 0 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -353,21 +353,22 @@ main {
       gap: 2rem;
 
       h1 {
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         line-height: 1.2;
-        text-shadow: 1px 1px 3px rgba(0, 0, 3, 0.5);
+        text-shadow: 1px 1px 3px red;
         text-align: center;
         color: white;
-
+        
         span {
-          color: $yellow;
+          text-shadow: 1px 1px 3px red;
+          color: white;
         }
       }
 
       p {
-        text-shadow: 1px 1px 3px rgb(0, 0, 0);
+        text-shadow: 1px 1px 3px black;
         line-height: 1.4;
-        font-size: 1.1rem;
+        font-size: 1.3rem;
         text-align: center;
         color: white;
       }
@@ -437,6 +438,11 @@ footer {
   display: flex;
   padding-block: 5rem 3rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #91140b;
+
+  a, h3, i, p {
+    color: white;
+  }
 }
 
 footer-bar {
@@ -488,7 +494,6 @@ footer-bar {
     .footer-links {
       display: grid;
       gap: 1rem;
-
       li {
         .footer-link {
           transition: color 0.4s;

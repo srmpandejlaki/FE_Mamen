@@ -70,31 +70,33 @@ const renderReviews = async (umkmId) => {
 const DetailUmkm = {
   async render() {
     return `
-      <section id="detailContainer">
-     <div id="umkmDetail">
-      <div id="umkms" class="umkms">
-      </div>
-      <div>
-        <div class="separator"></div>
-      </div>
-      <div class="section-title">
-          <h2>Products</h2>
+    <section id="detailContainer">
+      <div id="umkmDetail">
+        <div id="umkms" class="umkms">
         </div>
-      <div id="products" class="list-products scroll">
+        <div>
+          <div class="separator"></div>
+        </div>
+        <div class="section-title">
+            <h2>Products</h2>
+          </div>
+        <div id="products" class="list-products scroll">
+        </div>
+        <div>
+          <div class="separator"></div>
+        </div>
+        <div class="section-title">
+            <h2>Reviews</h2>
+        </div>
+        <div class="section-review">
+          <form-review></form-review>
+          <div id="reviews" class="reviews">
+        </div>
       </div>
-      <div>
-        <div class="separator"></div>
-      </div>
-      <div class="section-title">
-          <h2>Reviews</h2>
-      </div>
-      <div id="reviews" class="reviews">
-      </div>
-      <form-review></form-review>
       <div>
           <div class="separator"></div>
         </div>
-     </div>
+      </div>
     </section>
     `;
   },

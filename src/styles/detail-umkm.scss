@@ -310,6 +310,13 @@ umkm-freedetail {
   }
 }
 
+.section-review {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
 @media screen and (min-width: 768px) {
   umkm-detail,
   umkm-freedetail {
@@ -346,5 +353,9 @@ umkm-freedetail {
       position: absolute;
       width: auto;
     }
+  }
+
+  .section-review {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
 }
