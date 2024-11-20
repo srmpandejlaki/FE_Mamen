@@ -9,16 +9,16 @@ const Home = {
         <picture>
           <source 
             type="image/jpeg" 
-            srcset="./images/hero-image2.jpg">
+            srcset="./images/hero-image.jpg">
           <source 
             type="image/webp"
-            srcset="./images/hero-image2.webp">
+            srcset="./images/hero-image.webp">
           <source 
             type="image/jpeg"
             media="(max-width: 600px)" 
-            srcset="./images/hero-image2-small.jpg">
+            srcset="./images/hero-image-small.jpg">
           <img
-            src='./images/hero-image2.jpg' 
+            src='./images/hero-image.jpg' 
             alt="Hero Image"
           >
         </picture>
