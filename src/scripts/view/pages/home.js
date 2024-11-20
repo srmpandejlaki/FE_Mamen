@@ -1,5 +1,6 @@
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
+import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
@@ -131,6 +132,7 @@ const Home = {
     }
     // --------------------------------------------
     homeReviewGsapJs();
+    footerGsapJs();
   },
 };
 

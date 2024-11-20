@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function homeReviewGsapJs() {
+export default function profileReviewGsapJs() {
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.from('.review-item', {
