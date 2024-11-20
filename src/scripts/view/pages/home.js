@@ -1,6 +1,8 @@
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import homeGsapJs from '../../utility/animation/home-gsap';
+import homeGsapJs from '../../utility/animation/home-page/home-gsap';
+import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
+import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
@@ -111,6 +113,7 @@ const Home = {
         document.querySelector('.prod-buttons').remove();
       });
     }
+    homeProdukGsapJs();
 
     // --------------------------------------------
 
@@ -127,6 +130,7 @@ const Home = {
       reviewContainer.innerHTML = 'Tidak ada review untuk ditampilkan.';
     }
     // --------------------------------------------
+    homeReviewGsapJs();
   },
 };
 

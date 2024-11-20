@@ -330,6 +330,7 @@ main {
       object-fit: cover;
       object-position: center;
       min-width: 1440px;
+      filter: blur(2px);
     }
   }
 
@@ -353,20 +354,20 @@ main {
       gap: 2rem;
 
       h1 {
-        font-size: 2.8rem;
+        font-size: 3rem;
         line-height: 1.2;
-        text-shadow: 1px 1px 3px red;
+        text-shadow: -2px 2px 5px rgb(0, 0, 0);
         text-align: center;
         color: white;
         
         span {
-          text-shadow: 1px 1px 3px red;
+          text-shadow: -2px 2px 5px rgb(0, 0, 0);
           color: white;
         }
       }
 
       p {
-        text-shadow: 1px 1px 3px black;
+        text-shadow: -2px 2px 4px rgb(0, 0, 0);
         line-height: 1.4;
         font-size: 1.3rem;
         text-align: center;
@@ -382,7 +383,7 @@ main {
         padding: 0.8rem 1.6rem;
         background-color: #da291cf6;
         border-radius: 0.2rem;
-        box-shadow: 1px 1px 3px rgba(0, 0, 3, 0.5);
+        box-shadow: -2px 2px 5px rgba(0, 0, 3, 0.5);
         cursor: pointer;
         align-items: center;
         color: white;

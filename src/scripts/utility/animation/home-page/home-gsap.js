@@ -10,24 +10,44 @@ export default function homeGsapJs() {
     y: -30,
     duration: 2,
     ease: 'power2.inOut',
+
   });
   gsap.from('.home-content h1', {
     opacity: 0,
     y: -20,
     duration: 2,
     ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.home-content', // Sesuaikan dengan elemen hero section
+      start: 'top 80%', // Animasi dimulai ketika hero 80% terlihat
+      end: 'bottom 60%', // Animasi selesai ketika hero 60% terlihat
+      toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
+    },
   });
+
   gsap.from('.home-content p', {
     opacity: 0,
     y: -20,
     duration: 2.5,
     ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.home-content',
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
   });
   gsap.from('.home-content button', {
     opacity: 0,
     y: 20,
     duration: 3,
     ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.home-content',
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
   });
 
   // INFO UMKM
@@ -77,7 +97,7 @@ export default function homeGsapJs() {
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.prev',
-      start: 'top 80%',
+      start: 'top 90%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
     },
@@ -90,7 +110,7 @@ export default function homeGsapJs() {
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.next',
-      start: 'top 80%',
+      start: 'top 90%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
     },
@@ -122,16 +142,16 @@ export default function homeGsapJs() {
     },
   });
 
-  // PRODUK CARD
-  gsap.from('.scroll', {
+  // FOOTER
+  gsap.from('footer-bar', {
     opacity: 0,
-    x: 40,
-    duration: 3,
+    y: 50,
+    duration: 5.5,
     ease: 'power2.out',
     scrollTrigger: {
-      trigger: '.scroll', // Elemen container yang memicu animasi
-      start: 'top 50%', // Mulai animasi saat container mencapai 80% dari viewport
-      end: 'bottom 20%', // Selesai animasi saat container mencapai 20% dari viewport
+      trigger: 'footer-bar', // Elemen container yang memicu animasi
+      start: 'top 90%', // Mulai animasi saat container mencapai 80% dari viewport
+      end: 'bottom 10%', // Selesai animasi saat container mencapai 20% dari viewport
       toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
     },
   });
