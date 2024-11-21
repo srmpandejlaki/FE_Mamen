@@ -72,7 +72,7 @@ export default function homeGsapJs() {
     scrollTrigger: {
       trigger: '.prev',
       start: 'top 90%',
-      end: 'bottom 60%',
+      end: 'bottom 70%',
       toggleActions: 'play none none reverse',
     },
   });
@@ -85,7 +85,7 @@ export default function homeGsapJs() {
     scrollTrigger: {
       trigger: '.next',
       start: 'top 90%',
-      end: 'bottom 60%',
+      end: 'bottom 70%',
       toggleActions: 'play none none reverse',
     },
   });
