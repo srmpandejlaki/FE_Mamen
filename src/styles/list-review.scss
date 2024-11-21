@@ -5,14 +5,13 @@ $black: rgb(255, 255, 255);
 
 #reviews {
   display: flex;
-  justify-content: space-between;
-
+  gap: 2rem;
   padding: 5rem 0;
 
   .review-item {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     background-color: white;
-    
+
     gap: 1.2rem;
     border-bottom: 1px solid $yellow;
     padding: 0.8rem 1rem;
@@ -60,19 +59,20 @@ $black: rgb(255, 255, 255);
     .review-rating {
       display: flex;
       justify-content: end;
-      
-      h3, i {
+
+      h4,
+      i {
         color: white;
         background-color: $yellow;
         text-align: center;
-        
-        padding: 0.25rem 0.5rem;
+
+        padding: 0.25rem;
         border-radius: 25px;
       }
     }
   }
-} 
-  
+}
+
 .infinite-scroll {
   padding: 5rem;
   position: relative;
@@ -84,7 +84,7 @@ $black: rgb(255, 255, 255);
     margin-right: 1.5rem;
   }
 }
-  
+
 @keyframes infinite-scroll {
   to {
     left: -850px;
