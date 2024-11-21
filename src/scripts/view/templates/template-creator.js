@@ -76,6 +76,31 @@ const createProductItemTemplate = (product) => `
             </article>
 `;
 
+const createFreeProductItemTemplate = (product) => `
+            <article class="product-card">
+              <div class="product-img">
+                <img 
+                id="product-imgs-${product.id}" 
+                class="lazyload" 
+                data-src="${product.cover_url || './images/template-product-img.png'}" 
+                alt="${product.name}" 
+                onerror="this.onerror=null;this.src='./images/template-product-img.png';" 
+              />
+              </div>
+
+              <div class="product-info">
+                <span>Rp. ${product.price}</span>
+                <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
+                <p>
+                ${product.product_type}
+                </p>
+                <p>
+                ${product.description}
+                </p>
+              </div>
+            </article>
+`;
+
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
             <div>
@@ -120,4 +145,5 @@ export {
   createReviewItemTemplate,
   createPageLoading,
   createSectionLoading,
+  createFreeProductItemTemplate,
 };
