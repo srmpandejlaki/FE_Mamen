@@ -1,18 +1,18 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function homeReviewGsapJs() {
+export default function footerGsapJs() {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.review-item', {
+  // FOOTER
+  gsap.from('footer-bar', {
     opacity: 0,
-    x: 30,
-    duration: 2,
+    y: 40,
+    duration: 3,
     ease: 'power2.out',
-    stagger: 0.5,
     scrollTrigger: {
-      trigger: '#reviews', // Elemen container yang memicu animasi
-      start: 'top 50%', // Mulai animasi saat container mencapai 80% dari viewport
+      trigger: 'footer', // Elemen container yang memicu animasi
+      start: 'top 80%', // Mulai animasi saat container mencapai 80% dari viewport
       end: 'bottom 20%', // Selesai animasi saat container mencapai 20% dari viewport
       toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
     },

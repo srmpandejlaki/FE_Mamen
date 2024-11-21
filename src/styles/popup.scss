@@ -91,7 +91,8 @@ editumkm-form {
       color: $text;
     }
 
-    .umkm-form, .product-form {
+    .umkm-form,
+    .product-form {
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -168,7 +169,8 @@ editumkm-form {
 
   .popup-form {
     .popup-content {
-      .umkm-form, .product-form {
+      .umkm-form,
+      .product-form {
         flex-direction: row;
 
         .nameCon,
@@ -179,7 +181,8 @@ editumkm-form {
         .yearCon {
           flex: 30%;
         }
-        .typeCon, .priceCon {
+        .typeCon,
+        .priceCon {
           flex: 48%;
         }
       }

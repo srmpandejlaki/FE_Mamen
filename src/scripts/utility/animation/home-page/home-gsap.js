@@ -25,22 +25,10 @@ export default function homeGsapJs() {
     },
   });
 
-  gsap.from('.home-content p', {
-    opacity: 0,
-    y: -20,
-    duration: 2.5,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.home-content',
-      start: 'top 80%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-  gsap.from('.home-content button', {
+  gsap.from('.home-content h2', {
     opacity: 0,
     y: 20,
-    duration: 3,
+    duration: 2.5,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.home-content',
@@ -51,7 +39,7 @@ export default function homeGsapJs() {
   });
 
   // INFO UMKM
-  gsap.from('.infoUMKM .infoImage', {
+  gsap.from('.infoUMKM #umkm-list', {
     opacity: 0,
     x: -20,
     duration: 2,
@@ -76,23 +64,9 @@ export default function homeGsapJs() {
     },
   });
 
-  // SLIDER
-  gsap.from('.slider', {
-    opacity: 0,
-    y: 20,
-    duration: 2,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.slider',
-      start: 'top 65%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
   gsap.from('.prev', {
     opacity: 0,
-    x: -20,
+    y: 20,
     duration: 1.5,
     ease: 'power2.inOut',
     scrollTrigger: {
@@ -105,11 +79,49 @@ export default function homeGsapJs() {
 
   gsap.from('.next', {
     opacity: 0,
-    x: 20,
+    y: 20,
     duration: 1.5,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.next',
+      start: 'top 90%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  // DATALINE
+  gsap.from('.dataUmkmTitle', {
+    opacity: 0,
+    x: -20,
+    duration: 1.5,
+    ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.dataUmkmCon',
+      start: 'top 90%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+  gsap.from('.dataUmkmNumber', {
+    opacity: 0,
+    y: 20,
+    duration: 1.5,
+    ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.dataUmkmCon',
+      start: 'top 90%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+  gsap.from('.dataSector', {
+    opacity: 0,
+    x: 20,
+    duration: 1.5,
+    ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.dataUmkmCon',
       start: 'top 90%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
@@ -139,20 +151,6 @@ export default function homeGsapJs() {
       start: 'top 70%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
-    },
-  });
-
-  // FOOTER
-  gsap.from('footer-bar', {
-    opacity: 0,
-    y: 50,
-    duration: 5.5,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: 'footer-bar', // Elemen container yang memicu animasi
-      start: 'top 90%', // Mulai animasi saat container mencapai 80% dari viewport
-      end: 'bottom 10%', // Selesai animasi saat container mencapai 20% dari viewport
-      toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
     },
   });
 }

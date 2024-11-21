@@ -12,6 +12,10 @@ import {
 import Loading from '../../utility/loading';
 import CategoriesDbSource from '../../api/categories-api';
 import ProfileGsapJs from '../../utility/animation/profile-page/profile-gsap';
+import ProfileProdukGsapJs from '../../utility/animation/profile-page/profile-produk-gsap';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
+import profileReviewGsapJs from '../../utility/animation/profile-page/profile-review-gsap';
+import blankProfileGsapJs from '../../utility/animation/profile-page/blank-profile-gsap';
 
 export const renderUmkm = async (umkm) => {
   const umkmContainer = document.querySelector('#umkms');
@@ -125,6 +129,8 @@ const Profile = {
         document.querySelector('umkm-form').style.display = 'block';
       });
       tambahUmkm();
+      blankProfileGsapJs();
+      // footerGsapJs();
     } else {
       const { id } = umkmByUser[0];
       if (pageload) {
@@ -137,7 +143,7 @@ const Profile = {
       container.appendChild(tambahProdukForm);
 
       // UMKM
-      renderUmkm(umkmByUser[0]);
+      await renderUmkm(umkmByUser[0]);
       ProfileGsapJs();
 
       // PRODUCT UMKM
@@ -146,7 +152,8 @@ const Profile = {
         document.querySelector('product-form').style.display = 'block';
       });
 
-      renderProducts(id);
+      await renderProducts(id);
+      ProfileProdukGsapJs();
       const productContainer = document.querySelector('#products');
       productContainer.addEventListener('click', (event) => {
         const target = event.target.closest('.editProdBtn, .deleteProdBtn, .addImageFormProd');
@@ -162,8 +169,11 @@ const Profile = {
           productImage(productId);
         }
       });
+
       // REVIEW UMKM
-      renderReviews(id);
+      await renderReviews(id);
+      profileReviewGsapJs();
+      // footerGsapJs();
     }
   },
 };

@@ -6,6 +6,7 @@ import ReviewsDbSource from '../../api/reviews-api';
 import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 import Loading from '../../utility/loading';
 import CategoriesDbSource from '../../api/categories-api';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 
 const renderUmkm = async (umkm) => {
   const umkmContainer = document.querySelector('#umkms');
@@ -119,6 +120,8 @@ const DetailUmkm = {
     renderProducts(url.id);
     // RENDER REVIEWS BY UMKM
     renderReviews(url.id);
+
+    // footerGsapJs();
 
     // OTORISASI OWNER FOR ADD REVIEW
     const accessToken = localStorage.getItem('accessToken');
