@@ -1,6 +1,3 @@
-// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
-import Loading from '../../utility/loading';
-
 const AboutUs = {
   async render() {
     return `
@@ -9,31 +6,27 @@ const AboutUs = {
             <h1>About Us</h1>
         </div>
 
-        <div class="our-mission">
-            <div class="mission-content">
-                <h2>Our Mission</h2>
-                <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan inovasi dan kualitas.</p>
+        <div class="introduction">
+            <div class="introduction-content">
+                <h2>Introduction To MAMEN</h2>
+                <p>Mamen adalah platform yang mendigitalisasi promosi UMKM di Manado. Kami membantu pelaku usaha meningkatkan visibilitas dan penjualan melalui teknologi dan media sosial. </p>
             </div>
         </div>
 
-        <div class="our-vision">
-            <div class="vision-content">
-                <h2>Our Vision</h2>
-                <p>Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.</p>
-            </div>
+       <div class="vision-mission">
+        <div class="vision">
+          <h3>Our Vision</h3>
+          <p>Kami bertekad untuk menjadi platform digital yang terpercaya dengan mendorong inovasi yang berkelanjutan dan kreatif.</p>
         </div>
+        <div class="mission">
+          <h3>Our Mission</h3>
+          <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan ramah dan jujur.</p>
+        </div>
+      </div>
 
-        <div class="our-values">
-            <div class="values-content">
-                <h2>Our Values</h2>
-                <ul>
-                    <li>Integritas</li>
-                    <li>Inovasi</li>
-                    <li>Kualitas</li>
-                    <li>Kerjasama</li>
-                </ul>
-            </div>
-        </div>
+
+    <div class="values">
+      </div>
 
        <div class="team-members">
             <h2>Our Team Member</h2>
@@ -62,18 +55,13 @@ const AboutUs = {
           </div>
       <div>
           <div class="separator"></div>
+      </div>
     </section>
     `;
   },
 
   async afterRender() {
-    const container = document.querySelector('#aboutSection');
-    await Loading.loadingPage(container);
-    const pageload = document.querySelector('.pageload');
-    if (pageload) {
-      pageload.remove();
-    }
-    // footerGsapJs();
+    console.log('halaman about us');
   },
 };
 
