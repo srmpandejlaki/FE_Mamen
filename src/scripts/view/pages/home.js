@@ -28,8 +28,8 @@ const Home = {
         </picture>
         <hero-section></hero-section>
       </section>
-      <section id="explore">
-        <section class="explore-con">
+      <headline-section class="explore-con"></headline-section>
+        <section class="explore-con" id="infoUmkmCon">
           <div class="infoUMKM">
               <div id="umkm-list">
                 <umkm-slider></umkm-slider>
@@ -53,7 +53,7 @@ const Home = {
             </div>
           </div>
         </section>
-        <section>
+        <section id="datalineCon">
          <div class="dataline">
             <div class="dataUmkmCon">
               <div class="dataUmkmTitle">
@@ -99,7 +99,6 @@ const Home = {
         <div>
           <div class="separator"></div>
         </div>
-      </section>
     `;
   },
 

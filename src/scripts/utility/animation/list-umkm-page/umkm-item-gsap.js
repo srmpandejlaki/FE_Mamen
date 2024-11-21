@@ -4,12 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export default function umkmItemGsapJs() {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from('.umkm-card', {
+  gsap.from('#list-umkm', {
     opacity: 0,
     y: 30,
     duration: 2,
     ease: 'power2.out',
-    stagger: 0.5,
     scrollTrigger: {
       trigger: '#list-umkm', // Elemen container yang memicu animasi
       start: 'top 50%', // Mulai animasi saat container mencapai 80% dari viewport
