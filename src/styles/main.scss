@@ -342,7 +342,7 @@ main {
       object-fit: cover;
       object-position: center;
       min-width: 1440px;
-      filter: blur(3px);
+      filter: grayscale(50%);
     }
   }
 
@@ -378,42 +378,42 @@ main {
         text-align: center;
       }
 
-      // button {
-      //   display: inline-block;
-      //   min-height: 44px;
-      //   min-width: 44px;
-      //   font-size: 1.25rem;
-      //   line-height: 1.4rem;
-      //   padding: 0.8rem 1.6rem;
-      //   background-color: #da291cf6;
-      //   border-radius: 0.2rem;
-      //   box-shadow: -2px 2px 5px rgba(0, 0, 3, 0.5);
-      //   cursor: pointer;
-      //   align-items: center;
-      //   color: white;
+      button {
+        display: inline-block;
+        min-height: 44px;
+        min-width: 44px;
+        font-size: 1.25rem;
+        line-height: 1.4rem;
+        padding: 0.8rem 1.6rem;
+        background-color: #da291cf6;
+        border-radius: 0.2rem;
+        box-shadow: -2px 2px 5px rgba(0, 0, 3, 0.5);
+        cursor: pointer;
+        align-items: center;
+        color: white;
 
-      //   i {
-      //     transition: ease-in-out 0.3s;
-      //     display: inline-block;
-      //     margin-left: 0.5rem;
-      //     color: white;
-      //   }
+        i {
+          transition: ease-in-out 0.3s;
+          display: inline-block;
+          margin-left: 0.5rem;
+          color: white;
+        }
 
-      //   &:hover {
-      //     background-color: red;
-      //     box-shadow: 1px 1px 3px rgba(0, 0, 3, 0.568);
-      //     transition: ease-in-out 0.3s;
+        &:hover {
+          background-color: red;
+          box-shadow: 1px 1px 3px rgba(0, 0, 3, 0.568);
+          transition: ease-in-out 0.3s;
 
-      //     i {
-      //       margin-left: 1rem;
-      //       transition: ease-in-out 0.3s;
-      //     }
-      //   }
-      //   &:active {
-      //     background-color: white;
-      //     outline: none;
-      //   }
-      // }
+          i {
+            margin-left: 1rem;
+            transition: ease-in-out 0.3s;
+          }
+        }
+        &:active {
+          background-color: white;
+          outline: none;
+        }
+      }
     }
   }
 }
