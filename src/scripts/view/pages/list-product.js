@@ -4,15 +4,13 @@ import pageListProdukGsapJs from '../../utility/animation/list-produk-page/list-
 import produkItemGsapJs from '../../utility/animation/list-produk-page/produk-item-gsap';
 // import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
-import { createProductItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemTemplate } from '../templates/template-creator';
 
 const renderProdukt = async (list) => {
   const productContainer = document.querySelector('.list-product');
   productContainer.innerHTML = '';
   list.forEach((product) => {
-    productContainer.innerHTML += createProductItemTemplate(product);
-    document.querySelector('.addImageFormProd').remove();
-    document.querySelector('.prod-buttons').remove();
+    productContainer.innerHTML += createFreeProductItemTemplate(product);
   });
 };
 
