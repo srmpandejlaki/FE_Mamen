@@ -1,5 +1,7 @@
 import SearchDbSource from '../../api/search-api';
 import UmkmsDbSource from '../../api/umkms-api';
+import pageListUmkmGsapJs from '../../utility/animation/list-umkm-page/list-umkm-gsap';
+import umkmItemGsapJs from '../../utility/animation/list-umkm-page/umkm-item-gsap';
 // import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
 import { createUmkmItemTemplate } from '../templates/template-creator';
@@ -18,9 +20,15 @@ const renderUmkm = async (list) => {
 const ListUmkm = {
   async render() {
     return `
-      <section id="explore" class="exploreUmkm">
+      <section class="exploreUmkm">
+        <div class="judul-list-umkm">
+          <h2>Daftar UMKM</h2>
+        </div>
+        <div class="quote-umkm-list">
+          <p>"Setiap Usaha Kecil Memiliki Cerita Besar. Mari Dukung Kreativitas Lokal!"</p>
+        </div>
         <search-bar></search-bar>
-        <div class="explore-con page-list-umkm">
+        <div class="page-list-umkm">
           <div id="list-umkm"></div>
         </div>
       </section>
@@ -36,6 +44,7 @@ const ListUmkm = {
     if (pageload) {
       pageload.remove();
     }
+    pageListUmkmGsapJs();
     await renderUmkm(allUmkmList);
     // footerGsapJs();
 
@@ -55,6 +64,8 @@ const ListUmkm = {
       const filteredUmkms = await SearchDbSource.search(query);
       await renderUmkm(filteredUmkms.umkms);
     });
+
+    umkmItemGsapJs();
   },
 };
 

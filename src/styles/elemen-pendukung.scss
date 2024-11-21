@@ -1,10 +1,11 @@
 $button: #da281c;
 $icon: #ff9e1b;
 
-.infoUMKM, .infoProduk {
+.infoUMKM{
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 3rem;
+  padding: 3rem 2rem;
 
   .info {
     width: 100%;
@@ -19,14 +20,14 @@ $icon: #ff9e1b;
         text-align: center;
         font-size: 2rem;
         span {
-          font-size: 5rem;
+          font-size: 2rem;
         }
       }
     }
 
     .infoDesc {
       p {
-        font-size: 1.25rem;
+        font-size: 1rem;
         line-height: 2rem;
       }
     }
@@ -52,7 +53,7 @@ $icon: #ff9e1b;
 .dataline {
   width: 100%;
   padding: 2rem 8%;
-  background-color: #bf1722;
+  background-color: #91140b;
   margin-block: 6rem 0;
 
   .dataUmkmCon {
@@ -99,7 +100,7 @@ $icon: #ff9e1b;
     }
 
     .dataSector {
-      flex: 1.2;
+      flex: 1.5;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -115,6 +116,9 @@ $icon: #ff9e1b;
         gap: 1rem;
 
         p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background-color: white;
           font-size: 1.1rem;
           padding: 0.5rem 1rem;
@@ -184,16 +188,16 @@ $icon: #ff9e1b;
         padding-block: 0;
         h3 {
           text-align: center;
-          font-size: 1.75rem;
+          font-size: 2rem;
           span {
-            font-size: 4rem;
+            font-size: 2rem;
           }
         }
       }
 
       .infoDesc {
         p {
-          font-size: 1.25rem;
+          font-size: 1rem;
           line-height: 1.75rem;
         }
       }
@@ -219,9 +223,9 @@ $icon: #ff9e1b;
       .judul {
         h3 {
           text-align: center;
-          font-size: 1.75rem;
+          font-size: 2rem;
           span {
-            font-size: 4rem;
+            font-size: 2.5rem;
           }
         }
       }
