@@ -1,5 +1,6 @@
 import ProductsDbSource from '../../api/products-api';
 import SearchDbSource from '../../api/search-api';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
 import { createProductItemTemplate } from '../templates/template-creator';
 
@@ -36,6 +37,7 @@ const ListProduct = {
       pageload.remove();
     }
     await renderProdukt(allProductList);
+    // footerGsapJs();
     // --------------------------------------------
     const searchInput = document.getElementById('searchInput');
     const searchForm = document.getElementById('searchForm');

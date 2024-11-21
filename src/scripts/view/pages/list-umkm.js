@@ -1,5 +1,6 @@
 import SearchDbSource from '../../api/search-api';
 import UmkmsDbSource from '../../api/umkms-api';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
 import { createUmkmItemTemplate } from '../templates/template-creator';
 
@@ -36,6 +37,7 @@ const ListUmkm = {
       pageload.remove();
     }
     await renderUmkm(allUmkmList);
+    // footerGsapJs();
 
     const searchInput = document.getElementById('searchInput');
     const searchForm = document.getElementById('searchForm');

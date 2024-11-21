@@ -12,9 +12,6 @@ const createUmkmSliderTemplate = (umkm) => `
               <div class="content">
                 <h2>${umkm.name}</h2>
                 <div class="sub"><p class="subs">${umkm.subdistrict}</p></div>
-                <p class="des">
-                  ${umkm.description}
-                </p>
                 <div class="cate">${umkm.categories ? umkm.categories.map((category) => `<p>${category}</p>`).join('') : '-'}</div>
               </div>
             </div>
