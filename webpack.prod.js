@@ -111,6 +111,13 @@ module.exports = merge(common, {
             cacheName: 'font-awesome',
           },
         },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://fonts.googleapis.com/css2?family=Arizonia&family=League+Gothic&family=Lilita+One&family=Mouse+Memoirs&family=Oxygen:wght@300;400;700&display=swap'),
+          handler: 'StaleWhileRevalidate',
+          options: {
+            cacheName: 'fonts-website',
+          },
+        },
       ],
     }),
   ],

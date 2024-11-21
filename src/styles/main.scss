@@ -4,12 +4,16 @@ $red: #da281c;
 $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
+/* font */
+$info-home: 'Arizonia';
+$font-default: 'Oxygen';
+
 /* === base === */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: sans-serif;
+  font-family: $font-default;
   color: black;
 
   &:focus {
@@ -352,7 +356,7 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    padding: 0 15%;
+    padding: 0 5%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -363,16 +367,17 @@ main {
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 2rem;
 
       h1 {
-        font-size: 3rem;
+        font-size: 1.5rem;
         font-weight: 800;
         text-align: center;
         color: white;
       }
 
       h2 {
-        font-size: 5rem;
+        font-size: 2rem;
         font-weight: 800;
         color: rgb(113, 0, 0);
         text-align: center;
@@ -554,6 +559,19 @@ footer-bar {
     display: none;
   }
 
+  #home {
+    .home-container {
+      .home-content {
+        h1 {
+          font-size: 2.5rem;
+        }
+        h2 {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+
   footer-bar {
     .footer-container {
       gap: 5rem;
@@ -574,9 +592,11 @@ footer-bar {
   #home {
     .home-container {
       .home-content {
-        button {
-          font-size: 1.5rem;
-          padding: 1rem 2rem;
+        h1 {
+          font-size: 3.5rem;
+        }
+        h2 {
+          font-size: 5rem;
         }
       }
     }
