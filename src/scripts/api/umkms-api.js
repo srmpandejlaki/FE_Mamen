@@ -20,49 +20,66 @@ class UmkmsDbSource {
           year: umkm.year,
         }),
       };
+
       const response = await fetch(UMKMS.BASE, options);
+
+      if (!response.ok) {
+        const errorJson = await response.json();
+        throw new Error(errorJson.message || 'Gagal menambahkan UMKM!');
+      }
+
       const responseJson = await response.json();
-
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
-
-      return responseJson.data;
-    } catch {
+      return responseJson;
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal menambahkan umkm!',
+        text: error.message || 'Terjadi kesalahan saat menambahkan UMKM!',
       });
+
+      throw error;
     }
   }
 
   static async getUmkms() {
     try {
       const response = await fetch(UMKMS.BASE);
+
+      if (!response.ok) {
+        throw new Error('Gagal mendapatkan list UMKM!');
+      }
+
       const responseJson = await response.json();
       return responseJson.data.umkms;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal menampilkan list umkm!',
+        text: error.message || 'Terjadi kesalahan saat mengambil list UMKM!',
       });
+
+      throw error;
     }
   }
 
   static async getUmkmById(id) {
     try {
       const response = await fetch(UMKMS.DETAIL(id));
+
+      if (!response.ok) {
+        throw new Error('Gagal mendapatkan detail UMKM!');
+      }
+
       const responseJson = await response.json();
       return responseJson.data.umkm;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal mendapatkan detail umkm!',
+        text: error.message || 'Terjadi kesalahan saat mengambil detail UMKM!',
       });
+
+      throw error;
     }
   }
 
@@ -75,15 +92,24 @@ class UmkmsDbSource {
           'Authorization': `Bearer ${accessToken}`,
         },
       };
+
       const response = await fetch(UMKMS.USER_BASE, options);
+
+      if (!response.ok) {
+        throw new Error('Token tidak valid. Coba login kembali.');
+      }
+
       const responseJson = await response.json();
       return responseJson.data.umkm;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Token Invalid',
-        text: 'Coba untuk Login kembali',
+        text: error.message || 'Coba untuk login kembali.',
       });
+
+      window.location.hash = '#/login';
+      throw error;
     }
   }
 
@@ -105,21 +131,24 @@ class UmkmsDbSource {
           year: umkm.year,
         }),
       };
+
       const response = await fetch(UMKMS.DETAIL(id), options);
+
+      if (!response.ok) {
+        const errorJson = await response.json();
+        throw new Error(errorJson.message || 'Gagal mengupdate UMKM!');
+      }
+
       const responseJson = await response.json();
-
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
-
       return responseJson;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal mengupdate umkm!',
+        text: error.message || 'Terjadi kesalahan saat mengupdate UMKM!',
       });
+
+      throw error;
     }
   }
 
@@ -132,15 +161,23 @@ class UmkmsDbSource {
           'Authorization': `Bearer ${accessToken}`,
         },
       };
+
       const response = await fetch(UMKMS.DETAIL(id), options);
+
+      if (!response.ok) {
+        throw new Error('Gagal menghapus UMKM!');
+      }
+
       const responseJson = await response.json();
       return responseJson;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal menghapus umkm!',
+        text: error.message || 'Terjadi kesalahan saat menghapus UMKM!',
       });
+
+      throw error;
     }
   }
 
@@ -158,21 +195,23 @@ class UmkmsDbSource {
         },
         body: formData,
       };
+
       const response = await fetch(UMKMS.COVERS(umkmId), options);
+
+      if (!response.ok) {
+        throw new Error('Gagal menambahkan cover UMKM!');
+      }
+
       const responseJson = await response.json();
-
-      Swal.fire({
-        title: `${responseJson.message}`,
-        text: `${responseJson.status}`,
-      });
-
       return responseJson;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal menambahkan cover umkm!',
+        text: error.message || 'Terjadi kesalahan saat menambahkan cover UMKM!',
       });
+
+      throw error;
     }
   }
 }
