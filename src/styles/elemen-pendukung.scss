@@ -52,7 +52,7 @@ $icon: #ff9e1b;
 .dataline {
   width: 100%;
   padding: 2rem 8%;
-  background-color: #bf1722;
+  background-color: #91140b;
   margin-block: 6rem 0;
 
   .dataUmkmCon {
@@ -99,7 +99,7 @@ $icon: #ff9e1b;
     }
 
     .dataSector {
-      flex: 1.2;
+      flex: 1.5;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -115,6 +115,9 @@ $icon: #ff9e1b;
         gap: 1rem;
 
         p {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background-color: white;
           font-size: 1.1rem;
           padding: 0.5rem 1rem;

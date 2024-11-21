@@ -18,9 +18,15 @@ const renderUmkm = async (list) => {
 const ListUmkm = {
   async render() {
     return `
-      <section id="explore" class="exploreUmkm">
+      <section class="exploreUmkm">
+        <div class="judul-list-umkm">
+          <h2>Daftar UMKM</h2>
+        </div>
+        <div class="quote-umkm-list">
+          <p>"Setiap Usaha Kecil Memiliki Cerita Besar. Mari Dukung Kreativitas Lokal!"</p>
+        </div>
         <search-bar></search-bar>
-        <div class="explore-con page-list-umkm">
+        <div class="page-list-umkm">
           <div id="list-umkm"></div>
         </div>
       </section>
