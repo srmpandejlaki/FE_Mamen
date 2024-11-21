@@ -13,7 +13,7 @@ import Loading from '../../utility/loading';
 import CategoriesDbSource from '../../api/categories-api';
 import ProfileGsapJs from '../../utility/animation/profile-page/profile-gsap';
 import ProfileProdukGsapJs from '../../utility/animation/profile-page/profile-produk-gsap';
-import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import profileReviewGsapJs from '../../utility/animation/profile-page/profile-review-gsap';
 import blankProfileGsapJs from '../../utility/animation/profile-page/blank-profile-gsap';
 
@@ -130,7 +130,7 @@ const Profile = {
       });
       tambahUmkm();
       blankProfileGsapJs();
-      footerGsapJs();
+      // footerGsapJs();
     } else {
       const { id } = umkmByUser[0];
       if (pageload) {
@@ -173,7 +173,7 @@ const Profile = {
       // REVIEW UMKM
       await renderReviews(id);
       profileReviewGsapJs();
-      footerGsapJs();
+      // footerGsapJs();
     }
   },
 };

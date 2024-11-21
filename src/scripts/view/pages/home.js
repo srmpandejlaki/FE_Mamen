@@ -1,6 +1,6 @@
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
@@ -31,48 +31,62 @@ const Home = {
       <section id="explore">
         <section class="explore-con">
           <div class="infoUMKM">
-            <div class="infoImage">
-              <img src="./images/info-umkm.png" alt="Gambar Ilustrasi UMKM"> 
-            </div>
+              <div id="umkm-list">
+                <umkm-slider></umkm-slider>
+              </div>
             <div class="info">
               <div class="judul">
-                <h2><i class="fa-sharp fa-solid fa-lightbulb"></i>  Ingpo</h2>
+                <h3><span>Ayo</span> cari tahu</h3>
               </div>
               <div class="infoDesc">
                 <p>
-                  UMKM (Usaha Mikro, Kecil, dan Menengah) <br> 
+                  UMKM (Usaha Mikro, Kecil, dan Menengah)
                   merupakan tulang punggung perekonomian yang memiliki peran penting dalam 
-                  mendorong perekonomian lokal, termasuk di Kota Manado. <br> <br>
+                  mendorong perekonomian lokal, termasuk di Kota Manado.
                   Dengan memanfaatkan sumber daya lokal, seperti hasil laut dan budaya 
                   khas Minahasa, UMKM di Manado mampu menciptakan produk unik dan berpotensi menembus pasar internasional. <br>
                 </p>
               </div>
               <div class="btnInfo">
-                <a href="#/umkms">list umkm</a>
+                <a href="#/umkms">List UMKM</a>
               </div>
             </div>
           </div>
         </section>
-        <div class="explore-con">
-          <div id="umkm-list">
-            <umkm-slider></umkm-slider>
-          </div>
-        </div>
+        <section>
+         <div class="dataline">
+            <div class="dataUmkmCon">
+              <div class="dataUmkmTitle">
+                <h4 class="umkmTitle">DATA UMKM</h4>
+                <p>Manado tahun 2023</p>
+              </div>
+              <div class="dataUmkmNumber">
+                <h4 class="umkmNumber">19.500</h4>
+                <p>unit usaha</p>
+              </div>
+              <div class="dataSector">
+                <p>3 sektor yang mendominasi aktivitas UMKM</p>
+                <div class="sectorCon">
+                  <p>Kuliner</p>
+                  <p>Kerajinan Tangan</p>
+                  <p>Perdagangan</p>
+                </div>
+              </div>
+            </div>
+         </div>
+        </section>
         <section class="explore-con">
           <div class="infoProduk">
             <div class="info">
               <div class="judul">
-                <h2><i class="fa-solid fa-question"></i> Tentang Produk</h2>
+                <h3><span>For</span> Information</h3>
               </div>
               <div class="infoDesc">
-                <p>Jelajahi produk-produk berkualitas dari semua UMKM yang terdaftar disini.<br>Ayo temukan produk berupa barang, makanan, minuman, dan lainnya di sini.</p>
-              </div>
-              <div class="btnInfo">
-                <a href="#/products">list produk</a>
+                <p>Jelajahi produk-produk berkualitas dari semua UMKM yang terdaftar disini. Ayo temukan produk berupa barang, makanan, minuman, dan lainnya di sini.</p>
               </div>
             </div>
             <div class="infoImage"> 
-              <img src="./images/info-product.png" alt="Gambar Ilustrasi UMKM"> 
+              <img src="./images/info-umkm.png" alt="Gambar Ilustrasi Produk"> 
             </div>
           </div>
         </section>
@@ -132,7 +146,7 @@ const Home = {
     }
     // --------------------------------------------
     homeReviewGsapJs();
-    footerGsapJs();
+    // footerGsapJs();
   },
 };
 

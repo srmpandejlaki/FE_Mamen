@@ -1,3 +1,4 @@
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
 
 const AboutUs = {
@@ -72,6 +73,7 @@ const AboutUs = {
     if (pageload) {
       pageload.remove();
     }
+    // footerGsapJs();
   },
 };
 
