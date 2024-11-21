@@ -1,18 +1,17 @@
+/* eslint-disable import/newline-after-import */
 // import CONFIG from '../../globals/config';
-
+import Utils from '../../utility/utils';
 const createUmkmSliderTemplate = (umkm) => `
             <div
               data-id="${umkm.id}" 
               class="slides"
               style="background-image: url(${umkm.cover_url ? umkm.cover_url : './images/template-umkm-img.png'})"
+              onerror="this.onerror=null;this.style.backgroundImage=url('./images/template-umkm-img.png');"
             >
             <span>${umkm.rating}</span>
               <div class="content">
                 <h2>${umkm.name}</h2>
                 <div class="sub"><p class="subs">${umkm.subdistrict}</p></div>
-                <p class="des">
-                  ${umkm.description}
-                </p>
                 <div class="cate">${umkm.categories ? umkm.categories.map((category) => `<p>${category}</p>`).join('') : '-'}</div>
               </div>
             </div>
@@ -79,20 +78,46 @@ const createProductItemTemplate = (product) => `
 
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
-            <div class="review-name">
-              <h3>${review.user_rating}</h3>
+            <div>
+              <div class="review-rating">
+                <h4><i>&#9734;</i>${review.user_rating}</h4>
+              </div>
+              <div class="review-des">
+                <p>" ${review.review} "</p>
+              </div>
             </div>
-            <div class="review-des">
-              <p>" ${review.review} "</p>
-            </div>
-            <div class="review-date">
-              <p>${review.name}</p>
+            <div class="desc-con">
+              <div class="review-name">
+                <p>${review.name}</p>
+              </div>
+              <div class="review-date">
+                <p>${Utils.parseDate(review.date)}</p>
+              </div>
             </div>
           </div>
 `;
+
+const createPageLoading = () => `
+  <div class="pageload">
+    <div class="pageCenter">
+      <div class="pageRing"></div>
+    </div>
+  </div>
+`;
+
+const createSectionLoading = () => `
+  <div class="sectionload">
+    <div class="sectionCenter">
+      <div class="sectionRing"></div>
+    </div>
+  </div>
+  `;
+
 export {
   createUmkmSliderTemplate,
   createUmkmItemTemplate,
   createProductItemTemplate,
   createReviewItemTemplate,
+  createPageLoading,
+  createSectionLoading,
 };

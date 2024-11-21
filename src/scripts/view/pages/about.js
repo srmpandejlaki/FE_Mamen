@@ -1,3 +1,6 @@
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
+import Loading from '../../utility/loading';
+
 const AboutUs = {
   async render() {
     return `
@@ -59,13 +62,18 @@ const AboutUs = {
           </div>
       <div>
           <div class="separator"></div>
-      </div>
     </section>
     `;
   },
 
   async afterRender() {
-    console.log('halaman about us');
+    const container = document.querySelector('#aboutSection');
+    await Loading.loadingPage(container);
+    const pageload = document.querySelector('.pageload');
+    if (pageload) {
+      pageload.remove();
+    }
+    // footerGsapJs();
   },
 };
 

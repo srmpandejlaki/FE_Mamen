@@ -4,13 +4,56 @@ $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
 .exploreUmkm {
+  padding-block: 72.58px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.judul-list-umkm {
+  width: 100%;
+  background-color: #91140b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+
+  h2 {
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+    font-weight: 300;
+  }
+}
+
+.quote-umkm-list {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
   padding-block: 2rem;
+
+  p {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+}
+
+.page-list-umkm {
+  padding: 0 8%;
 }
 
 #list-umkm {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
+  gap: 1.75rem;
 
   .umkm-card {
     position: relative;

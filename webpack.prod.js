@@ -27,7 +27,6 @@ module.exports = merge(common, {
     ],
   },
   optimization: {
-    minimize: true,
     minimizer: [
       '...',
       new CssMinimizerPlugin(),
@@ -75,14 +74,14 @@ module.exports = merge(common, {
       runtimeCaching: [
         {
           urlPattern: ({ url }) => url.href.startsWith('https://api.mamen.site'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'mamen-api',
           },
         },
         {
-          urlPattern: ({ url }) => url.href.startsWith('https://mamenawsbucket.s3.ap-southeast-3.amazonaws.com'),
-          handler: 'StaleWhileRevalidate',
+          urlPattern: ({ url }) => url.href.startsWith('https://res.cloudinary.com/dtkczgmyn/image/upload/v1731908514/mamenimage/'),
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'mamen-pictures',
             expiration: {
@@ -93,14 +92,21 @@ module.exports = merge(common, {
         },
         {
           urlPattern: ({ url }) => url.href.startsWith('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'font-awesome',
           },
         },
         {
           urlPattern: ({ url }) => url.href.startsWith('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/webfonts/'),
-          handler: 'StaleWhileRevalidate',
+          handler: 'NetworkFirst',
+          options: {
+            cacheName: 'font-awesome',
+          },
+        },
+        {
+          urlPattern: ({ url }) => url.href.startsWith('https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css'),
+          handler: 'NetworkFirst',
           options: {
             cacheName: 'font-awesome',
           },

@@ -1,38 +1,35 @@
-#umkm-list {
-  padding-block: 0 6rem;
-}
-
 .sliderumkm-secton {
   position: relative;
+  border-radius: 20px;
 }
 .slider-con {
   position: relative;
   width: 100%;
-  height: 50rem;
+  height: 37rem;
   overflow: hidden;
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 1.5rem;
+  border-radius: 20px;
 }
 
 .slider {
   position: absolute;
   width: 100%;
-  height: 70%;
+  height: 75%;
   background: transparent;
 
   .slides {
-    top: 80%;
+    top: 100%;
     transform: translateY(-20%);
     position: absolute;
-    width: 180px;
-    height: 220px;
+    width: 140px;
+    height: 180px;
     background-size: cover;
     background-position: center;
     border-radius: 20px;
     transition: 0.5s;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 5);
+    box-shadow: -5px 10px 20px rgba(0, 0, 0, 5);
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
@@ -55,12 +52,12 @@
       width: 100%;
       height: 100%;
       transform: translateY(0);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0);
+      box-shadow: -5px 5px 10px rgba(0, 0, 0, 0);
       background-size: cover;
 
       .content {
         opacity: 1;
-        transform: translateY(0px);
+        transform: translateY(-1.5rem);
         transition-delay: 0.5s;
       }
       span {
@@ -70,10 +67,11 @@
     }
     @for $i from 3 through 1000 {
       &:nth-child(#{$i}) {
-        left: calc(45% + (200px * ($i - 2)));
+        left: calc(1% + (160px * ($i - 2)));
         background-size: cover;
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0);
 
-        @if $i > 6 {
+        @if $i > 12 {
           opacity: 0;
         }
       }
@@ -82,12 +80,12 @@
 }
 
 .slider-buttons {
-  width: 100%;
   position: absolute;
   display: flex;
   justify-content: center;
   gap: 20px;
-  bottom: 2.8rem;
+  bottom: 4rem;
+  left: 1rem;
 
   span {
     position: relative;
@@ -99,7 +97,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 5);
+    box-shadow: -2px 5px 10px rgba(0, 0, 0, 5);
   }
 }
 
@@ -115,10 +113,10 @@
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
     color: white;
     text-shadow: 1px 1px 3px rgb(0, 0, 0);
   }
@@ -148,15 +146,15 @@
       display: inline-block;
       font-size: 1rem;
       color: white;
-      background-color: black;
-      padding: 0.25rem 1rem;
+      background-color: red;
+      padding: 0.5rem 1rem;
     }
   }
 }
 
 @media screen and (max-width: 1023px) {
   .slider {
-    top: 50px;
+    top: 20px;
     left: 0;
     position: absolute;
     width: 100%;
@@ -173,6 +171,9 @@
       &:nth-child(2) {
         top: initial;
         bottom: 0px;
+        .content {
+          transform: translateY(1rem);
+        }
       }
       &:nth-child(3) {
         left: 0px;
@@ -188,6 +189,16 @@
       }
     }
   }
+
+  .content {
+    transform: translateY(20px);
+  }
+
+  .slider-buttons {
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -196,13 +207,13 @@
   }
 }
 
-@media screen and (max-width: 340px) {
+@media screen and (max-width: 450px) {
   .slider {
     top: 50px;
     left: 0;
     position: absolute;
-    width: 91%;
-    height: 67%;
+    width: 100%;
+    height: 50%;
 
     .slides {
       top: initial;
@@ -228,6 +239,17 @@
       &:nth-child(6) {
         left: 330px;
       }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+      span, p {
+        font-size: 0.8rem;
+      }
     }
+  }
+
+  .slider-buttons {
+    bottom: 5rem;
   }
 }

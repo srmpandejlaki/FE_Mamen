@@ -1,4 +1,5 @@
 $yellow: #ff9e1b;
+$red: #da281c;
 
 .separator {
   width: 100%;
@@ -47,8 +48,7 @@ $yellow: #ff9e1b;
     padding-top: 6.5rem;
     overflow: hidden;
 
-    #umkms,
-    #detailProduct {
+    #umkms {
       min-height: 600px;
       display: flex;
       align-items: center;
@@ -58,7 +58,8 @@ $yellow: #ff9e1b;
   }
 }
 
-umkm-detail {
+umkm-detail,
+umkm-freedetail {
   width: 100%;
 
   .detail-umkm {
@@ -105,17 +106,30 @@ umkm-detail {
     align-items: center;
     gap: 0.5rem;
     position: absolute;
-    bottom: -5px;
-    left: 0;
+    bottom: 0.5rem;
+    left: 0.75rem;
     z-index: 100;
 
     label {
       display: flex;
       align-items: center;
-      padding: 0.75rem 1rem;
+      padding: 0.5rem 0.75rem;
       color: black;
-      background-color: white;
+      background-color: rgba(255, 255, 255, 0.598);
       border-radius: 0 5px 0;
+      cursor: pointer;
+      transition:
+        color 0.4s,
+        transform 0.4s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.857);
+        transform: translateY(-0.1rem);
+      }
+      &:active {
+        background-color: rgb(255, 255, 255);
+        transform: translateY(-0.1rem);
+      }
     }
 
     #addimage {
@@ -125,9 +139,24 @@ umkm-detail {
     #submitImg,
     #resetImg {
       display: none;
+      margin-bottom: 0.25rem;
       padding: 0.25rem 0.5rem;
-      background-color: white;
       color: black;
+      background-color: rgba(255, 255, 255, 0.762);
+      border-radius: 0 5px 0;
+      cursor: pointer;
+      transition:
+        color 0.4s,
+        transform 0.4s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.857);
+        transform: translateY(-0.1rem);
+      }
+      &:active {
+        background-color: rgb(255, 255, 255);
+        transform: translateY(-0.1rem);
+      }
     }
   }
 }
@@ -135,12 +164,13 @@ umkm-detail {
 .infoSection {
   flex: 6;
   display: flex;
-  gap: 2rem;
+  gap: 1rem;
   flex-direction: column;
 
   .title-con {
     display: flex;
-    align-items: center;
+    flex-direction: column-reverse;
+    gap: 1.25rem;
 
     h1 {
       font-size: 1.5rem;
@@ -148,23 +178,28 @@ umkm-detail {
       flex: 1;
       text-align: center;
     }
+    .umkm-buttons {
+      display: flex;
+      gap: 0.5rem;
+      align-self: flex-end;
 
-    #edit-detail {
-      background-color: white;
-      color: black;
-      padding: 0.5rem 1rem;
-      border: 1px solid black;
-      cursor: pointer;
+      #edit-detail,
+      #delete-umkm {
+        background-color: white;
+        color: black;
+        padding: 0.5rem 1rem;
+        border: 1px solid black;
+        cursor: pointer;
+      }
     }
   }
 
   .detail-con {
-    padding: 0 1rem;
-
     table {
       tr {
         td {
           padding: 0.5rem;
+          font-size: 1rem;
         }
       }
     }
@@ -179,6 +214,9 @@ umkm-detail {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      p {
+        font-size: 1rem;
+      }
       #addCategory {
         background-color: white;
         color: black;
@@ -201,7 +239,7 @@ umkm-detail {
           padding: 0.5rem 1rem;
           background-color: black;
           color: white;
-          border: 1px solid black;
+          border: 1px solid $yellow;
           cursor: pointer;
         }
       }
@@ -217,7 +255,7 @@ umkm-detail {
         justify-content: space-between;
         align-items: center;
         gap: 0.5rem;
-        background-color: black;
+        background-color: $yellow;
         color: white;
         padding: 0.5rem 1rem;
 
@@ -245,9 +283,14 @@ umkm-detail {
     }
   }
 
+  .detail-con td,
+  .category-con {
+    font-size: 0.85rem;
+  }
+
   .description-con {
     position: relative;
-    padding: 0;
+    padding: 0.5rem;
 
     div {
       background-color: white;
@@ -256,20 +299,28 @@ umkm-detail {
       display: flex;
       gap: 1rem;
       flex-direction: column;
-      padding: 1rem 2rem 3rem;
+      padding: 1rem 0.5rem;
       box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
 
       p {
         color: black;
-        font-size: 1rem;
+        font-size: 0.85rem;
         line-height: 1.5rem;
       }
     }
   }
 }
 
+.section-review {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 2rem;
+  padding-top: 2rem;
+}
+
 @media screen and (min-width: 768px) {
-  umkm-detail {
+  umkm-detail,
+  umkm-freedetail {
     .detail-umkm {
       flex-direction: row;
       align-items: center;
@@ -277,6 +328,12 @@ umkm-detail {
   }
 
   .infoSection {
+    gap: 2rem;
+    .title-con {
+      align-items: center;
+      flex-direction: row;
+    }
+
     .description-con {
       padding: 2rem;
       div {
@@ -284,6 +341,7 @@ umkm-detail {
         width: 114%;
         left: -15%;
         top: -1rem;
+        padding: 1rem 2rem 3rem;
       }
     }
   }
@@ -293,5 +351,9 @@ umkm-detail {
       position: absolute;
       width: auto;
     }
+  }
+
+  .section-review {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
 }

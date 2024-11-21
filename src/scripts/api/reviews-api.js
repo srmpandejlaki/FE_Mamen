@@ -2,7 +2,7 @@ import Swal from 'sweetalert2';
 import { REVIEWS } from '../globals/api-endpoint';
 
 class ReviewsDbSource {
-  static async postProduct(umkmId, review) {
+  static async postReview(umkmId, review) {
     try {
       const accessToken = localStorage.getItem('accessToken');
       const options = {
