@@ -87,17 +87,18 @@ umkm-freedetail {
   span {
     display: inline-block;
     position: absolute;
-    top: -1px;
-    right: -1px;
-    background-color: white;
-    color: black;
+    top: 0;
+    right: 0;
+    background-color: $yellow;
+    color: white;
     padding: 1rem;
     border-radius: 0 0 0 5px;
     font-weight: bold;
     padding: 0.5rem;
+    border-radius: 0 10px 0 10px;
 
     i {
-      color: black;
+      color: white;
     }
   }
 
@@ -164,17 +165,18 @@ umkm-freedetail {
 .infoSection {
   flex: 6;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   flex-direction: column;
 
   .title-con {
     display: flex;
     flex-direction: column-reverse;
     gap: 1.25rem;
+    margin-top: 1rem;
 
     h1 {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 2.5rem;
+      font-weight: 500;
       flex: 1;
       text-align: center;
     }
@@ -255,9 +257,10 @@ umkm-freedetail {
         justify-content: space-between;
         align-items: center;
         gap: 0.5rem;
-        background-color: $yellow;
+        background-color: $red;
         color: white;
         padding: 0.5rem 1rem;
+        transition: all ease-in-out 0.5s;
 
         p {
           color: white;
@@ -277,6 +280,7 @@ umkm-freedetail {
         &:hover {
           .delete-category {
             display: inline-block;
+            transition: all ease-in-out 0.5s;
           }
         }
       }
@@ -290,7 +294,7 @@ umkm-freedetail {
 
   .description-con {
     position: relative;
-    padding: 0.5rem;
+    padding: 1rem;
 
     div {
       background-color: white;
@@ -300,7 +304,7 @@ umkm-freedetail {
       gap: 1rem;
       flex-direction: column;
       padding: 1rem 0.5rem;
-      box-shadow: -2px 5px 10px rgba(0, 0, 0, 0.5);
+      box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
 
       p {
         color: black;

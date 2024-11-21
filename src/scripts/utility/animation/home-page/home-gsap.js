@@ -41,24 +41,24 @@ export default function homeGsapJs() {
   // INFO UMKM
   gsap.from('.infoUMKM #umkm-list', {
     opacity: 0,
-    x: -20,
-    duration: 2,
+    x: -30,
+    duration: 3,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.infoUMKM',
-      start: 'top 70%', // Animasi dimulai saat elemen berada 80% dari bawah viewport
+      start: 'top 60%', // Animasi dimulai saat elemen berada 80% dari bawah viewport
       end: 'bottom 60%', // Animasi berakhir saat elemen 60% dari bawah viewport
       toggleActions: 'play none none reverse', // Mainkan animasi ke depan saat elemen masuk viewport
     },
   });
   gsap.from('.infoUMKM .info', {
     opacity: 0,
-    x: 20,
-    duration: 2,
+    x: 30,
+    duration: 3,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.infoUMKM', // Elemen pemicu
-      start: 'top 70%',
+      start: 'top 60%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
     },
