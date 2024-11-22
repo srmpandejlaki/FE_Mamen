@@ -25,13 +25,52 @@ export default function homeGsapJs() {
     },
   });
 
-  gsap.from('.home-content h2', {
+  gsap.from('.home-content p', {
+    opacity: 0,
+    x: 20,
+    duration: 2.5,
+    ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: '.home-content',
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+  gsap.from('.home-content button', {
     opacity: 0,
     y: 20,
     duration: 2.5,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.home-content',
+      start: 'top 80%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+
+  // HEADLINE SECTION
+  gsap.from('headline-section section h2', {
+    opacity: 0,
+    y: 20,
+    duration: 2.5,
+    ease: 'power2.inOut',
+    scrollTrigger: {
+      trigger: 'headline-section section',
+      start: 'top 90%',
+      end: 'bottom 60%',
+      toggleActions: 'play none none reverse',
+    },
+  });
+  gsap.from('headline-section section div article', {
+    opacity: 0,
+    y: 20,
+    duration: 2.5,
+    ease: 'power2.inOut',
+    stagger: 0.5,
+    scrollTrigger: {
+      trigger: 'headline-section section div',
       start: 'top 80%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
@@ -46,7 +85,7 @@ export default function homeGsapJs() {
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.infoUMKM',
-      start: 'top 60%', // Animasi dimulai saat elemen berada 80% dari bawah viewport
+      start: 'top 80%', // Animasi dimulai saat elemen berada 80% dari bawah viewport
       end: 'bottom 60%', // Animasi berakhir saat elemen 60% dari bawah viewport
       toggleActions: 'play none none reverse', // Mainkan animasi ke depan saat elemen masuk viewport
     },
@@ -58,7 +97,7 @@ export default function homeGsapJs() {
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: '.infoUMKM', // Elemen pemicu
-      start: 'top 60%',
+      start: 'top 80%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
     },
