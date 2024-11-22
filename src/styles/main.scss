@@ -1,6 +1,6 @@
 /* main color */
 $yellow: #fabb39;
-$red: #da281c;
+$red: #91140b;
 $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
@@ -131,15 +131,17 @@ header {
           align-items: center;
           min-height: 44px;
           min-width: 44px;
-          font-size: 1.75rem;
+          font-size: 2.5rem;
           font-weight: bold;
+          font-family: $info-home;
           color: white;
           text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
           span {
             color: $yellow;
+            font-family: $info-home;
             font-weight: bold;
-            font-size: 1.75rem;
+            font-size: 2.5rem;
             margin-left: 3px;
             text-shadow: 1px 1px 3px rgb(0, 0, 0);
           }
@@ -211,7 +213,7 @@ header {
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        gap: 0.5rem;
+        gap: 0;
         z-index: 999;
 
         .user-account {
@@ -237,6 +239,46 @@ header {
               &:hover {
                 color: $red;
               }
+
+            }
+          }
+        }
+        .user-account#logout {
+          cursor: pointer;
+
+          a {
+            min-height: 44px;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.1rem;
+
+            figcaption {
+              display: none;
+              font-size: 1rem;
+              border-radius: 10px;
+              padding: 0.5rem;
+              color: white;
+              text-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+              &:hover {
+                color: $red;
+              }
+
+            }
+            i {
+              display: inline-block;
+            font-size: 1.25rem;
+            border-radius: 10px;
+            padding: 0.5rem;
+            color: white;
+            text-shadow: 1px 1px 3px rgb(0, 0, 0);
+
+            &:hover {
+              color: $red;
+            }
             }
           }
         }
@@ -356,9 +398,9 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    padding: 0 5%;
+    padding: 0 8%;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     z-index: 2;
 
@@ -366,21 +408,27 @@ main {
       height: 100%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: start;
       gap: 2rem;
+      width: 100%;
+      max-width: 500px;
 
       h1 {
-        font-size: 1.5rem;
-        font-weight: 800;
-        text-align: center;
+        font-size: 2.5rem;
+        line-height: 1.2;
+        text-shadow: 1px 1px 3px rgba(0, 0, 3, 0.5);
         color: white;
+
+        span {
+          color: #da291cf6;
+        }
       }
 
-      h2 {
-        font-size: 2rem;
-        font-weight: 800;
-        color: rgb(113, 0, 0);
-        text-align: center;
+      p {
+        text-shadow: 1px 1px 3px rgb(0, 0, 0);
+        line-height: 1.4;
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.735);
       }
 
       button {
@@ -390,7 +438,7 @@ main {
         font-size: 1.25rem;
         line-height: 1.4rem;
         padding: 0.8rem 1.6rem;
-        background-color: #da291cf6;
+        background-color: #da291c7f;
         border-radius: 0.2rem;
         box-shadow: -2px 2px 5px rgba(0, 0, 3, 0.5);
         cursor: pointer;
@@ -405,7 +453,7 @@ main {
         }
 
         &:hover {
-          background-color: red;
+          background-color: #da291cf6;
           box-shadow: 1px 1px 3px rgba(0, 0, 3, 0.568);
           transition: ease-in-out 0.3s;
 
@@ -546,6 +594,38 @@ footer-bar {
   #nav-toggle {
     display: none;
   }
+  
+  header {
+
+  .navbar-con {
+
+    .navbar {
+      
+
+      
+
+      .nav-extra {
+
+        .user-account#logout {
+
+          a {
+
+            figcaption {
+              display: inline-block;
+
+            }
+            i {
+              display: none;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+
+
 
   #home {
     .home-container {
