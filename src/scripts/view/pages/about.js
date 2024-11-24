@@ -14,22 +14,27 @@ const AboutUs = {
         </div>
 
        <div class="vision-mission">
-        <div class="vision">
-          <h3>Our Vision</h3>
-          <p>Kami bertekad untuk menjadi platform digital yang terpercaya dengan mendorong inovasi yang berkelanjutan dan kreatif.</p>
+          <div class="box vision">
+            <h3>Our Vision</h3>
+            <p>Kami bertekad untuk menjadi platform digital yang terpercaya dengan mendorong inovasi yang berkelanjutan dan kreatif.</p>
+          </div>
+          <div class="box mission">
+            <h3>Our Mission</h3>
+            <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan ramah dan jujur.</p>
+          </div>
         </div>
-        <div class="mission">
-          <h3>Our Mission</h3>
-          <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan ramah dan jujur.</p>
-        </div>
-      </div>
 
 
-    <div class="values">
+      <div class="values">
+        <div class="values-item">INTEGRITAS</div>
+        <div class="values-item">INOVASI</div>
+        <div class="values-item">KUALITAS</div>
+        <div class="values-item">KERJASAMA</div>
       </div>
+      
 
        <div class="team-members">
-            <h2>Our Team Member</h2>
+           <h2>Our Team Member</h2>
             <div class="members">
                 <div class="member">
                     <img src="member1.jpg" alt="Member 1">
@@ -50,7 +55,7 @@ const AboutUs = {
                     <img src="member4.jpg" alt="Member 4">
                     <h3>Nama Anggota 4</h3>
                     <p>Deskripsi singkat tentang anggota 4.</p>
-                </div>
+                 </div>
             </div>
           </div>
       <div>
