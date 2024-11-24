@@ -1,5 +1,6 @@
 import Swal from 'sweetalert2';
 import { UMKMS } from '../globals/api-endpoint';
+import AuthDbSource from './auth-api';
 
 class UmkmsDbSource {
   static async postUmkm(umkm) {
@@ -85,7 +86,7 @@ class UmkmsDbSource {
 
   static async getUmkmByUser() {
     try {
-      const accessToken = localStorage.getItem('accessToken');
+      let accessToken = localStorage.getItem('accessToken');
       const options = {
         method: 'GET',
         headers: {
@@ -93,10 +94,25 @@ class UmkmsDbSource {
         },
       };
 
-      const response = await fetch(UMKMS.USER_BASE, options);
+      let response = await fetch(UMKMS.USER_BASE, options);
+
+      if (response.status === 401) {
+        console.warn('Token kedaluwarsa. Mencoba memperbarui token...');
+        try {
+          await AuthDbSource.putAuth(); // Perbarui token
+          accessToken = localStorage.getItem('accessToken'); // Ambil token baru
+
+          // Ulangi permintaan dengan token baru
+          options.headers.Authorization = `Bearer ${accessToken}`;
+          response = await fetch(UMKMS.USER_BASE, options);
+        } catch (refreshError) {
+          console.error('Gagal memperbarui token:', refreshError.message);
+          throw new Error('Sesi telah berakhir. Silakan login kembali.');
+        }
+      }
 
       if (!response.ok) {
-        throw new Error('Token tidak valid. Coba login kembali.');
+        throw new Error('Gagal memuat data. Silakan coba lagi.');
       }
 
       const responseJson = await response.json();
@@ -104,11 +120,11 @@ class UmkmsDbSource {
     } catch (error) {
       Swal.fire({
         icon: 'error',
-        title: 'Token Invalid',
+        title: 'Error',
         text: error.message || 'Coba untuk login kembali.',
       });
 
-      window.location.hash = '#/login';
+      window.location.hash = '#/login'; // Arahkan pengguna ke halaman login
       throw error;
     }
   }
