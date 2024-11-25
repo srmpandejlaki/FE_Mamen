@@ -29,11 +29,11 @@ const createUmkmItemTemplate = (umkm) => `
               </div>
 
               <div class="umkm-info">
-                <span>${umkm.subdistrict}</span>
                 <h3><a href="/#/umkms/${umkm.id}">${umkm.name}</a></h3>
                 <p>
                 ${umkm.description}
                 </p>
+                <span>${umkm.subdistrict}</span>
               </div>
               <div class="umkm-rate">
                 <i>&#9734;</i>
