@@ -26,6 +26,7 @@ import './components/umkm-freedetail';
 import './components/product-detail';
 import './components/umkm-slider';
 import './components/search-bar';
+import './components/headline-section';
 import './utility/navbar-tambahan';
 import './utility/header';
 import './utility/umkmFunction';

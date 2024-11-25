@@ -84,14 +84,15 @@ class HeaderBar extends HTMLElement {
                 <figcaption>Login</figcaption>
               </a>
             </div>
-            <div class="user-account" id="logout">
-              <a href="#/login">
-                <figcaption>Logout</figcaption>
-              </a>
-            </div>
             <div id="profile">
               <a href="#/profile">
                 <figcaption><i class="fa-regular fa-user"></i></figcaption>
+              </a>
+            </div>
+            <div class="user-account" id="logout">
+              <a href="#/login">
+                <figcaption>Logout</figcaption>
+                <i class="fa-solid fa-right-from-bracket"></i>
               </a>
             </div>
             <!-- toggle button -->
