@@ -1,0 +1,92 @@
+$yellow: #ff9e1b;
+$red: #da281c;
+$cream: #eeeeeeca;
+$black: rgb(255, 255, 255);
+
+#reviews {
+  display: flex;
+  gap: 2rem;
+  padding: 5rem 0;
+
+  .review-item {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    background-color: white;
+
+    gap: 1.2rem;
+    border-bottom: 1px solid $yellow;
+    padding: 0.8rem 1rem;
+
+    min-width: 300px;
+    height: 120px;
+
+    display: flex;
+    flex-direction: column;
+
+    .desc-con {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .review-name {
+      overflow: auto;
+      h3 {
+        color: rgb(202, 202, 202);
+        margin-block: 0;
+        color: black;
+        font-size: 0.9rem;
+      }
+    }
+
+    .review-des {
+      overflow: auto;
+      p {
+        color: black;
+        margin-block: 0;
+        font-size: 1rem;
+      }
+    }
+
+    .review-date {
+      align-self: flex-end;
+      p {
+        color: black;
+        font-size: 0.9rem;
+        color: rgb(203, 203, 203);
+      }
+    }
+
+    .review-rating {
+      display: flex;
+      justify-content: end;
+
+      h4,
+      i {
+        color: white;
+        background-color: $yellow;
+        text-align: center;
+
+        padding: 0.25rem;
+        border-radius: 25px;
+      }
+    }
+  }
+}
+
+.infinite-scroll {
+  padding: 5rem;
+  position: relative;
+
+  left: calc(200px * 8);
+  animation: infinite-scroll 12s linear infinite;
+
+  .review-item {
+    margin-right: 1.5rem;
+  }
+}
+
+@keyframes infinite-scroll {
+  to {
+    left: -850px;
+  }
+}

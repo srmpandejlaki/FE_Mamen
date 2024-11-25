@@ -1,12 +1,22 @@
-import Favorite from '../view/pages/favorite';
 import Home from '../view/pages/home';
-import Detail from '../view/pages/detail';
+import DetailUmkm from '../view/pages/detail-umkm';
+import Login from '../view/pages/login';
+import ListUmkm from '../view/pages/list-umkm';
+import ListProduct from '../view/pages/list-product';
+import DetailProduct from '../view/pages/detail-product';
+import Profile from '../view/pages/profile';
+import AboutUs from '../view/pages/about';
 
 const routes = {
   '/': Home, // default page
   '/home': Home,
-  '/favorite': Favorite,
-  '/detail/:id': Detail,
+  '/umkms': ListUmkm,
+  '/umkms/:id': DetailUmkm,
+  '/products': ListProduct,
+  '/products/:id': DetailProduct,
+  '/login': Login,
+  '/profile': Profile,
+  '/about': AboutUs,
 };
 
 export default routes;

@@ -1,0 +1,89 @@
+// color pallette
+$title: black;
+$merah: #da281c;
+
+// styling
+form-review {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 900px;
+}
+.formReviewContainer {
+  flex-direction: column;
+  padding: 2rem;
+  border: 1px solid $merah;
+
+  .titleFormReview {
+    h2 {
+      color: $title;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .formReview {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+
+    .formDisabler {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .formReviewDesc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      .nama-review {
+        flex-basis: 65%;
+        flex-grow: 1;
+      }
+
+      .rating-review {
+        flex-basis: 30%;
+        flex-grow: 1;
+      }
+
+      .body-reviews {
+        flex-basis: 100%;
+      }
+
+      div {
+        input,
+        textarea {
+          width: 100%;
+          padding: 0.5rem;
+          border: 1px solid rgb(0, 0, 0);
+          color: black;
+        }
+
+        textarea {
+          min-height: 8rem;
+        }
+      }
+    }
+    .btnFormReview {
+      min-height: 44px;
+      background-color: $merah;
+      color: white;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+    }
+  }
+}
+
+// responsive
+@media screen and (min-width: 768px) {
+}
