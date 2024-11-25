@@ -10,15 +10,18 @@ class HeroSection extends HTMLElement {
   render() {
     this.emptyContent();
     this.innerHTML += `
-      <div class="home-container">
-        <div class="home-content">
-          <h1>TEMUKAN DAN JELAJAHI</h1>
-          <h2>UMKM DI MANADO</h2>
-          <button id="cat">
-          </button>
+       <div class="home-container">
+          <div class="home-content">
+            <h1>Start Your <span>Manado</span> Exploration</h1>
+            <p>
+               Eksplore berbagai produk dari berbagai UMKM di seluruh penjuru Manado
+            </p>
+            <button id="cat">
+              Jelajahi Sekarang <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
         </div>
-      </div>
-    `;
+      `;
   }
 }
 

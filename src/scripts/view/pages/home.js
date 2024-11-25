@@ -4,7 +4,7 @@ import ReviewsDbSource from '../../api/reviews-api';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
-import { createProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -13,7 +13,7 @@ const Home = {
         <picture>
           <source 
             type="image/jpeg" 
-            srcset="./images/hero-image.jpg">
+            srcset="./images/hero-image.jpeg">
           <source 
             type="image/webp"
             srcset="./images/hero-image.webp">
@@ -28,12 +28,9 @@ const Home = {
         </picture>
         <hero-section></hero-section>
       </section>
-      <section id="explore">
-        <section class="explore-con">
+      <headline-section></headline-section>
+        <section id="infoUmkmCon">
           <div class="infoUMKM">
-              <div id="umkm-list">
-                <umkm-slider></umkm-slider>
-              </div>
             <div class="info">
               <div class="judul">
                 <h3><span>Ayo</span> cari tahu</h3>
@@ -43,17 +40,18 @@ const Home = {
                   UMKM (Usaha Mikro, Kecil, dan Menengah)
                   merupakan tulang punggung perekonomian yang memiliki peran penting dalam 
                   mendorong perekonomian lokal, termasuk di Kota Manado.
-                  Dengan memanfaatkan sumber daya lokal, seperti hasil laut dan budaya 
-                  khas Minahasa, UMKM di Manado mampu menciptakan produk unik dan berpotensi menembus pasar internasional. <br>
                 </p>
               </div>
               <div class="btnInfo">
                 <a href="#/umkms">List UMKM</a>
               </div>
             </div>
+            <div id="umkm-list">
+                <umkm-slider></umkm-slider>
+              </div>
           </div>
         </section>
-        <section>
+        <section id="datalineCon">
          <div class="dataline">
             <div class="dataUmkmCon">
               <div class="dataUmkmTitle">
@@ -94,12 +92,12 @@ const Home = {
           <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
+          <h2 class="titleReview">Jejak Pendapat Pelanggan</h2>
           <div id="reviews" class="infinite-scroll"></div>
         </section>
         <div>
           <div class="separator"></div>
         </div>
-      </section>
     `;
   },
 
@@ -107,7 +105,7 @@ const Home = {
     homeGsapJs();
     // CLICK EVENTS
     const cat = document.querySelector('#cat');
-    const explore = document.querySelector('#explore');
+    const explore = document.querySelector('headline-section');
 
     cat.addEventListener('click', () => {
       explore.scrollIntoView({ behavior: 'smooth' });
@@ -123,9 +121,7 @@ const Home = {
       productContainer.innerHTML = 'Tidak ada produk untuk ditampilkan.';
     } else {
       allProductList.forEach((product) => {
-        productContainer.innerHTML += createProductItemTemplate(product);
-        document.querySelector('.addImageFormProd').remove();
-        document.querySelector('.prod-buttons').remove();
+        productContainer.innerHTML += createFreeProductItemTemplate(product);
       });
     }
     homeProdukGsapJs();

@@ -168,7 +168,7 @@ class UmkmDetail extends HTMLElement {
             <p>Kategori :</p>
             <button id="addCategory">Tambah</button>
             <form id="form-addCategory">
-              <input type="text" id="input-category" required>
+              <input type="text" id="input-category" placeholder="kategori..." required>
               <button type="submit">Tambah</button>
             </form>
           </div>

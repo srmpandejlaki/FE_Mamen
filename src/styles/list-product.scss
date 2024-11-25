@@ -59,6 +59,7 @@ $black: rgb(255, 255, 255);
   position: relative;
   padding: 0.5rem;
   display: flex;
+  border: 0.5px solid yellow;
   flex-direction: column;
   background-color: $black;
   justify-content: start;
@@ -100,6 +101,7 @@ $black: rgb(255, 255, 255);
         color: black;
         background-color: rgba(255, 255, 255, 0.598);
         border-radius: 0 5px 0;
+        cursor: pointer;
       }
 
       .addimageprod {
@@ -112,6 +114,7 @@ $black: rgb(255, 255, 255);
         padding: 0.25rem 0.5rem;
         background-color: white;
         color: black;
+        cursor: pointer;
       }
     }
   }
