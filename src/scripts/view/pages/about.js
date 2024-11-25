@@ -53,12 +53,12 @@ const AboutUs = {
            <h2>Our Team Member</h2>
             <div class="members">
                 <div class="member">
-                    <img src="member1.jpg" alt="Member 1">
+                    <img src="images/member1.jpg" alt="Member 1">
                     <h3>Nama Anggota 1</h3>
                     <p>Deskripsi singkat tentang anggota 1.</p>
                 </div>
                 <div class="member">
-                    <img src="member2.jpg" alt="Member 2">
+                    <img src="images/member2.jpg" alt="Member 2">
                     <h3>Nama Anggota 2</h3>
                     <p>Deskripsi singkat tentang anggota 2.</p>
                 </div>
@@ -68,7 +68,7 @@ const AboutUs = {
                     <p>Deskripsi singkat tentang anggota 3.</p>
                 </div>
                 <div class="member">
-                    <img src="member4.jpg" alt="Member 4">
+                    <img src="images/member4.jpg" alt="Member 4">
                     <h3>Nama Anggota 4</h3>
                     <p>Deskripsi singkat tentang anggota 4.</p>
                  </div>
