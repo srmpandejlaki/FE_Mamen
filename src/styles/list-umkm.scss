@@ -90,8 +90,8 @@ $black: rgb(255, 255, 255);
     .umkm-info {
       display: flex;
       flex-direction: column;
-      justify-content: start;
-      align-items: start;
+      justify-content: center;
+      align-items: center;
       gap: 0.3rem;
       margin: 0 1.6rem 1rem;
       padding-block: 1rem;
@@ -103,28 +103,22 @@ $black: rgb(255, 255, 255);
       padding-inline: 8%;
 
       span {
-        position: absolute;
+        position: flex;
         padding: 0.4em 1em;
-        background-color: $red;
-        border-radius: 3px;
-        z-index: 99;
-        display: inline-block;
-        font-weight: 500;
-        font-size: 0.8rem;
-        top: -2.3rem;
-        right: 8%;
+        color: $red;
+        font-weight: bold;
       }
 
       h3 {
         a {
           font-size: 1.2rem;
           font-weight: 700;
-          color: black;
+          color: $red;
           line-height: 1.2;
           display: inline-block;
           margin-bottom: 0.5rem;
           padding-block: 0.5rem;
-          border-bottom: 1px solid $yellow;
+          border-bottom: 1px solid $red;
           min-width: 44px;
           min-height: 44px;
           text-decoration: none;
@@ -141,7 +135,7 @@ $black: rgb(255, 255, 255);
         font-size: 0.95rem;
         color: black;
         line-height: 1.4;
-        text-align: start;
+        text-align: center;
       }
     }
 
@@ -157,9 +151,11 @@ $black: rgb(255, 255, 255);
       padding: 0.4em 0.6em;
       p {
         font-size: 0.7em;
+        color: rgb(255, 255, 255);
       }
       i {
         font-size: 0.7em;
+        color:rgb(255, 255, 255);
       }
     }
   }
