@@ -1,12 +1,12 @@
 $red: #da281c;
 
 #aboutSection {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      min-height: 728px;
-      padding: 50px 20px;
-      background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 728px;
+  padding: 50px 20px;
+  background-color: #fff;
       
       .about-us {
         min-height: 450px;
@@ -116,13 +116,12 @@ $red: #da281c;
           }
          }
       }
-
-      .team-member {
-        display: flex;
-        gap: 20px;
-      }
-      
-      .card {
+  .team-member {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     
+      .member-card{
         background: #ffffff;
         border-radius: 10px;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -182,5 +181,6 @@ $red: #da281c;
           }
         }
       }
-}
+    }
+  }
   

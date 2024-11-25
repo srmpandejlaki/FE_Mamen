@@ -39,19 +39,17 @@ const AboutUs = {
             <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan ramah dan jujur.</p>
           </div>
         </div>
-
-
       <div class="values">
         <div class="values-item">INTEGRITAS</div>
         <div class="values-item">INOVASI</div>
         <div class="values-item">KUALITAS</div>
         <div class="values-item">KERJASAMA</div>
       </div>
-      
-
       <div class="team-member">
-      <h2>Our Team Member</h2>
-        <div class="card">
+        <div class="our-tittle">
+            <h1>About Us</h1>
+        </div>
+        <div class="member-card">
           <div class="image">
             <img src="images/member1.jpg" alt="Member 1">
           </div>
@@ -63,7 +61,7 @@ const AboutUs = {
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-        <div class="card">
+        <div class="member-card">
           <div class="image">
             <img src="images/member2.jpg" alt="Member 2">
           </div>
@@ -75,7 +73,7 @@ const AboutUs = {
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-        <div class="card">
+        <div class="member-card">
           <div class="image">
             <img src="images/member3.jpg" alt="Member 3">
           </div>
@@ -87,7 +85,7 @@ const AboutUs = {
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
-        <div class="card">
+        <div class="member-card">
           <div class="image">
             <img src="images/member4.jpg" alt="Member 4">
           </div>
