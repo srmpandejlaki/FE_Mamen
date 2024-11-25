@@ -29,11 +29,11 @@ const createUmkmItemTemplate = (umkm) => `
               </div>
 
               <div class="umkm-info">
-                <span>${umkm.subdistrict}</span>
                 <h3><a href="/#/umkms/${umkm.id}">${umkm.name}</a></h3>
                 <p>
                 ${umkm.description}
                 </p>
+                <span>${umkm.subdistrict}</span>
               </div>
               <div class="umkm-rate">
                 <i>&#9734;</i>
@@ -103,21 +103,20 @@ const createFreeProductItemTemplate = (product) => `
 
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
-            <div>
+            <div class="review-profil">
+              <div class="review-name">
+                <img src="./images/template-profil-review.png" alt="template foto profil">
+                <p>${review.name}</p>
+              </div>
               <div class="review-rating">
                 <h4><i>&#9734;</i>${review.user_rating}</h4>
               </div>
-              <div class="review-des">
-                <p>" ${review.review} "</p>
-              </div>
             </div>
-            <div class="desc-con">
-              <div class="review-name">
-                <p>${review.name}</p>
-              </div>
-              <div class="review-date">
-                <p>${Utils.parseDate(review.date)}</p>
-              </div>
+            <div class="review-des">
+                <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
+              <p>${Utils.parseDate(review.date)}</p>
             </div>
           </div>
 `;
