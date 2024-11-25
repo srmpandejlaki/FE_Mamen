@@ -29,11 +29,11 @@ const createUmkmItemTemplate = (umkm) => `
               </div>
 
               <div class="umkm-info">
-                <span>${umkm.subdistrict}</span>
                 <h3><a href="/#/umkms/${umkm.id}">${umkm.name}</a></h3>
                 <p>
                 ${umkm.description}
                 </p>
+                <span>${umkm.subdistrict}</span>
               </div>
               <div class="umkm-rate">
                 <i>&#9734;</i>
@@ -76,23 +76,47 @@ const createProductItemTemplate = (product) => `
             </article>
 `;
 
+const createFreeProductItemTemplate = (product) => `
+            <article class="product-card">
+              <div class="product-img">
+                <img 
+                id="product-imgs-${product.id}" 
+                class="lazyload" 
+                data-src="${product.cover_url || './images/template-product-img.png'}" 
+                alt="${product.name}" 
+                onerror="this.onerror=null;this.src='./images/template-product-img.png';" 
+              />
+              </div>
+
+              <div class="product-info">
+                <span>Rp. ${product.price}</span>
+                <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
+                <p>
+                ${product.product_type}
+                </p>
+                <p>
+                ${product.description}
+                </p>
+              </div>
+            </article>
+`;
+
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
-            <div>
+            <div class="review-profil">
+              <div class="review-name">
+                <img src="./images/template-profil-review.png" alt="template foto profil">
+                <p>${review.name}</p>
+              </div>
               <div class="review-rating">
                 <h4><i>&#9734;</i>${review.user_rating}</h4>
               </div>
-              <div class="review-des">
-                <p>" ${review.review} "</p>
-              </div>
             </div>
-            <div class="desc-con">
-              <div class="review-name">
-                <p>${review.name}</p>
-              </div>
-              <div class="review-date">
-                <p>${Utils.parseDate(review.date)}</p>
-              </div>
+            <div class="review-des">
+                <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
+              <p>${Utils.parseDate(review.date)}</p>
             </div>
           </div>
 `;
@@ -120,4 +144,5 @@ export {
   createReviewItemTemplate,
   createPageLoading,
   createSectionLoading,
+  createFreeProductItemTemplate,
 };

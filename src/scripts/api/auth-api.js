@@ -14,19 +14,28 @@ class AuthDbSource {
           password: auth.password,
         }),
       };
-      const response = await fetch(AUTHENTICATIONS.BASE, options);
-      const responseJson = await response.json();
 
-      const { accessToken, refreshToken } = responseJson.data;
-      localStorage.setItem('accessToken', accessToken);
-      localStorage.setItem('refreshToken', refreshToken);
+      const response = await fetch(AUTHENTICATIONS.BASE, options);
+      if (!response.ok) {
+        throw new Error(`Login gagal: ${response.statusText}`);
+      }
+
+      const responseJson = await response.json();
+      const { accessToken, refreshToken } = responseJson.data || {};
+
+      if (accessToken && refreshToken) {
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+      } else {
+        throw new Error('Token tidak valid!');
+      }
 
       return responseJson.data;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal melakukan otentikasi!',
+        text: error.message || 'Gagal melakukan otentikasi!',
       });
     }
   }
@@ -34,26 +43,36 @@ class AuthDbSource {
   static async putAuth() {
     try {
       const refreshToken = localStorage.getItem('refreshToken');
+      if (!refreshToken) throw new Error('Refresh token tidak ditemukan!');
+
       const options = {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          refreshToken,
-        }),
+        body: JSON.stringify({ refreshToken }),
       };
-      const response = await fetch(AUTHENTICATIONS.BASE, options);
-      const responseJson = await response.json();
 
-      const { accessToken } = responseJson.data;
-      localStorage.setItem('accessToken', accessToken);
+      const response = await fetch(AUTHENTICATIONS.BASE, options);
+      if (!response.ok) {
+        throw new Error(`Gagal memperbarui token: ${response.statusText}`);
+      }
+
+      const responseJson = await response.json();
+      const { accessToken } = responseJson.data || {};
+
+      if (accessToken) {
+        localStorage.setItem('accessToken', accessToken);
+      } else {
+        throw new Error('Token baru tidak valid!');
+      }
+
       return responseJson.data;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal memperbarui otentikasi!',
+        text: error.message || 'Gagal memperbarui otentikasi!',
       });
     }
   }
@@ -61,27 +80,31 @@ class AuthDbSource {
   static async deleteAuth() {
     try {
       const refreshToken = localStorage.getItem('refreshToken');
+      if (!refreshToken) throw new Error('Refresh token tidak ditemukan!');
+
       const options = {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          refreshToken,
-        }),
+        body: JSON.stringify({ refreshToken }),
       };
-      const response = await fetch(AUTHENTICATIONS.BASE, options);
-      const responseJson = await response.json();
 
+      const response = await fetch(AUTHENTICATIONS.BASE, options);
+      if (!response.ok) {
+        throw new Error(`Gagal menghapus token: ${response.statusText}`);
+      }
+
+      const responseJson = await response.json();
       localStorage.removeItem('refreshToken');
       localStorage.removeItem('accessToken');
 
       return responseJson;
-    } catch {
+    } catch (error) {
       Swal.fire({
         icon: 'error',
         title: 'Oops...',
-        text: 'Gagal menghapus otentikasi!',
+        text: error.message || 'Gagal menghapus otentikasi!',
       });
     }
   }
