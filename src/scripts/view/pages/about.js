@@ -2,6 +2,22 @@ const AboutUs = {
   async render() {
     return `
     <section id="aboutSection">
+        <picture>
+          <source 
+            type="image/jpeg" 
+            srcset="./images/about-image.jpg">
+          <source 
+            type="image/webp"
+            srcset="./images/about-image.webp">
+          <source 
+            type="image/jpeg"
+            media="(max-width: 600px)" 
+            srcset="./images/about-image-small.jpg">
+          <img
+            src='./images/about-image.jpg' 
+            alt="About Image"
+          >
+        </picture>
         <div class="about-us">
             <h1>About Us</h1>
         </div>
