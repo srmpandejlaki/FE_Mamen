@@ -35,14 +35,16 @@ $black: rgb(255, 255, 255);
         align-items: center;
         gap: 1rem;
       }
+    }
 
-      .review-date {
-        font-size: 0.8rem;
+    .review-rating {
+      color: #ff9e1b;
+    }
 
-        p {
-          text-align: end;
-        }
-      }
+    .review-date {
+      text-align: end;
+
+      color: #da281c;
     }
   }
 }
@@ -51,8 +53,8 @@ $black: rgb(255, 255, 255);
   padding: 5rem;
   position: relative;
 
-  // left: calc(200px * 8);
-  // animation: infinite-scroll 12s linear infinite;
+  left: calc(200px * 8);
+  animation: infinite-scroll 12s linear infinite;
 
   .review-item {
     margin-right: 1.5rem;
