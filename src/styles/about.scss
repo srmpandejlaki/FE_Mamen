@@ -117,48 +117,70 @@ $red: #da281c;
          }
       }
 
-
-  .team-members {
-    text-align: center;
-    padding: 80px 20px;
-
-    h2 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-
-    .members {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-
-      .member {
-        margin: 20px;
+      .team-member {
+        display: flex;
+        gap: 20px;
+      }
+      
+      .card {
+        background: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
         text-align: center;
-
-        img {
-          width: 150px;
-          height: auto;
-          border-radius: 10px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-          transition: transform 0.3s ease;
-
-          &:hover {
-            transform: scale(1.05);
+        width: 300px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+      
+        .image {
+          width: 100px;
+          height: 100px;
+          margin: 0 auto 15px;
+          border-radius: 50%;
+          overflow: hidden;
+      
+          img {
+            width: 100%;
+            height: auto;
           }
         }
-
-        h3 {
-          margin-top: 10px;
-          font-size: 1.5em;
+      
+        h2 {
+          font-size: 20px;
+          margin: 10px 0;
+          color: #333333;
         }
-
+      
+        .position {
+          color: #36b37e;
+          font-weight: bold;
+          margin-bottom: 10px;
+        }
+      
         p {
-          font-size: 1em;
-          color: #ddd;
+          font-size: 14px;
+          line-height: 1.6;
+          color: #555555;
+          margin-bottom: 20px;
+        }
+      
+        .social-links {
+          a {
+            color: #36b37e;
+            margin: 0 10px;
+            font-size: 18px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+      
+            &:hover {
+              color: #333333;
+            }
+          }
         }
       }
-    }
-  }
 }
   

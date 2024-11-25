@@ -1,7 +1,7 @@
 const AboutUs = {
   async render() {
     return `
-    <section id="aboutSection">
+  <section id="aboutSection">
         <picture>
           <source 
             type="image/jpeg" 
@@ -49,35 +49,60 @@ const AboutUs = {
       </div>
       
 
-       <div class="team-members">
-           <h2>Our Team Member</h2>
-            <div class="members">
-                <div class="member">
-                    <img src="images/member1.jpg" alt="Member 1">
-                    <h3>Nama Anggota 1</h3>
-                    <p>Deskripsi singkat tentang anggota 1.</p>
-                </div>
-                <div class="member">
-                    <img src="images/member2.jpg" alt="Member 2">
-                    <h3>Nama Anggota 2</h3>
-                    <p>Deskripsi singkat tentang anggota 2.</p>
-                </div>
-                <div class="member">
-                    <img src="member3.jpg" alt="Member 3">
-                    <h3>Nama Anggota 3</h3>
-                    <p>Deskripsi singkat tentang anggota 3.</p>
-                </div>
-                <div class="member">
-                    <img src="images/member4.jpg" alt="Member 4">
-                    <h3>Nama Anggota 4</h3>
-                    <p>Deskripsi singkat tentang anggota 4.</p>
-                 </div>
-            </div>
+      <div class="team-member">
+      <h2>Our Team Member</h2>
+        <div class="card">
+          <div class="image">
+            <img src="images/member1.jpg" alt="Member 1">
           </div>
-      <div>
-          <div class="separator"></div>
-      </div>
-    </section>
+          <h2>ALGY NGENGET</h2>
+          <p class="position">isi apa</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="images/member2.jpg" alt="Member 2">
+          </div>
+          <h2>MONICA PANDEIROTH</h2>
+          <p class="position">isi apa</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="images/member3.jpg" alt="Member 3">
+          </div>
+          <h2>SESILIA PANDEJLAKI</h2>
+          <p class="position">isi apa</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="card">
+          <div class="image">
+            <img src="images/member4.jpg" alt="Member 4">
+          </div>
+          <h2>MELIA KUNTONO</h2>
+          <p class="position">isi apa</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+    <div>
+        <div class="separator"></div>
+    </div>
+  </section>
     `;
   },
 
