@@ -92,6 +92,7 @@ const Home = {
           <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
+          <h2 class="titleReview">Jejak Pendapat Pelanggan</h2>
           <div id="reviews" class="infinite-scroll"></div>
         </section>
         <div>

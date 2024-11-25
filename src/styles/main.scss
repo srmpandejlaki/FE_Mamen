@@ -472,12 +472,17 @@ main {
 }
 
 
-  .explore-con {
-    width: 100%;
-    padding: 5rem 8%;
-    position: relative;
-    overflow: hidden;
+.explore-con {
+  width: 100%;
+  padding: 5rem 8%;
+  position: relative;
+  overflow: hidden;
+
+  .titleReview {
+    text-align: center;
+    font-size: 2rem;
   }
+}
 
 
 footer {

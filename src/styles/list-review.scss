@@ -16,58 +16,32 @@ $black: rgb(255, 255, 255);
     border-bottom: 1px solid $yellow;
     padding: 0.8rem 1rem;
 
-    min-width: 300px;
-    height: 120px;
+    min-width: 250px;
 
     display: flex;
     flex-direction: column;
 
-    .desc-con {
-      width: 100%;
+    .review-profil {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-    }
 
-    .review-name {
-      overflow: auto;
-      h3 {
-        color: rgb(202, 202, 202);
-        margin-block: 0;
-        color: black;
-        font-size: 0.9rem;
+      img {
+        width: 8%;
+        border-radius: 50%;
       }
-    }
-
-    .review-des {
-      overflow: auto;
-      p {
-        color: black;
-        margin-block: 0;
-        font-size: 1rem;
+      .review-name {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
       }
-    }
 
-    .review-date {
-      align-self: flex-end;
-      p {
-        color: black;
-        font-size: 0.9rem;
-        color: rgb(203, 203, 203);
-      }
-    }
+      .review-date {
+        font-size: 0.8rem;
 
-    .review-rating {
-      display: flex;
-      justify-content: end;
-
-      h4,
-      i {
-        color: white;
-        background-color: $yellow;
-        text-align: center;
-
-        padding: 0.25rem;
-        border-radius: 25px;
+        p {
+          text-align: end;
+        }
       }
     }
   }
@@ -77,8 +51,8 @@ $black: rgb(255, 255, 255);
   padding: 5rem;
   position: relative;
 
-  left: calc(200px * 8);
-  animation: infinite-scroll 12s linear infinite;
+  // left: calc(200px * 8);
+  // animation: infinite-scroll 12s linear infinite;
 
   .review-item {
     margin-right: 1.5rem;
@@ -88,5 +62,19 @@ $black: rgb(255, 255, 255);
 @keyframes infinite-scroll {
   to {
     left: -850px;
+  }
+}
+
+// responsive
+
+@media screen and (max-width: 540px) {
+  #reviews {
+    .review-item {
+      .review-profil {
+        img {
+          width: 15%;
+        }
+      }
+    }
   }
 }
