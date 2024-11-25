@@ -1,5 +1,6 @@
 import SearchDbSource from '../../api/search-api';
 import UmkmsDbSource from '../../api/umkms-api';
+// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
 import { createUmkmItemTemplate } from '../templates/template-creator';
 
@@ -17,16 +18,16 @@ const renderUmkm = async (list) => {
 const ListUmkm = {
   async render() {
     return `
-      <section id="explore" class="exploreUmkm">
-        <div>
-          <div class="separator"></div>
+      <section class="exploreUmkm">
+        <div class="judul-list-umkm">
+          <h2>Daftar UMKM</h2>
+        </div>
+        <div class="quote-umkm-list">
+          <p>"Setiap Usaha Kecil Memiliki Cerita Besar. Mari Dukung Kreativitas Lokal!"</p>
         </div>
         <search-bar></search-bar>
-        <div class="explore-con">
+        <div class="page-list-umkm">
           <div id="list-umkm"></div>
-        </div>
-        <div>
-          <div class="separator"></div>
         </div>
       </section>
     `;
@@ -42,6 +43,7 @@ const ListUmkm = {
       pageload.remove();
     }
     await renderUmkm(allUmkmList);
+    // footerGsapJs();
 
     const searchInput = document.getElementById('searchInput');
     const searchForm = document.getElementById('searchForm');

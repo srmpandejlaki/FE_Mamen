@@ -1,5 +1,6 @@
+/* eslint-disable import/newline-after-import */
 // import CONFIG from '../../globals/config';
-
+import Utils from '../../utility/utils';
 const createUmkmSliderTemplate = (umkm) => `
             <div
               data-id="${umkm.id}" 
@@ -11,9 +12,6 @@ const createUmkmSliderTemplate = (umkm) => `
               <div class="content">
                 <h2>${umkm.name}</h2>
                 <div class="sub"><p class="subs">${umkm.subdistrict}</p></div>
-                <p class="des">
-                  ${umkm.description}
-                </p>
                 <div class="cate">${umkm.categories ? umkm.categories.map((category) => `<p>${category}</p>`).join('') : '-'}</div>
               </div>
             </div>
@@ -80,14 +78,21 @@ const createProductItemTemplate = (product) => `
 
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
-            <div class="review-name">
-              <h3>${review.user_rating}</h3>
+            <div>
+              <div class="review-rating">
+                <h4><i>&#9734;</i>${review.user_rating}</h4>
+              </div>
+              <div class="review-des">
+                <p>" ${review.review} "</p>
+              </div>
             </div>
-            <div class="review-des">
-              <p>" ${review.review} "</p>
-            </div>
-            <div class="review-date">
-              <p>${review.name}</p>
+            <div class="desc-con">
+              <div class="review-name">
+                <p>${review.name}</p>
+              </div>
+              <div class="review-date">
+                <p>${Utils.parseDate(review.date)}</p>
+              </div>
             </div>
           </div>
 `;

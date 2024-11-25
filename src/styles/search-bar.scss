@@ -1,24 +1,25 @@
 .searchContainer {
   display: flex;
-  margin: 2rem 8%;
+  margin: 0 8% 3rem;
   gap: 1rem;
+  justify-content: center;
 
   form {
     display: flex;
     gap: 0.5rem;
-  }
-
-  input, button {
-    padding: 1rem;
-    border: 1px solid #ff9e1b;
-  }
-
-  input {
-    border-radius: 5px;
-  }
-
-  button {
+    border: 1px solid #000000;
     border-radius: 50px;
-    cursor: pointer;
+    width: 100%;
+    max-width: 800px;
+    padding: 1rem 2rem;
+
+    input {
+      flex: 1;
+    }
+  
+    button { 
+      cursor: pointer;
+    }
   }
+
 }
