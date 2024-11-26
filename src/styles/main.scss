@@ -61,7 +61,7 @@ html {
   scroll-behavior: smooth;
 
   body {
-    background-color: whitesmoke;
+    background-color: white;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -371,7 +371,7 @@ main {
     height: 20%;
     background: linear-gradient(
       0deg,
-      whitesmoke 50%,
+      white 50%,
       rgba(255, 255, 255, 0) 90%
     );
   }

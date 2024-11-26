@@ -62,10 +62,10 @@ const createProductItemTemplate = (product) => `
               <div class="product-info">
                 <span>Rp. ${product.price}</span>
                 <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
-                <p>
+                <p class="prod-type">
                 ${product.product_type}
                 </p>
-                <p>
+                <p class="prod-des">
                 ${product.description}
                 </p>
                 <div class="prod-buttons" >
@@ -91,10 +91,10 @@ const createFreeProductItemTemplate = (product) => `
               <div class="product-info">
                 <span>Rp. ${product.price}</span>
                 <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
-                <p>
+                <p class="prod-type">
                 ${product.product_type}
                 </p>
-                <p>
+                <p class="prod-des">
                 ${product.description}
                 </p>
               </div>

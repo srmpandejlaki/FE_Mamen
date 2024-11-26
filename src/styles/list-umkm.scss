@@ -136,6 +136,9 @@ $black: rgb(255, 255, 255);
         color: black;
         line-height: 1.4;
         text-align: center;
+        flex: 1;
+        max-height: 65px;
+        overflow: auto;
       }
     }
 
