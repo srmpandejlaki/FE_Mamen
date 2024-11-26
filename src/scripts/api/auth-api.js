@@ -16,11 +16,11 @@ class AuthDbSource {
       };
 
       const response = await fetch(AUTHENTICATIONS.BASE, options);
+      const responseJson = await response.json();
       if (!response.ok) {
-        throw new Error(`Login gagal: ${response.statusText}`);
+        throw new Error(`Login gagal : ${responseJson.message}`);
       }
 
-      const responseJson = await response.json();
       const { accessToken, refreshToken } = responseJson.data || {};
 
       if (accessToken && refreshToken) {
@@ -54,11 +54,11 @@ class AuthDbSource {
       };
 
       const response = await fetch(AUTHENTICATIONS.BASE, options);
+      const responseJson = await response.json();
       if (!response.ok) {
-        throw new Error(`Gagal memperbarui token: ${response.statusText}`);
+        throw new Error(`Gagal memperbarui token : ${responseJson.message}`);
       }
 
-      const responseJson = await response.json();
       const { accessToken } = responseJson.data || {};
 
       if (accessToken) {
@@ -91,11 +91,11 @@ class AuthDbSource {
       };
 
       const response = await fetch(AUTHENTICATIONS.BASE, options);
+      const responseJson = await response.json();
       if (!response.ok) {
-        throw new Error(`Gagal menghapus token: ${response.statusText}`);
+        throw new Error(`Gagal menghapus token : ${responseJson.message}`);
       }
 
-      const responseJson = await response.json();
       localStorage.removeItem('refreshToken');
       localStorage.removeItem('accessToken');
 
