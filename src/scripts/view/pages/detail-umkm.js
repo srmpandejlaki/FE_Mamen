@@ -22,7 +22,7 @@ const renderCategories = async (umkmId) => {
   categoriesContainer.innerHTML = '';
   // RENDER CATEGORIES BY UMKM
   if (categories.length === 0) {
-    categoriesContainer.innerHTML = 'Belum terdapat kategori. Silahkan menambah terlebih dahulu';
+    categoriesContainer.innerHTML = 'Belum terdapat kategori.';
   } else {
     categoriesContainer.innerHTML = categories.map((category) => `
           <div class="category" data-id="${category.id}">
@@ -84,7 +84,7 @@ const DetailUmkm = {
         </div>
         <div class="section-review">
           <form-review></form-review>
-          <div id="reviews" class="reviews">
+          <div id="reviews" class="detailumkm-reviews">
         </div>
       </div>
       <div>

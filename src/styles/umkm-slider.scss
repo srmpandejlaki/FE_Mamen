@@ -21,7 +21,7 @@
 
   .slides {
     top: 100%;
-    transform: translateY(-20%);
+    transform: translateY(-30%);
     position: absolute;
     width: 120px;
     height: 150px;
@@ -69,7 +69,7 @@
       &:nth-child(#{$i}) {
         left: calc(10% + (135px * ($i - 2)));
         background-size: cover;
-        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0);
+        box-shadow: -5px 5px 10px rgb(0, 0, 0);
 
         @if $i > 12 {
           opacity: 0;
@@ -243,7 +243,8 @@
       h2 {
         font-size: 1.2rem;
       }
-      span, p {
+      span,
+      p {
         font-size: 0.8rem;
       }
     }

@@ -5,15 +5,15 @@ $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
 /* font */
-$info-home: 'Arizonia';
-$font-default: 'Oxygen';
+$info-home: "Arizonia";
+$font-default: "Oxygen";
 
 /* === base === */
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Oxygen', sans-serif;
+  font-family: "Oxygen", sans-serif;
   color: black;
 
   &:focus {
@@ -239,7 +239,6 @@ header {
               &:hover {
                 color: $red;
               }
-
             }
           }
         }
@@ -266,19 +265,18 @@ header {
               &:hover {
                 color: $red;
               }
-
             }
             i {
               display: inline-block;
-            font-size: 1.25rem;
-            border-radius: 10px;
-            padding: 0.5rem;
-            color: white;
-            text-shadow: 1px 1px 3px rgb(0, 0, 0);
+              font-size: 1.25rem;
+              border-radius: 10px;
+              padding: 0.5rem;
+              color: white;
+              text-shadow: 1px 1px 3px rgb(0, 0, 0);
 
-            &:hover {
-              color: $red;
-            }
+              &:hover {
+                color: $red;
+              }
             }
           }
         }
@@ -369,11 +367,7 @@ main {
     right: 0;
     width: 100%;
     height: 20%;
-    background: linear-gradient(
-      0deg,
-      white 50%,
-      rgba(255, 255, 255, 0) 90%
-    );
+    background: linear-gradient(0deg, white 50%, rgba(255, 255, 255, 0) 90%);
   }
 
   picture {
@@ -471,7 +465,6 @@ main {
   }
 }
 
-
 .explore-con {
   width: 100%;
   padding: 5rem 8%;
@@ -483,7 +476,6 @@ main {
     font-size: 2rem;
   }
 }
-
 
 footer {
   display: flex;
@@ -599,38 +591,25 @@ footer-bar {
   #nav-toggle {
     display: none;
   }
-  
+
   header {
-
-  .navbar-con {
-
-    .navbar {
-      
-
-      
-
-      .nav-extra {
-
-        .user-account#logout {
-
-          a {
-
-            figcaption {
-              display: inline-block;
-
-            }
-            i {
-              display: none;
+    .navbar-con {
+      .navbar {
+        .nav-extra {
+          .user-account#logout {
+            a {
+              figcaption {
+                display: inline-block;
+              }
+              i {
+                display: none;
+              }
             }
           }
         }
-
       }
     }
   }
-}
-
-
 
   #home {
     .home-container {
