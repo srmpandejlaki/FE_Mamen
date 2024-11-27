@@ -118,6 +118,26 @@ const createReviewItemTemplate = (review) => `
                 <p>" ${review.review} "</p>
             </div>
             <div class="review-date">
+              <p></p>
+              <p class="tggl">${Utils.parseDate(review.date)}</p>
+            </div>
+          </div>
+`;
+const createHomeReviewItemTemplate = (review) => `
+          <div class="review-item">
+            <div class="review-profil">
+              <div class="review-name">
+                <img src="./images/template-profil-review.png" alt="template foto profil">
+                <p>${review.name}</p>
+              </div>
+              <div class="review-rating">
+                <h4><i>&#9734;</i>${review.user_rating}</h4>
+              </div>
+            </div>
+            <div class="review-des">
+                <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
               <p>${review.umkm_name}</p>
               <p class="tggl">${Utils.parseDate(review.date)}</p>
             </div>
@@ -148,4 +168,5 @@ export {
   createPageLoading,
   createSectionLoading,
   createFreeProductItemTemplate,
+  createHomeReviewItemTemplate,
 };
