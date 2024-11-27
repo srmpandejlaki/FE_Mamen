@@ -29,15 +29,15 @@ class reviewForm extends HTMLElement {
           <div class="formReviewDesc">
             <div class="nama-review">
               <label for="namaReviewer">Nama</label>
-              <input type="text" name="namaReviewer" id="namaReviewer" placeholder="Nama">
+              <input type="text" name="namaReviewer" id="namaReviewer" placeholder="Nama" required>
             </div>
             <div class="rating-review">
               <label for="userRating">Rating</label>
-              <input type="number" name="userRating" id="userRating" min="1" max="5" placeholder="1 - 5">
+              <input type="number" name="userRating" id="userRating" min="1" max="5" placeholder="1 - 5" required>
             </div>
             <div class="body-reviews">
               <label for="reviewBody">Review</label>
-              <textarea name="reviewBody" id="reviewBody" placeholder="Deskripsi"></textarea>
+              <textarea name="reviewBody" id="reviewBody" placeholder="Deskripsi" required></textarea>
             </div>
           </div>
           <button class="btnFormReview" type="submit">Add review</button>
