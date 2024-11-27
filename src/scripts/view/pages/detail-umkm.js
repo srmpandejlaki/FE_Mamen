@@ -3,7 +3,7 @@ import UrlParser from '../../routes/url-parser';
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import { createFreeProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemForUmkmTemplate, createReviewItemTemplate } from '../templates/template-creator';
 import Loading from '../../utility/loading';
 import CategoriesDbSource from '../../api/categories-api';
 // import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
@@ -40,7 +40,7 @@ const renderProducts = async (umkmId) => {
   try {
     productContainer.innerHTML = products.length > 0
       ? products.sort((a, b) => a.name.localeCompare(b.name))
-        .map((productItem) => createFreeProductItemTemplate(productItem))
+        .map((productItem) => createFreeProductItemForUmkmTemplate(productItem))
         .join('') : 'Belum ada produk untuk ditampilkan.';
   } catch {
     productContainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
