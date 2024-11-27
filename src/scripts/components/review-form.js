@@ -28,19 +28,19 @@ class reviewForm extends HTMLElement {
           <div class="formDisabler"><p class="disablerText">Harap Login terlebih dahulu untuk memberikan review</p></div>
           <div class="formReviewDesc">
             <div class="nama-review">
-              <label for="name">Nama</label>
-              <input type="text" name="Nama" id="namaReviewer" placeholder="Nama">
+              <label for="namaReviewer">Nama</label>
+              <input type="text" name="namaReviewer" id="namaReviewer" placeholder="Nama">
             </div>
             <div class="rating-review">
-              <label for="rating">Rating</label>
-              <input type="number" name="rating" id="userRating" min="1" max="5" placeholder="1 - 5">
+              <label for="userRating">Rating</label>
+              <input type="number" name="userRating" id="userRating" min="1" max="5" placeholder="1 - 5">
             </div>
             <div class="body-reviews">
-              <label for="reviews">Review</label>
-              <textarea name="review" id="reviewBody" placeholder="Deskripsi"></textarea>
+              <label for="reviewBody">Review</label>
+              <textarea name="reviewBody" id="reviewBody" placeholder="Deskripsi"></textarea>
             </div>
           </div>
-          <button class="btnFormReview" type="submit">Upload</button>
+          <button class="btnFormReview" type="submit">Add review</button>
         </form>
       </section>
     `;
