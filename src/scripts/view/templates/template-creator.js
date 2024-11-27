@@ -31,7 +31,7 @@ const createUmkmItemTemplate = (umkm) => `
               </div>
 
               <div class="umkm-info">
-                <h3><a href="/#/umkms/${umkm.id}">${umkm.name}</a></h3>
+                <h3><a href="/#/umkms/${umkm.id}">${umkm.name} <i class="fa-solid fa-arrow-up-right-from-square"></i></a></h3>
                 <p>
                 ${umkm.description}
                 </p>
@@ -92,18 +92,63 @@ const createFreeProductItemTemplate = (product) => `
 
               <div class="product-info">
                 <span>Rp. ${product.price}</span>
-                <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
+                <h3>${product.name}</h3>
                 <p class="prod-type">
                 ${product.product_type}
                 </p>
                 <p class="prod-des">
                 ${product.description}
                 </p>
+                <p class="prod-umkm"><a href="/#/umkms/${product.umkms_id}">${product.umkm_name} <i class="fa-solid fa-arrow-up-right-from-square"></i></a></p>
               </div>
+            </article>
+`;
+const createFreeProductItemForUmkmTemplate = (product) => `
+            <article class="product-card">
+              <div class="product-img">
+                <img 
+                id="product-imgs-${product.id}" 
+                class="lazyload" 
+                data-src="${product.cover_url || './images/template-product-img.png'}" 
+                alt="${product.name}" 
+                onerror="this.onerror=null;this.src='./images/template-product-img.png';" 
+              />
+              </div>
+
+              <div class="product-info">
+                <span>Rp. ${product.price}</span>
+                <h3>${product.name}</h3>
+                <p class="prod-type">
+                ${product.product_type}
+                </p>
+                <p class="prod-des">
+                ${product.description}
+                </p>
+                </div>
             </article>
 `;
 
 const createReviewItemTemplate = (review) => `
+          <div class="review-item">
+            <div class="review-profil">
+              <div class="review-name">
+                <img src="./images/template-profil-review.png" alt="template foto profil">
+                <p>${review.name}</p>
+              </div>
+              <div class="review-rating">
+                <h4><i>&#9734;</i>${review.user_rating}</h4>
+              </div>
+            </div>
+            <div class="review-des">
+                <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
+              <p></p>
+              <p class="tggl">${Utils.parseDate(review.date)}</p>
+            </div>
+          </div>
+`;
+const createHomeReviewItemTemplate = (review) => `
           <div class="review-item">
             <div class="review-profil">
               <div class="review-name">
@@ -148,4 +193,6 @@ export {
   createPageLoading,
   createSectionLoading,
   createFreeProductItemTemplate,
+  createHomeReviewItemTemplate,
+  createFreeProductItemForUmkmTemplate,
 };
