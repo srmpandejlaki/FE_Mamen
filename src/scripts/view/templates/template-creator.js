@@ -103,21 +103,20 @@ const createFreeProductItemTemplate = (product) => `
 
 const createReviewItemTemplate = (review) => `
           <div class="review-item">
-            <div>
+            <div class="review-profil">
+              <div class="review-name">
+                <img src="./images/template-profil-review.png" alt="template foto profil">
+                <p>${review.name}</p>
+              </div>
               <div class="review-rating">
                 <h4><i>&#9734;</i>${review.user_rating}</h4>
               </div>
-              <div class="review-des">
-                <p>" ${review.review} "</p>
-              </div>
             </div>
-            <div class="desc-con">
-              <div class="review-name">
-                <p>${review.name}</p>
-              </div>
-              <div class="review-date">
-                <p>${Utils.parseDate(review.date)}</p>
-              </div>
+            <div class="review-des">
+                <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
+              <p>${Utils.parseDate(review.date)}</p>
             </div>
           </div>
 `;
