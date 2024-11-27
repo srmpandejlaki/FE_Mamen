@@ -43,7 +43,6 @@ $black: rgb(255, 255, 255);
     font-weight: 400;
     line-height: 1.5;
   }
-
 }
 
 .page-list-umkm {
@@ -113,7 +112,7 @@ $black: rgb(255, 255, 255);
         a {
           font-size: 1.2rem;
           font-weight: 700;
-          color: $red;
+          color: black;
           line-height: 1.2;
           display: inline-block;
           margin-bottom: 0.5rem;
@@ -125,9 +124,21 @@ $black: rgb(255, 255, 255);
 
           &:hover {
             color: $red;
+            i {
+              color: $red;
+            }
           }
           &:active {
             color: red;
+            i {
+              color: red;
+            }
+          }
+
+          i {
+            color: black;
+            margin-left: 0.25rem;
+            font-size: 1rem;
           }
         }
       }
@@ -136,6 +147,9 @@ $black: rgb(255, 255, 255);
         color: black;
         line-height: 1.4;
         text-align: center;
+        flex: 1;
+        max-height: 65px;
+        overflow: auto;
       }
     }
 
@@ -155,7 +169,7 @@ $black: rgb(255, 255, 255);
       }
       i {
         font-size: 0.7em;
-        color:rgb(255, 255, 255);
+        color: rgb(255, 255, 255);
       }
     }
   }
