@@ -154,6 +154,9 @@
 }
 
 @media screen and (max-width: 1023px) {
+  .sliderumkm-secton {
+  box-shadow: 0px 0px 0px transparent;
+}
   .slider {
     top: 0;
     left: 0;
@@ -206,6 +209,8 @@
   #umkm-list {
     padding-block: 0 2rem;
   }
+}
+@media screen and (max-width: 768px) {
 }
 
 @media screen and (max-width: 450px) {

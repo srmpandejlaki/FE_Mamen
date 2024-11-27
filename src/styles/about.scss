@@ -181,37 +181,35 @@ $red: #da281c;
     }
   }
 
-      h2 {
-        font-size: 20px;
-        margin: 10px 0;
+  h2 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #333333;
+  }
+
+  .position {
+    color: #36b37e;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555555;
+    margin-bottom: 20px;
+  }
+
+  .social-links {
+    a {
+      color: #36b37e;
+      margin: 0 10px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
         color: #333333;
-      }
-
-      .position {
-        color: #36b37e;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      p {
-        font-size: 14px;
-        line-height: 1.6;
-        color: #555555;
-        margin-bottom: 20px;
-      }
-
-      .social-links {
-        a {
-          color: #36b37e;
-          margin: 0 10px;
-          font-size: 18px;
-          text-decoration: none;
-          transition: color 0.3s ease;
-
-          &:hover {
-            color: #333333;
-          }
-        }
       }
     }
   }
@@ -283,5 +281,4 @@ $red: #da281c;
       grid-template-columns: repeat(auto-fill, minmax(250px, 2fr 1fr));
     }
   }
-
 }
