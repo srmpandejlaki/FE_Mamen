@@ -4,7 +4,7 @@ import ReviewsDbSource from '../../api/reviews-api';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
-import { createFreeProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemTemplate, createHomeReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -53,40 +53,7 @@ const Home = {
         </section>
         <section id="datalineCon">
          <div class="dataline">
-            <div class="dataUmkmCon">
-              <div class="dataUmkmTitle">
-                <h4 class="umkmTitle">DATA UMKM</h4>
-                <p>Manado tahun 2023</p>
-              </div>
-              <div class="dataUmkmNumber">
-                <h4 class="umkmNumber">19.500</h4>
-                <p>unit usaha</p>
-              </div>
-              <div class="dataSector">
-                <p>3 sektor yang mendominasi aktivitas UMKM</p>
-                <div class="sectorCon">
-                  <p>Kuliner</p>
-                  <p>Kerajinan Tangan</p>
-                  <p>Perdagangan</p>
-                </div>
-              </div>
-            </div>
          </div>
-        </section>
-        <section class="explore-con">
-          <div class="infoProduk">
-            <div class="info">
-              <div class="judul">
-                <h3><span>For</span> Information</h3>
-              </div>
-              <div class="infoDesc">
-                <p>Jelajahi produk-produk berkualitas dari semua UMKM yang terdaftar disini. Ayo temukan produk berupa barang, makanan, minuman, dan lainnya di sini.</p>
-              </div>
-            </div>
-            <div class="infoImage"> 
-              <img src="./images/info-umkm.png" alt="Gambar Ilustrasi Produk"> 
-            </div>
-          </div>
         </section>
         <section class="explore-con">
           <div id="products" class="scroll"></div>
@@ -134,7 +101,7 @@ const Home = {
     const reviews = await ReviewsDbSource.getReviews();
 
     reviews.forEach((review) => {
-      reviewContainer.innerHTML += createReviewItemTemplate(review);
+      reviewContainer.innerHTML += createHomeReviewItemTemplate(review);
     });
 
     if (reviewContainer.innerHTML === '') {

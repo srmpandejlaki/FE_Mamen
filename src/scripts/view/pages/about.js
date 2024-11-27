@@ -47,8 +47,9 @@ const AboutUs = {
       </div>
       <div class="team-member">
         <div class="our-tittle">
-            <h1>About Us</h1>
+            <h1>Our Team Members</h1>
         </div>
+        <div class="team-card">
         <div class="member-card">
           <div class="image">
             <img src="images/member1.jpg" alt="Member 1">
@@ -96,6 +97,7 @@ const AboutUs = {
             <a href="#"><i class="fab fa-linkedin"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
+        </div>
         </div>
     <div>
         <div class="separator"></div>
