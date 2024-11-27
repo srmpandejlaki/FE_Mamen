@@ -7,7 +7,7 @@ $red: #da281c;
   min-height: 728px;
   padding: 50px 20px;
   background-color: #fff;
-      
+  
       .about-us {
         min-height: 450px;
         display: flex;
@@ -36,6 +36,7 @@ $red: #da281c;
           font-size: 3rem;
           color: #333;
           padding: 1em 2em;
+          margin-left: 1em;
         }
     
       p {
@@ -47,7 +48,7 @@ $red: #da281c;
           flex-wrap: wrap;
         }
       }
-    }
+      }
   
       .vision-mission {
           display: flex;
@@ -55,7 +56,8 @@ $red: #da281c;
           align-items: center;
           gap: 20px;
           height: 20vh;
-      
+          margin: 5em 1em;
+
           .box {
             display: flex;
             align-items: center;
@@ -86,6 +88,8 @@ $red: #da281c;
 
         .mission{
           background-color: #ffffff;
+          min-height: 5vh;
+
           h3 {
             font-size: 1.5rem;
             margin-bottom: 10px;
@@ -104,9 +108,10 @@ $red: #da281c;
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 50px;
-        height: 20vh;
-
+        gap: 10em;
+        min-height: 20vh;
+        margin: 5em 1em;
+        
         .values-item {
           font-size: 20px;
           font-weight: bold;
@@ -121,14 +126,15 @@ $red: #da281c;
           }
          }
       }
+
       .team-member {
     // display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    justify-content: center;
-     justify-items: center;
-
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      justify-content: center;
+      justify-items: center;
+      
     .our-tittle {
       align-items: center;
       justify-content: center;
@@ -203,8 +209,82 @@ $red: #da281c;
         }
         
       }
-      }
+    }
+  }
+
+    @media screen and (max-width: 1024px) {
+      #aboutSection {
+       .about-us {
+          flex-direction: column;
+          align-items: center;
+        }
+
+       .values {
+          flex-direction: row;
+          flex-wrap: wrap;
+          position: relative;
+          justify-content: center;
+          gap: 20px;
+
+        }
+       .team-member {
+
+         .our-tittle {
+            flex-direction: column;
+            align-items: center;
           }
+         .team-card {
+            margin: 2rem;
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+    .introduction {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2em 2em;
+
+            .introduction-content {
+              display: flex;
+              align-items: center;
+              margin: 0 1em;
+
+            h2 {
+              font-size: 3rem;
+              color: #333;
+              padding: 1em 2em;
+            }
+        
+          p {
+              font-size: 1rem;
+              color: #666;
+              margin: 0;
+              line-height: 1.5;
+              padding: 2em 4em;
+              flex-wrap: wrap;
+            }
+          }
+    }
+
+    .team-member {
+      position: relative;
+      overflow: hidden;
+      justify-content: center;
+
+      .team-card {
+        gap: 2rem; 
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 2fr 1fr));
+        }
+      }
+    }
+
+
+
+
 
 
 
