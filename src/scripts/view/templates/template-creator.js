@@ -12,7 +12,9 @@ const createUmkmSliderTemplate = (umkm) => `
               <div class="content">
                 <h2>${umkm.name}</h2>
                 <div class="sub"><p class="subs">${umkm.subdistrict}</p></div>
-                <div class="cate">${umkm.categories ? umkm.categories.map((category) => `<p>${category}</p>`).join('') : '-'}</div>
+                <div class="cate">${umkm.categories && umkm.categories.length > 0
+    ? umkm.categories.map((category) => `<p>${category}</p>`).join('')
+    : '-'}</div>
               </div>
             </div>
 `;
@@ -62,10 +64,10 @@ const createProductItemTemplate = (product) => `
               <div class="product-info">
                 <span>Rp. ${product.price}</span>
                 <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
-                <p>
+                <p class="prod-type">
                 ${product.product_type}
                 </p>
-                <p>
+                <p class="prod-des">
                 ${product.description}
                 </p>
                 <div class="prod-buttons" >
@@ -91,10 +93,10 @@ const createFreeProductItemTemplate = (product) => `
               <div class="product-info">
                 <span>Rp. ${product.price}</span>
                 <h3><a href="/#/products/${product.id}">${product.name}</a></h3>
-                <p>
+                <p class="prod-type">
                 ${product.product_type}
                 </p>
-                <p>
+                <p class="prod-des">
                 ${product.description}
                 </p>
               </div>
@@ -116,7 +118,28 @@ const createReviewItemTemplate = (review) => `
                 <p>" ${review.review} "</p>
             </div>
             <div class="review-date">
-              <p>${Utils.parseDate(review.date)}</p>
+              <p></p>
+              <p class="tggl">${Utils.parseDate(review.date)}</p>
+            </div>
+          </div>
+`;
+const createHomeReviewItemTemplate = (review) => `
+          <div class="review-item">
+            <div class="review-profil">
+              <div class="review-name">
+                <img src="./images/template-profil-review.png" alt="template foto profil">
+                <p>${review.name}</p>
+              </div>
+              <div class="review-rating">
+                <h4><i>&#9734;</i>${review.user_rating}</h4>
+              </div>
+            </div>
+            <div class="review-des">
+                <p>" ${review.review} "</p>
+            </div>
+            <div class="review-date">
+              <p>${review.umkm_name}</p>
+              <p class="tggl">${Utils.parseDate(review.date)}</p>
             </div>
           </div>
 `;
@@ -145,4 +168,5 @@ export {
   createPageLoading,
   createSectionLoading,
   createFreeProductItemTemplate,
+  createHomeReviewItemTemplate,
 };
