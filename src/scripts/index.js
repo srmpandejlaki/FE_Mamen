@@ -25,6 +25,7 @@ import './components/umkm-freedetail';
 import './components/umkm-slider';
 import './components/search-bar';
 import './components/headline-section';
+import './components/dataline-section';
 import './utility/navbar-tambahan';
 import './utility/header';
 import './utility/umkmFunction';
