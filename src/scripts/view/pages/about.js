@@ -46,27 +46,41 @@ const AboutUs = {
         <div class="values-item">KERJASAMA</div>
       </div>
 
-    <div class="services">  <h1class="services-title">Our Services</h1>
-      <div class="services-container">
-        <div class="service-item">
-          <div class="service-overlay">
-            <p class="service-text">Promosi</p>
-          </div>
+      <div class="services">
+    <h1 class="services-title">Our Services</h1>
+    <div class="services-container">
+      <div class="service-item">
+        <img src="image1.jpg" alt="Service Image 1" class="service-image">
+        <div class="service-overlay">
+          <p class="service-text">Promosi</p>
         </div>
-        <div class="service-item">
-          <div class="service-overlay">
-            <p class="service-text">
-              Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
-            </p>
-          </div>
+      </div>
+      <div class="service-item">
+        <img src="image2.jpg" alt="Service Image 2" class="service-image">
+        <div class="service-overlay">
+          <p class="service-text">
+            Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+          </p>
         </div>
-        <div class="service-item">
-          <div class="service-overlay">
-            <p class="service-text">Promosi</p>
-          </div>
+      </div>
+      <div class="service-item">
+        <img src="image2.jpg" alt="Service Image 2" class="service-image">
+        <div class="service-overlay">
+          <p class="service-text">
+            Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+          </p>
+        </div>
+      </div>
+      <div class="service-item">
+        <img src="image3.jpg" alt="Service Image 3" class="service-image">
+        <div class="service-overlay">
+          <p class="service-text">Promosi</p>
         </div>
       </div>
     </div>
+  </div>
+
+
 
       <div class="team-member">
         <div class="our-tittle">
