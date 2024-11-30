@@ -56,7 +56,6 @@ const AboutUs = {
         </div>
       </div>
       <div class="service-item">
-        <img src="image2.jpg" alt="Service Image 2" class="service-image">
         <div class="service-overlay">
           <p class="service-text">
             Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
@@ -64,7 +63,6 @@ const AboutUs = {
         </div>
       </div>
       <div class="service-item">
-        <img src="image2.jpg" alt="Service Image 2" class="service-image">
         <div class="service-overlay">
           <p class="service-text">
             Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
