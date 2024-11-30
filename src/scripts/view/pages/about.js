@@ -45,6 +45,29 @@ const AboutUs = {
         <div class="values-item">KUALITAS</div>
         <div class="values-item">KERJASAMA</div>
       </div>
+
+    <div class="services">  <h1class="services-title">Our Services</h1>
+      <div class="services-container">
+        <div class="service-item">
+          <div class="service-overlay">
+            <p class="service-text">Promosi</p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-overlay">
+            <p class="service-text">
+              Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+            </p>
+          </div>
+        </div>
+        <div class="service-item">
+          <div class="service-overlay">
+            <p class="service-text">Promosi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
       <div class="team-member">
         <div class="our-tittle">
             <h1>Our Team Members</h1>
