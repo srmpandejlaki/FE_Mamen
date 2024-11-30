@@ -1,4 +1,4 @@
-$red: #da281c;
+$orange: #F5A000;
 
 #aboutSection {
   background-size: cover;
@@ -17,7 +17,7 @@ $red: #da281c;
     
       h1 {
         font-size: 2.5rem;
-        color: $red;
+        color: $orange;
         margin-bottom: 20px;
       }
     
@@ -47,54 +47,51 @@ $red: #da281c;
       }
     }
   
-      .vision-mission {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 20px;
-          height: 50vh;
-      
-          .box {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            width: 350px;
-            margin: 0 10px;
-            padding: 20px;
-            background-color: $red;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            min-height: 150px;
-      
-            h3 {
-              font-size: 1.5rem;
-              margin-bottom: 10px;
-              color: #fff;
-            }
-      
-            p {
-              font-size: 1rem;
-              line-height: 1.5;
-              color: #fff;
-            }
-          }
-
-        .mission{
-          background-color: #ffffff;
-          h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: $red;
-          }
+    .vision-mission{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      padding: 50px;
+    }
     
-          p {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: #000000;
-          }  
-        }
+    .vimi-card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+    }
+    
+    .header {
+      height: 10px;
+      border-radius: 10px 10px 0 0;
+    }
+    
+    .header.red {
+      background-color: #b71c1c;
+    }
+    
+    .header.orange {
+      background-color: #e65100;
+    }
+    
+    .vimi-content {
+      padding: 20px;
+      text-align: center;
+    
+      h2 {
+        margin: 0 0 10px;
+        font-size: 1.5rem;
       }
+    
+      p {
+        margin: 0;
+        color: #555;
+        font-size: 1rem;
+        line-height: 1.5;
+      }
+    }
 
       .values {
         display: flex;
@@ -110,7 +107,7 @@ $red: #da281c;
           transition: background-color 0.3s, color 0.3s;
 
           &:hover {
-            background-color: $red;
+            background-color: $orange;
             color: white;
             border-radius: 5px;
           }

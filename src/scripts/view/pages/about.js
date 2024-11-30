@@ -30,15 +30,22 @@ const AboutUs = {
         </div>
 
        <div class="vision-mission">
-          <div class="box vision">
-            <h3>Our Vision</h3>
-            <p>Kami bertekad untuk menjadi platform digital yang terpercaya dengan mendorong inovasi yang berkelanjutan dan kreatif.</p>
-          </div>
-          <div class="box mission">
-            <h3>Our Mission</h3>
-            <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan ramah dan jujur.</p>
-          </div>
-        </div>
+    <div class="vimi-card">
+      <div class="header red"></div>
+      <div class="vimi-content">
+        <h2>Our Vision</h2>
+        <p>Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.</p>
+      </div>
+    </div>
+    <div class="vimi-card">
+      <div class="header orange"></div>
+      <div class="vimi-content">
+        <h2>Our Mission</h2>
+        <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan inovasi dan kualitas.</p>
+      </div>
+    </div>
+  </div>
+
       <div class="values">
         <div class="values-item">INTEGRITAS</div>
         <div class="values-item">INOVASI</div>
