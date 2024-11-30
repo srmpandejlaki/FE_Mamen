@@ -112,7 +112,7 @@ $black: rgb(255, 255, 255);
         a {
           font-size: 1.2rem;
           font-weight: 700;
-          color: $red;
+          color: black;
           line-height: 1.2;
           display: inline-block;
           margin-bottom: 0.5rem;
@@ -124,9 +124,21 @@ $black: rgb(255, 255, 255);
 
           &:hover {
             color: $red;
+            i {
+              color: $red;
+            }
           }
           &:active {
             color: red;
+            i {
+              color: red;
+            }
+          }
+
+          i {
+            color: black;
+            margin-left: 0.25rem;
+            font-size: 1rem;
           }
         }
       }
