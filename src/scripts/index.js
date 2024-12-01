@@ -6,6 +6,7 @@ import '../styles/detail-umkm.scss';
 import '../styles/umkm-slider.scss';
 import '../styles/list-product.scss';
 import '../styles/list-umkm.scss';
+import '../styles/review.scss';
 import '../styles/about.scss';
 import '../styles/loading.scss';
 import '../styles/elemen-pendukung.scss';
