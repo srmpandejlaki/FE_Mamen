@@ -51,20 +51,14 @@ const Home = {
               </div>
           </div>
         </section>
-        <section id="datalineCon">
-         <div class="dataline">
-         </div>
-        </section>
-        <section class="explore-con">
+        <dataline-section></dataline-section>
+        <section class="product-home-con">
           <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
           <h2 class="titleReview">Jejak Pendapat Pelanggan</h2>
           <div id="reviews" class="infinite-scroll"></div>
         </section>
-        <div>
-          <div class="separator"></div>
-        </div>
     `;
   },
 
