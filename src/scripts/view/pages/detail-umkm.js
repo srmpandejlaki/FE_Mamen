@@ -114,7 +114,7 @@ const DetailUmkm = {
     // RENDER UMKM DETAILS
     await renderUmkm(umkmById);
     // RENDER CATEGORIES BY UMKM
-    await renderCategories(url.id);
+    renderCategories(url.id);
     DetailUmkmGsapJs();
     // RENDER PRODUCTS BY UMKM
     await renderProducts(url.id);
