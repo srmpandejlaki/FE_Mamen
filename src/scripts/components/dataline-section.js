@@ -14,7 +14,7 @@ class DatalineSection extends HTMLElement {
             <div class="green-filter"></div>
             <div class="dataline">
               <p>"Exceptional service isn’t just a perk—it’s your most powerful promotion."</p>
-              <button>List Produk</button>
+              <button><a href="#/products">List Produk</a></button>
             </div>
         </section>
     `;
