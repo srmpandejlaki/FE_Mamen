@@ -80,7 +80,7 @@ form-review {
 
   .titleFormReview {
     h2 {
-      color: $yellow;
+      color: black;
       text-align: center;
       margin-bottom: 1rem;
     }
@@ -122,9 +122,10 @@ form-review {
         textarea {
           width: 100%;
           padding: 0.5rem;
-          border: 1px solid rgb(0, 0, 0);
+          border: 1px solid $red;
+          border-radius: 5px;
           color: black;
-        }
+}
 
         textarea {
           min-height: 13rem;
