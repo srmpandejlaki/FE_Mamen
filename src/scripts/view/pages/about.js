@@ -35,10 +35,10 @@ const AboutUs = {
 
       <div class="values">
         <div class="values-point">
-          <div class="values-item">INTEGRITAS</div>
-          <div class="values-item">INOVASI</div>
-          <div class="values-item">KUALITAS</div>
-          <div class="values-item">KERJASAMA</div>
+        <div class="values-item">INTEGRITAS</div>
+        <div class="values-item">INOVASI</div>
+        <div class="values-item">KUALITAS</div>
+        <div class="values-item">KERJASAMA</div>
         </div>
       </div>
 
