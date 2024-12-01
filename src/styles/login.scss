@@ -182,6 +182,13 @@ $background-color: white;
 
     .form-container {
       flex: 1;
+      .form {
+        &.act {
+          button[type="submit"] {
+          margin-bottom: 3rem;
+        }
+        }
+      }
       .toggle-buttons {
         flex-direction: row;
         left: 2rem;
