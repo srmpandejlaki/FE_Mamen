@@ -60,23 +60,7 @@ form-review {
   height: 100%;
   background-color: rgba(245, 245, 245, 0.68);
   backdrop-filter: blur(10px);
-
-  .titleFormReview {
-    h2 {
-      color: $yellow;
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-  }
-
-  .formReview {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    position: relative;
-    flex: 1;
-
-    .formDisabler {
+  .formDisabler {
       position: absolute;
       top: 0;
       left: 0;
@@ -93,6 +77,22 @@ form-review {
         text-align: center;
       }
     }
+
+  .titleFormReview {
+    h2 {
+      color: $yellow;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  }
+
+  .formReview {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+    flex: 1;
+
 
     .formReviewDesc {
       display: flex;
