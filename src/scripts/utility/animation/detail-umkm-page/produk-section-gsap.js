@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function homeProdukGsapJs() {
+export default function DetailUmkmProdukGsapJs() {
   gsap.registerPlugin(ScrollTrigger);
 
   // PRODUK CARD
@@ -12,7 +12,7 @@ export default function homeProdukGsapJs() {
     ease: 'power2.out',
     stagger: 0.5,
     scrollTrigger: {
-      trigger: '.scroll', // Elemen container yang memicu animasi
+      trigger: '.list-products', // Elemen container yang memicu animasi
       start: 'top 70%', // Mulai animasi saat container mencapai 80% dari viewport
       end: 'bottom 20%', // Selesai animasi saat container mencapai 20% dari viewport
       toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur

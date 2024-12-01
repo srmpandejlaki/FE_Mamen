@@ -68,9 +68,9 @@ export default function homeGsapJs() {
     y: 20,
     duration: 2.5,
     ease: 'power2.inOut',
-    stagger: 0.5,
+    stagger: 0.2,
     scrollTrigger: {
-      trigger: 'headline-section section div',
+      trigger: 'headline-section section div article',
       start: 'top 80%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
