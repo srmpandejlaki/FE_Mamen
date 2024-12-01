@@ -224,19 +224,14 @@ form-review {
   position: relative;
   display: flex;
   gap: 2rem;
-  width: 100%;
-
-  left: 100%;
-  animation: infinite-scroll 12s linear infinite;
-
-  .review-item {
-    min-width: 300px;
-  }
+  width: max-content; 
+  transform: translateX(100%);
+  animation: infinite-scroll linear infinite; 
 }
 
 @keyframes infinite-scroll {
   to {
-    left: -110%;
+    transform: translateX(-110%);
   }
 }
 
