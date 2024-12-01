@@ -2,22 +2,9 @@ const AboutUs = {
   async render() {
     return `
   <section id="aboutSection">
-        <picture>
-          <source 
-            type="image/jpeg" 
-            srcset="./images/about-image.jpg">
-          <source 
-            type="image/webp"
-            srcset="./images/about-image.webp">
-          <source 
-            type="image/jpeg"
-            media="(max-width: 600px)" 
-            srcset="./images/about-image-small.jpg">
-          <img
+        <img
             src='./images/about-image.jpg' 
-            alt="About Image"
-          >
-        </picture>
+            alt="About Image" class="about-image" />
         <div class="about-us">
             <h1>About Us</h1>
         </div>
@@ -29,25 +16,65 @@ const AboutUs = {
             </div>
         </div>
 
-       <div class="vision-mission">
-          <div class="box vision">
-            <h3>Our Vision</h3>
-            <p>Kami bertekad untuk menjadi platform digital yang terpercaya dengan mendorong inovasi yang berkelanjutan dan kreatif.</p>
-          </div>
-          <div class="box mission">
-            <h3>Our Mission</h3>
-            <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan ramah dan jujur.</p>
-          </div>
-        </div>
+  <div class="vision-mission">
+    <div class="vimi-card">
+      <div class="header red"></div>
+      <div class="vimi-content">
+        <h2>Our Vision</h2>
+        <p>Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.</p>
+      </div>
+    </div>
+    <div class="vimi-card">
+      <div class="header orange"></div>
+      <div class="vimi-content">
+        <h2>Our Mission</h2>
+        <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan inovasi dan kualitas.</p>
+      </div>
+    </div>
+  </div>
+
       <div class="values">
         <div class="values-item">INTEGRITAS</div>
         <div class="values-item">INOVASI</div>
         <div class="values-item">KUALITAS</div>
         <div class="values-item">KERJASAMA</div>
       </div>
-      <div class="team-member">
+
+      <div class="services">
+    <h1 class="services-title">Our Services</h1>
+    <div class="services-container">
+      <div class="services-item">
+        <img src="image1.jpg" alt="Service Image 1" class="service-image">
+        <div class="service-overlay">
+          <p class="service-text">Promosi</p>
+        </div>
+      </div>
+      <div class="services-item">
+        <div class="service-overlay">
+          <p class="service-text">
+            Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+          </p>
+        </div>
+      </div>
+      <div class="services-item">
+        <div class="service-overlay">
+          <p class="service-text">
+            Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+          </p>
+        </div>
+      </div>
+      <div class="services-item">
+        <img src="image3.jpg" alt="Service Image 3" class="service-image">
+        <div class="service-overlay">
+          <p class="service-text">Promosi</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="team-member">
         <div class="our-tittle">
-            <h1>About Us</h1>
+            <h1>Our Team Members</h1>
         </div>
         <div class="member-card">
           <div class="image">
@@ -97,6 +124,7 @@ const AboutUs = {
             <a href="#"><i class="fab fa-instagram"></i></a>
           </div>
         </div>
+      </div>
     <div>
         <div class="separator"></div>
     </div>

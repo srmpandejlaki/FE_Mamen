@@ -3,72 +3,84 @@ $red: #da281c;
 $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
-#reviews {
+.section-review {
   display: flex;
+  align-items: start;
   gap: 2rem;
-  padding: 5rem 0;
+  padding-block: 2rem;
+}
 
-  .review-item {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-    background-color: white;
+form-review {
+  flex: 1;
+}
 
-    gap: 1.2rem;
-    border-bottom: 1px solid $yellow;
-    padding: 0.8rem 1rem;
+.detailumkm-reviews {
+  flex: 1;
+  padding-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+  width: 100%;
+  max-height: 530px;
+  overflow: auto;
+}
+.review-item {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: white;
 
-    min-width: 300px;
-    height: 120px;
+  gap: 1.2rem;
+  border-bottom: 1px solid $yellow;
+  padding: 0.8rem 1rem;
 
+  max-width: 300px;
+  width: 100%;
+  margin-inline: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  .review-profil {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 
-    .desc-con {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
+    img {
+      width: 8%;
+      border-radius: 50%;
     }
-
     .review-name {
-      overflow: auto;
-      h3 {
-        color: rgb(202, 202, 202);
-        margin-block: 0;
-        color: black;
-        font-size: 0.9rem;
-      }
-    }
-
-    .review-des {
-      overflow: auto;
-      p {
-        color: black;
-        margin-block: 0;
-        font-size: 1rem;
-      }
-    }
-
-    .review-date {
-      align-self: flex-end;
-      p {
-        color: black;
-        font-size: 0.9rem;
-        color: rgb(203, 203, 203);
-      }
-    }
-
-    .review-rating {
       display: flex;
-      justify-content: end;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
 
-      h4,
+  .review-des {
+    flex: 1;
+    overflow: auto;
+    p {
+      color: rgba(0, 0, 0, 0.799);
+    }
+  }
+
+  .review-rating {
+    h4 {
+      color: #ff9e1b;
+
       i {
-        color: white;
-        background-color: $yellow;
-        text-align: center;
-
-        padding: 0.25rem;
-        border-radius: 25px;
+        color: #ff9e1b;
+        margin-right: 0.25rem;
       }
+    }
+  }
+
+  .review-date {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .tggl {
+      color: #da281c;
     }
   }
 }
@@ -76,17 +88,38 @@ $black: rgb(255, 255, 255);
 .infinite-scroll {
   padding: 5rem;
   position: relative;
+  display: flex;
+  gap: 2rem;
 
   left: calc(200px * 8);
   animation: infinite-scroll 12s linear infinite;
 
   .review-item {
-    margin-right: 1.5rem;
+    min-width: 300px;
   }
 }
 
 @keyframes infinite-scroll {
   to {
     left: -850px;
+  }
+}
+
+// responsive
+@media screen and (max-width: 768px) {
+  .section-review {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  #reviews {
+    .review-item {
+      .review-profil {
+        img {
+          width: 15%;
+        }
+      }
+    }
   }
 }

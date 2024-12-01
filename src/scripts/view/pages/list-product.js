@@ -1,16 +1,16 @@
 import ProductsDbSource from '../../api/products-api';
 import SearchDbSource from '../../api/search-api';
+import pageListProdukGsapJs from '../../utility/animation/list-produk-page/list-produk-gsap';
+import produkItemGsapJs from '../../utility/animation/list-produk-page/produk-item-gsap';
 // import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import Loading from '../../utility/loading';
-import { createProductItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemTemplate } from '../templates/template-creator';
 
 const renderProdukt = async (list) => {
   const productContainer = document.querySelector('.list-product');
   productContainer.innerHTML = '';
   list.forEach((product) => {
-    productContainer.innerHTML += createProductItemTemplate(product);
-    document.querySelector('.addImageFormProd').remove();
-    document.querySelector('.prod-buttons').remove();
+    productContainer.innerHTML += createFreeProductItemTemplate(product);
   });
 };
 
@@ -19,13 +19,13 @@ const ListProduct = {
     return `
       <section class="exploreProd">
       <div class="judul-list-prod">
-          <h2>Daftar UMKM</h2>
+          <h2>Daftar Produk</h2>
         </div>
         <div class="quote-prod-list">
           <p>"Setiap Usaha Kecil Memiliki Cerita Besar. Mari Dukung Kreativitas Lokal!"</p>
         </div>
         <search-bar></search-bar>
-        <div class="page-list-umkm">
+        <div class="page-list-prod">
           <div class="list-product"></div>
         </div>
       </section>
@@ -42,6 +42,7 @@ const ListProduct = {
     if (pageload) {
       pageload.remove();
     }
+    pageListProdukGsapJs();
     await renderProdukt(allProductList);
     // footerGsapJs();
     // --------------------------------------------
@@ -61,6 +62,8 @@ const ListProduct = {
       const filteredProducts = await SearchDbSource.search(query);
       await renderProdukt(filteredProducts.products);
     });
+
+    produkItemGsapJs();
   },
 };
 
