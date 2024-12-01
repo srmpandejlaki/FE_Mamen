@@ -248,42 +248,75 @@ form-review {
 }
 
 @media screen and (max-width: 540px) {
-  .section-review {
-    width: 100%;
+  #detailContainer {
+    padding: 0;
 
-    .isiReview {
-      align-items: center;
+    #umkmDetail {
+      #umkms, 
+      div,
+      .section-title,
+      #products,
+      #section-title {
+        padding: 0 8%;
+      }
 
-      form-review {
-        margin: 0;
+      .section-review {
+        width: 100%;
+        border-radius: 0;
 
-        .formReviewContainer {
-          height: 450px;
-          margin: 0 8%;
+        .isiReview {
+          align-items: center;
+          margin: 1rem 0;
+          padding: 0;
 
-          .formReview {
-            .formReviewDesc {
-              .body-reviews {
-                textarea {
-                  min-height: 5rem;
+          form-review {
+            margin: 0;
+
+            .formReviewContainer {
+              height: 450px;
+
+              .titleFormReview {
+                h2 {
+                  font-size: 1.2rem;
+                }
+              }
+
+              .formReview {
+                .formReviewDesc {
+                  padding: 0;
+
+                  div {
+                    padding: 0;
+
+                    label {
+                      font-size: 0.85rem;
+                    }
+                  }
+                  
+                  .body-reviews {
+                    textarea {
+                      min-height: 5rem;
+                    }
+                  }
                 }
               }
             }
           }
+
+          .detailumkm-reviews {
+            padding: 0 8%;
+          }
         }
       }
 
-      .detailumkm-reviews {
-        padding: 0 8%;
-      }
-    }
-  }
-
-  #reviews {
-    .review-item {
-      .review-profil {
-        img {
-          width: 15%;
+      #reviews {
+        .review-item {
+          padding: 1rem 0;
+          .review-profil {
+            img {
+              width: 15%;
+            }
+          }
         }
       }
     }
