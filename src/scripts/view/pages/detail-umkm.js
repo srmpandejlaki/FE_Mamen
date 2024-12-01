@@ -86,8 +86,8 @@ const DetailUmkm = {
             <h2>Reviews</h2>
         </div>
         <div class="section-review">
-          <img src="../images/background-review.jpeg">
-          <div>
+          <div class="white-filter"></div>
+          <div class="isiReview">
             <form-review></form-review>
             <div id="reviews" class="detailumkm-reviews">
           </div>

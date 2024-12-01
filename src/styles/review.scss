@@ -1,6 +1,5 @@
 // color pallette
 $title: black;
-$merah: #da281c;
 $yellow: #ff9e1b;
 $red: #da281c;
 $cream: #eeeeeeca;
@@ -8,9 +7,26 @@ $black: rgb(255, 255, 255);
 
 // styling
 .section-review {
-  align-items: start;
-  gap: 2rem;
-  padding-block: 2rem;
+  background-image: url(../public/images/background-review.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  // .white-filter {
+  //   background-color: rgb(148, 68, 68);
+  //   position: absolute;
+  //   width: 100%;
+  //   height: 100%;
+  // }
+
+  .isiReview {
+    align-items: start;
+    display: flex;
+    gap: 2rem;
+    padding-block: 2rem;
+    margin-top: 1rem;
+
+  }
 }
 
 form-review {
@@ -18,14 +34,16 @@ form-review {
   width: 100%;
   max-width: 900px;
   align-self: stretch;
+  margin-left: 2rem;
 }
 
 .formReviewContainer {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  border: 1px solid $merah;
+  border: 1px solid $red;
   height: 100%;
+  background-color: white;
 
   .titleFormReview {
     h2 {
@@ -99,7 +117,7 @@ form-review {
     }
     .btnFormReview {
       min-height: 44px;
-      background-color: $merah;
+      background-color: $red;
       color: white;
       padding: 0.5rem 1rem;
       cursor: pointer;
