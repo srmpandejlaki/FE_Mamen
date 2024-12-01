@@ -51,7 +51,9 @@ $orange: #F5A000;
           align-items: center;
           gap: 20px;
           padding: 50px;
-        
+          flex-direction: row;
+          width: 100%;
+          flex-wrap: wrap;
         
         .vimi-card {
           background: white;
@@ -98,7 +100,6 @@ $orange: #F5A000;
     justify-items: center; 
     gap: 100px; 
     width: 100%;
-
 
     .values-point{
       justify-items: center; 
