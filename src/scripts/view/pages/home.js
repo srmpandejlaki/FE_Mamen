@@ -1,10 +1,8 @@
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
-import reviewScroll from '../../utility/home-review';
 import { createFreeProductItemTemplate, createHomeReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
@@ -102,10 +100,8 @@ const Home = {
     if (reviewContainer.innerHTML === '') {
       reviewContainer.innerHTML = 'Tidak ada review untuk ditampilkan.';
     }
-    reviewScroll();
     // --------------------------------------------
     homeReviewGsapJs();
-    // footerGsapJs();
   },
 };
 
