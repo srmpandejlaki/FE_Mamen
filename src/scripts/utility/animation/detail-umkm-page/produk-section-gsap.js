@@ -13,7 +13,7 @@ export default function DetailUmkmProdukGsapJs() {
     stagger: 0.5,
     scrollTrigger: {
       trigger: '.list-products', // Elemen container yang memicu animasi
-      start: 'top 50%', // Mulai animasi saat container mencapai 80% dari viewport
+      start: 'top 70%', // Mulai animasi saat container mencapai 80% dari viewport
       end: 'bottom 20%', // Selesai animasi saat container mencapai 20% dari viewport
       toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
     },
