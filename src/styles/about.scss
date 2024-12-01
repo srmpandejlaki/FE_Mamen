@@ -116,6 +116,7 @@ $orange: #F5A000;
       .services {
         text-align: center;
         padding: 50px;
+        width: 100%;
       
         &-title {
           margin-bottom: 20px;
@@ -167,7 +168,6 @@ $orange: #F5A000;
       }
 
       .team-member {
-        gap: 5px;
         padding: 5em;
     
         .our-tittle {
@@ -182,9 +182,11 @@ $orange: #F5A000;
         .all-card{
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
-          gap: 1px;
+          row-gap: 10px;
+          column-gap: 2px;
           justify-content: center;
           justify-items: center;
+          width: 100%;
         }
       
       .member-card {
@@ -258,14 +260,6 @@ $orange: #F5A000;
           }
       }
     }
-
-    // @media screen and (max-width: 425px) {
-    // .all-card{
-    //   display: grid;
-    //   grid-template-columns: 1fr;
-    // }
-    // }
-
   }
 
 
