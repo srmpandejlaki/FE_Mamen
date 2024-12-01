@@ -2,22 +2,9 @@ const AboutUs = {
   async render() {
     return `
   <section id="aboutSection">
-        <picture>
-          <source 
-            type="image/jpeg" 
-            srcset="./images/about-image.jpg">
-          <source 
-            type="image/webp"
-            srcset="./images/about-image.webp">
-          <source 
-            type="image/jpeg"
-            media="(max-width: 600px)" 
-            srcset="./images/about-image-small.jpg">
-          <img
+        <img
             src='./images/about-image.jpg' 
-            alt="About Image"
-          >
-        </picture>
+            alt="About Image" class="about-image" />
         <div class="about-us">
             <h1>About Us</h1>
         </div>
@@ -56,27 +43,27 @@ const AboutUs = {
       <div class="services">
     <h1 class="services-title">Our Services</h1>
     <div class="services-container">
-      <div class="service-item">
+      <div class="services-item">
         <img src="image1.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
           <p class="service-text">Promosi</p>
         </div>
       </div>
-      <div class="service-item">
+      <div class="services-item">
         <div class="service-overlay">
           <p class="service-text">
             Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
           </p>
         </div>
       </div>
-      <div class="service-item">
+      <div class="services-item">
         <div class="service-overlay">
           <p class="service-text">
             Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
           </p>
         </div>
       </div>
-      <div class="service-item">
+      <div class="services-item">
         <img src="image3.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-text">Promosi</p>
