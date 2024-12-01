@@ -76,6 +76,7 @@ const AboutUs = {
         <div class="our-tittle">
             <h1>Our Team Members</h1>
         </div>
+        <div class="all-card">
         <div class="member-card">
           <div class="image">
             <img src="images/member1.jpg" alt="Member 1">
@@ -125,7 +126,8 @@ const AboutUs = {
           </div>
         </div>
       </div>
-    <div>
+    </div>
+  <div>
         <div class="separator"></div>
     </div>
   </section>

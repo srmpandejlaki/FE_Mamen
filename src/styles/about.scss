@@ -167,8 +167,8 @@ $orange: #F5A000;
       }
 
       .team-member {
-        gap: 20px;
-        padding: 50px;
+        gap: 5px;
+        padding: 5em;
     
         .our-tittle {
             text-align: center;
@@ -177,6 +177,14 @@ $orange: #F5A000;
               font-size: 1.8rem;
               color: $orange; 
             }
+        }
+      
+        .all-card{
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+          gap: 1px;
+          justify-content: center;
+          justify-items: center;
         }
       
       .member-card {
@@ -250,6 +258,14 @@ $orange: #F5A000;
           }
       }
     }
+
+    // @media screen and (max-width: 425px) {
+    // .all-card{
+    //   display: grid;
+    //   grid-template-columns: 1fr;
+    // }
+    // }
+
   }
 
 
