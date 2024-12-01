@@ -292,7 +292,15 @@ $orange: #F5A000;
         margin: 2em 2em;
     }
 
-
+    .values-point{
+        padding: 1em 2em;
+        margin: 1em 1em;
+        justify-items: center;
+        justify-content: center;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
 }
 
 @media (min-width: 769px) {
@@ -300,6 +308,8 @@ $orange: #F5A000;
         flex-direction: row; 
       }
 
-
+       .values-point{
+        flex-direction: row;
+      }
     }
 }
