@@ -68,9 +68,9 @@ export default function homeGsapJs() {
     y: 20,
     duration: 2.5,
     ease: 'power2.inOut',
-    stagger: 0.5,
+    stagger: 0.2,
     scrollTrigger: {
-      trigger: 'headline-section section div',
+      trigger: 'headline-section section div article',
       start: 'top 80%',
       end: 'bottom 60%',
       toggleActions: 'play none none reverse',
@@ -130,66 +130,4 @@ export default function homeGsapJs() {
   });
 
   // DATALINE
-  gsap.from('.dataUmkmTitle', {
-    opacity: 0,
-    x: -20,
-    duration: 1.5,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.dataUmkmCon',
-      start: 'top 90%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-  gsap.from('.dataUmkmNumber', {
-    opacity: 0,
-    y: 20,
-    duration: 1.5,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.dataUmkmCon',
-      start: 'top 90%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-  gsap.from('.dataSector', {
-    opacity: 0,
-    x: 20,
-    duration: 1.5,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.dataUmkmCon',
-      start: 'top 90%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
-
-  // INFO PRODUK
-  gsap.from('.infoProduk .infoImage', {
-    opacity: 0,
-    x: 20,
-    duration: 2,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.infoProduk',
-      start: 'top 70%', // Animasi dimulai saat elemen berada 80% dari bawah viewport
-      end: 'bottom 60%', // Animasi berakhir saat elemen 60% dari bawah viewport
-      toggleActions: 'play none none reverse', // Mainkan animasi ke depan saat elemen masuk viewport
-    },
-  });
-  gsap.from('.infoProduk .info', {
-    opacity: 0,
-    x: -20,
-    duration: 2,
-    ease: 'power2.inOut',
-    scrollTrigger: {
-      trigger: '.infoProduk', // Elemen pemicu
-      start: 'top 70%',
-      end: 'bottom 60%',
-      toggleActions: 'play none none reverse',
-    },
-  });
 }

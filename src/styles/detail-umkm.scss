@@ -16,7 +16,7 @@ $red: #da281c;
   gap: 1rem;
   h2 {
     font-size: 2rem;
-    color: black;
+    color: $red;
     text-align: center;
   }
   button {
@@ -185,13 +185,40 @@ umkm-freedetail {
       gap: 0.5rem;
       align-self: flex-end;
 
-      #edit-detail,
+      #edit-detail {
+        background-color: white;
+        color: black;
+        padding: 0.5rem 1rem;
+        border: 1px solid black;
+        cursor: pointer;
+        box-shadow: -2px 2px 5px black;
+        transition:
+          color 0.4s,
+          transform 0.4s;
+
+        &:hover {
+          background-color: rgba(255, 217, 0, 0.615);
+          transform: translateY(-0.25rem);
+          color: white;
+        }
+      }
+
       #delete-umkm {
         background-color: white;
         color: black;
         padding: 0.5rem 1rem;
         border: 1px solid black;
         cursor: pointer;
+        box-shadow: -2px 2px 5px black;
+        transition:
+          color 0.4s,
+          transform 0.4s;
+
+        &:hover {
+          background-color: rgba(255, 0, 0, 0.819);
+          transform: translateY(-0.25rem);
+          color: white;
+        }
       }
     }
   }
@@ -225,6 +252,16 @@ umkm-freedetail {
         padding: 0.5rem 1rem;
         border: 1px solid black;
         cursor: pointer;
+        box-shadow: -2px 2px 5px black;
+        transition:
+          color 0.4s,
+          transform 0.4s;
+
+        &:hover {
+          background-color: rgba(0, 0, 255, 0.955);
+          transform: translateY(-0.25rem);
+          color: white;
+        }
       }
 
       #form-addCategory {
@@ -234,15 +271,20 @@ umkm-freedetail {
         input {
           width: 100%;
           padding: 0.5rem 1rem;
-          border: 1px solid black;
           max-width: 10rem;
+          border: 1px solid black;
         }
         button {
           padding: 0.5rem 1rem;
-          background-color: black;
-          color: white;
-          border: 1px solid $yellow;
+          background-color: white;
+          color: black;
           cursor: pointer;
+          border: 1px solid black;
+
+          &:hover {
+            background-color: rgba(0, 0, 255, 0.955);
+            color: white;
+          }
         }
       }
     }
@@ -314,13 +356,6 @@ umkm-freedetail {
   }
 }
 
-.section-review {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
-  padding-top: 2rem;
-}
-
 @media screen and (min-width: 768px) {
   umkm-detail,
   umkm-freedetail {
@@ -354,9 +389,5 @@ umkm-freedetail {
       position: absolute;
       width: auto;
     }
-  }
-
-  .section-review {
-    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   }
 }

@@ -1,7 +1,7 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-export default function profileReviewGsapJs() {
+export default function detailUmkmReviewGsapJs() {
   gsap.registerPlugin(ScrollTrigger);
 
   gsap.from('.review-item', {
@@ -11,7 +11,7 @@ export default function profileReviewGsapJs() {
     ease: 'power2.out',
     stagger: 0.5,
     scrollTrigger: {
-      trigger: '#reviews', // Elemen container yang memicu animasi
+      trigger: '.detailumkm-reviews', // Elemen container yang memicu animasi
       start: 'top 70%', // Mulai animasi saat container mencapai 80% dari viewport
       end: 'bottom 20%', // Selesai animasi saat container mencapai 20% dari viewport
       toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
