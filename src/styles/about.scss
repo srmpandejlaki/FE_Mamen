@@ -92,26 +92,34 @@ $orange: #F5A000;
         }
       }
 
-      .values {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
+  .values {
+    justify-items: center; 
+    gap: 100px; 
+    width: 100%;
 
-        .values-item {
-          font-size: 20px;
-          font-weight: bold;
-          color: #333;
-          padding: 10px 20px;
-          transition: background-color 0.3s, color 0.3s;
+    .values-point{
+      justify-items: center; 
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(375px, 1fr));
+      gap: 50px;
+    }
 
-          &:hover {
-            background-color: $orange;
-            color: white;
-            border-radius: 5px;
-          }
-         }
+    .values-item {
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      padding: 10px 20px;
+      transition: background-color 0.3s, color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border: 20px;
+
+      &:hover {
+        background-color: $orange;
+        color: white;
+        border-radius: 5px;
       }
+    }
+  }
       
       .services {
         text-align: center;
@@ -128,8 +136,8 @@ $orange: #F5A000;
           display: grid;
           grid-template-columns: repeat(2, 1fr); 
           grid-template-rows: repeat(2, 1fr); 
-          width: 400px; 
-          height: 400px; 
+          width: 100%; 
+          height: 500px; 
           margin: 0 auto; 
         }
       
@@ -143,6 +151,9 @@ $orange: #F5A000;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            position: relative;
+            top: 0;
+            left: 0;
           }
       
           .service-overlay {
@@ -161,7 +172,7 @@ $orange: #F5A000;
               color: #fff;
               font-size: 10px;
               font-weight: bold;
-              padding: 0 10px;
+              padding: 0 100px;
             }
           }
         }

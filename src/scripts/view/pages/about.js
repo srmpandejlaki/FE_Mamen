@@ -34,17 +34,19 @@ const AboutUs = {
   </div>
 
       <div class="values">
-        <div class="values-item">INTEGRITAS</div>
-        <div class="values-item">INOVASI</div>
-        <div class="values-item">KUALITAS</div>
-        <div class="values-item">KERJASAMA</div>
+        <div class="values-point">
+          <div class="values-item">INTEGRITAS</div>
+          <div class="values-item">INOVASI</div>
+          <div class="values-item">KUALITAS</div>
+          <div class="values-item">KERJASAMA</div>
+        </div>
       </div>
 
       <div class="services">
     <h1 class="services-title">Our Services</h1>
     <div class="services-container">
       <div class="services-item">
-        <img src="image1.jpg" alt="Service Image 1" class="service-image">
+        <img src="aboutUs.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
           <p class="service-text">Promosi</p>
         </div>
@@ -64,7 +66,7 @@ const AboutUs = {
         </div>
       </div>
       <div class="services-item">
-        <img src="image3.jpg" alt="Service Image 3" class="service-image">
+        <img src="aboutUs.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-text">Promosi</p>
         </div>
