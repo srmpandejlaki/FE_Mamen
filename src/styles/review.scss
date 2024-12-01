@@ -8,6 +8,7 @@ $black: rgb(255, 255, 255);
 // styling
 .section-review {
   margin-top: 1rem;
+  border-radius: 8px;
   background-image: url(../public/images/background-review.jpeg);
   background-size: cover;
   background-position: center;
@@ -40,7 +41,7 @@ form-review {
   display: flex;
   flex-direction: column;
   padding: 2rem;
-  border: 1px solid $red;
+  border-radius: 4px;
   height: 100%;
   background-color: white;
 
@@ -221,11 +222,63 @@ form-review {
 // responsive
 @media screen and (max-width: 768px) {
   .section-review {
-    flex-direction: column;
+    .isiReview {
+      flex-direction: column;
+      
+      form-review {
+        margin: 0;
+
+        .formReviewContainer {
+          height: 400px;
+          margin: 0 8%;
+
+          .formReview {
+            .formReviewDesc {
+              .body-reviews {
+                textarea {
+                  min-height: 5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 540px) {
+  .section-review {
+    width: 100%;
+
+    .isiReview {
+      align-items: center;
+
+      form-review {
+        margin: 0;
+
+        .formReviewContainer {
+          height: 450px;
+          margin: 0 8%;
+
+          .formReview {
+            .formReviewDesc {
+              .body-reviews {
+                textarea {
+                  min-height: 5rem;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .detailumkm-reviews {
+        padding: 0 8%;
+      }
+    }
+  }
+
   #reviews {
     .review-item {
       .review-profil {
