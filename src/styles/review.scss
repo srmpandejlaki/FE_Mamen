@@ -72,6 +72,7 @@ form-review {
     align-items: center;
     justify-content: center;
     z-index: 10;
+    padding: 2rem;
 
     p {
       text-align: center;
@@ -219,22 +220,18 @@ form-review {
 }
 
 .infinite-scroll {
-  padding: 5rem;
+  padding-block: 5rem;
   position: relative;
   display: flex;
   gap: 2rem;
-
-  left: 100vw;
-  animation: infinite-scroll 12s linear infinite;
-
-  .review-item {
-    min-width: 300px;
-  }
+  width: max-content; 
+  transform: translateX(100%);
+  animation: infinite-scroll linear infinite; 
 }
 
 @keyframes infinite-scroll {
   to {
-    left: -110vw;
+    transform: translateX(-110%);
   }
 }
 
