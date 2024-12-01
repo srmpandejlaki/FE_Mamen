@@ -46,52 +46,53 @@ $orange: #F5A000;
         }
       }
     }
-  
-    .vision-mission{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 20px;
-      padding: 50px;
-    }
-    
-    .vimi-card {
-      background: white;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      width: 300px;
-    }
-    
-    .header {
-      height: 10px;
-      border-radius: 10px 10px 0 0;
-    }
-    
-    .header.red {
-      background-color: #b71c1c;
-    }
-    
-    .header.orange {
-      background-color: #e65100;
-    }
-    
-    .vimi-content {
-      padding: 20px;
-      text-align: center;
-    
-      h2 {
-        margin: 0 0 10px;
-        font-size: 1.5rem;
+      
+      .vision-mission{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          padding: 50px;
+        
+        
+        .vimi-card {
+          background: white;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          width: 300px;
+        }
+        
+        .header {
+          height: 10px;
+          border-radius: 10px 10px 0 0;
+        }
+        
+        .header.red {
+          background-color: #b71c1c;
+        }
+        
+        .header.orange {
+          background-color: #e65100;
+        }
+        
+        .vimi-content {
+          padding: 20px;
+          text-align: center;
+        
+          h2 {
+            margin: 0 0 10px;
+            font-size: 1.5rem;
+          }
+        
+          p {
+            margin: 0;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.5;
+          }
+        }
       }
-    
-      p {
-        margin: 0;
-        color: #555;
-        font-size: 1rem;
-        line-height: 1.5;
-      }
-    }
 
       .values {
         display: flex;
@@ -116,7 +117,7 @@ $orange: #F5A000;
       
       .services {
         text-align: center;
-        padding: 20px;
+        padding: 100px;
       
         &-title {
           font-size: 24px;
@@ -167,71 +168,47 @@ $orange: #F5A000;
         }
       }
 
-  .team-member {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-     
-      .member-card{
-        background: #ffffff;
-        border-radius: 10px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-        text-align: center;
-        width: 300px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      
-        &:hover {
-          transform: translateY(-10px);
-          box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-      
-        .image {
-          width: 100px;
-          height: 100px;
-          margin: 0 auto 15px;
-          border-radius: 50%;
-          overflow: hidden;
-      
-          img {
-            width: 100%;
-            height: auto;
-          }
-        }
-      
-        h2 {
-          font-size: 20px;
-          margin: 10px 0;
-          color: #333333;
-        }
-      
-        .position {
-          color: #36b37e;
-          font-weight: bold;
-          margin-bottom: 10px;
-        }
-      
-        p {
-          font-size: 14px;
-          line-height: 1.6;
-          color: #555555;
+      .team-member {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px; 
+
+        .our-tittle{
+          text-align: center;
           margin-bottom: 20px;
         }
-      
-        .social-links {
-          a {
-            color: #36b37e;
-            margin: 0 10px;
-            font-size: 18px;
-            text-decoration: none;
-            transition: color 0.3s ease;
-      
-            &:hover {
-              color: #333333;
+
+        .member-card{
+          background: #ffffff;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 20px;
+          text-align: center;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+          &:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+          }
+  
+
+            .image {
+              width: 100px;
+              height: 100px;
+              margin: 0 auto 15px;
+              border-radius: 50%;
+              overflow: hidden;
+    
+              img {
+                width: 100%;
+                height: auto;
+              }
             }
           }
         }
       }
-    }
-  }
-  
+
+
+
+ 
