@@ -578,7 +578,7 @@ footer-bar {
     justify-content: space-between;
     background-color: transparent;
     padding: 0;
-    gap: 4rem;
+    gap: 2rem;
     text-align: center;
     flex-direction: row;
   }
@@ -636,6 +636,10 @@ footer-bar {
 }
 
 @media screen and (min-width: 1000px) {
+  #nav-list {
+    gap: 4rem;
+  }
+  
   #home {
     .home-container {
       .home-content {
