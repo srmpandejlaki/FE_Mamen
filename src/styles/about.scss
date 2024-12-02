@@ -1,51 +1,86 @@
-$red: #da281c;
+$orange: #f5a000;
 
 #aboutSection {
   background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   min-height: 728px;
-  padding: 50px 20px;
-  background-color: #fff;
+  background-color: whitesmoke;
+  position: relative;
+
+  
 
   .about-us {
     min-height: 450px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-  }
+    position: relative;
 
+    .about-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: grayscale(80%);
+    height: 100%;
+  }
   h1 {
+    z-index: 10;
     font-size: 2.5rem;
-    color: $red;
+    color: $orange;
     margin-bottom: 20px;
   }
+  &::after {
+    content: "";
+
+    position: absolute;
+    display: block;
+    bottom: -2px;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      0deg,
+      whitesmoke 20%,
+      rgba(255, 255, 255, 0) 90%
+    );
+  }
+  
+  }
+
 
   .introduction {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2em 2em;
+    padding: 4rem 8%;
+    width: 100%;
 
     .introduction-content {
       display: flex;
       align-items: center;
-      margin: 0 1em;
-
+      gap: 2rem;
       h2 {
-        font-size: 3rem;
+        text-align: center;
+        flex: 1;
+        margin-right: 20px;
+        font-size: 2.5rem;
         color: #333;
-        padding: 1em 2em;
-        margin-left: 1em;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
       }
 
       p {
+        flex: 1;
         font-size: 1rem;
         color: #666;
         margin: 0;
         line-height: 1.5;
-        padding: 2em 4em;
-        flex-wrap: wrap;
+        padding: 10px;
       }
     }
   }
@@ -55,62 +90,62 @@ $red: #da281c;
     justify-content: center;
     align-items: center;
     gap: 20px;
-    height: 20vh;
-    margin: 5em 1em;
+    padding: 50px;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
 
-    .box {
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-      width: 20%;
-      margin: 0 50px;
-      padding: 20px;
-      background-color: $red;
+    .vimi-card {
+      background: white;
+      border: 1px solid #ddd;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      min-height: 5vh;
-
-      h3 {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: #fff;
-        padding: 0;
-      }
-
-      p {
-        font-size: 1rem;
-        line-height: 1.5;
-        color: #fff;
-        padding: 0;
-      }
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
     }
 
-    .mission {
-      background-color: #ffffff;
-      min-height: 5vh;
+    .header {
+      height: 10px;
+      border-radius: 10px 10px 0 0;
+    }
 
-      h3 {
+    .header.red {
+      background-color: #b71c1c;
+    }
+
+    .header.orange {
+      background-color: #f5a000;
+    }
+
+    .vimi-content {
+      padding: 20px;
+      text-align: center;
+
+      h2 {
+        margin: 0 0 10px;
         font-size: 1.5rem;
-        margin-bottom: 10px;
-        color: $red;
       }
 
       p {
+        margin: 0;
+        color: #555;
         font-size: 1rem;
         line-height: 1.5;
-        color: #000000;
       }
     }
   }
 
   .values {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10em;
-    min-height: 20vh;
-    margin: 5em 1em;
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr);
+    justify-items: center;
+    gap: 100px;
+    width: 100%;
+
+    .values-point {
+      justify-items: center;
+      display: flex;
+      gap: 50px;
+    }
 
     .values-item {
       font-size: 20px;
@@ -120,165 +155,195 @@ $red: #da281c;
       transition:
         background-color 0.3s,
         color 0.3s;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
 
       &:hover {
-        background-color: $red;
+        background-color: $orange;
         color: white;
-        border-radius: 5px;
+        border-radius: 50px;
       }
     }
   }
 
-  .team-member {
-    // display: flex;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    justify-content: center;
-    justify-items: center;
+  .services {
+    text-align: center;
+    padding: 50px;
+    width: 100%;
 
-    .our-tittle {
-      align-items: center;
-      justify-content: center;
+    &-title {
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+      color: $orange;
     }
 
-    .team-card {
-      display: flex;
-      flex-direction: row;
-      margin: 5rem;
+    &-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      width: 100%;
+      height: 500px;
+      margin: 0 auto;
     }
 
-    .member-card {
-      display: flex;
-      flex-direction: column;
-      background: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      padding: 20px;
-      text-align: center;
-      width: 300px;
-      transition:
-        transform 0.3s ease,
-        box-shadow 0.3s ease;
+    .services-item {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
 
-      &:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      .service-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: relative;
+        top: 0;
+        left: 0;
       }
 
-      .image {
-        width: 100px;
-        height: 100px;
-        margin: 0 auto 15px;
-        border-radius: 50%;
-        overflow: hidden;
+      .service-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #072526;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
 
-        img {
-          width: 100%;
-          height: auto;
+        .service-text {
+          color: #fff;
+          font-size: 10px;
+          font-weight: bold;
+          padding: 0 100px;
         }
       }
     }
   }
 
-  h2 {
-    font-size: 20px;
-    margin: 10px 0;
-    color: #333333;
-  }
+  .team-member {
+    padding: 5em;
 
-  .position {
-    color: #36b37e;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
+    .our-tittle {
+      text-align: center;
+      h1 {
+        margin-bottom: 20px;
+        font-size: 1.8rem;
+        color: $orange;
+      }
+    }
 
-  p {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #555555;
-    margin-bottom: 20px;
-  }
+    .all-card {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      width: 100%;
+      gap: 1.5rem;
+    }
 
-  .social-links {
-    a {
-      color: #36b37e;
-      margin: 0 10px;
-      font-size: 18px;
-      text-decoration: none;
-      transition: color 0.3s ease;
+    .member-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.75rem;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      height: 100%;
+      transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
 
       &:hover {
-        color: #333333;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       }
-    }
-  }
-}
 
-@media screen and (max-width: 1024px) {
-  #aboutSection {
-    .about-us {
-      flex-direction: column;
-      align-items: center;
-    }
+      .image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 3px solid #36b372;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        margin-bottom: 10px;
 
-    .values {
-      flex-direction: row;
-      flex-wrap: wrap;
-      position: relative;
-      justify-content: center;
-      gap: 20px;
-    }
-    .team-member {
-      .our-tittle {
-        flex-direction: column;
-        align-items: center;
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+        }
       }
-      .team-card {
-        margin: 2rem;
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .introduction {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2em 2em;
-
-    .introduction-content {
-      display: flex;
-      align-items: center;
-      margin: 0 1em;
 
       h2 {
-        font-size: 3rem;
-        color: #333;
-        padding: 1em 2em;
+        font-size: 20px;
+        color: #333333;
+        font-weight: bold;
+      }
+
+      .position {
+        color: #36b372;
+        font-weight: bold;
+        font-size: 16px;
       }
 
       p {
-        font-size: 1rem;
-        color: #666;
-        margin: 0;
-        line-height: 1.5;
-        padding: 2em 4em;
-        flex-wrap: wrap;
+        color: #555555;
+        font-size: 14px;
+        line-height: 1.6;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        a {
+          color: #36b372;
+          font-size: 18px;
+          text-decoration: none;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #ff4500;
+          }
+        }
       }
     }
   }
 
-  .team-member {
-    position: relative;
-    overflow: hidden;
-    justify-content: center;
+  @media (max-width: 768px) {
+    .introduction {
+      padding: 3em 3em;
+      margin: 2em 1em;
+    }
+    .introduction-content {
+      flex-direction: column;
+      flex-wrap: wrap;
+      padding: 1em 2em;
+      margin: 2em 2em;
+    }
 
-    .team-card {
-      gap: 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 2fr 1fr));
+    .values-point {
+      padding: 1em 2em;
+      margin: 1em 1em;
+      justify-items: center;
+      justify-content: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+  }
+
+  @media (min-width: 769px) {
+    .introduction-content {
+      flex-direction: row;
+    }
+
+    .values-point {
+      flex-direction: row;
     }
   }
 }
