@@ -1,6 +1,5 @@
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-// import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
@@ -51,20 +50,14 @@ const Home = {
               </div>
           </div>
         </section>
-        <section id="datalineCon">
-         <div class="dataline">
-         </div>
-        </section>
-        <section class="explore-con">
+        <dataline-section></dataline-section>
+        <section class="product-home-con">
           <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
           <h2 class="titleReview">Jejak Pendapat Pelanggan</h2>
           <div id="reviews" class="infinite-scroll"></div>
         </section>
-        <div>
-          <div class="separator"></div>
-        </div>
     `;
   },
 
@@ -108,8 +101,21 @@ const Home = {
       reviewContainer.innerHTML = 'Tidak ada review untuk ditampilkan.';
     }
     // --------------------------------------------
+    const infiniteScroll = document.querySelector('.infinite-scroll');
+    const reviewItems = document.querySelectorAll('.infinite-scroll .review-item');
+    const itemWidth = 300; // Lebar minimum .review-item
+    const gap = 32; // Gap antar item (2rem = 32px)
+
+    // Total panjang kontainer
+    const totalWidth = (itemWidth + gap) * reviewItems.length;
+
+    // Atur lebar kontainer secara dinamis
+    infiniteScroll.style.width = `${totalWidth}px`;
+
+    // Hitung durasi animasi berdasarkan total panjang kontainer
+    const animationDuration = (totalWidth + window.innerWidth) / 100; // Kecepatan 100px per detik
+    infiniteScroll.style.animationDuration = `${animationDuration}s`;
     homeReviewGsapJs();
-    // footerGsapJs();
   },
 };
 

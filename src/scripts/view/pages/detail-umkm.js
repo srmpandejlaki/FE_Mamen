@@ -3,9 +3,12 @@ import UrlParser from '../../routes/url-parser';
 import UmkmsDbSource from '../../api/umkms-api';
 import ProductsDbSource from '../../api/products-api';
 import ReviewsDbSource from '../../api/reviews-api';
-import { createFreeProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemForUmkmTemplate, createReviewItemTemplate } from '../templates/template-creator';
 import Loading from '../../utility/loading';
 import CategoriesDbSource from '../../api/categories-api';
+import DetailUmkmGsapJs from '../../utility/animation/detail-umkm-page/umkm-section-gsap';
+import DetailUmkmProdukGsapJs from '../../utility/animation/detail-umkm-page/produk-section-gsap';
+import detailUmkmReviewGsapJs from '../../utility/animation/detail-umkm-page/review-section-gsap';
 // import footerGsapJs from '../../utility/animation/home-page/footer-gsap';
 
 const renderUmkm = async (umkm) => {
@@ -40,7 +43,7 @@ const renderProducts = async (umkmId) => {
   try {
     productContainer.innerHTML = products.length > 0
       ? products.sort((a, b) => a.name.localeCompare(b.name))
-        .map((productItem) => createFreeProductItemTemplate(productItem))
+        .map((productItem) => createFreeProductItemForUmkmTemplate(productItem))
         .join('') : 'Belum ada produk untuk ditampilkan.';
   } catch {
     productContainer.innerHTML = 'Tidak ada produk yang ditampilkan.';
@@ -83,8 +86,11 @@ const DetailUmkm = {
             <h2>Reviews</h2>
         </div>
         <div class="section-review">
-          <form-review></form-review>
-          <div id="reviews" class="detailumkm-reviews">
+          <div class="white-filter"></div>
+          <div class="isiReview">
+            <form-review></form-review>
+            <div id="reviews" class="detailumkm-reviews">
+          </div>
         </div>
       </div>
       <div>
@@ -106,15 +112,16 @@ const DetailUmkm = {
     }
 
     // RENDER UMKM DETAILS
-    renderUmkm(umkmById);
+    await renderUmkm(umkmById);
     // RENDER CATEGORIES BY UMKM
     renderCategories(url.id);
+    DetailUmkmGsapJs();
     // RENDER PRODUCTS BY UMKM
-    renderProducts(url.id);
+    await renderProducts(url.id);
+    DetailUmkmProdukGsapJs();
     // RENDER REVIEWS BY UMKM
-    renderReviews(url.id);
-
-    // footerGsapJs();
+    await renderReviews(url.id);
+    detailUmkmReviewGsapJs();
 
     // OTORISASI OWNER FOR ADD REVIEW
     const accessToken = localStorage.getItem('accessToken');
