@@ -4,14 +4,14 @@ const AboutUs = {
   <section id="aboutSection">
       <div class="about-us">
         <img
-        src='./images/aboutUs.jpg' 
+        src='./images/hero-image.jpeg' 
         alt="About Image" class="about-image" />
         <h1>About Us</h1>
       </div>
 
         <div class="introduction">
             <div class="introduction-content">
-                <h2>Introduction <br> To MAMEN</h2>
+                <h2>Introduction <br> To <span>MA</span>MEN</h2>
                 <p>Mamen adalah platform yang mendigitalisasi promosi UMKM di Manado. Kami membantu pelaku usaha meningkatkan visibilitas dan penjualan melalui teknologi dan media sosial. </p>
             </div>
         </div>
@@ -46,9 +46,10 @@ const AboutUs = {
     <h1 class="services-title">Our Services</h1>
     <div class="services-container">
       <div class="services-item">
-        <img src="aboutUs.jpg" alt="Service Image 1" class="service-image">
+        <div class="filter-green"></div>
+        <img src="./images/aboutUs.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
-          <p class="service-text">Promosi</p>
+          <p class="service-title">Promosi</p>
         </div>
       </div>
       <div class="services-item">
@@ -66,9 +67,10 @@ const AboutUs = {
         </div>
       </div>
       <div class="services-item">
-        <img src="aboutUs.jpg" alt="Service Image 3" class="service-image">
+        <div class="filter-green"></div>
+        <img src="./images/aboutUs.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
-          <p class="service-text">Promosi</p>
+          <p class="service-title">Promosi</p>
         </div>
       </div>
     </div>
