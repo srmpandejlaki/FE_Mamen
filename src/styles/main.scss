@@ -297,6 +297,9 @@ header {
                 &:hover {
                   color: $red;
                 }
+                &.active-link {
+                  color: $red;
+                }
               }
             }
           }
