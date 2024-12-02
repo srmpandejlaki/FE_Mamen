@@ -6,8 +6,8 @@ export default function detailUmkmReviewGsapJs() {
 
   gsap.from('form-review', {
     opacity: 0,
-    x: -30,
-    duration: 3,
+    x: 0,
+    duration: 1.5,
     ease: 'power2.inOut',
     scrollTrigger: {
       trigger: 'form-review', // Elemen pemicu
