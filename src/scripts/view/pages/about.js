@@ -2,16 +2,16 @@ const AboutUs = {
   async render() {
     return `
   <section id="aboutSection">
+      <div class="about-us">
         <img
-            src='./images/about-image.jpg' 
-            alt="About Image" class="about-image" />
-        <div class="about-us">
-            <h1>About Us</h1>
-        </div>
+        src='./images/aboutUs.jpg' 
+        alt="About Image" class="about-image" />
+        <h1>About Us</h1>
+      </div>
 
         <div class="introduction">
             <div class="introduction-content">
-                <h2>Introduction To MAMEN</h2>
+                <h2>Introduction <br> To MAMEN</h2>
                 <p>Mamen adalah platform yang mendigitalisasi promosi UMKM di Manado. Kami membantu pelaku usaha meningkatkan visibilitas dan penjualan melalui teknologi dan media sosial. </p>
             </div>
         </div>
