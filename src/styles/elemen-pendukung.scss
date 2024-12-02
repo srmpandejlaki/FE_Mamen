@@ -24,7 +24,7 @@ headline-section {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2.5rem;
+    gap: 4rem;
 
     h2 {
       font-family: $font-default;
@@ -32,6 +32,20 @@ headline-section {
       font-weight: 700;
       text-align: center;
       width: 100%;
+      color: $black;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: $yellow;
+        position: absolute;
+        bottom: -1rem;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 10px;
+      }
     }
 
     div {
@@ -42,6 +56,12 @@ headline-section {
       justify-content: space-evenly;
       flex-wrap: wrap;
 
+      article.middle-art {
+        background-color: $black;
+        h3, p {
+          color: white;
+        }
+      }
       article {
         display: flex;
         flex-direction: column;
