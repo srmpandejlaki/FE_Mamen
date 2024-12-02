@@ -15,7 +15,6 @@ const AboutUs = {
                 <p>Mamen adalah platform yang mendigitalisasi promosi UMKM di Manado. Kami membantu pelaku usaha meningkatkan visibilitas dan penjualan melalui teknologi dan media sosial. </p>
             </div>
         </div>
-
   <div class="vision-mission">
     <div class="vimi-card">
       <div class="header red"></div>
