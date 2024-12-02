@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import AuthDbSource from '../../api/auth-api';
 import UsersDbSource from '../../api/users-api';
 import Loading from '../../utility/loading';
@@ -33,8 +34,13 @@ const Login = {
                   <input type="text" id="email" name="email" required>
                 </div>
                 <div>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
+                  <label for="password">Password</label>
+                  <div class="password-container">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
               <button type="submit">Login</button>
@@ -50,7 +56,12 @@ const Login = {
                 </div>
                 <div>
                   <label for="reg-password">Password</label>
-                  <input type="password" id="reg-password" name="password" required>
+                  <div class="password-container">
+                    <input type="password" id="reg-password" name="reg-password" required>
+                    <button type="button" class="toggle-password" aria-label="Toggle password visibility">
+                      <i class="fa-regular fa-eye"></i>
+                    </button>
+                  </div>
                 </div>
                 <div>
                   <label for="fullname">Fullname</label>
@@ -93,6 +104,19 @@ const Login = {
     document.getElementById('loginBtn').addEventListener('click', showLogin);
     document.getElementById('registerBtn').addEventListener('click', showRegister);
     // --------------------------------------------
+
+    document.querySelectorAll('.toggle-password').forEach((toggleButton) => {
+      toggleButton.addEventListener('click', (event) => {
+        const passwordInput = event.target.closest('.password-container').querySelector('input');
+        const isPasswordVisible = passwordInput.type === 'text';
+
+        passwordInput.type = isPasswordVisible ? 'password' : 'text';
+
+        // Ubah ikon tombol mata (opsional)
+        toggleButton.innerHTML = '';
+        toggleButton.innerHTML = isPasswordVisible ? '<i class="fa-regular fa-eye"></i>' : '<i class="fa-regular fa-eye-slash"></i>';
+      });
+    });
 
     // login form
     document.getElementById('loginForm').addEventListener('submit', async (e) => {
