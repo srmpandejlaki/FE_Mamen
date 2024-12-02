@@ -3,6 +3,13 @@ $red: #da281c;
 $cream: #eeeeeeca;
 $black: rgb(255, 255, 255);
 
+.product-home-con {
+  width: 100%;
+  padding: 2rem 8%;
+  position: relative;
+  overflow: hidden;
+}
+
 .exploreProd {
   padding-block: 72.58px;
   display: flex;
@@ -124,7 +131,7 @@ $black: rgb(255, 255, 255);
     flex-direction: column;
     justify-content: start;
     align-items: start;
-    gap: 0.25rem;
+    gap: 0.5rem;
     margin: 0 1.6rem 1rem;
     padding-block: 1rem;
 
@@ -133,7 +140,7 @@ $black: rgb(255, 255, 255);
     height: 100%;
     width: 100%;
     padding-inline: 8%;
-    max-height: 180px;
+    max-height: 190px;
 
     span {
       position: absolute;
@@ -149,23 +156,14 @@ $black: rgb(255, 255, 255);
     }
 
     h3 {
-      a {
-        font-size: 1.2rem;
-        font-weight: 700;
-        color: black;
-        line-height: 1.2;
-        display: inline-block;
-        padding-block: 0.25rem;
-        border-bottom: 1px solid $yellow;
-        text-decoration: none;
-
-        &:hover {
-          color: $red;
-        }
-        &:active {
-          color: red;
-        }
-      }
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: black;
+      line-height: 1.2;
+      display: inline-block;
+      padding-block: 0.25rem;
+      border-bottom: 1px solid $yellow;
+      text-decoration: none;
     }
     .prod-des {
       font-size: 0.95rem;
@@ -178,6 +176,28 @@ $black: rgb(255, 255, 255);
     .prod-type {
       font-size: 0.95rem;
       color: $red;
+    }
+
+    .prod-umkm {
+      align-self: flex-end;
+      margin-top: auto;
+      align-items: center;
+      a {
+        font-size: 0.95rem;
+        color: black;
+        align-items: center;
+        font-weight: bold;
+
+        &:hover {
+          text-decoration: underline;
+        }
+
+        i {
+          color: $yellow;
+          font-size: 0.8rem;
+          margin-left: 0.25rem;
+        }
+      }
     }
 
     .prod-buttons {
@@ -236,7 +256,8 @@ $black: rgb(255, 255, 255);
   width: 100%;
 
   .product-card {
-    width: 250px;
+    min-width: 250px;
+    max-width: 250px;
   }
 }
 
@@ -249,6 +270,7 @@ $black: rgb(255, 255, 255);
 
   .product-card {
     min-width: 250px;
-    height: 400px;
+    max-width: 250px;
+    height: 440px;
   }
 }

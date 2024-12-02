@@ -358,7 +358,11 @@ main {
     right: 0;
     width: 100%;
     height: 20%;
-    background: linear-gradient(0deg, whitesmoke 50%, rgba(255, 255, 255, 0) 90%);
+    background: linear-gradient(
+      0deg,
+      whitesmoke 50%,
+      rgba(255, 255, 255, 0) 90%
+    );
   }
 
   picture {

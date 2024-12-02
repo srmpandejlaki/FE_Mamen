@@ -28,7 +28,7 @@ class Utils {
   }
 
   static parseDate(dateStr) {
-    const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'September', 'Oktober', 'November', 'Desember'];
+    const months = ['', 'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'September', 'Oktober', 'November', 'Desember'];
 
     const date = new Date(dateStr);
     const day = date.getUTCDate();

@@ -4,7 +4,7 @@ import ReviewsDbSource from '../../api/reviews-api';
 import homeGsapJs from '../../utility/animation/home-page/home-gsap';
 import homeProdukGsapJs from '../../utility/animation/home-page/home-produk-gsap';
 import homeReviewGsapJs from '../../utility/animation/home-page/home-review-gsap';
-import { createFreeProductItemTemplate, createReviewItemTemplate } from '../templates/template-creator';
+import { createFreeProductItemTemplate, createHomeReviewItemTemplate } from '../templates/template-creator';
 
 const Home = {
   async render() {
@@ -51,20 +51,14 @@ const Home = {
               </div>
           </div>
         </section>
-        <section id="datalineCon">
-         <div class="dataline">
-         </div>
-        </section>
-        <section class="explore-con">
+        <dataline-section></dataline-section>
+        <section class="product-home-con">
           <div id="products" class="scroll"></div>
         </section>
         <section class="explore-con">
           <h2 class="titleReview">Jejak Pendapat Pelanggan</h2>
           <div id="reviews" class="infinite-scroll"></div>
         </section>
-        <div>
-          <div class="separator"></div>
-        </div>
     `;
   },
 
@@ -101,7 +95,7 @@ const Home = {
     const reviews = await ReviewsDbSource.getReviews();
 
     reviews.forEach((review) => {
-      reviewContainer.innerHTML += createReviewItemTemplate(review);
+      reviewContainer.innerHTML += createHomeReviewItemTemplate(review);
     });
 
     if (reviewContainer.innerHTML === '') {
