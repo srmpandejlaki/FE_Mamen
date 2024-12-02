@@ -2,16 +2,16 @@ const AboutUs = {
   async render() {
     return `
   <section id="aboutSection">
+      <div class="about-us">
         <img
-            src='./images/about-image.jpg' 
-            alt="About Image" class="about-image" />
-        <div class="about-us">
-            <h1>About Us</h1>
-        </div>
+        src='./images/hero-image.jpeg' 
+        alt="About Image" class="about-image" />
+        <h1>About Us</h1>
+      </div>
 
         <div class="introduction">
             <div class="introduction-content">
-                <h2>Introduction To MAMEN</h2>
+                <h2>Introduction <br> To <span>MA</span>MEN</h2>
                 <p>Mamen adalah platform yang mendigitalisasi promosi UMKM di Manado. Kami membantu pelaku usaha meningkatkan visibilitas dan penjualan melalui teknologi dan media sosial. </p>
             </div>
         </div>
@@ -34,19 +34,22 @@ const AboutUs = {
   </div>
 
       <div class="values">
+        <div class="values-point">
         <div class="values-item">INTEGRITAS</div>
         <div class="values-item">INOVASI</div>
         <div class="values-item">KUALITAS</div>
         <div class="values-item">KERJASAMA</div>
+        </div>
       </div>
 
       <div class="services">
     <h1 class="services-title">Our Services</h1>
     <div class="services-container">
       <div class="services-item">
-        <img src="image1.jpg" alt="Service Image 1" class="service-image">
+        <div class="filter-green"></div>
+        <img src="./images/aboutUs.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
-          <p class="service-text">Promosi</p>
+          <p class="service-title">Promosi</p>
         </div>
       </div>
       <div class="services-item">
@@ -64,9 +67,10 @@ const AboutUs = {
         </div>
       </div>
       <div class="services-item">
-        <img src="image3.jpg" alt="Service Image 3" class="service-image">
+        <div class="filter-green"></div>
+        <img src="./images/aboutUs.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
-          <p class="service-text">Promosi</p>
+          <p class="service-title">Promosi</p>
         </div>
       </div>
     </div>
@@ -76,6 +80,7 @@ const AboutUs = {
         <div class="our-tittle">
             <h1>Our Team Members</h1>
         </div>
+        <div class="all-card">
         <div class="member-card">
           <div class="image">
             <img src="images/member1.jpg" alt="Member 1">
@@ -125,7 +130,8 @@ const AboutUs = {
           </div>
         </div>
       </div>
-    <div>
+    </div>
+  <div>
         <div class="separator"></div>
     </div>
   </section>

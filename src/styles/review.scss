@@ -227,9 +227,9 @@ form-review {
   position: relative;
   display: flex;
   gap: 2rem;
-  width: max-content; 
+  width: max-content;
   transform: translateX(100%);
-  animation: infinite-scroll linear infinite; 
+  animation: infinite-scroll linear infinite;
 }
 
 @keyframes infinite-scroll {
