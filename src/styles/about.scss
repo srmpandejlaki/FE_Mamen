@@ -1,4 +1,4 @@
-/* main color */
+
 $orange: #fba635;
 $brown: #fdac58;
 $red: #b81202;
@@ -137,7 +137,23 @@ $font-default: "Oxygen";
       h2 {
         font-size: 1.5rem;
       }
+    
+      .introduction {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
 
+        .introduction-content {
+          display: flex;
+          align-items: center;
+        h2 {
+          margin-right: 20px;
+          font-size: 1.8rem;
+          color: #333;
+          padding: 10px;
+        }
+    
       p {
         color: #555;
         font-size: 1.1rem;
