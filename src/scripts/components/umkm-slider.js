@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable class-methods-use-this */
 import UmkmsDbSource from '../api/umkms-api';
 import { createUmkmSliderTemplate } from '../view/templates/template-creator';
@@ -16,12 +17,19 @@ class UmkmSlider extends HTMLElement {
     umkmContainer.innerHTML = '';
     const umkms = await UmkmsDbSource.getUmkms();
 
-    umkms.forEach((umkm) => {
-      umkmContainer.innerHTML += createUmkmSliderTemplate(umkm);
-    });
-
-    if (umkmContainer.innerHTML === '') {
+    if (umkms.length === 0) {
       umkmContainer.innerHTML = 'Tidak ada umkm untuk ditampilkan.';
+    } else {
+      umkms.forEach((umkm) => {
+        umkmContainer.innerHTML += createUmkmSliderTemplate(umkm);
+      });
+
+      const categories = document.querySelectorAll('.cate-item');
+      categories.forEach((category) => {
+        if (category.innerHTML === 'null') {
+          category.innerHTML = 'Belum ada kategori';
+        }
+      });
     }
   }
 
