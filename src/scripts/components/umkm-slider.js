@@ -18,18 +18,24 @@ class UmkmSlider extends HTMLElement {
     const umkms = await UmkmsDbSource.getUmkms();
 
     if (umkms.length === 0) {
-      umkmContainer.innerHTML = 'Tidak ada umkm untuk ditampilkan.';
+      umkmContainer.innerHTML = 'Tidak ada UMKM untuk ditampilkan.';
     } else {
-      umkms.forEach((umkm) => {
-        umkmContainer.innerHTML += createUmkmSliderTemplate(umkm);
-      });
+      const filteredUmkms = umkms.filter((umkm) => umkm.rating >= 4);
 
-      const categories = document.querySelectorAll('.cate-item');
-      categories.forEach((category) => {
-        if (category.innerHTML === 'null') {
-          category.innerHTML = 'Belum ada kategori';
-        }
-      });
+      if (filteredUmkms.length === 0) {
+        umkmContainer.innerHTML = 'Tidak ada UMKM dengan rating 4 ke atas.';
+      } else {
+        filteredUmkms.forEach((umkm) => {
+          umkmContainer.innerHTML += createUmkmSliderTemplate(umkm);
+        });
+
+        const categories = document.querySelectorAll('.cate-item');
+        categories.forEach((category) => {
+          if (category.innerHTML === 'null') {
+            category.innerHTML = 'Belum ada kategori';
+          }
+        });
+      }
     }
   }
 
@@ -53,6 +59,7 @@ class UmkmSlider extends HTMLElement {
     this.emptyContent();
     this.innerHTML += `
     <section class="sliderumkm-secton">
+        <div class="slide-title"><h3>Top Rated <span>UMKM</span></h3></div>
         <div class="slider-con">
           <div class="slider">
           </div>

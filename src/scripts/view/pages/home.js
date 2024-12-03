@@ -36,7 +36,7 @@ const Home = {
             </div>
             <div class="info">
               <div class="judul">
-                <h3><span>Ayo</span> cari tahu</h3>
+                <h3><span>Mengenal</span> Lebih Banyak Tentang UMKM</h3>
               </div>
               <div class="infoDesc">
                 <p>
@@ -44,9 +44,15 @@ const Home = {
                   merupakan tulang punggung perekonomian yang memiliki peran penting dalam 
                   mendorong perekonomian lokal, termasuk di Kota Manado.
                 </p>
+                <br>
+                <p>
+                  UMKM di Kota Manado memiliki peran strategis 
+                  dalam menggerakkan perekonomian lokal, terutama melalui 
+                  sektor kuliner, kerajinan tangan, dan pariwisata yang menjadi daya tarik utama wilayah ini.
+                </p>
               </div>
               <div class="btnInfo">
-                <a href="#/umkms">List UMKM</a>
+                <a href="#/umkms">Lihat Semua</a>
               </div>
             </div>
           </div>

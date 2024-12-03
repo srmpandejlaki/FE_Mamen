@@ -14,6 +14,25 @@ $font-default: "Oxygen";
   position: relative;
   border-radius: 20px;
 }
+.slide-title {
+  width: 100%;
+  padding-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    font-family: $font-default;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+
+    span {
+      font-size: 1.5rem;
+      color: $yellow;
+    }
+  }
+}
 .slider-con {
   position: relative;
   width: 100%;
