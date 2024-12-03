@@ -101,6 +101,20 @@ const Home = {
       reviewContainer.innerHTML = 'Tidak ada review untuk ditampilkan.';
     }
     // --------------------------------------------
+    const infiniteScroll = document.querySelector('.infinite-scroll');
+    const reviewItems = document.querySelectorAll('.infinite-scroll .review-item');
+    const itemWidth = 300; // Lebar minimum .review-item
+    const gap = 32; // Gap antar item (2rem = 32px)
+
+    // Total panjang kontainer
+    const totalWidth = (itemWidth + gap) * reviewItems.length;
+
+    // Atur lebar kontainer secara dinamis
+    infiniteScroll.style.width = `${totalWidth}px`;
+
+    // Hitung durasi animasi berdasarkan total panjang kontainer
+    const animationDuration = (totalWidth + window.innerWidth) / 100; // Kecepatan 100px per detik
+    infiniteScroll.style.animationDuration = `${animationDuration}s`;
     homeReviewGsapJs();
   },
 };
