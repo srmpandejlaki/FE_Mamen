@@ -59,11 +59,26 @@ const Home = {
         </section>
         <dataline-section></dataline-section>
         <section class="product-home-con">
+          <div class="green-filter"></div>
+          <div class="homeProdTitle">
+            <h2>Maybe You Would Like </h2>
+          </div>
           <div id="products" class="scroll"></div>
+          <span class="link-to-products"><a>See All Products</a></span>
         </section>
-        <section class="explore-con">
-          <h2 class="titleReview">Jejak Pendapat Pelanggan</h2>
-          <div id="reviews" class="infinite-scroll"></div>
+        <section class="explore-con home-review">
+          <div class="title-review-con">
+            <span class="quotes"><i class="fa-solid fa-quote-left"></i></span>
+            <h2 class="titleReview">What Customers Says</h2>
+            <p>Discover the experiences of our customers and their thoughts about our service. Your satisfaction is our top priority!</p>
+          </div>
+          <div class="review-cons">
+            <div class="white-filter"></div>
+            <div id="reviews" class="infinite-scroll"></div>
+          </div>
+          <div class="closing-quotes">
+            <p>Thank you for being part of our journey. Together, let’s create something extraordinary. See you again!</p>
+          </div>
         </section>
     `;
   },
