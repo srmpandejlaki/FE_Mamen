@@ -49,7 +49,7 @@ const AboutUs = {
     <div class="services-container">
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/aboutUs.jpg" alt="Service Image 1" class="service-image">
+        <img src="./images/sctionPromotion.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Promotion</p>
         </div>
@@ -70,7 +70,7 @@ const AboutUs = {
       </div>
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/aboutUs.jpg" alt="Service Image 3" class="service-image">
+        <img src="./images/sctionEdu.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Education</p>
         </div>
