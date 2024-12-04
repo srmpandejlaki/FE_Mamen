@@ -1,7 +1,11 @@
-$yellow: #ff9e1b;
-$red: #da281c;
-$cream: #eeeeeeca;
-$black: rgb(255, 255, 255);
+$white: rgb(255, 255, 255);
+$yellow: #fba635;
+$brown: #fdac58;
+$red: #b81202;
+$cream: whitesmoke;
+$black: #174c4e;
+$dark: #072526;
+$green: #36b372;
 
 .product-home-con {
   width: 100%;
@@ -20,7 +24,7 @@ $black: rgb(255, 255, 255);
 
 .judul-list-prod {
   width: 100%;
-  background-color: #91140b;
+  background-color: $dark;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -66,9 +70,8 @@ $black: rgb(255, 255, 255);
   position: relative;
   padding: 0.5rem;
   display: flex;
-  border: 0.5px solid yellow;
   flex-direction: column;
-  background-color: $black;
+  background-color: $white;
   justify-content: start;
   align-items: center;
   transition: transform 0.5s ease-in-out;
@@ -105,7 +108,7 @@ $black: rgb(255, 255, 255);
         display: flex;
         align-items: center;
         padding: 0.5rem 0.75rem;
-        color: black;
+        color: white;
         background-color: rgba(255, 255, 255, 0.598);
         border-radius: 0 5px 0;
         cursor: pointer;
@@ -145,7 +148,9 @@ $black: rgb(255, 255, 255);
     span {
       position: absolute;
       padding: 0.4em 1em;
-      background-color: $yellow;
+      background-color: $red;
+      color: white;
+      text-shadow: -1px 1px 3px rgba(0, 0, 0, 0.587);
       border-radius: 3px;
       z-index: 99;
       display: inline-block;
@@ -158,11 +163,11 @@ $black: rgb(255, 255, 255);
     h3 {
       font-size: 1.2rem;
       font-weight: 700;
-      color: black;
+      color: $dark;
       line-height: 1.2;
       display: inline-block;
       padding-block: 0.25rem;
-      border-bottom: 1px solid $yellow;
+      border-bottom: 1px solid black;
       text-decoration: none;
     }
     .prod-des {
@@ -175,7 +180,7 @@ $black: rgb(255, 255, 255);
     }
     .prod-type {
       font-size: 0.95rem;
-      color: $red;
+      color: $yellow;
     }
 
     .prod-umkm {
@@ -184,7 +189,7 @@ $black: rgb(255, 255, 255);
       align-items: center;
       a {
         font-size: 0.95rem;
-        color: black;
+        color: $dark;
         align-items: center;
         font-weight: bold;
 
@@ -211,7 +216,7 @@ $black: rgb(255, 255, 255);
       button {
         padding: 0.5rem;
         border-radius: 3px;
-        background-color: $red;
+        background-color: $dark;
         color: white;
         cursor: pointer;
         transition: background-color 0.3s ease-in-out;
