@@ -244,8 +244,13 @@ umkm-freedetail {
     table {
       tr {
         td {
+          vertical-align: top;
           padding: 0.5rem 0.5rem 0.5rem 0;
           font-size: 1rem;
+
+          &:nth-child(1) {
+            font-weight: 700;
+          }
         }
       }
     }
@@ -262,11 +267,13 @@ umkm-freedetail {
       align-items: center;
       p {
         font-size: 1rem;
+        font-weight: 700;
       }
       #addCategory {
         background-color: white;
         color: black;
         padding: 0.5rem 1rem;
+        font-weight: 600;
         border: 1px solid black;
         cursor: pointer;
         box-shadow: -2px 2px 5px black;
@@ -276,7 +283,6 @@ umkm-freedetail {
 
         &:hover {
           background-color: rgba(0, 0, 255, 0.955);
-          transform: translateY(-0.25rem);
           color: white;
         }
       }
@@ -362,7 +368,7 @@ umkm-freedetail {
       gap: 1rem;
       flex-direction: column;
       padding: 1rem 1rem;
-      box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);
+      box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
 
       p {
         color: black;
