@@ -30,7 +30,6 @@ $dark: #072526;
   padding: 8%;
   width: 100%;
   max-width: 1100px;
-  
 }
 
 .login-section {
@@ -94,8 +93,8 @@ $dark: #072526;
               width: 70px;
               height: 70px;
 
-            border-radius: 50%;
-            overflow: hidden;
+              border-radius: 50%;
+              overflow: hidden;
             }
           }
         }
@@ -180,27 +179,25 @@ $dark: #072526;
             &:hover {
               background-color: red;
             }
-
           }
 
           p {
             display: flex;
             align-items: center;
             font-size: 0.9rem;
-    
+
             span {
               cursor: pointer;
               color: black;
               font-weight: 700;
               margin-left: 0.2rem;
-    
+
               &:hover {
                 color: $primary-color;
               }
             }
           }
         }
-
       }
     }
   }
