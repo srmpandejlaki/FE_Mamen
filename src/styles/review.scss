@@ -81,7 +81,7 @@ form-review {
 
   .titleFormReview {
     h2 {
-      color: $yellow;
+      color: black;
       text-align: center;
       margin-bottom: 1rem;
     }
@@ -122,7 +122,9 @@ form-review {
         textarea {
           width: 100%;
           padding: 0.5rem;
-          border: 1px solid rgb(0, 0, 0);
+          background-color: white;
+          border: 1px solid $red;
+          border-radius: 5px;
           color: black;
         }
 
@@ -135,6 +137,7 @@ form-review {
       min-height: 44px;
       background-color: $red;
       color: white;
+      border-radius: 5px;
       padding: 0.5rem 1rem;
       cursor: pointer;
       position: relative;
@@ -220,13 +223,18 @@ form-review {
 }
 
 .infinite-scroll {
-  padding-block: 5rem;
+  padding-block: 2rem;
   position: relative;
   display: flex;
   gap: 2rem;
   width: max-content;
   transform: translateX(100%);
   animation: infinite-scroll linear infinite;
+
+  .review-item {
+    background-color: whitesmoke;
+    box-shadow: 0px 5px 10px black;
+  }
 }
 
 @keyframes infinite-scroll {
@@ -309,7 +317,7 @@ form-review {
           }
 
           .detailumkm-reviews {
-            padding: 0 8%;
+            padding: 1rem 8%;
           }
         }
       }
