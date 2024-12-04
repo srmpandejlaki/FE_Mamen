@@ -70,7 +70,7 @@ const AboutUs = {
       </div>
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/sctionEdu.jpg" alt="Service Image 3" class="service-image">
+        <img src="./images/coba7.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Education</p>
         </div>
