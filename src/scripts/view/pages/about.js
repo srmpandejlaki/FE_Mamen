@@ -4,9 +4,12 @@ const AboutUs = {
   <section id="aboutSection">
       <div class="about-us">
         <img
-        src='./images/hero-image.jpeg' 
+        src='./images/forAbout.jpg' 
         alt="About Image" class="about-image" />
+        <div class="txtAbout">
         <h1>About Us</h1>
+        <p>"Exceptional service isn’t just a perk—it’s your most powerful promotion."</p>
+        </div>
       </div>
 
         <div class="introduction">
