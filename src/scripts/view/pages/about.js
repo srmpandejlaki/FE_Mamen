@@ -7,7 +7,7 @@ const AboutUs = {
         src='./images/forAbout.jpg' 
         alt="About Image" class="about-image" />
         <div class="txtAbout">
-        <h1>About Us</h1>
+        <h1>About <span>Us</span></h1>
         <p>"Exceptional service isn’t just a perk—it’s your most powerful promotion."</p>
         </div>
       </div>
