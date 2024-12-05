@@ -48,11 +48,13 @@ export const renderProducts = async (umkmId) => {
   const products = await ProductsDbSource.getProductsByUmkm(umkmId);
   productContainer.innerHTML = '';
   try {
-    productContainer.innerHTML = products
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .map((productItem) => createProductItemTemplate(productItem))
-      .join('');
-    if (productContainer.innerHTML === '') {
+    if (products.length > 0) {
+      productContainer.innerHTML = products
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map((productItem) => createProductItemTemplate(productItem))
+        .join('');
+      ProfileProdukGsapJs();
+    } else {
       productContainer.innerHTML = 'Belum ada produk untuk ditampilkan.';
     }
   } catch {
@@ -66,9 +68,12 @@ export const renderReviews = async (umkmId) => {
   const reviews = await ReviewsDbSource.getReviewsByUmkm(umkmId);
   reviewContainer.innerHTML = '';
   try {
-    reviewContainer.innerHTML = reviews.length > 0
-      ? reviews.map((review) => createReviewItemTemplate(review)).join('')
-      : 'Tidak ada review yang ditampilkan.';
+    if (reviews.length > 0) {
+      reviewContainer.innerHTML = reviews.map((review) => createReviewItemTemplate(review)).join('');
+      profileReviewGsapJs();
+    } else {
+      reviewContainer.innerHTML = 'Belum ada review yang ditampilkan.';
+    }
   } catch {
     reviewContainer.innerHTML = 'Terjadi kesalahan saat memuat ulasan.';
   }
@@ -119,15 +124,17 @@ const Profile = {
         pageload.remove();
       }
       container.innerHTML = `
-          <div class="blank-profile">
-
-          <img class="blankImg" src="./images/newumkm.webp">
-          <div class="blankCon">
-            <h2>Nothing in here...</h2>
-            <p>Kamu belum mempunyai UMKM. Silahkan menambah UMKM terlebih dahulu.</p>
-            <button id="new-umkm">Tambah UMKM</button>
-          </div>
-          </div>`;
+        <div class="blank-profile-con">
+        <div class="blank-profile">
+        <img class="blankImg" src="./images/newumkm.webp">
+        <div class="blankCon">
+        <h2>Nothing in here...</h2>
+        <p>Kamu belum mempunyai UMKM. Silahkan menambah UMKM terlebih dahulu.</p>
+        <button id="new-umkm">Tambah UMKM</button>
+        </div>
+        </div>
+        </div>
+          `;
       document.querySelector('#new-umkm').addEventListener('click', () => {
         document.querySelector('umkm-form').style.display = 'block';
       });
@@ -156,7 +163,6 @@ const Profile = {
       });
 
       await renderProducts(id);
-      ProfileProdukGsapJs();
       const productContainer = document.querySelector('#products');
       productContainer.addEventListener('click', (event) => {
         const target = event.target.closest('.editProdBtn, .deleteProdBtn, .addImageFormProd');
@@ -175,7 +181,7 @@ const Profile = {
 
       // REVIEW UMKM
       await renderReviews(id);
-      profileReviewGsapJs();
+
       // footerGsapJs();
     }
   },
