@@ -88,7 +88,10 @@ const Profile = {
             <h2>Products</h2>
             <button id="new-product">Tambah Produk</button>
           </div>
-          <div id="products" class="list-products"></div>
+          <div class="detailsection-produk">
+            <div id="products" class="list-products">
+            </div>
+          </div>
           <div>
             <div class="separator"></div>
           </div>

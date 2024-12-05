@@ -247,7 +247,6 @@ umkm-freedetail {
       text-align: center;
     }
 
-
     .umkm-buttons {
       display: flex;
       gap: 0.5rem;
@@ -324,19 +323,19 @@ umkm-freedetail {
 
     &.free {
       table {
-      tr {
-        td {
-          color: white;
-          vertical-align: top;
-          padding: 0.5rem 0.5rem 0.5rem 0;
-          font-size: 1rem;
+        tr {
+          td {
+            color: white;
+            vertical-align: top;
+            padding: 0.5rem 0.5rem 0.5rem 0;
+            font-size: 1rem;
 
-          &:nth-child(1) {
-            font-weight: 700;
+            &:nth-child(1) {
+              font-weight: 700;
+            }
           }
         }
       }
-    }
     }
   }
 
@@ -521,7 +520,8 @@ umkm-freedetail {
       flex-direction: row;
     }
 
-    .detail-con, .detail-con.free {
+    .detail-con,
+    .detail-con.free {
       table {
         tr {
           td {
