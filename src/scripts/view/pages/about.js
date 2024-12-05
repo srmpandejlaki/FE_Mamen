@@ -6,7 +6,7 @@ const AboutUs = {
   <section id="aboutSection">
       <div class="about-us">
         <img
-        src='./images/forAbout.webp' 
+        src='./images/coba7.webp' 
         alt="About Image" class="about-image" />
         <div class="txtAbout">
         <h1>About <span>Us</span></h1>
@@ -72,7 +72,7 @@ const AboutUs = {
       </div>
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/coba7.webp" alt="Service Image 3" class="service-image">
+        <img src="./images/about-us-potrait-small.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Education</p>
         </div>
