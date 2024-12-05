@@ -284,8 +284,15 @@ $green: #36b372;
           font-size: 0.8rem;
         }
 
-        &:hover {
-          background-color: $yellow;
+        &.deleteProdBtn {
+          &:hover {
+            background-color: $red;
+          }
+        }
+        &.editProdBtn {
+          &:hover {
+            background-color: $yellow;
+          }
         }
       }
     }
@@ -331,6 +338,7 @@ $green: #36b372;
   overflow-x: auto;
   width: 100%;
   min-height: 472px;
+  padding-inline: 10px;
 
   .product-card {
     min-width: 250px;
