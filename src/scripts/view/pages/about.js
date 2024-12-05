@@ -4,9 +4,12 @@ const AboutUs = {
   <section id="aboutSection">
       <div class="about-us">
         <img
-        src='./images/hero-image.jpeg' 
+        src='./images/forAbout.jpg' 
         alt="About Image" class="about-image" />
-        <h1>About Us</h1>
+        <div class="txtAbout">
+        <h1>About <span>Us</span></h1>
+        <p>"Exceptional service isn’t just a perk—it’s your most powerful promotion."</p>
+        </div>
       </div>
 
         <div class="introduction">
@@ -15,20 +18,19 @@ const AboutUs = {
                 <p>Mamen adalah platform yang mendigitalisasi promosi UMKM di Manado. Kami membantu pelaku usaha meningkatkan visibilitas dan penjualan melalui teknologi dan media sosial. </p>
             </div>
         </div>
-
   <div class="vision-mission">
     <div class="vimi-card">
       <div class="header red"></div>
       <div class="vimi-content">
         <h2>Our Vision</h2>
-        <p>Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.</p>
+        <p>Kami bercita-cita menjadi mitra utama UMKM dalam mendorong pertumbuhan ekonomi melalui solusi inovatif, berkelanjutan, dan berdampak positif bagi masyarakat.</p>
       </div>
     </div>
     <div class="vimi-card">
       <div class="header orange"></div>
       <div class="vimi-content">
         <h2>Our Mission</h2>
-        <p>Kami berkomitmen untuk memberikan layanan terbaik kepada pelanggan kami dengan inovasi dan kualitas.</p>
+        <p>Kami berkomitmen untuk memberdayakan UMKM dengan menyediakan layanan berkualitas, edukasi bisnis, dan akses teknologi modern guna mendukung keberhasilan usaha mereka.</p>
       </div>
     </div>
   </div>
@@ -47,30 +49,30 @@ const AboutUs = {
     <div class="services-container">
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/aboutUs.jpg" alt="Service Image 1" class="service-image">
+        <img src="./images/sctionPromotion.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
-          <p class="service-title">Promosi</p>
+          <p class="service-title">Promotion</p>
         </div>
       </div>
       <div class="services-item">
         <div class="service-overlay">
           <p class="service-text">
-            Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+            Menjadi mitra terbaik bagi UMKM dengan menyediakan solusi inovatif yang membantu mempromosikan dan mengembangkan usaha mereka secara berkelanjutan.
           </p>
         </div>
       </div>
       <div class="services-item">
         <div class="service-overlay">
           <p class="service-text">
-            Kami bercita-cita menjadi pemimpin dalam industri kami dengan menciptakan solusi yang berkelanjutan dan inovatif.
+            Menyediakan edukasi dan informasi terkini dan relevan untuk membantu UMKM tetap kompetitif, mulai dari tren pasar hingga panduan praktis dalam mengelola usaha.
           </p>
         </div>
       </div>
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/aboutUs.jpg" alt="Service Image 3" class="service-image">
+        <img src="./images/coba7.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
-          <p class="service-title">Promosi</p>
+          <p class="service-title">Education</p>
         </div>
       </div>
     </div>
@@ -86,11 +88,14 @@ const AboutUs = {
             <img src="images/member1.jpg" alt="Member 1">
           </div>
           <h2>ALGY NGENGET</h2>
-          <p class="position">isi apa</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="position">Back-End Developer</p>
+          <p>
+            A fifth-semester Informatics student with a deep interest in web development. 
+            Currently furthering skills at Dicoding Indonesia.
+          </p>
           <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/algyngenget/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Isshoo"><i class="fab fa-github"></i></a>
           </div>
         </div>
         <div class="member-card">
@@ -98,11 +103,15 @@ const AboutUs = {
             <img src="images/member2.jpg" alt="Member 2">
           </div>
           <h2>MONICA PANDEIROTH</h2>
-          <p class="position">isi apa</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="position">Front-End Dev & Designer</p>
+          <p>
+            Computer Engineering student 
+            with a deep interest in web development and design.
+            Have a passion for creative design and singing.
+          </p>
           <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/monica-aprilia-pandeiroth-364b79327/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/apriliamonica"><i class="fab fa-github"></i></a>
           </div>
         </div>
         <div class="member-card">
@@ -110,11 +119,13 @@ const AboutUs = {
             <img src="images/member3.jpg" alt="Member 3">
           </div>
           <h2>SESILIA PANDEJLAKI</h2>
-          <p class="position">isi apa</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="position">Front-End Dev & Designer</p>
+          <p>
+            Informatics Engineering Student | Interested in becoming a Web Developer by studying ad Dicoding Indonesia
+          </p>
           <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/sesilia-riliany-mutiara-pandejlaki-0856431b6/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/srmpandejlaki"><i class="fab fa-github"></i></a>
           </div>
         </div>
         <div class="member-card">
@@ -122,11 +133,14 @@ const AboutUs = {
             <img src="images/member4.jpg" alt="Member 4">
           </div>
           <h2>MELIA KUNTONO</h2>
-          <p class="position">isi apa</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          <p class="position">Front-End Dev & Designer</p>
+          <p>
+          A fifth-semester Informatics student with a passion for UI/UX designing experiences.
+          gained hands-on experience in designing UI.
+          </p>
           <div class="social-links">
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/melia-nova-kuntono-974884249/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/Hanliehae"><i class="fab fa-github"></i></a>
           </div>
         </div>
       </div>
