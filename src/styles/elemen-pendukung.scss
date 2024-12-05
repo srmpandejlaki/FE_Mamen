@@ -279,7 +279,7 @@ dataline-section {
 
     .category-sub {
       padding: 1rem 1.5rem;
-      
+
       &.right {
         border-left: 2px solid $black;
       }
@@ -363,87 +363,133 @@ dataline-section {
       }
     }
   }
-
-  dataline-section {
-    padding: 4rem 8%;
-  }
-
-  .dataline {
-  max-width: 300px;
-  display: flex;
-
-  p {
-    color: black;
-    font-family: $font-default;
-    font-size: 1.75rem;
-    line-height: 2.5rem;
-    text-align: center;
-  }
 }
+@media screen and (max-width: 540px) {
+  #infoUmkmCon {
+    padding-inline: 0;
+    padding-block: 2rem 4rem;
+  }
+  .infoUMKM {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "info"
+      "slider";
 
-.category-line {
-  display: flex;
-  gap: 3rem;
-  align-items: center;
-  flex-wrap: wrap;
+    #umkm-list {
+      grid-area: slider;
+    }
 
-  .category-list {
-    width: 100%;
-    display: flex;
-    gap: 0.75rem;
-    align-items: center;
-    justify-content: space-between;
-
-    .category-icons {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-      justify-content: center;
-      flex: 1;
-
-      article {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        gap: 0.5rem;
-
-        picture {
-          i {
-            font-size: 1.25rem;
-            color: $icon;
+    .info {
+      grid-area: info;
+      .judul {
+        padding-block: 3.5rem 0;
+        border-bottom: 0px;
+        h3 {
+          text-align: center;
+          font-size: 2rem;
+          span {
+            font-size: 2rem;
           }
-        }
-        h4 {
-          font-size: 0.9rem;
         }
       }
 
-      &.umkm {
+      .infoDesc {
+        p {
+          font-size: 0.9rem;
+          line-height: 1.5rem;
+          text-align: start;
+        }
+      }
+
+      .btnInfo {
+        a {
+          font-size: 0.75rem;
+          padding: 0.5rem 1rem;
+        }
+      }
+    }
+  }
+
+  dataline-section {
+    padding: 4rem 7%;
+  }
+
+  .dataline {
+    max-width: 300px;
+    display: flex;
+
+    p {
+      color: black;
+      font-family: $font-default;
+      font-size: 1.75rem;
+      line-height: 2.5rem;
+      text-align: center;
+    }
+  }
+
+  .category-line {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .category-list {
+      width: 100%;
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      justify-content: space-between;
+
+      .category-icons {
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+        flex: 1;
+
         article {
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          gap: 0.5rem;
+
           picture {
             i {
-              color: $red;
+              font-size: 1.5rem;
+              color: $icon;
+            }
+          }
+          h4 {
+            font-size: 1rem;
+          }
+        }
+
+        &.umkm {
+          article {
+            picture {
+              i {
+                color: $red;
+              }
             }
           }
         }
       }
-    }
 
-    .category-sub {
-      padding: 1rem 0.5rem;
-      
-      &.right {
-        border-left: 2px solid $black;
-      }
-      &.left {
-        border-right: 2px solid $black;
-      }
+      .category-sub {
+        padding: 1rem 0.75rem;
 
-      h3 {
-        color: $black;
-        font-size: 1.25rem;
+        &.right {
+          border-left: 2px solid $black;
+        }
+        &.left {
+          border-right: 2px solid $black;
+        }
+
+        h3 {
+          color: $black;
+          font-size: 1.25rem;
+        }
       }
     }
   }
-}
 }

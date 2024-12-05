@@ -4,9 +4,12 @@ const AboutUs = {
   <section id="aboutSection">
       <div class="about-us">
         <img
-        src='./images/hero-image.jpeg' 
+        src='./images/forAbout.jpg' 
         alt="About Image" class="about-image" />
-        <h1>About Us</h1>
+        <div class="txtAbout">
+        <h1>About <span>Us</span></h1>
+        <p>"Exceptional service isn’t just a perk—it’s your most powerful promotion."</p>
+        </div>
       </div>
 
         <div class="introduction">
@@ -46,7 +49,7 @@ const AboutUs = {
     <div class="services-container">
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/aboutUs.jpg" alt="Service Image 1" class="service-image">
+        <img src="./images/sctionPromotion.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Promotion</p>
         </div>
@@ -67,7 +70,7 @@ const AboutUs = {
       </div>
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/aboutUs.jpg" alt="Service Image 3" class="service-image">
+        <img src="./images/coba7.jpg" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Education</p>
         </div>
