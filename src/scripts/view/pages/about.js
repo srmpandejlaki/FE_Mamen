@@ -1,10 +1,12 @@
+import Loading from '../../utility/loading';
+
 const AboutUs = {
   async render() {
     return `
   <section id="aboutSection">
       <div class="about-us">
         <img
-        src='./images/forAbout.jpg' 
+        src='./images/forAbout.webp' 
         alt="About Image" class="about-image" />
         <div class="txtAbout">
         <h1>About <span>Us</span></h1>
@@ -49,7 +51,7 @@ const AboutUs = {
     <div class="services-container">
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/sctionPromotion.jpg" alt="Service Image 1" class="service-image">
+        <img src="./images/about-us.jpg" alt="Service Image 1" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Promotion</p>
         </div>
@@ -70,7 +72,7 @@ const AboutUs = {
       </div>
       <div class="services-item">
         <div class="filter-green"></div>
-        <img src="./images/coba7.jpg" alt="Service Image 3" class="service-image">
+        <img src="./images/coba7.webp" alt="Service Image 3" class="service-image">
         <div class="service-overlay">
           <p class="service-title">Education</p>
         </div>
@@ -85,7 +87,7 @@ const AboutUs = {
         <div class="all-card">
         <div class="member-card">
           <div class="image">
-            <img src="images/member1.jpg" alt="Member 1">
+            <img src="images/member1.webp" alt="Member 1">
           </div>
           <h2>ALGY NGENGET</h2>
           <p class="position">Back-End Developer</p>
@@ -100,7 +102,7 @@ const AboutUs = {
         </div>
         <div class="member-card">
           <div class="image">
-            <img src="images/member2.jpg" alt="Member 2">
+            <img src="images/member2.webp" alt="Member 2">
           </div>
           <h2>MONICA PANDEIROTH</h2>
           <p class="position">Front-End Dev & Designer</p>
@@ -116,7 +118,7 @@ const AboutUs = {
         </div>
         <div class="member-card">
           <div class="image">
-            <img src="images/member3.jpg" alt="Member 3">
+            <img src="images/member3.webp" alt="Member 3">
           </div>
           <h2>SESILIA PANDEJLAKI</h2>
           <p class="position">Front-End Dev & Designer</p>
@@ -130,7 +132,7 @@ const AboutUs = {
         </div>
         <div class="member-card">
           <div class="image">
-            <img src="images/member4.jpg" alt="Member 4">
+            <img src="images/member4.webp" alt="Member 4">
           </div>
           <h2>MELIA KUNTONO</h2>
           <p class="position">Front-End Dev & Designer</p>
@@ -153,7 +155,13 @@ const AboutUs = {
   },
 
   async afterRender() {
-    console.log('halaman about us');
+    const container = document.querySelector('#aboutSection');
+    await Loading.loadingPage(container);
+
+    const pageload = document.querySelector('.pageload');
+    if (pageload) {
+      pageload.remove();
+    }
   },
 };
 

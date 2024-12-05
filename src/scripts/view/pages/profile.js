@@ -118,7 +118,7 @@ const Profile = {
       container.innerHTML = `
           <div class="blank-profile">
 
-          <img class="blankImg" src="./images/newumkm.png">
+          <img class="blankImg" src="./images/newumkm.webp">
           <div class="blankCon">
             <h2>Nothing in here...</h2>
             <p>Kamu belum mempunyai UMKM. Silahkan menambah UMKM terlebih dahulu.</p>
