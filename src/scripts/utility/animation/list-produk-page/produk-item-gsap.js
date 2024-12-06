@@ -11,7 +11,7 @@ export default function produkItemGsapJs() {
     ease: 'power2.out',
     scrollTrigger: {
       trigger: '.list-product', // Elemen container yang memicu animasi
-      start: 'top 50%', // Mulai animasi saat container mencapai 80% dari viewport
+      start: 'top 90%', // Mulai animasi saat container mencapai 80% dari viewport
       end: 'bottom 20%', // Selesai animasi saat container mencapai 20% dari viewport
       toggleActions: 'play none none reverse', // Mainkan animasi maju dan mundur
       once: true,

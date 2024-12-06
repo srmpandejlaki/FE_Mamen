@@ -143,18 +143,18 @@ const Profile = {
       // footerGsapJs();
     } else {
       const { id } = umkmByUser[0];
+      const umkmById = await UmkmsDbSource.getUmkmById(id);
       if (pageload) {
         pageload.remove();
       }
+      // UMKM
+      await renderUmkm(umkmById);
+      ProfileGsapJs();
 
       const editForm = document.createElement('editumkm-form');
       const tambahProdukForm = document.createElement('product-form');
       container.appendChild(editForm);
       container.appendChild(tambahProdukForm);
-
-      // UMKM
-      await renderUmkm(umkmByUser[0]);
-      ProfileGsapJs();
 
       // PRODUCT UMKM
       const newProductButton = document.querySelector('#new-product');

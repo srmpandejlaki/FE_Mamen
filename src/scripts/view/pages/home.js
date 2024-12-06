@@ -90,7 +90,14 @@ const Home = {
     const explore = document.querySelector('headline-section');
 
     cat.addEventListener('click', () => {
-      explore.scrollIntoView({ behavior: 'smooth' });
+      if (explore) {
+        const offset = -70; // Kurangi 20px dari posisi sebenarnya
+        const targetPosition = explore.offsetTop + offset;
+
+        window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      } else {
+        console.error('Element .headline-section tidak ditemukan.');
+      }
     });
     // --------------------------------------------
 

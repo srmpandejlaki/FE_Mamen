@@ -229,9 +229,10 @@ umkm-freedetail {
         &::after {
           content: "";
           position: absolute;
-          bottom: -3px;
+          bottom: -5px;
           left: 50%;
-          width: 30%;
+          width: 100%;
+          max-width: 200px;
           height: 2px;
           background-color: $red;
           transform: translateX(-50%);
@@ -411,6 +412,8 @@ umkm-freedetail {
       display: flex;
       justify-content: flex-start;
       gap: 1rem;
+      overflow: auto;
+      
 
       div {
         display: flex;
@@ -502,6 +505,7 @@ umkm-freedetail {
     .detail-umkm {
       flex-direction: row;
       align-items: center;
+      padding-bottom: 6rem;
     }
   }
 
@@ -541,6 +545,7 @@ umkm-freedetail {
       margin-left: 1rem;
       #listCategory {
         margin-left: 1rem;
+        max-width: 400px;
       }
     }
 
@@ -553,6 +558,12 @@ umkm-freedetail {
         left: -30%;
         top: 0.25rem;
         padding: 1rem 2rem 3rem;
+        max-height: 200px;
+
+        p#deskripsi {
+          max-height: 120px;
+          overflow: auto;
+        }
       }
     }
   }
