@@ -7,12 +7,12 @@ export default function detailUmkmReviewGsapJs() {
   gsap.from('form-review', {
     opacity: 0,
     x: 0,
-    duration: 1.5,
-    ease: 'power2.inOut',
+    duration: 2,
+    ease: 'power2.out',
     scrollTrigger: {
-      trigger: 'form-review', // Elemen pemicu
-      start: 'top 80%',
-      end: 'bottom 60%',
+      trigger: '.isiReview', // Elemen pemicu
+      start: 'top 90%',
+      end: 'bottom 20%',
       toggleActions: 'play none none reverse',
     },
   });
