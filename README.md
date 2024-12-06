@@ -1,7 +1,10 @@
 # MAMEN (Manado Micro Enterprises Website)
 
 ## Deskripsi Proyek
-![Hero Section Dekstop](https://res.cloudinary.com/dtkczgmyn/image/upload/v1733478149/hero-dekstop_ksqahr.png) ![Gambar UMKM](https://res.cloudinary.com/dtkczgmyn/image/upload/v1733478147/hero-mobile_ejbakn.png)
+<div style="display: flex; justify-content: space-between; align-items: center;">
+  <img src="https://res.cloudinary.com/dtkczgmyn/image/upload/v1733478149/hero-dekstop_ksqahr.png" alt="Hero Section Desktop" style="width: 75%; margin-right: 4px;">
+  <img src="https://res.cloudinary.com/dtkczgmyn/image/upload/v1733478147/hero-mobile_ejbakn.png" alt="Hero Section Mobile" style="width: 21%;">
+</div>
 MAMEN adalah sebuah website yang dibuat untuk membantu para pelaku UMKM (khususnya di daerah Manado) yang masih terkendala dalam mempromosikan usaha mereka secara online. MAMEN menawarkan berbagai manfaat bagi para pengguna mulai dari kemudahan penggunaan, sarana promosi yang terpusat, hingga tampilan yang menarik dan responsif di berbagai perangkat. MAMEN juga menyediakan berbagai fitur untuk membantu para pelaku UMKM, seperti menambahkan UMKM, menambahkan produk-produk untuk UMKM tersebut, dan memberikan review dari para pengguna.
 
 ## Fitur Utama
